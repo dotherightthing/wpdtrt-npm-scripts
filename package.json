@@ -1,0 +1,81 @@
+{
+  "name": "wpdtrt-npm-scripts",
+  "version": "0.0.1",
+  "description": "Common build tasks.",
+  "main": "package.json",
+  "person": {
+    "name": "Dan Smith",
+    "email": "dev@dotherightthing.co.nz",
+    "url": "https://profiles.wordpress.org/dotherightthingnz"
+  },
+  "contributors": [
+    {
+      "name": "Dan Smith",
+      "email": "dev@dotherightthing.co.nz",
+      "url": "https://profiles.wordpress.org/dotherightthingnz"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/dotherightthing/wpdtrt-npm-scripts/issues"
+  },
+  "keywords": [
+    "gulp"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.1",
+    "@babel/register": "^7.5.5",
+    "autoprefixer": "^9.6.1",
+    "babel-eslint": "^10.0.3",
+    "core-js": "^3.2.1",
+    "del": "^5.1.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-compat": "^3.3.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-chai-friendly": "^0.4.1",
+    "eslint-plugin-cypress": "^2.0.1",
+    "eslint-plugin-ejs": "^0.0.2",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-markdown": "^1.0.0",
+    "execa": "^2.1.0",
+    "fancy-log": "^1.3.2",
+    "gh-rate-limit": "^1.0.0",
+    "include-media": "^1.4.9",
+    "normalize-html-whitespace": "^1.0.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-pxtorem": "^4.0.1",
+    "sass-lint": "^1.13.1",
+    "tenon-node": "^0.4.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1"
+  },
+  "config": {
+    "wpdtrt_target": "../../"
+  },
+  "scripts": {
+    "pretest": "./scripts/install-fixtures.sh",
+    "test": "mocha --recursive \"./test/**/*.spec.js\" --full-trace",
+    "test:compile": "mocha --recursive \"./test/**/compile.spec.js\" --full-trace",
+    "test:dependencies": "mocha --recursive \"./test/**/dependencies.spec.js\" --full-trace",
+    "test:documentation": "mocha --recursive \"./test/**/documentation.spec.js\" --full-trace",
+    "test:lint": "mocha --recursive \"./test/**/lint.spec.js\" --full-trace",
+    "docs:naturaldocs": "mono \"Natural Docs/NaturalDocs.exe\" ./config/naturaldocs",
+    "cd": "cd $npm_package_config_wpdtrt_target",
+    "lint:composer": "npm run cd && composer validate",
+    "lint:css": "npm run cd && sass-lint --config ./sass-lint.yml './scss/*.scss' --verbose --no-exit",
+    "lint:js": "npm run cd && eslint **/*.js",
+    "lint:php": "npm run cd && phpcs --file-list=.phpcs-file-list --standard=ref --severity=0",
+    "lint": "npm-run-all lint:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dotherightthing/wpdtrt-npm-scripts"
+  },
+  "license": "ISC",
+  "homepage": "https://github.com/dotherightthing/wpdtrt-npm-scripts",
+  "srcDir": "/Volumes/DanBackup/Websites/wpdtrt-npm-scripts",
+  "author": "Dan Smith <dev@dotherightthing.co.nz>"
+}

@@ -1,0 +1,59 @@
+{
+  "name": "dotherightthing/wpdtrt-gulp",
+  "version": "0.1.4",
+  "description": "Fixtures to test common build tasks.",
+  "type": "library",
+  "keywords": ["theme"],
+  "license": "ISC",
+  "authors": [
+      {
+          "name": "Dan Smith",
+          "email": "dev@dotherightthing.co.nz",
+          "homepage": "http://dotherightthing.co.nz",
+          "role": "Developer"
+      }
+  ],
+  "support": {
+      "email": "support@dotherightthing.co.nz",
+      "issues": "https://bitbucket.org/dotherightthing/wpdtrt-gulp/issues",
+      "source": "https://bitbucket.org/dotherightthing/wpdtrt-gulp",
+      "wiki": "https://bitbucket.org/dotherightthing/wpdtrt-gulp/wiki"
+  },
+  "require-dev": {
+      "dotherightthing/wpdtrt": "dev-master",
+      "dotherightthing/wpdtrt-dbth": "dev-development",
+      "dotherightthing/wpdtrt-gallery": "1.8.9",
+      "dotherightthing/wpdtrt-plugin-boilerplate": "1.7.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/dotherightthing/wpdtrt"
+      },
+      {
+        "type": "vcs",
+        "url": "https://github.com/dotherightthing/wpdtrt-debug/"
+      },
+      {
+        "type": "git",
+        "url": "git@bitbucket.org:dotherightthing/wpdtrt-dbth.git"
+      },
+      {
+        "type": "vcs",
+        "url": "https://github.com/dotherightthing/wpdtrt-gallery"
+      },
+      {
+        "type": "vcs",
+        "url": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate"
+      },
+      {
+        "type": "vcs",
+        "url": "https://github.com/dotherightthing/tgm-plugin-activation"
+      }
+  ],
+  "config": {
+      "vendor-dir": "test/fixtures"
+  }
+}

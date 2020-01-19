@@ -1,0 +1,390 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "66b235a2a3c98f07f2c4d03e53e7dc81",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "dotherightthing/wpdtrt",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dotherightthing/wpdtrt.git",
+                "reference": "341af08077c4eac73b46a29816cc7f9c5a0636f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt/zipball/341af08077c4eac73b46a29816cc7f9c5a0636f9",
+                "reference": "341af08077c4eac73b46a29816cc7f9c5a0636f9",
+                "shasum": ""
+            },
+            "require": {
+                "dotherightthing/wpdtrt-debug": "^1.0.0",
+                "php": ">=5.6.30",
+                "tgmpa/tgm-plugin-activation": "dev-autoloader"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+                "phpdocumentor/phpdocumentor": "2.9.0",
+                "wp-coding-standards/wpcs": "^0.14.1"
+            },
+            "type": "library",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Smith",
+                    "email": "dev@dotherightthing.co.nz",
+                    "homepage": "http://dotherightthing.co.nz",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Parent theme for WordPress theme development",
+            "keywords": [
+                "theme"
+            ],
+            "support": {
+                "email": "support@dotherightthing.co.nz",
+                "issues": "https://github.com/dotherightthing/wpdtrt/issues",
+                "source": "https://github.com/dotherightthing/wpdtrt/tree/0.2.15"
+            },
+            "time": "2019-08-09T12:31:38+00:00"
+        },
+        {
+            "name": "dotherightthing/wpdtrt-dbth",
+            "version": "dev-development",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:dotherightthing/wpdtrt-dbth.git",
+                "reference": "334b7fb83d6d97efe911a5f709dc090ab8970fcb"
+            },
+            "require": {
+                "dotherightthing/wpdtrt": "dev-master",
+                "dotherightthing/wpdtrt-debug": "^1.0.0",
+                "php": ">=7.2.20",
+                "tgmpa/tgm-plugin-activation": "dev-autoloader"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+                "phpdocumentor/phpdocumentor": "2.9.0",
+                "wp-coding-standards/wpcs": "^0.14.1"
+            },
+            "type": "library",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Smith",
+                    "email": "dev@dotherightthing.co.nz",
+                    "homepage": "http://dotherightthing.co.nz",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A theme for cycling touring, for http://dontbelievethehype.co.nz",
+            "keywords": [
+                "theme"
+            ],
+            "support": {
+                "email": "support@dotherightthing.co.nz",
+                "issues": "https://bitbucket.org/dotherightthing/wpdtrt-dbth/issues",
+                "source": "https://bitbucket.org/dotherightthing/wpdtrt-dbth",
+                "wiki": "https://bitbucket.org/dotherightthing/wpdtrt-dbth/wiki"
+            },
+            "time": "2020-01-19T01:27:32+00:00"
+        },
+        {
+            "name": "dotherightthing/wpdtrt-debug",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dotherightthing/wpdtrt-debug.git",
+                "reference": "38036744142f6397d3ed23191de68ffd5b2156b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-debug/zipball/38036744142f6397d3ed23191de68ffd5b2156b6",
+                "reference": "38036744142f6397d3ed23191de68ffd5b2156b6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.30"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DoTheRightThing\\WPDebug\\": "src"
+                }
+            },
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Smith",
+                    "email": "dev@dotherightthing.co.nz",
+                    "homepage": "http://dotherightthing.co.nz",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Debugging utilities for use in themes and plugins.",
+            "keywords": [
+                "debug",
+                "utility"
+            ],
+            "support": {
+                "email": "support@dotherightthing.co.nz",
+                "issues": "https://github.com/dotherightthing/wpdtrt-debug/issues",
+                "source": "https://github.com/dotherightthing/wpdtrt-debug/tree/1.0.2"
+            },
+            "time": "2018-03-22T09:48:20+00:00"
+        },
+        {
+            "name": "dotherightthing/wpdtrt-gallery",
+            "version": "1.8.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dotherightthing/wpdtrt-gallery.git",
+                "reference": "93fefa52ba85f35af530eab9b3301eb3677964a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-gallery/zipball/93fefa52ba85f35af530eab9b3301eb3677964a0",
+                "reference": "93fefa52ba85f35af530eab9b3301eb3677964a0",
+                "shasum": ""
+            },
+            "require": {
+                "dotherightthing/wpdtrt-plugin-boilerplate": "~1.7.0"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+                "dotherightthing/wpdtrt-contentsections": "^0.2.3",
+                "dotherightthing/wpdtrt-exif": "^0.2.2",
+                "phpunit/phpunit": "^7.5.14",
+                "psy/psysh": "~0.6",
+                "wp-cli/wp-cli": "~0.22",
+                "wp-coding-standards/wpcs": "^0.14.1"
+            },
+            "type": "library",
+            "extra": {
+                "require-wp": [
+                    {
+                        "name": "DTRT Content Sections",
+                        "host": "github",
+                        "repository": "dotherightthing/wpdtrt-contentsections",
+                        "file": "wpdtrt-contentsections.php",
+                        "description": "The gallery viewer is initialised as these are scrolled into view"
+                    },
+                    {
+                        "name": "DTRT EXIF",
+                        "host": "github",
+                        "repository": "dotherightthing/wpdtrt-exif",
+                        "file": "wpdtrt-exif.php",
+                        "description": "Appends GPS coordinates to the thumbnail link"
+                    }
+                ]
+            },
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Smith",
+                    "email": "dev@dotherightthing.co.nz",
+                    "homepage": "https://github.com/dotherightthing/wpdtrt-gallery",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Gallery viewer which supports images, panoramas, maps, SoundCloud and Vimeo.",
+            "keywords": [
+                "audio",
+                "gallery",
+                "map",
+                "video"
+            ],
+            "support": {
+                "email": "support@dotherightthing.co.nz",
+                "issues": "https://github.com/dotherightthing/wpdtrt-gallery/issues",
+                "source": "https://github.com/dotherightthing/wpdtrt-gallery",
+                "wiki": "https://github.com/dotherightthing/wpdtrt-gallery/wiki"
+            },
+            "time": "2019-10-12T09:07:36+00:00"
+        },
+        {
+            "name": "dotherightthing/wpdtrt-plugin-boilerplate",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate.git",
+                "reference": "6605c03dacf50d3b08136e8d1430f960e9d482c8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-plugin-boilerplate/zipball/6605c03dacf50d3b08136e8d1430f960e9d482c8",
+                "reference": "6605c03dacf50d3b08136e8d1430f960e9d482c8",
+                "shasum": ""
+            },
+            "require": {
+                "dotherightthing/wpdtrt-debug": "^1.0.0",
+                "gamajo/template-loader": "^1.3.0",
+                "php": "^7.0",
+                "tgmpa/tgm-plugin-activation": "dev-autoloader"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+                "phpunit/phpunit": "^7.5.14",
+                "psy/psysh": "~0.6",
+                "wp-cli/wp-cli": "^2.3",
+                "wp-coding-standards/wpcs": "^0.14.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DoTheRightThing\\WPDTRT_Plugin_Boilerplate\\r_1_7_0\\": "src"
+                }
+            },
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Dan Smith",
+                    "email": "dev@dotherightthing.co.nz",
+                    "homepage": "http://dotherightthing.co.nz",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Boilerplate for WordPress plugin development.",
+            "keywords": [
+                "boilerplate",
+                "framework"
+            ],
+            "support": {
+                "email": "support@dotherightthing.co.nz",
+                "issues": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues",
+                "source": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/tree/1.7.0"
+            },
+            "time": "2019-10-12T07:57:51+00:00"
+        },
+        {
+            "name": "gamajo/template-loader",
+            "version": "1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/GaryJones/Gamajo-Template-Loader.git",
+                "reference": "fa92a37b780d945463f7fea328dce14933558752"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/GaryJones/Gamajo-Template-Loader/zipball/fa92a37b780d945463f7fea328dce14933558752",
+                "reference": "fa92a37b780d945463f7fea328dce14933558752",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+                "php": ">=7.1",
+                "phpcompatibility/phpcompatibility-wp": "^1",
+                "roave/security-advisories": "dev-master",
+                "squizlabs/php_codesniffer": "^3.3",
+                "wp-coding-standards/wpcs": "^1"
+            },
+            "suggest": {
+                "coenjacobs/mozart": "Easily wrap this library with your own prefix, to prevent collisions when multiple plugins use this library"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "class-gamajo-template-loader.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Gary Jones",
+                    "homepage": "https://gamajo.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A class for your WordPress plugin, to allow loading template parts with fallback through the child theme > parent theme > plugin",
+            "homepage": "https://github.com/GaryJones/Gamajo-Template-Loader",
+            "keywords": [
+                "templates",
+                "wordpress"
+            ],
+            "time": "2018-09-24T10:23:49+00:00"
+        },
+        {
+            "name": "tgmpa/tgm-plugin-activation",
+            "version": "dev-autoloader",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dotherightthing/TGM-Plugin-Activation.git",
+                "reference": "270098e8d04bac9ac1b7c482c98a5d27f0080a91"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotherightthing/TGM-Plugin-Activation/zipball/270098e8d04bac9ac1b7c482c98a5d27f0080a91",
+                "reference": "270098e8d04bac9ac1b7c482c98a5d27f0080a91",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "type": "library",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Griffin",
+                    "homepage": "http://thomasgriffinmedia.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Gary Jones",
+                    "homepage": "https://github.com/GaryJones",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Juliette Reinders Folmer",
+                    "homepage": "https://github.com/jrfnl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "TGM Plugin Activation is a PHP library that allows you to easily require or recommend plugins for your WordPress themes (and plugins).",
+            "homepage": "http://tgmpluginactivation.com",
+            "keywords": [
+                "activation",
+                "library",
+                "plugins",
+                "theme",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/TGMPA/TGM-Plugin-Activation/issues",
+                "source": "https://github.com/TGMPA/TGM-Plugin-Activation"
+            },
+            "time": "2018-05-30T03:21:48+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "dotherightthing/wpdtrt": 20,
+        "dotherightthing/wpdtrt-dbth": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
