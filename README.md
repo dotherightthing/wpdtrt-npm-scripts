@@ -4,6 +4,10 @@
 
 NPM build scripts.
 
+## Background
+
+* [Migrating Gulp build tasks to NPM scripts](https://gist.github.com/dotherightthing/edc8a492365cba31b55ee9fe63de0c8d).
+
 ## Installation
 
 `npm install dotherightthing/wpdtrt-npm-scripts --save-dev`
