@@ -65,11 +65,10 @@
     "test:documentation": "mocha --recursive \"./test/**/documentation.spec.js\" --full-trace",
     "test:lint": "mocha --recursive \"./test/**/lint.spec.js\" --full-trace",
     "docs:naturaldocs": "mono \"Natural Docs/NaturalDocs.exe\" ./config/naturaldocs",
-    "cd": "cd $npm_package_config_wpdtrt_target",
-    "lint:composer": "npm run cd && composer validate",
-    "lint:css": "npm run cd && sass-lint --config ./sass-lint.yml './scss/*.scss' --verbose --no-exit",
-    "lint:js": "npm run cd && eslint **/*.js",
-    "lint:php": "npm run cd && phpcs --file-list=.phpcs-file-list --standard=ref --severity=0",
+    "lint:composer": "cd $npm_package_config_wpdtrt_target && pwd && composer validate",
+    "lint:css": "cd $npm_package_config_wpdtrt_target && pwd && sass-lint '**/*.scss' --verbose --no-exit",
+    "lint:js": "cd $npm_package_config_wpdtrt_target && pwd && eslint './js/**/*.js'",
+    "lint:php": "npm run copytest && cd $npm_package_config_wpdtrt_target && ./vendor/bin/phpcs **/*.php --standard=phpcs.xml",
     "lint": "npm-run-all lint:*"
   },
   "repository": {
