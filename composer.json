@@ -52,8 +52,5 @@
         "type": "vcs",
         "url": "https://github.com/dotherightthing/tgm-plugin-activation"
       }
-  ],
-  "config": {
-      "vendor-dir": "test/fixtures"
-  }
+  ]
 }

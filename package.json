@@ -51,13 +51,10 @@
     "chai": "^4.2.0",
     "mocha": "^6.2.1"
   },
-  "config": {
-    "wpdtrt_target": "../../"
-  },
   "scripts": {
-    "prelint:css": "cp .sass-lint.yml $npm_package_config_wpdtrt_target",
-    "prelint:js": "cp .eslintrc $npm_package_config_wpdtrt_target",
-    "prelint:php": "cp phpcs.xml $npm_package_config_wpdtrt_target",
+    "prelint:css": "cp .sass-lint.yml $INIT_CWD",
+    "prelint:js": "cp .eslintrc $INIT_CWD",
+    "prelint:php": "cp phpcs.xml $INIT_CWD",
     "pretest": "./scripts/install-fixtures.sh",
     "test": "mocha --recursive \"./test/**/*.spec.js\" --full-trace",
     "test:compile": "mocha --recursive \"./test/**/compile.spec.js\" --full-trace",
@@ -65,10 +62,10 @@
     "test:documentation": "mocha --recursive \"./test/**/documentation.spec.js\" --full-trace",
     "test:lint": "mocha --recursive \"./test/**/lint.spec.js\" --full-trace",
     "docs:naturaldocs": "mono \"Natural Docs/NaturalDocs.exe\" ./config/naturaldocs",
-    "lint:composer": "cd $npm_package_config_wpdtrt_target && pwd && composer validate",
-    "lint:css": "cd $npm_package_config_wpdtrt_target && pwd && sass-lint '**/*.scss' --verbose --no-exit",
-    "lint:js": "cd $npm_package_config_wpdtrt_target && pwd && eslint './js/**/*.js'",
-    "lint:php": "npm run copytest && cd $npm_package_config_wpdtrt_target && ./vendor/bin/phpcs **/*.php --standard=phpcs.xml",
+    "lint:composer": "cd $INIT_CWD && composer validate",
+    "lint:css": "cd $INIT_CWD && sass-lint '**/*.scss' --verbose --no-exit",
+    "lint:js": "cd $INIT_CWD && eslint './js/**/*.js'",
+    "lint:php": "cd $INIT_CWD && ./vendor/bin/phpcs **/*.php --standard=phpcs.xml",
     "lint": "npm-run-all lint:*"
   },
   "repository": {

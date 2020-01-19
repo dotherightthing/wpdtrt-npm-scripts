@@ -1,4 +1,3 @@
 *.code-workspace
 node_modules
-release.zip
-test/fixtures
+vendor

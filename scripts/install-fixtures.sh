@@ -19,7 +19,7 @@ echo "1/6. Install test fixtures" \
 && composer install --prefer-dist --no-interaction --no-suggest --verbose \
 && echo "---" \
 && echo "2/6. Install wpdtrt dependencies" \
-&& cd ./test/fixtures/dotherightthing/wpdtrt \
+&& cd ./vendor/dotherightthing/wpdtrt \
 && composer install --prefer-dist --no-interaction --no-suggest --verbose \
 && yarn install --non-interactive \
 && echo "---" \
@@ -38,7 +38,6 @@ echo "1/6. Install test fixtures" \
 && cd ../wpdtrt-plugin-boilerplate \
 && composer install --prefer-dist --no-interaction --no-suggest --verbose \
 && yarn install --non-interactive \
-&& echo "5/6. Override config paths for testing" \
-&& echo npm config set wpdtrt-dbth:wpdtrt_npm_scripts ../../../../ \
-&& echo npm config set wpdtrt-npm-scripts:wpdtrt_target test/fixtures/dotherightthing/wpdtrt-dbth \
+&& echo "6/6. Override config paths for testing" \
+&& echo npm config set wpdtrt-npm-scripts:wpdtrt_target vendor/dotherightthing/wpdtrt-dbth \
 && echo "Install complete"
