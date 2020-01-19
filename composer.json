@@ -19,6 +19,10 @@
       "source": "https://bitbucket.org/dotherightthing/wpdtrt-gulp",
       "wiki": "https://bitbucket.org/dotherightthing/wpdtrt-gulp/wiki"
   },
+  "require": {
+    "wp-coding-standards/wpcs": "^0.14.1",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4"
+  },
   "require-dev": {
       "dotherightthing/wpdtrt": "dev-master",
       "dotherightthing/wpdtrt-dbth": "dev-development",
