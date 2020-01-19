@@ -4,6 +4,12 @@ Replacement for wpdtrt-gulp
 
 ## Linting
 
+### `npm run lint`
+
+Run all `lint:` scripts.
+
+Note that errors may cause the script to exit before all issues have been logged. In this case, fix the errors then run the script again.
+
 ### `npm run lint:composer`
 
 This checks that `composer.json` validates.
