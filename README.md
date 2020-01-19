@@ -1,8 +1,8 @@
-# WPDTRT NPM Scripts
+# DTRT NPM Scripts
 
 [![GitHub release](https://img.shields.io/github/release/dotherightthing/wpdtrt-npm-scripts.svg)](https://github.com/dotherightthing/wpdtrt-npm-scripts/releases) [![Build Status](https://travis-ci.org/dotherightthing/wpdtrt-npm-scripts.svg?branch=master)](https://travis-ci.org/dotherightthing/wpdtrt-npm-scripts) [![GitHub issues](https://img.shields.io/github/issues/dotherightthing/wpdtrt-npm-scripts.svg)](https://github.com/dotherightthing/wpdtrt-npm-scripts/issues)
 
-Replacement for wpdtrt-npm-scripts
+NPM build scripts.
 
 ## Installation
 
