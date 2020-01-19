@@ -4,6 +4,8 @@ Replacement for wpdtrt-gulp
 
 ## .gitignore
 
+> 🙈Please add the config files to your .gitignore, see README.md
+
 Ignore these files, which are copied over by the plugin:
 
 ```

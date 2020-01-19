@@ -43,7 +43,6 @@
     "include-media": "^1.4.9",
     "node-sass": "^4.13.1",
     "normalize-html-whitespace": "^1.0.0",
-    "npm-run-all": "^4.1.5",
     "postcss-cli": "^7.1.0",
     "postcss-pxtorem": "^4.0.1",
     "sass-lint": "^1.13.1",
@@ -53,17 +52,23 @@
     "chai": "^4.2.0",
     "mocha": "^6.2.1"
   },
+  "config": {
+    "return_path": "../../../"
+  },
   "scripts": {
+    "postinstall": "echo 🙈Please add the config files to your .gitignore, see README.md",
     "precompile:postcss": "cp postcss.config.js .browserslistrc $INIT_CWD",
     "prelint:css": "cp .sass-lint.yml $INIT_CWD",
     "prelint:js": "cp .eslintrc $INIT_CWD",
     "prelint:php": "cp phpcs.xml $INIT_CWD",
     "pretest": "./scripts/install-fixtures.sh",
+    "preuninstall": "cd $INIT_CWD && rm .browserslistrc .eslintrc .sass-lint.yml phpcs.xml",
     "test": "mocha --recursive \"./test/**/*.spec.js\" --full-trace",
     "test:compile": "mocha --recursive \"./test/**/compile.spec.js\" --full-trace",
     "test:dependencies": "mocha --recursive \"./test/**/dependencies.spec.js\" --full-trace",
     "test:documentation": "mocha --recursive \"./test/**/documentation.spec.js\" --full-trace",
     "test:lint": "mocha --recursive \"./test/**/lint.spec.js\" --full-trace",
+    "compile": "cd $INIT_CWD && npm run compile:scss --prefix $npm_package_config_return_path && npm run compile:postcss --prefix $npm_package_config_return_path",
     "compile:scss": "cd $INIT_CWD && node-sass scss --output css --recursive",
     "compile:postcss": "cd $INIT_CWD && postcss css/**/*.css --replace",
     "docs:naturaldocs": "mono \"Natural Docs/NaturalDocs.exe\" ./config/naturaldocs",
@@ -71,7 +76,7 @@
     "lint:css": "cd $INIT_CWD && sass-lint '**/*.scss' --verbose --no-exit",
     "lint:js": "cd $INIT_CWD && eslint './js/**/*.js'",
     "lint:php": "cd $INIT_CWD && ./vendor/bin/phpcs **/*.php --ignore=autoload.php --standard=phpcs.xml",
-    "lint": "npm-run-all lint:*"
+    "lint": "cd $INIT_CWD && npm run lint:composer --prefix $npm_package_config_return_path && npm run lint:css --prefix $npm_package_config_return_path && npm run lint:js --prefix $npm_package_config_return_path && npm run lint:php --prefix $npm_package_config_return_path"
   },
   "repository": {
     "type": "git",
