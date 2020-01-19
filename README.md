@@ -2,7 +2,27 @@
 
 Replacement for wpdtrt-gulp
 
-## Linting
+## .gitignore
+
+Ignore these files, which are copied over by the plugin:
+
+```
+.eslintrc
+.sass-lint.yml
+phpcs.xml
+postcss.config.js
+.browserslistrc
+```
+
+## Compile
+
+### `npm run compile:scss`
+
+### `npm run compile:postcss`
+
+`./postcss.config.js` and `.browserslistrc` are automatically created/replaced when the script is run. This ensures that the host package always has the latest versions.
+
+## Lint
 
 ### `npm run lint`
 
