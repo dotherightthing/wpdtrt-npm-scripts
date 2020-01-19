@@ -53,11 +53,13 @@
     "mocha": "^6.2.1"
   },
   "config": {
-    "return_path": "../../../"
+    "return_path": "../../../",
+    "scss_import_suffix": "wp"
   },
   "scripts": {
     "postinstall": "echo ✅ Please read the README",
     "precompile:postcss": "cp postcss.config.js .browserslistrc $INIT_CWD",
+    "precompile:scss_import": "if [ $CI ]; then npm config set wpdtrt-npm-scripts:scss_import_suffix ci; fi",
     "prelint:css": "cp .sass-lint.yml $INIT_CWD",
     "prelint:js": "cp .eslintrc $INIT_CWD",
     "prelint:php": "cp phpcs.xml $INIT_CWD",
@@ -68,7 +70,8 @@
     "test:dependencies": "mocha --recursive \"./test/**/dependencies.spec.js\" --full-trace",
     "test:documentation": "mocha --recursive \"./test/**/documentation.spec.js\" --full-trace",
     "test:lint": "mocha --recursive \"./test/**/lint.spec.js\" --full-trace",
-    "compile": "cd $INIT_CWD && npm run compile:scss --prefix $npm_package_config_return_path && npm run compile:postcss --prefix $npm_package_config_return_path",
+    "compile:css": "cd $INIT_CWD && npm run compile:scss_import --prefix $npm_package_config_return_path && npm run compile:scss --prefix $npm_package_config_return_path && npm run compile:postcss --prefix $npm_package_config_return_path",
+    "compile:scss_import": "cd $INIT_CWD && echo '@import \"wpdtrt/dependencies-'${npm_package_config_scss_import_suffix}'\";' > scss/_wpdtrt-import.scss",
     "compile:scss": "cd $INIT_CWD && node-sass scss --output css --recursive",
     "compile:postcss": "cd $INIT_CWD && postcss css/**/*.css --replace",
     "docs:naturaldocs": "mono \"Natural Docs/NaturalDocs.exe\" ./config/naturaldocs",

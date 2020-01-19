@@ -49,7 +49,7 @@ Please add these lines to your `package.json`:
 
 ### Compiling
 
-`npm run compile` compiles:
+`npm run compile:css` compiles:
 
 1. `*.scss -> node-sass -> *.css`
 2. `*.css -> postcss -> autoprefixer -> pxtorem -> *.css`
