@@ -1,14 +1,13 @@
 {
   "extends": [
-    "airbnb-base/legacy",
-    "plugin:compat/recommended"
+    "airbnb-base/legacy"
   ],
-  "env": {
-    "mocha": true
-  },
   "parser": "babel-eslint",
   "plugins": [
-    "chai-friendly"
+    "chai-friendly",
+    "cypress",
+    "json",
+    "markdown"
   ],
   "overrides": [
     {
@@ -18,12 +17,15 @@
       }
     },
     {
-      "files": ["gulpfile.babel.js", "test/*.js", "*.js"],
+      "files": ["gulpfile.babel.js", "index.js", "test/index.js", "gulp-modules/*.js"],
       "rules": {
         "no-console": "off"
       }
     }
   ],
+  "env": {
+    "cypress/globals": true
+  },
   "rules": {
     "array-bracket-spacing": ["error", "always"],
     "block-spacing": ["error", "always"],
