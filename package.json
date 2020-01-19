@@ -56,7 +56,7 @@
     "return_path": "../../../"
   },
   "scripts": {
-    "postinstall": "echo 🙈Please add the config files to your .gitignore, see README.md",
+    "postinstall": "echo ✅ Please read the README",
     "precompile:postcss": "cp postcss.config.js .browserslistrc $INIT_CWD",
     "prelint:css": "cp .sass-lint.yml $INIT_CWD",
     "prelint:js": "cp .eslintrc $INIT_CWD",
