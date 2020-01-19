@@ -1,9 +1,9 @@
 {
-  "name": "dotherightthing/wpdtrt-gulp",
-  "version": "0.1.4",
-  "description": "Fixtures to test common build tasks.",
+  "name": "dotherightthing/wpdtrt-npm-scripts",
+  "version": "0.0.1",
+  "description": "Common build tasks.",
   "type": "library",
-  "keywords": ["theme"],
+  "keywords": ["library"],
   "license": "ISC",
   "authors": [
       {
