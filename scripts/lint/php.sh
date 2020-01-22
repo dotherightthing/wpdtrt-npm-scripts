@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# File: ./lint.sh
+# File: ./lint/php.sh
 #
 # Note:
 # chmod a+x = Change access permissions of this file, to 'e[x]ecutable' for '[a]ll users'
@@ -11,9 +11,7 @@
 # sh filename.sh
 # ---
 
-echo "Lint files" \
+echo "Lint PHP" \
 && cd $INIT_CWD \
 && composer validate \
-&& sass-lint '**/*.scss' --verbose --no-exit \
-&& ./vendor/bin/phpcs **/*.php --ignore=autoload.php --standard=phpcs.xml \
-&& eslint './js/**/*.js'
+&& ./vendor/bin/phpcs **/*.php --ignore=autoload.php --standard=phpcs.xml

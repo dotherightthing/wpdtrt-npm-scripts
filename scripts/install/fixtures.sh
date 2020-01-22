@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# File: ./install-fixtures.sh
+# File: ./install/fixtures.sh
 #
 # Note:
 # chmod a+x = Change access permissions of this file, to 'e[x]ecutable' for '[a]ll users'
@@ -18,7 +18,7 @@ set -e
 # install the fixtures specified in composer.json
 # then cd into each fixture's directory and install its dependencies
 
-echo "1/6. Install test fixtures" \
+echo "1/6. Install fixtures" \
 && composer install --prefer-dist --no-interaction --no-suggest --verbose \
 && echo "---" \
 && echo "2/6. Install wpdtrt dependencies" \

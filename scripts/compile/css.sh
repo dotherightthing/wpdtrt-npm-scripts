@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# File: ./compile-css.sh
+# File: ./compile/css.sh
 #
 # Note:
 # chmod a+x = Change access permissions of this file, to 'e[x]ecutable' for '[a]ll users'

@@ -52,26 +52,27 @@
     "mocha": "^6.2.1"
   },
   "config": {
-    "compile_js_backend": "js/backend.js",
-    "compile_js_frontend": "js/frontend.js",
-    "lint_js_eslint": "eslint-config-airbnb-base eslint-plugin-chai-friendly eslint-plugin-cypress",
-    "return_path": "../../../",
-    "scss_import_suffix": ""
+    "return_path": "../../../"
   },
   "scripts": {
     "preinstall": "chmod -R a+x scripts",
-    "pretest": "./scripts/install-npm-dependencies.sh && ./scripts/install-fixtures.sh",
-    "compile:css": "./scripts/install-config.sh && ./scripts/compile-css.sh",
-    "compile:js": "./scripts/install-config.sh && ./scripts/compile-js.sh",
+    "pretest": "./scripts/install/npm.sh && ./scripts/install/fixtures.sh",
+    "compile:css": "./scripts/compile/css.sh",
+    "compile:js": " ./scripts/compile/js.sh",
+    "compile": "./scripts/compile/css.sh && ./scripts/compile/js.sh",
     "docs:naturaldocs": "mono \"Natural Docs/NaturalDocs.exe\" ./config/naturaldocs",
-    "lint": "./scripts/install-config.sh && ./scripts/lint.sh",
-    "test": "mocha --recursive \"./test/**/*.spec.js\" --full-trace",
+    "lint:css": "./scripts/lint/css.sh",
+    "lint:js": "./scripts/lint/js.sh",
+    "lint:php": "./scripts/lint/php.sh",
+    "lint": "./scripts/lint/css.sh && ./scripts/lint/js.sh && ./scripts/lint/php.sh",
     "test:compile": "mocha --recursive \"./test/**/compile.spec.js\" --full-trace",
     "test:dependencies": "mocha --recursive \"./test/**/dependencies.spec.js\" --full-trace",
     "test:documentation": "mocha --recursive \"./test/**/documentation.spec.js\" --full-trace",
     "test:lint": "mocha --recursive \"./test/**/lint.spec.js\" --full-trace",
-    "postinstall": "./scripts/install-config.sh",
-    "postuninstall": "./scripts/uninstall-config.sh && ./scripts/uninstall-npm-dependencies.sh"
+    "test": "mocha --recursive \"./test/**/*.spec.js\" --full-trace",
+    "postinstall": "./scripts/install/config.sh",
+    "postuninstall": "./scripts/uninstall/config.sh && ./scripts/uninstall/npm.sh",
+    "reinstall": "chmod -R a+x scripts && ./scripts/install/config.sh && ./scripts/install/npm.sh"
   },
   "repository": {
     "type": "git",

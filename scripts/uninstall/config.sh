@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# File: ./uninstall-config.sh
+# File: ./uninstall/config.sh
 #
 # Note:
 # chmod a+x = Change access permissions of install.sh, to 'e[x]ecutable' for '[a]ll users'

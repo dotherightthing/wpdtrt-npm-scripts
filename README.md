@@ -37,7 +37,7 @@ Please add these lines to your `package.json`:
   },
   "scripts": {
     "build": "npm run build --prefix $npm_package_config_wpdtrt_npm_scripts",
-    "compile:css": "npm run compile:css --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "compile": "npm run compile --prefix $npm_package_config_wpdtrt_npm_scripts",
     "dependencies": "npm run dependencies --prefix $npm_package_config_wpdtrt_npm_scripts",
     "docs": "npm run docs --prefix $npm_package_config_wpdtrt_npm_scripts",
     "lint": "npm run lint --prefix $npm_package_config_wpdtrt_npm_scripts",
@@ -62,9 +62,9 @@ Please add these lines to your `package.json`:
 `npm run lint` lints:
 
 1. `composer.json`
-2. `*.scss -> sass-lint`)
-3. `*.js -> eslint`)
-4. `*.php -> phpcs`)
+2. `*.scss -> sass-lint`
+3. `*.js -> eslint`
+4. `*.php -> phpcs`
 
 Note that linting errors may cause the script to exit before all issues have been logged. In this case, fix the errors then run the script again.
 
@@ -73,6 +73,14 @@ Note that linting errors may cause the script to exit before all issues have bee
 Tests are written in [Mocha](https://mochajs.org/), with [Chai](https://www.chaijs.com/) assertions.
 
 [Execa](https://github.com/sindresorhus/execa) is used to verify the output of the [gulp](https://gulpjs.com/) Node [`child process`](https://nodejs.org/api/child_process.html#child_process_child_process).
+
+To test against fixtures loaded into a sub-directory:
+
+```bash
+npm config set wpdtrt-dbth:wpdtrt_npm_scripts ../../../../
+```
+
+then:
 
 ```bash
 npm run test

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# File: ./uninstall-npm-dependencies.sh
+# File: ./install/npm.sh
 #
 # Note:
 # chmod a+x = Change access permissions of install.sh, to 'e[x]ecutable' for '[a]ll users'
@@ -13,6 +13,8 @@
 
 # This script should be run when wpdtrt-npm-scripts is not (yet) installed as an NPM dependency
 
-echo "Uninstall NPM dependencies" \
-&& cd $INIT_CWD
-&& npm uninstall $npm_package_config_lint_js_eslint
+echo "Install NPM dependencies" \
+&& cd $INIT_CWD \
+&& npm install eslint-config-airbnb-base \
+&& npm install eslint-plugin-chai-friendly \
+&& npm install eslint-plugin-cypress
