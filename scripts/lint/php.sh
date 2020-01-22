@@ -14,4 +14,4 @@
 echo "Lint PHP" \
 && cd $INIT_CWD \
 && composer validate \
-&& ./vendor/bin/phpcs **/*.php --ignore=autoload.php --standard=phpcs.xml
+&& ./vendor/bin/phpcs **/*.php --ignore=autoload.php,docs/*,node_modules/*,vendor/*,wp-content/* --standard=phpcs.xml
