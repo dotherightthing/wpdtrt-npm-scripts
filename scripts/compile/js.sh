@@ -7,8 +7,7 @@
 #
 # Example:
 # ---
-# chmod a+x filename.sh
-# sh filename.sh
+# chmod a+x scripts/**/*.sh
 # ---
 
 # TODO for generated plugins, concatenate backend and frontend boileplate files

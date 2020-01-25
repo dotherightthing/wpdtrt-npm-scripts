@@ -7,8 +7,7 @@
 #
 # Example:
 # ---
-# chmod a+x filename.sh
-# sh filename.sh
+# chmod a+x scripts/**/*.sh
 # ---
 
 # e: exit the script if any statement returns a non-true return value

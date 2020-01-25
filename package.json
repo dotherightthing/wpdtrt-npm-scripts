@@ -55,7 +55,7 @@
     "return_path": "../../../"
   },
   "scripts": {
-    "preinstall": "chmod -R a+x scripts",
+    "preinstall": "chmod a+x scripts/**/*.sh",
     "pretest": "./scripts/install/npm-test.sh && ./scripts/install/fixtures.sh",
     "compile:css": "./scripts/compile/css.sh",
     "compile:js": " ./scripts/compile/js.sh",

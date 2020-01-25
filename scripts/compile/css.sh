@@ -7,8 +7,7 @@
 #
 # Example:
 # ---
-# chmod a+x filename.sh
-# sh filename.sh
+# chmod a+x scripts/**/*.sh
 # ---
 
 echo "Compile CSS" \
