@@ -26,6 +26,7 @@
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/register": "^7.5.5",
+    "adm-zip": "^0.4.13",
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.3",
     "core-js": "^3.2.1",
@@ -45,7 +46,8 @@
     "postcss-cli": "^7.1.0",
     "postcss-pxtorem": "^4.0.1",
     "sass-lint": "^1.13.1",
-    "tenon-node": "^0.4.1"
+    "tenon-node": "^0.4.1",
+    "yargs": "^15.1.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",
