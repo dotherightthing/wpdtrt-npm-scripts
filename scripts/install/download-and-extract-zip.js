@@ -1,4 +1,4 @@
-const https = require('https'); // node https module ?
+const https = require('https'); // node https module
 const fs = require('fs'); // node file system module
 const AdmZip = require('adm-zip'); // javascript zip implementation
 const argv = require('yargs').argv; // parses named CLI arguments
