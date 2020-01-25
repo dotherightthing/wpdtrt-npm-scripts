@@ -22,7 +22,7 @@ const argv = require('yargs').argv; // parses named CLI arguments
  * @todo https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e
  */
 const downloadAndExtractZip = function (tmpdir, extractdir, url) {
-    console.log(argv);
+    // console.log(argv);
 
     const downloadTo = tmpdir + '/tmp.zip';
 
