@@ -18,8 +18,6 @@ const argv = require('yargs').argv; // parses named CLI arguments
  *  && mkdir tmp \
  *  && node ../../../scripts/install/download-and-extract-zip.js --extractdir='./bin' --tmpdir='./tmp' --url=https://naturaldocs.org/download/natural_docs/2.0.2/Natural_Docs_2.0.2.zip \
  *  && rm -r tmp
- *
- * @todo https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e
  */
 const downloadAndExtractZip = function (tmpdir, extractdir, url) {
     // console.log(argv);

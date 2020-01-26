@@ -9,9 +9,6 @@
 # ---
 # chmod a+x scripts/**/*.sh
 # ---
-#
-#
-# TODO: fix hardcoded path to download-and-extract-zip.js
 
 echo "Download and extract Natural Docs" \
 && cd $INIT_CWD \

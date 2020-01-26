@@ -10,10 +10,6 @@
 # chmod a+x scripts/**/*.sh
 # ---
 
-# TODO for generated plugins, concatenate backend and frontend boileplate files
-# `./${WORDPRESS_PLUGIN_BOILERPLATE_PATH}js/frontend.js`,
-# `./${WORDPRESS_PLUGIN_BOILERPLATE_PATH}js/backend.js`
-
 echo "Compile JS" \
 && cd $INIT_CWD \
 && cat js/backend.js > js/backend-es5.js \
