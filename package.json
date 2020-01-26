@@ -63,7 +63,6 @@
     "compile:js": " ./scripts/compile/js.sh",
     "compile": "./scripts/compile/css.sh && ./scripts/compile/js.sh",
     "docs:naturaldocs": "mono \"Natural Docs/NaturalDocs.exe\" ./config/naturaldocs",
-    "install_docs": "./scripts/install/naturaldocs.sh",
     "lint:css": "./scripts/lint/css.sh",
     "lint:js": "./scripts/lint/js.sh",
     "lint:php": "./scripts/lint/php.sh",
@@ -73,7 +72,7 @@
     "test:documentation": "mocha --recursive \"./test/**/documentation.spec.js\" --full-trace",
     "test:lint": "mocha --recursive \"./test/**/lint.spec.js\" --full-trace",
     "test": "mocha --recursive \"./test/**/*.spec.js\" --full-trace",
-    "postinstall": "./scripts/install/config.sh && ./scripts/install/composer.sh && ./scripts/install/yarn.sh",
+    "postinstall": "./scripts/install/config.sh && ./scripts/install/composer.sh && ./scripts/install/naturaldocs.sh && ./scripts/install/yarn.sh",
     "postuninstall": "./scripts/uninstall/config.sh && ./scripts/uninstall/npm-test.sh",
     "reinstall": "chmod -R a+x scripts && ./scripts/install/config.sh && ./scripts/install/npm-test.sh"
   },
