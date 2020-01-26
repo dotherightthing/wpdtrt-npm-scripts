@@ -12,6 +12,12 @@ NPM build scripts.
 
 `npm install dotherightthing/wpdtrt-npm-scripts --save-dev`
 
+### Mono
+
+This is the framework which *Natural Docs* runs on top of.
+
+[Download and install Mono](https://www.mono-project.com/download/stable/).
+
 ### .gitignore
 
 Please add these lines to your `.gitignore`:
