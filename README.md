@@ -11,6 +11,7 @@ NPM build scripts.
 ## Dependencies
 
 1. Composer - <https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos>
+2. Natural Docs - <https://www.naturaldocs.org/download/> and save to `./bin/Natural Docs`
 
 ## Installation
 
