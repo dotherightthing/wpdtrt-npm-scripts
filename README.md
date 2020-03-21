@@ -6,7 +6,11 @@ NPM build scripts.
 
 ## Background
 
-* [Migrating Gulp build tasks to NPM scripts](https://gist.github.com/dotherightthing/edc8a492365cba31b55ee9fe63de0c8d).
+* [Migrating Gulp build tasks to NPM scripts](https://gist.github.com/dotherightthing/edc8a492365cba31b55ee9fe63de0c8d).\\
+
+## Dependencies
+
+1. Composer - <https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos>
 
 ## Installation
 
