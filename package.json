@@ -74,7 +74,7 @@
     "test:lint": "mocha --recursive \"./test/**/lint.spec.js\" --full-trace",
     "test": "mocha --recursive \"./test/**/*.spec.js\" --full-trace",
     "postinstall": "./scripts/install/config.sh && ./scripts/install/composer.sh && ./scripts/install/naturaldocs.sh && ./scripts/install/yarn.sh",
-    "postuninstall": "./scripts/uninstall/config.sh && ./scripts/uninstall/npm-test.sh",
+    "postuninstall": "./scripts/uninstall/config.sh && ./scripts/uninstall/npm-test.sh && ./scripts/uninstall/naturaldocs.sh",
     "reinstall": "chmod a+x scripts/**/*.sh && ./scripts/install/config.sh && ./scripts/install/npm-test.sh"
   },
   "repository": {
