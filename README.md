@@ -159,13 +159,19 @@ Please add these lines to your `.gitignore`:
 .browserslistrc
 .eslintrc
 .sass-lint.yml
+*-es5.js
 _wpdtrt-import.scss
 bin/Natural\ Docs
 config/naturaldocs/Working\ Data
 config/naturaldocs/Comments.txt
 config/naturaldocs/Languages.txt
+css
+docs/*
+!docs/.gitkeep
+node_modules
 phpcs.xml
 postcss.config.js
+vendor
 # End
 ```
 
