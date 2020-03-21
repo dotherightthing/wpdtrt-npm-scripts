@@ -75,7 +75,7 @@
     "test": "./scripts/install/yarn.sh && mocha --recursive \"./test/**/*.spec.js\" --full-trace",
     "postinstall": "./scripts/install/config.sh && ./scripts/install/composer.sh",
     "postuninstall": "./scripts/uninstall/config.sh && ./scripts/uninstall/npm-test.sh",
-    "reinstall": "chmod a+x scripts/**/*.sh && ./scripts/install/config.sh && ./scripts/install/npm-test.sh"
+    "reinstall": "chmod a+x scripts/**/*.sh && ./scripts/install/config.sh && ./scripts/install/composer.sh"
   },
   "repository": {
     "type": "git",
