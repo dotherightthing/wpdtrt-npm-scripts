@@ -54,7 +54,7 @@
     "mocha": "^6.2.1"
   },
   "config": {
-    "return_path": "../../../"
+    "return_path": "./"
   },
   "scripts": {
     "preinstall": "chmod a+x scripts/**/*.sh",
