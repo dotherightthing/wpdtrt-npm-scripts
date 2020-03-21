@@ -11,17 +11,12 @@ NPM build scripts.
 ## Dependencies
 
 1. Composer - <https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos>
-2. Natural Docs - <https://www.naturaldocs.org/download/> and save to `./bin/Natural Docs`
+2. Mono (Natural Docs' framework) - <https://www.mono-project.com/download/stable/>
+3. Natural Docs - <https://www.naturaldocs.org/download/> and save to `./bin/Natural Docs`
 
 ## Installation
 
 `npm install dotherightthing/wpdtrt-npm-scripts --save-dev`
-
-### Mono
-
-This is the framework which *Natural Docs* runs on top of.
-
-[Download and install Mono](https://www.mono-project.com/download/stable/).
 
 ### .gitignore
 
