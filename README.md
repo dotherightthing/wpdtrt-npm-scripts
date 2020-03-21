@@ -162,6 +162,8 @@ Please add these lines to your `.gitignore`:
 _wpdtrt-import.scss
 bin/Natural\ Docs
 config/naturaldocs/Working\ Data
+config/naturaldocs/Comments.txt
+config/naturaldocs/Languages.txt
 phpcs.xml
 postcss.config.js
 # End
