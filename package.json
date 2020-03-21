@@ -72,8 +72,8 @@
     "test:dependencies": "mocha --recursive \"./test/**/dependencies.spec.js\" --full-trace",
     "test:documentation": "mocha --recursive \"./test/**/documentation.spec.js\" --full-trace",
     "test:lint": "mocha --recursive \"./test/**/lint.spec.js\" --full-trace",
-    "test": "mocha --recursive \"./test/**/*.spec.js\" --full-trace",
-    "postinstall": "./scripts/install/config.sh && ./scripts/install/composer.sh && ./scripts/install/naturaldocs.sh && ./scripts/install/yarn.sh",
+    "test": "./scripts/install/yarn.sh && mocha --recursive \"./test/**/*.spec.js\" --full-trace",
+    "postinstall": "./scripts/install/config.sh && ./scripts/install/composer.sh && ./scripts/install/naturaldocs.sh",
     "postuninstall": "./scripts/uninstall/config.sh && ./scripts/uninstall/npm-test.sh && ./scripts/uninstall/naturaldocs.sh",
     "reinstall": "chmod a+x scripts/**/*.sh && ./scripts/install/config.sh && ./scripts/install/npm-test.sh"
   },
