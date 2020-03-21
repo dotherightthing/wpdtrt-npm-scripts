@@ -9,7 +9,7 @@
  * - In tested code, console.log Prints to stdout with newline, so won't cause test to fail when checking against stderr
  *
  * ---
- * yarn run tests
+ * npm run tests
  * ---
  */
 

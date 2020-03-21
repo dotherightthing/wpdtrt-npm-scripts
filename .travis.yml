@@ -6,17 +6,9 @@ node_js:
 # conditions under which to run this build
 if: NOT (branch = master) OR (branch = master AND tag IS present)
 
-# Install dependencies
-install:
-  # Adding Yarn to Travis CI - https://gist.github.com/acburdine/61f4f91bacf6554fccdaa394fd14ebbd
-  # yarn install also runs the build script
-  - npm install -g yarn
-  - yarn install --non-interactive
-  - yarn global add gulp-cli
-
 # Run the tests
 script:
-  - yarn run test
+  - npm run test
 
 # Notifications of build results
 # https://docs.travis-ci.com/user/notifications/

@@ -9,7 +9,7 @@
  * - In tested code, console.log Prints to stdout with newline, so won't cause test to fail when checking against stderr
  *
  * ---
- * yarn run tests
+ * npm run tests
  * ---
  */
 
@@ -22,7 +22,7 @@ const { describe, it } = mocha; // fix eslint no-undef errors
 const cleanUp = require( '../../tasks/release/cleanUp' );
 const composer = require( '../../tasks/release/composer' );
 const copy = require( '../../tasks/release/copy' );
-const yarn = require( '../../tasks/release/yarn' );
+const npm = require( '../../tasks/release/npm' );
 const zipFiles = require( '../../tasks/release/zipFiles' );
 
 // https://labs.chiedo.com/post/async-mocha-tests/
@@ -66,7 +66,7 @@ describe.skip( 'release', function () {
     } ) );
   } );
 
-  describe( 'yarn', function () {
+  describe( 'npm', function () {
     it.skip( 'uninstalls Yarn/NPM development dependencies', mochaAsync(async function() {
       // TODO
       expect( stderr.replace( /\n$/, '') ).to.equal( '' );

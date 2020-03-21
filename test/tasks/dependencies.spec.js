@@ -49,7 +49,7 @@ describe( 'dependencies', function () {
   // TODO: Github & WPUnit
   const composerFolder = 'vendor';
   const naturalDocsFolder = 'Natural Docs';
-  const yarnFolder = 'node_modules';
+  const npmFolder = 'node_modules';
 
   /**
    * Group: WordPress Child Theme
@@ -63,8 +63,8 @@ describe( 'dependencies', function () {
     before ( 'clean up test files', async function() {
       await del( `${theme}/${composerFolder}` );
       await del( `${theme}/${naturalDocsFolder}` );
-      await del( `${theme}/${yarnFolder}` );
-      await del( `${theme}/yarn.lock` );
+      await del( `${theme}/${npmFolder}` );
+      await del( `${theme}/npm.lock` );
     } );
 
     describe( 'series', function () {
@@ -97,12 +97,12 @@ describe( 'dependencies', function () {
       } );
     } );
 
-    describe( 'yarn', function () {
+    describe( 'npm', function () {
       it( 'downloads and installs packages', async function() {
         const err = await shellCommand( `./node_modules/.bin/gulp dependenciesYarn --gulpfile ${gulpfile} --cwd ${theme}` );
         expect( err.replace( /\n$/, '') ).to.equal( '' );
-        expect( fs.existsSync( `${process.cwd()}/${theme}/${yarnFolder}` ) ).to.equal( true );
-        expect( fs.existsSync( `${process.cwd()}/${theme}/yarn.lock` ) ).to.equal( true );
+        expect( fs.existsSync( `${process.cwd()}/${theme}/${npmFolder}` ) ).to.equal( true );
+        expect( fs.existsSync( `${process.cwd()}/${theme}/npm.lock` ) ).to.equal( true );
       } );
     } );
   } );
@@ -117,8 +117,8 @@ describe( 'dependencies', function () {
     beforeEach ( 'clean up test files', async function() {
       await del( `${theme}/${composerFolder}` );
       await del( `${theme}/${naturalDocsFolder}` );
-      await del( `${theme}/${yarnFolder}` );
-      await del( `${theme}/yarn.lock` );
+      await del( `${theme}/${npmFolder}` );
+      await del( `${theme}/npm.lock` );
       await del( `${os.tmpdir()}/wordpress`, { force: true } );
       await del( `${os.tmpdir()}/wordpress-tests-lib`, { force: true } );
     } );
