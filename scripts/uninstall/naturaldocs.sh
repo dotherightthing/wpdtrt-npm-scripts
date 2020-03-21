@@ -13,4 +13,4 @@
 
 echo "Uninstall NaturalDocs dependencies" \
 && cd $INIT_CWD \
-&& rm -r ../../tmp
+&& rm -r ../../tmp2
