@@ -200,10 +200,12 @@ Please add these lines to your `package.json`:
 
 ### Compiling
 
-`npm run compile:css` compiles:
+`npm run compile` compiles:
 
 1. `*.scss -> node-sass -> *.css`
 2. `*.css -> postcss -> autoprefixer -> pxtorem -> *.css`
+3. `backend.js -> backend-es5.js*`
+4. `frontend.js -> frontend-es5.js*`
 
 ### Linting
 
