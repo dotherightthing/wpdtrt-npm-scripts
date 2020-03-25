@@ -149,6 +149,10 @@ HTML Output Folder: ../../docs
 
 `npm install dotherightthing/wpdtrt-npm-scripts --save-dev`
 
+## Uninstallation
+
+`npm uninstall wpdtrt-npm-scripts`
+
 ### .gitignore
 
 Please add these lines to your `.gitignore`:
