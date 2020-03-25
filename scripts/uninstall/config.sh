@@ -12,9 +12,14 @@
 # ---
 
 echo "Uninstall config" \
-&& cd $INIT_CWD
-&& rm $npm_package_config_compile_js \
-&& cp $npm_package_config_compile_postcss \
-&& cp $npm_package_config_lint_css \
-&& cp $npm_package_config_lint_js \
-&& cp $npm_package_config_lint_php
+&& cd $INIT_CWD \
+&& rm ../../js/backend.es5 \
+&& rm ../../js/frontend.es5 \
+&& rm -r ../../css \
+&& rm -r ../../.babelrc \
+&& rm -r ../../.browserslistrc \
+&& rm -r ../../.eslintrc \
+&& rm -r ../../.sass-lint.yml \
+&& rm -r ../../phpcs.xml \
+&& rm -r ../../postcss.config.js \
+&& npm install --production
