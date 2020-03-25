@@ -13,13 +13,13 @@
 
 echo "Uninstall config" \
 && cd $INIT_CWD \
-&& rm ./js/backend.es5 \
-&& rm ./js/frontend.es5 \
-&& rm -r ./css \
-&& rm -r ./.babelrc \
-&& rm -r ./.browserslistrc \
-&& rm -r ./.eslintrc \
-&& rm -r ./.sass-lint.yml \
-&& rm -r ./phpcs.xml \
-&& rm -r ./postcss.config.js \
+&& rm -r css \
+&& rm -r .babelrc \
+&& rm -r .browserslistrc \
+&& rm -r .eslintrc \
+&& rm -r .sass-lint.yml \
+&& rm -r phpcs.xml \
+&& rm -r postcss.config.js \
+&& rm js/frontend.es5 \
+&& rm js/backend.es5 \
 && npm install --production
