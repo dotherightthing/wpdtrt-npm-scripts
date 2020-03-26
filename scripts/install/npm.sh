@@ -18,5 +18,6 @@ set -e
 # then cd into each fixture's directory and install its dependencies
 
 echo "Install npm dependencies" \
+&& cd $INIT_CWD \
 && npm install --non-interactive \
 && echo npm config set wpdtrt-npm-scripts:wpdtrt_target vendor/dotherightthing/wpdtrt-dbth

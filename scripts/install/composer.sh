@@ -18,5 +18,6 @@ set -e
 # then cd into each fixture's directory and install its dependencies
 
 echo "Install composer dependencies" \
+&& cd $INIT_CWD \
 && composer config -g github-oauth.github.com $GH_TOKEN \
 && composer install --prefer-dist --no-interaction --no-suggest --verbose
