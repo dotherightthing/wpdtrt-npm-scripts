@@ -24,6 +24,7 @@
         <exclude name="WordPress.CSRF.NonceVerification"/>
         <exclude name="WordPress.Files.FileName"/>
         <exclude name="WordPress.Functions.DontExtract"/>
+        <exclude name="WordPress.PHP.DevelopmentFunctions"/>
         <exclude name="WordPress.VIP.ValidatedSanitizedInput"/>
         <exclude name="WordPress.XSS.EscapeOutput"/>
     </rule>
