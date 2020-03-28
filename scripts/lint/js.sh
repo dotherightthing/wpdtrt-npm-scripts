@@ -12,4 +12,4 @@
 
 echo "Lint JS" \
 && cd $INIT_CWD \
-&& eslint './**/*.js'
+&& eslint './js/*.js'
