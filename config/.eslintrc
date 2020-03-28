@@ -2,8 +2,10 @@
   "parser": "babel-eslint",
   "extends": [
     "airbnb-base/legacy",
-    "plugin:chai-friendly/recommended",
     "plugin:cypress/recommended"
+  ],
+  "plugins": [
+    "chai-friendly"
   ],
   "ignorePatterns": [
     "*-es5.js",
@@ -28,6 +30,8 @@
     "object-curly-spacing": ["error", "always"],
     "space-in-parens": ["error", "always"],
     "no-use-before-define": "warn",
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "no-unused-expressions": 0,
+    "chai-friendly/no-unused-expressions": 2
   }
 }
