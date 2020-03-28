@@ -27,6 +27,7 @@ module.exports = {
       replace: false,
       mediaQuery: true,
       minPixelValue: 0
-    })
+    }),
+    require('postcss-typescale')
   ]
 }
