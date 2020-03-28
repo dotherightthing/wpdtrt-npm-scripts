@@ -45,6 +45,7 @@
     "normalize-html-whitespace": "^1.0.0",
     "postcss-cli": "^7.1.0",
     "postcss-pxtorem": "^4.0.1",
+    "postcss-typescale": "^0.2.3",
     "sass-lint": "^1.13.1",
     "tenon-node": "^0.4.1",
     "yargs": "^15.1.0"
