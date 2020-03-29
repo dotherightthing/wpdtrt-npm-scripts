@@ -174,6 +174,7 @@ docs/*
 !docs/.gitkeep
 node_modules
 phpcs.xml
+phpunit.xml.dist
 postcss.config.js
 vendor
 # End
