@@ -19,6 +19,7 @@ echo "Uninstall config" \
 && rm -r .eslintrc \
 && rm -r .sass-lint.yml \
 && rm -r phpcs.xml \
+&& rm -r phpunit.xml.dist \
 && rm -r postcss.config.js \
 && rm js/frontend-es5.js \
 && rm js/backend-es5.js \
