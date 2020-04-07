@@ -1,5 +1,9 @@
 module.exports = {
   plugins: [
+    require('postcss-custom-properties')({
+      importFrom: 'css/' + process.env.INIT_CWD.split('/').pop() + '-variables.css',
+      preserve: true
+    }),
     require('autoprefixer')({
       cascade: false
     }),
