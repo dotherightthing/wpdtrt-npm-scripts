@@ -1,7 +1,6 @@
 {
     "ext": "js,scss",
     "exec": "npm run compile",
-    "verbose": "true",
     "watch": [
       "js/!(*-es5).js",
       "scss/**/!(_wpdtrt-import).scss"
