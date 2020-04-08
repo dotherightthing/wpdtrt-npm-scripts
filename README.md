@@ -173,6 +173,7 @@ css
 docs/*
 !docs/.gitkeep
 node_modules
+nodemon.json
 phpcs.xml
 phpunit.xml.dist
 postcss.config.js
