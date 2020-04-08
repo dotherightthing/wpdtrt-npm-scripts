@@ -197,7 +197,7 @@ Please add these lines to your `package.json`:
     "release": "npm run release --prefix $npm_package_config_wpdtrt_npm_scripts",
     "test": "npm run test --prefix $npm_package_config_wpdtrt_npm_scripts",
     "version": "npm run version --prefix $npm_package_config_wpdtrt_npm_scripts",
-    "watch": "npm run watch --prefix $npm_package_config_wpdtrt_npm_scripts"
+    "watch": "nodemon"
   },
 ```
 
