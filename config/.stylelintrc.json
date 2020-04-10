@@ -1,7 +1,7 @@
 {
-    "extends": "stylelint-config-sass-guidelines",
     "plugins": [
         "stylelint-order",
+        "stylelint-scss",
         "stylelint-selector-bem-pattern"
 	],
     "rules": {
@@ -179,6 +179,7 @@
             },
             "utilitySelectors": "^\\.util-[a-z]+$"
         },
+        "selector-class-pattern": null,
         "selector-no-qualifying-type": null,
         "string-quotes": "single"
 	}
