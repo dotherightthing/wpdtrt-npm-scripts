@@ -4,7 +4,7 @@
  * @return Release name
  */
 
-const getReleaseName = () => {
+const releaseName = () => {
     let ci_package_release_tag = '';
 
     if (typeof process.env.TRAVIS !== 'undefined') {
@@ -20,4 +20,4 @@ const getReleaseName = () => {
     return ci_package_release_name;
 };
 
-exports.getReleaseName = getReleaseName;
+exports.default = releaseName;

@@ -6,7 +6,7 @@
 
 const getRemainingGithubApiCalls = () => {
     const ghRateLimit = require( 'gh-rate-limit' );
-    const formatLog = require('../helpers/format-log.js');
+    const formatLog = require('../helpers/format-log.js').default;
     
     const token = process.env.GH_TOKEN ? process.env.GH_TOKEN : '';
     let msg;

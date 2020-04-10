@@ -4,12 +4,12 @@
  */
 
 const JSZip = require('jszip');
-const formatLog = require('../helpers/format-log.js');
-const releaseName = require('../helpers/release-name.js');
+const formatLog = require('../helpers/format-log.js').default;
+const releaseName = require('../helpers/release-name.js').default;
 
 const createZip = () => {
     const ci = (typeof process.env.CI !== 'undefined');
-    const folderName = releaseName.getReleaseName();
+    const folderName = releaseName();
     
     if ( !ci ) {
         formatLog([
