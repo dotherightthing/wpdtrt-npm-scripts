@@ -16,4 +16,4 @@ set -e
 
 node scripts/helpers/format-log.js 'lint' 'css' \
 && cd $INIT_CWD \
-&& stylelint '**/*.scss' --verbose --no-exit
+&& stylelint '**/*.scss'
