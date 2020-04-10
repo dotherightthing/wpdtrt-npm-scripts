@@ -49,6 +49,7 @@
     "postcss-typescale": "^0.2.3",
     "stylelint": "^13.3.1",
     "stylelint-config-sass-guidelines": "^7.0.0",
+    "stylelint-order": "^4.0.0",
     "tenon-node": "^0.4.1",
     "yargs": "^15.1.0"
   },
