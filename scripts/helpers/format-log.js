@@ -35,6 +35,6 @@ const log = (args) => {
     console.log(msg);
     console.log('--------------------------------------------------------------------------------');
     console.log(' ');
-});
+};
 
 exports.log = log;

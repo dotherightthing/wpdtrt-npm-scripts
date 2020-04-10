@@ -18,6 +18,6 @@ const getReleaseName = () => {
     let ci_package_release_name = `release${ci_package_release_tag}.zip`;
     
     return ci_package_release_name;
-});
+};
 
 exports.getReleaseName = getReleaseName;

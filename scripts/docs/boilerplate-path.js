@@ -18,10 +18,10 @@
  *   (string) pluginName
  */
 const getPluginName = () => {
-  // pop() - remove the last element from the path array and return it
-  const pluginName = process.cwd().split( '/' ).pop();
+    // pop() - remove the last element from the path array and return it
+    const pluginName = process.cwd().split( '/' ).pop();
 
-  return pluginName;
+    return pluginName;
 }
 
 /**
@@ -33,10 +33,10 @@ const getPluginName = () => {
  *  (boolean) - True if we're in the boilerplate
  */
 const boilerplateIs = () => {
-  const pluginName = getPluginName();
+    const pluginName = getPluginName();
 
-  return ( pluginName === 'wpdtrt-plugin-boilerplate' );
-}
+    return ( pluginName === 'wpdtrt-plugin-boilerplate' );
+};
 
 /**
  * Function: boilerplatePath
@@ -53,13 +53,13 @@ const boilerplateIs = () => {
  * ---
  */
 const getBoilerplatePath = () => {
-  let path = '';
+    let path = '';
 
-  if ( !boilerplateIs() ) {
-    path = 'vendor/dotherightthing/wpdtrt-plugin-boilerplate/';
-  }
+    if ( !boilerplateIs() ) {
+        path = 'vendor/dotherightthing/wpdtrt-plugin-boilerplate/';
+    }
 
-  return path;
-}
+    return path;
+};
 
 exports.getBoilerplatePath = getBoilerplatePath;
