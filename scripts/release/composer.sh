@@ -1,1 +1,0 @@
-# scripts/postuninstall/composer.sh
