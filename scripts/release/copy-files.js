@@ -11,7 +11,7 @@ const ci = (typeof process.env.CI !== 'undefined');
 const folderName = releaseName.getReleaseName();
 
 if ( !ci ) {
-    formatLog.log([
+    formatLog([
         'release',
         'copy files',
         'skipping - not CI'
@@ -19,7 +19,7 @@ if ( !ci ) {
 
     return;
 } else {
-    formatLog.log([
+    formatLog([
         'release',
         'copy files',
         `to /${folderName}`

@@ -12,7 +12,7 @@ const createZip = () => {
     const folderName = releaseName.getReleaseName();
     
     if ( !ci ) {
-        formatLog.log([
+        formatLog([
             'release',
             'create zip',
             'skipping - not CI'
@@ -20,7 +20,7 @@ const createZip = () => {
     
         return;
     } else {
-        formatLog.log([
+        formatLog([
             'release',
             'create zip'
             `from /${folderName}`
@@ -50,7 +50,7 @@ const createZip = () => {
         // JSZip generates a readable stream with a "end" event,
         // but is piped here in a writable stream which emits a "finish" event.
     
-        formatLog.log([
+        formatLog([
             'release',
             'created zip'
             `/${folderName}.zip`

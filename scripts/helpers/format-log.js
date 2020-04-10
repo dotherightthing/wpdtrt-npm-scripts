@@ -14,17 +14,11 @@
  */
 const log = (args) => {
 
-    let _args = args;
-
-    if (!_args) {
-        _args = process.argv.slice(2);
-    }
-
     // first arg is path to nodejs
     // second arg is the location of the script being executed
-    const category = _args[0] ? `${args[0]}` : '';
-    const task = _args[1] ? `: ${args[1]}` : '';
-    const description = _args[2] ? ` (${args[2]})` : '';
+    const category = args[0] ? `${args[0]}` : '';
+    const task = args[1] ? `: ${args[1]}` : '';
+    const description = args[2] ? ` (${args[2]})` : '';
     const msg = (`wpdtrt-npm-scripts - ${category}${task}${description}`).toLowerCase();
 
     console.log(' ');
@@ -34,4 +28,10 @@ const log = (args) => {
     console.log(' ');
 };
 
-exports.log = log;
+exports.default = log;
+
+const shellArgs = process.argv.slice(2);
+
+if (shellArgs.length) {
+    log(shellArgs);
+}

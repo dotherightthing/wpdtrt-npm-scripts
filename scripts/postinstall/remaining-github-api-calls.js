@@ -17,7 +17,7 @@ const getRemainingGithubApiCalls = () => {
             token: token
         } ).then(status => {
             msg = `${status.core.remaining}/${status.core.limit} API calls remaining`;
-            formatLog.log([
+            formatLog([
                 'postinstall',
                 'Github API rate limit check',
                 msg
@@ -26,7 +26,7 @@ const getRemainingGithubApiCalls = () => {
     
     } else {
         msg = 'skipping - GH_TOKEN not found)';
-        formatLog.log([
+        formatLog([
             'postinstall',
             'Github API rate limit check',
             msg
