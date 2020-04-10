@@ -5,7 +5,7 @@
  */
 
 const ghRateLimit = require( 'gh-rate-limit' );
-const formatLog = require('./scripts/helpers/format-log.js');
+const formatLog = require('./format-log.js');
 
 const token = process.env.GH_TOKEN ? process.env.GH_TOKEN : '';
 let msg;

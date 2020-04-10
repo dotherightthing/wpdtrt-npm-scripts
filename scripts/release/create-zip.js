@@ -4,8 +4,8 @@
  */
 
 const JSZip = require('jszip');
-const formatLog = require('./scripts/helpers/format-log.js');
-const releaseName = require('./scripts/helpers/release-name.js');
+const formatLog = require('./format-log.js');
+const releaseName = require('./release-name.js');
 
 const ci = (typeof process.env.CI !== 'undefined');
 const folderName = releaseName.getReleaseName();
