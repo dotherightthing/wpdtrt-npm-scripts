@@ -37,6 +37,7 @@
     "eslint-plugin-json": "^1.4.0",
     "eslint-plugin-markdown": "^1.0.0",
     "gh-rate-limit": "^1.0.0",
+    "gulp-wpdtrt-plugin-bump": "github:dotherightthing/gulp-wpdtrt-plugin-bump",
     "include-media": "^1.4.9",
     "jszip": "^3.3.0",
     "node-sass": "^4.13.1",
@@ -77,7 +78,8 @@
     "test": "./scripts/test/npm-install.sh && mocha --recursive \"./test/**/*.spec.js\" --full-trace",
     "postinstall": "./scripts/postinstall/config.sh && ./scripts/postinstall/composer.sh && ./scripts/postinstall/npm.sh",
     "postuninstall": "./scripts/postuninstall/config.sh && ./scripts/postuninstall/composer.sh && ./scripts/postuninstall/dependencies.sh",
-    "reinstall": "chmod a+x scripts/**/*.sh && ./scripts/postinstall/config.sh && ./scripts/postinstall/composer.sh"
+    "reinstall": "chmod a+x scripts/**/*.sh && ./scripts/postinstall/config.sh && ./scripts/postinstall/composer.sh",
+    "version": "node ./scripts/version/plugin-bump.js"
   },
   "repository": {
     "type": "git",
