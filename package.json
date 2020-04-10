@@ -62,7 +62,7 @@
     "preinstall": "chmod a+x scripts/**/*.sh && node ./scripts/preinstall/remaining-github-api-calls.js",
     "pretest": "./scripts/pretest/npm-test.sh && ./scripts/pretest/fixtures.sh",
     "compile:css": "./scripts/compile/css.sh",
-    "compile:js": " ./scripts/compile/js.sh",
+    "compile:js": "./scripts/compile/js.sh",
     "compile": "./scripts/compile/css.sh && ./scripts/compile/js.sh",
     "docs:naturaldocs": "./scripts/docs/naturaldocs.sh",
     "docs": "./scripts/docs/naturaldocs.sh",

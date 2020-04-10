@@ -177,6 +177,8 @@ nodemon.json
 phpcs.xml
 phpunit.xml.dist
 postcss.config.js
+release-*
+release-*.zip
 vendor
 # End
 ```
@@ -190,9 +192,7 @@ Please add these lines to your `package.json`:
     "wpdtrt_npm_scripts": "./node_modules/wpdtrt-npm-scripts"
   },
   "scripts": {
-    "build": "npm run build --prefix $npm_package_config_wpdtrt_npm_scripts",
     "compile": "npm run compile --prefix $npm_package_config_wpdtrt_npm_scripts",
-    "dependencies": "npm run dependencies --prefix $npm_package_config_wpdtrt_npm_scripts",
     "docs": "npm run docs --prefix $npm_package_config_wpdtrt_npm_scripts",
     "lint": "npm run lint --prefix $npm_package_config_wpdtrt_npm_scripts",
     "release": "npm run release --prefix $npm_package_config_wpdtrt_npm_scripts",
