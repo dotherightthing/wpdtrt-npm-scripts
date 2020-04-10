@@ -7,6 +7,8 @@
  *  => wpdtrt-npm-scripts - preinstall: composer (install php dependencies)
  */
 
+const wrap = require('wordwrap')(80);
+
 /**
  * log
  * 
@@ -16,15 +18,16 @@ const log = (args) => {
 
     // first arg is path to nodejs
     // second arg is the location of the script being executed
-    const dateTime = `~ ${new Date().toLocaleString()} ~ `;
+    const dateTime = `${new Date().toLocaleString()}`;
     const category = args[0] ? `${args[0]}` : '';
     const task = args[1] ? `: ${args[1]}` : '';
     const description = args[2] ? ` (${args[2]})` : '';
-    const msg = (`wpdtrt-npm-scripts ${dateTime}${category}${task}${description}`).toLowerCase();
+    const msg = (`${category}${task}${description}`).toLowerCase();
 
     console.log(' ');
     console.log('--------------------------------------------------------------------------------');
-    console.log(msg);
+    console.log('wpdtrt-npm-scripts | ${dateTime}');
+    console.log(wrap(msg));
     console.log('--------------------------------------------------------------------------------');
     console.log(' ');
 };

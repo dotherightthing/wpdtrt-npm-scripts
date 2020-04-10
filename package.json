@@ -52,6 +52,7 @@
     "stylelint-order": "^4.0.0",
     "stylelint-selector-bem-pattern": "^2.1.0",
     "tenon-node": "^0.4.1",
+    "wordwrap": "^1.0.0",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
