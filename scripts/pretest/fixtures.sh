@@ -17,26 +17,26 @@ set -e
 # install the fixtures specified in composer.json
 # then cd into each fixture's directory and install its dependencies
 
-node scripts/helpers/log.js 'pretest' 'test' 'install fixtures' \
+node scripts/helpers/format-log.js 'pretest' 'test' 'install fixtures' \
 && composer install --prefer-dist --no-interaction --no-suggest --verbose \
-node scripts/helpers/log.js 'pretest' 'test' 'install wpdtrt dependencies' \
+node scripts/helpers/format-log.js 'pretest' 'test' 'install wpdtrt dependencies' \
 && cd ./vendor/dotherightthing/wpdtrt \
 && composer install --prefer-dist --no-interaction --no-suggest --verbose \
 && npm install --non-interactive \
-node scripts/helpers/log.js 'pretest' 'test' 'install wpdtrt dependencies' \
+node scripts/helpers/format-log.js 'pretest' 'test' 'install wpdtrt dependencies' \
 && cd ../wpdtrt-dbth \
 && composer install --prefer-dist --no-interaction --no-suggest --verbose \
 && npm install --non-interactive \
 && echo "---" \
-node scripts/helpers/log.js 'pretest' 'test' 'install wpdtrt-gallery dependencies' \
+node scripts/helpers/format-log.js 'pretest' 'test' 'install wpdtrt-gallery dependencies' \
 && cd ../wpdtrt-gallery \
 && composer config -g github-oauth.github.com $GH_TOKEN \
 && composer install --prefer-dist --no-interaction --no-suggest --verbose \
 && npm install --non-interactive \
-node scripts/helpers/log.js 'pretest' 'test' 'install wpdtrt-plugin-boilerplate dependencies' \
+node scripts/helpers/format-log.js 'pretest' 'test' 'install wpdtrt-plugin-boilerplate dependencies' \
 && cd ../wpdtrt-plugin-boilerplate \
 && composer install --prefer-dist --no-interaction --no-suggest --verbose \
 && npm install --non-interactive \
-node scripts/helpers/log.js 'pretest' 'test' 'override config paths for testing' \
+node scripts/helpers/format-log.js 'pretest' 'test' 'override config paths for testing' \
 && echo npm config set wpdtrt-npm-scripts:wpdtrt_target vendor/dotherightthing/wpdtrt-dbth \
 && echo "Install complete"

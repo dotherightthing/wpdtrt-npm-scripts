@@ -15,10 +15,8 @@
 # v: print shell input lines as they are read (including all comments!)
 set -e
 
-node scripts/helpers/log.js 'postuninstall' 'dependencies' 'remove development dependencies files from host repository' \
+node scripts/helpers/format-log.js 'postuninstall' 'dependencies' 'remove development dependencies files from host repository' \
 && cd $INIT_CWD \
 && npm uninstall eslint-config-airbnb-base \
 && npm uninstall eslint-plugin-chai-friendly \
-&& npm uninstall eslint-plugin-cypress \
-&& rm -r ../../node_modules \
-&& rm -r ../../vendor
+&& npm uninstall eslint-plugin-cypress

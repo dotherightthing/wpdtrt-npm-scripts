@@ -15,7 +15,7 @@
 # v: print shell input lines as they are read (including all comments!)
 set -e
 
-node scripts/helpers/log.js 'postuninstall' 'config' 'remove files from host repository' \
+node scripts/helpers/format-log.js 'postuninstall' 'config' 'remove files from host repository' \
 && cd $INIT_CWD \
 && rm -r css \
 && rm -r .babelrc \

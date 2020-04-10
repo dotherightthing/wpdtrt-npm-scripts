@@ -5,21 +5,29 @@
  */
 
 const ghRateLimit = require( 'gh-rate-limit' );
-const token = process.env.GH_TOKEN ? process.env.GH_TOKEN : '';
-let msg = 'preinstall: ';
+const formatLog = require('./scripts/helpers/format-log');
 
-msg += 'Github API rate limit check';
+const token = process.env.GH_TOKEN ? process.env.GH_TOKEN : '';
+let msg;
 
 if ( token !== '' ) {
 
     ghRateLimit( {
         token: token
     } ).then(status => {
-        msg += ` (${status.core.remaining}/${status.core.limit} API calls remaining)`;
-        console.log(msg);
+        msg = `${status.core.remaining}/${status.core.limit} API calls remaining`;
+        formatLog.log([
+            'preinstall',
+            'Github API rate limit check',
+            msg
+        ]);
     } );
 
 } else {
-    msg += ' (GH_TOKEN not found)';
-    console.log(msg);
+    msg = 'skipping - GH_TOKEN not found)';
+    formatLog.log([
+        'preinstall',
+        'Github API rate limit check',
+        msg
+    ]);
 }

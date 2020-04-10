@@ -14,6 +14,6 @@
 # v: print shell input lines as they are read (including all comments!)
 set -e
 
-node scripts/helpers/log.js 'lint' 'js' \
+node scripts/helpers/format-log.js 'lint' 'js' \
 && cd $INIT_CWD \
 && eslint './js/*.js'

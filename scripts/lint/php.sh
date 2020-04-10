@@ -14,7 +14,7 @@
 # v: print shell input lines as they are read (including all comments!)
 set -e
 
-node scripts/helpers/log.js 'lint' 'php' \
+node scripts/helpers/format-log.js 'lint' 'php' \
 && cd $INIT_CWD \
 && composer validate \
 && ./vendor/bin/phpcs **/*.php --ignore=autoload.php,docs/*,node_modules/*,vendor/*,wp-content/* --standard=phpcs.xml

@@ -14,7 +14,7 @@
 # v: print shell input lines as they are read (including all comments!)
 set -e
 
-node scripts/helpers/log.js 'compile' 'css' 'scss to css, postcss' \
+node scripts/helpers/format-log.js 'compile' 'css' 'scss to css, postcss' \
 && cd $INIT_CWD \
 && if [ -z ${CI+x} ]; then suffix=wp; else suffix=ci; fi \
 && echo "@import 'wpdtrt/dependencies-"${suffix}"';" > scss/_wpdtrt-import.scss \
