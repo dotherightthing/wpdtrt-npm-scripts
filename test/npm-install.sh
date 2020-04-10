@@ -1,9 +1,12 @@
 #!/bin/bash
 
-# File: ./install/composer.sh
+# File: ./scripts/test/npm-install.sh
 #
 # Note:
 # chmod a+x = Change access permissions of this file, to 'e[x]ecutable' for '[a]ll users'
+#
+# TODO:
+# https://github.com/dotherightthing/wpdtrt-npm-scripts/issues/7
 #
 # Example:
 # ---
@@ -17,7 +20,7 @@ set -e
 # install the fixtures specified in composer.json
 # then cd into each fixture's directory and install its dependencies
 
-echo "Install composer dependencies" \
+node scripts/helpers/log.js 'test' 'install' 'install npm dependencies' \
 && cd $INIT_CWD \
-&& composer config -g github-oauth.github.com $GH_TOKEN \
-&& composer install --prefer-dist --no-interaction --no-suggest --verbose
+&& npm install --non-interactive \
+&& echo npm config set wpdtrt-npm-scripts:wpdtrt_target vendor/dotherightthing/wpdtrt-dbth

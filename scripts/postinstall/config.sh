@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# File: ./scripts/docs/naturaldocs.sh
+# File: ./scripts/postinstall/config.sh
 #
 # Note:
 # chmod a+x = Change access permissions of this file, to 'e[x]ecutable' for '[a]ll users'
@@ -14,6 +14,5 @@
 # v: print shell input lines as they are read (including all comments!)
 set -e
 
-node scripts/helpers/log.js 'docs' 'generate documentation' 'naturaldocs' \
-&& cd $INIT_CWD \
-&& mono bin/Natural\ Docs/NaturalDocs.exe ./config/naturaldocs
+node scripts/helpers/log.js 'postinstall' 'config' 'copy files to host repository' \
+&& cp -a config/. $INIT_CWD

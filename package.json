@@ -60,8 +60,8 @@
     "return_path": "./"
   },
   "scripts": {
-    "preinstall": "chmod a+x scripts/**/*.sh && node ./scripts/install/remaining-github-api-calls.js",
-    "pretest": "./scripts/install/npm-test.sh && ./scripts/install/fixtures.sh",
+    "preinstall": "chmod a+x scripts/**/*.sh && node ./scripts/preinstall/remaining-github-api-calls.js",
+    "pretest": "./scripts/pretest/npm-test.sh && ./scripts/pretest/fixtures.sh",
     "compile:css": "./scripts/compile/css.sh",
     "compile:js": " ./scripts/compile/js.sh",
     "compile": "./scripts/compile/css.sh && ./scripts/compile/js.sh",
@@ -75,10 +75,10 @@
     "test:dependencies": "mocha --recursive \"./test/**/dependencies.spec.js\" --full-trace",
     "test:documentation": "mocha --recursive \"./test/**/documentation.spec.js\" --full-trace",
     "test:lint": "mocha --recursive \"./test/**/lint.spec.js\" --full-trace",
-    "test": "./scripts/install/npm.sh && mocha --recursive \"./test/**/*.spec.js\" --full-trace",
-    "postinstall": "./scripts/install/config.sh && ./scripts/install/composer.sh",
-    "postuninstall": "./scripts/uninstall/config.sh && ./scripts/uninstall/dependencies.sh",
-    "reinstall": "chmod a+x scripts/**/*.sh && ./scripts/install/config.sh && ./scripts/install/composer.sh"
+    "test": "./scripts/test/npm-install.sh && mocha --recursive \"./test/**/*.spec.js\" --full-trace",
+    "postinstall": "./scripts/postinstall/config.sh && ./scripts/postinstall/composer.sh",
+    "postuninstall": "./scripts/postuninstall/config.sh && ./scripts/postuninstall/dependencies.sh",
+    "reinstall": "chmod a+x scripts/**/*.sh && ./scripts/postinstall/config.sh && ./scripts/postinstall/composer.sh"
   },
   "repository": {
     "type": "git",

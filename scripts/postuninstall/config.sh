@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# File: ./uninstall/config.sh
+# File: ./scripts/postuninstall/config.sh
 #
 # Note:
 # chmod a+x = Change access permissions of install.sh, to 'e[x]ecutable' for '[a]ll users'
@@ -11,7 +11,11 @@
 # sh install.sh
 # ---
 
-echo "Uninstall config" \
+# e: exit the script if any statement returns a non-true return value
+# v: print shell input lines as they are read (including all comments!)
+set -e
+
+node scripts/helpers/log.js 'postuninstall' 'config' 'remove files from host repository' \
 && cd $INIT_CWD \
 && rm -r css \
 && rm -r .babelrc \

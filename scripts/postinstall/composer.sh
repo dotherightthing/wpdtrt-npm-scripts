@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# File: ./install/npm.sh
+# File: ./scripts/postinstall/composer.sh
 #
 # Note:
 # chmod a+x = Change access permissions of this file, to 'e[x]ecutable' for '[a]ll users'
@@ -17,7 +17,7 @@ set -e
 # install the fixtures specified in composer.json
 # then cd into each fixture's directory and install its dependencies
 
-echo "Install npm dependencies" \
+node scripts/helpers/log.js 'postinstall' 'composer' 'install php dependencies' \
 && cd $INIT_CWD \
-&& npm install --non-interactive \
-&& echo npm config set wpdtrt-npm-scripts:wpdtrt_target vendor/dotherightthing/wpdtrt-dbth
+&& composer config -g github-oauth.github.com $GH_TOKEN \
+&& composer install --prefer-dist --no-interaction --no-suggest --verbose
