@@ -1,13 +1,15 @@
 {
     "extends": "stylelint-config-sass-guidelines",
     "plugins": [
-		"stylelint-order"
+        "stylelint-order",
+        "stylelint-selector-bem-pattern"
 	],
     "rules": {
         "indentation": 4,
         "max-nesting-depth": 7,
+        "no-invalid-double-slash-comments": null,
         "number-leading-zero": null,
-        "order/properties-alphabetical-order": false,
+        "order/properties-alphabetical-order": null,
 		"order/properties-order": [
             "content",
             "display",
@@ -168,7 +170,16 @@
             "page",
             "set-link-source",
             "unicode-bidi"
-		],
-        "string": "single"
+        ],
+        "plugin/selector-bem-pattern": {
+            "componentName": "[A-Z]+",
+            "componentSelectors": {
+              "initial": "^\\.{componentName}(?:-[a-z]+)?$",
+              "combined": "^\\.combined-{componentName}-[a-z]+$"
+            },
+            "utilitySelectors": "^\\.util-[a-z]+$"
+        },
+        "selector-no-qualifying-type": null,
+        "string-quotes": "single"
 	}
 }
