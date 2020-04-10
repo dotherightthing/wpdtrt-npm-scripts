@@ -59,7 +59,7 @@
     "return_path": "./"
   },
   "scripts": {
-    "preinstall": "chmod a+x scripts/**/*.sh && node ./scripts/preinstall/remaining-github-api-calls.js",
+    "preinstall": "chmod a+x scripts/**/*.sh",
     "pretest": "./scripts/pretest/npm-test.sh && ./scripts/pretest/fixtures.sh",
     "compile:css": "./scripts/compile/css.sh",
     "compile:js": "./scripts/compile/js.sh",
@@ -76,7 +76,7 @@
     "test:documentation": "mocha --recursive \"./test/**/documentation.spec.js\" --full-trace",
     "test:lint": "mocha --recursive \"./test/**/lint.spec.js\" --full-trace",
     "test": "./scripts/test/npm-install.sh && mocha --recursive \"./test/**/*.spec.js\" --full-trace",
-    "postinstall": "./scripts/postinstall/config.sh && ./scripts/postinstall/composer.sh && ./scripts/postinstall/npm.sh",
+    "postinstall": "./scripts/postinstall/config.sh && ./scripts/postinstall/composer.sh && node ./scripts/postinstall/remaining-github-api-calls.js && ./scripts/postinstall/npm.sh",
     "postuninstall": "./scripts/postuninstall/config.sh && ./scripts/postuninstall/composer.sh && ./scripts/postuninstall/dependencies.sh",
     "reinstall": "chmod a+x scripts/**/*.sh && ./scripts/postinstall/config.sh && ./scripts/postinstall/composer.sh",
     "version": "node ./scripts/version/plugin-bump.js"

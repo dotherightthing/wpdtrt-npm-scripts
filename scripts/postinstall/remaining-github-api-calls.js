@@ -1,5 +1,5 @@
 /**
- * @file ./scripts/preinstall/remaining-github-api-calls.js
+ * @file ./scripts/postinstall/remaining-github-api-calls.js
  * @summary Expose the Github API rate limit to aid in debugging failed builds
  * @return {Object} Rate Limit object
  */
@@ -17,7 +17,7 @@ if ( token !== '' ) {
     } ).then(status => {
         msg = `${status.core.remaining}/${status.core.limit} API calls remaining`;
         formatLog.log([
-            'preinstall',
+            'postinstall',
             'Github API rate limit check',
             msg
         ]);
@@ -26,7 +26,7 @@ if ( token !== '' ) {
 } else {
     msg = 'skipping - GH_TOKEN not found)';
     formatLog.log([
-        'preinstall',
+        'postinstall',
         'Github API rate limit check',
         msg
     ]);
