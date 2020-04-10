@@ -9,7 +9,7 @@ const getRemainingGithubApiCalls = () => {
 
     // console.log('cwd = ' + process.cwd()); // /Users/dan/Websites/wpdtrt-dbth/node_modules/wpdtrt-npm-scripts
     
-    const formatLog = require('/scripts/helpers/format-log.js');
+    const formatLog = require('../helpers/format-log.js');
     
     const token = process.env.GH_TOKEN ? process.env.GH_TOKEN : '';
     let msg;
