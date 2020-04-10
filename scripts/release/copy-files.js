@@ -4,10 +4,11 @@
  */
 
 const copy = require('copy');
-const formatLog = require('./format-log.js');
-const releaseName = require('./release-name.js');
+const formatLog = require('../helpers/format-log.js');
+const releaseName = require('../helpers/release-name.js');
 
 const ci = (typeof process.env.CI !== 'undefined');
+const folderName = releaseName.getReleaseName();
 
 if ( !ci ) {
     formatLog.log([
@@ -24,8 +25,6 @@ if ( !ci ) {
         `to /${folderName}`
     ]);
 }
-
-const folderName = releaseName.getReleaseName();
 
 // Release files are those that are required
 // to use the package as a WP Parent Theme

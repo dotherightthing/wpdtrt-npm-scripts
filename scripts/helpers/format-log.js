@@ -25,10 +25,7 @@ const log = (args) => {
     const category = _args[0] ? `${args[0]}` : '';
     const task = _args[1] ? `: ${args[1]}` : '';
     const description = _args[2] ? ` (${args[2]})` : '';
-
-    // const packageJson = require(`${path.resolve( process.cwd() )}/package.json`);
-    // const hostName = packageJson.name;
-    const msg = (`wpdtrt-npm-scripts - ${hostName} - ${category}${task}${description}`).toLowerCase();
+    const msg = (`wpdtrt-npm-scripts - ${category}${task}${description}`).toLowerCase();
 
     console.log(' ');
     console.log('--------------------------------------------------------------------------------');
