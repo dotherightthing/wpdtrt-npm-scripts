@@ -15,6 +15,8 @@ const task = args[1] ? `: ${args[1]}` : '';
 const description = args[2] ? ` (${args[2]})` : '';
 const msg = (`${category}${task}${description}`).toLowerCase();
 
-console.log('........................................');
+console.log(' ');
+console.log('--------------------------------------------------------------------------------');
 console.log(msg);
-console.log('........................................');
+console.log('--------------------------------------------------------------------------------');
+console.log(' ');
