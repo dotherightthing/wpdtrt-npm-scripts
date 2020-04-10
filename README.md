@@ -163,6 +163,8 @@ Please add these lines to your `.gitignore`:
 .browserslistrc
 .eslintrc
 .sass-lint.yml
+.stylelintignore
+.stylelintrc.json
 *-es5.js
 _wpdtrt-import.scss
 bin/Natural\ Docs
@@ -223,7 +225,7 @@ Note:
 `npm run lint` lints:
 
 1. `composer.json`
-2. `*.scss -> sass-lint`
+2. `*.scss -> stylelint`
 3. `*.js -> eslint`
 4. `*.php -> phpcs`
 

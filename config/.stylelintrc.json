@@ -4,8 +4,10 @@
 		"stylelint-order"
 	],
     "rules": {
-        "indentation": "tab",
+        "indentation": 4,
+        "max-nesting-depth": 7,
         "number-leading-zero": null,
+        "order/properties-alphabetical-order": false,
 		"order/properties-order": [
             "content",
             "display",

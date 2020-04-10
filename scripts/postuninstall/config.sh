@@ -21,6 +21,7 @@ node scripts/helpers/format-log.js 'postuninstall' 'config' 'remove files from h
 && rm -r .babelrc \
 && rm -r .browserslistrc \
 && rm -r .eslintrc \
+&& rm -r .stylelintignore \
 && rm -r .stylelintrc.json \
 && rm -r phpcs.xml \
 && rm -r nodemon.json \
