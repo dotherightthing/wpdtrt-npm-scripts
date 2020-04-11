@@ -23,7 +23,6 @@
     "@babel/core": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/register": "^7.5.5",
-    "adm-zip": "^0.4.13",
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.3",
     "core-js": "^3.2.1",
@@ -39,7 +38,6 @@
     "gh-rate-limit": "^1.0.0",
     "gulp-wpdtrt-plugin-bump": "github:dotherightthing/gulp-wpdtrt-plugin-bump",
     "include-media": "^1.4.9",
-    "jszip": "^3.3.0",
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
     "normalize-html-whitespace": "^1.0.0",
@@ -55,7 +53,7 @@
     "tenon-node": "^0.4.1",
     "trash": "^6.1.1",
     "wordwrap": "^1.0.0",
-    "yargs": "^15.1.0"
+    "zip-folder": "^1.0.0"
   },
   "devDependencies": {
     "chai": "^4.2.0",

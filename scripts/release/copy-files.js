@@ -9,7 +9,7 @@ const numeral = require('numeral');
 const package = require('../../../../package.json');
 const releaseName = require('../helpers/release-name.js').default;
 
-const ci = true; // (typeof process.env.CI !== 'undefined');
+const ci = (typeof process.env.CI !== 'undefined');
 const folderName = releaseName();
 
 if ( !ci ) {

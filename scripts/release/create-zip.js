@@ -3,10 +3,10 @@
  * @summary Create a zip file from the release directory.
  */
 
-const JSZip = require('jszip');
 const formatLog = require('../helpers/format-log.js').default;
 const releaseName = require('../helpers/release-name.js').default;
 const trash = require('trash');
+const zipFolder = require('zip-folder');
 
 const createZip = () => {
     const ci = (typeof process.env.CI !== 'undefined');
@@ -23,7 +23,7 @@ const createZip = () => {
     } else {
         formatLog([
             'release',
-            'create zip'
+            'create zip',
             `from /${folderName}`
         ]);
     }
@@ -37,32 +37,33 @@ const createZip = () => {
     } else if (typeof process.env.BITBUCKET_TAG !== 'undefined') {
         ci_package_release_tag = `-${process.env.BITBUCKET_TAG}`;
     }
-    
-    let zip = new JSZip();
-    zip.folder(folderName);
-    
-    zip
-    .generateNodeStream({
-        type: 'nodebuffer',
-        streamFiles: true
-    })
-    .pipe(fs.createWriteStream(`${folderName}.zip`))
-    .on('finish', function () {
-        // JSZip generates a readable stream with a "end" event,
-        // but is piped here in a writable stream which emits a "finish" event.
-    
-        formatLog([
-            'release',
-            'created zip'
-            `/${folderName}.zip`
-        ]);
 
-        // send source folder to trash
-        (async () => {
-            await trash([
-                folderName
+    zipFolder(`../../${folderName}`, `../../${folderName}.zip`, (err) => {
+        if(err) {
+            formatLog([
+                'release',
+                'zip creation failed',
+                err
             ]);
-        })();
+        } else {
+            formatLog([
+                'release',
+                'created zip',
+                `/${folderName}.zip`
+            ]);
+
+            // send source folder to trash
+
+            (async () => {
+                await trash([`../../${folderName}`]);
+            })();
+
+            formatLog([
+                'release',
+                'deleted source folder',
+                `/${folderName}`
+            ]);
+        }
     });
 };
 
