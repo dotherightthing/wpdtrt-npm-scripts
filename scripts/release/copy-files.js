@@ -42,6 +42,7 @@ let releaseFiles = [
     // Theme Images
     './images/**/*',
     // Theme JS
+    './js/twentysixteen.js',
     './js/*-es5.js',
     // Theme Logic
     './library/**/*.php',
