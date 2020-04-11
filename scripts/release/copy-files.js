@@ -109,14 +109,14 @@ dependencyNamesFiltered.forEach((name, index) => {
         cwd: '../../',
         parents: true
     }).on('progress', progress => {
-
-        const percent = numeral(progress.percent).format('0%');
-        const size = numeral(progress.completedSize).format('0.0 b');
-
-        formatLog([
-            'release',
-            'copying files',
-            `${progress.completedFiles}/${progress.totalFiles} | ${percent} | ${size}`
-        ]);
+        if (progress === 1) {
+            const size = numeral(progress.completedSize).format('0.0 b');
+    
+            formatLog([
+                'release',
+                'copy files',
+                `complete: ${folderName}.zip contains ${progress.totalFiles} files and is ${size}`
+            ]);
+        }
     });
 })();
