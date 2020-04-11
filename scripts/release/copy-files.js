@@ -5,6 +5,7 @@
 
 const cpy = require('cpy');
 const formatLog = require('../helpers/format-log.js').default;
+const numeral = require('numeral');
 const releaseName = require('../helpers/release-name.js').default;
 
 const ci = true; // (typeof process.env.CI !== 'undefined');
@@ -152,14 +153,18 @@ const releaseFiles = [
 ];
 
 (async () => {
-    await cpy(releaseFiles, folderName);
-    console.log('Files copied!');
+    await cpy(releaseFiles, folderName, {
+        cwd: '../../',
+        parents: true
+    }).on('progress', progress => {
 
-    await cpy(releaseFiles, folderName).on('progress', progress => {
+        const percent = numeral(progress.percent).format('0%');
+        const size = numeral(progress.completedSize).format('0.0 b');
+
         formatLog([
             'release',
             'copying files',
-            `${progress.completedFiles}/${progress.totalFiles} - ${progress.percent * 100}%`
+            `${progress.completedFiles}/${progress.totalFiles} | ${percent} | ${size}`
         ]);
     });
 })();
