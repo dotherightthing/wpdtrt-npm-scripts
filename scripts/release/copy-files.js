@@ -6,7 +6,7 @@
 const cpy = require('cpy');
 const formatLog = require('../helpers/format-log.js').default;
 const numeral = require('numeral');
-const package = require('./package.json');
+const package = require('../../../../package.json');
 const releaseName = require('../helpers/release-name.js').default;
 
 const ci = true; // (typeof process.env.CI !== 'undefined');
