@@ -1,6 +1,6 @@
 /**
  * @file ./scripts/helpers/release-name.js
- * @summary Generate a name for the release zip file
+ * @summary Generate a name for the release folder
  * @return Release name
  */
 
@@ -15,7 +15,7 @@ const releaseName = () => {
         ci_package_release_tag = `-${process.env.BITBUCKET_TAG}`;
     }
     
-    let ci_package_release_name = `release${ci_package_release_tag}.zip`;
+    let ci_package_release_name = `release${ci_package_release_tag}`;
     
     return ci_package_release_name;
 };
