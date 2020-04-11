@@ -73,7 +73,7 @@
     "lint:js": "./scripts/lint/js.sh",
     "lint:php": "./scripts/lint/php.sh",
     "lint": "./scripts/lint/css.sh && ./scripts/lint/js.sh && ./scripts/lint/php.sh",
-    "prerelease": "./scripts/compile/css.sh && ./scripts/compile/js.sh && ./scripts/postuninstall/composer.sh",
+    "prerelease": "./scripts/lint/css.sh && ./scripts/lint/js.sh && ./scripts/lint/php.sh && ./scripts/compile/css.sh && ./scripts/compile/js.sh && ./scripts/postuninstall/composer.sh",
     "release": "node ./scripts/release/copy-files.js && node ./scripts/release/create-zip.js",
     "pretest": "./scripts/pretest/npm-test.sh && ./scripts/pretest/fixtures.sh",
     "test:compile": "mocha --recursive \"./test/**/compile.spec.js\" --full-trace",
