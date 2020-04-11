@@ -1,13 +1,13 @@
 module.exports = {
   plugins: [
-    require('postcss-custom-properties')({
-      importFrom: 'css/' + process.env.INIT_CWD.split('/').pop() + '-variables.css',
+    require('postcss-custom-properties')( {
+      importFrom: () => `css/${require('./package.json').name}-variables.css`,
       preserve: true
-    }),
-    require('autoprefixer')({
+    } ),
+    require('autoprefixer')( {
       cascade: false
-    }),
-    require('postcss-pxtorem')({
+    } ),
+    require('postcss-pxtorem')( {
       rootValue: 16,
       unitPrecision: 5,
       propList: [
@@ -31,7 +31,7 @@ module.exports = {
       replace: false,
       mediaQuery: true,
       minPixelValue: 0
-    }),
+    } ),
     require('postcss-typescale')
   ]
 }
