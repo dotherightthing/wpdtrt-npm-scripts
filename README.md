@@ -179,8 +179,8 @@ nodemon.json
 phpcs.xml
 phpunit.xml.dist
 postcss.config.js
-release-*
-release-*.zip
+release*
+release*.zip
 vendor
 # End
 ```
