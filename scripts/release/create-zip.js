@@ -5,7 +5,6 @@
 
 const formatLog = require('../helpers/format-log.js').default;
 const releaseName = require('../helpers/release-name.js').default;
-const trash = require('trash');
 const zipFolder = require('zip-folder');
 
 const createZip = () => {
@@ -50,18 +49,6 @@ const createZip = () => {
                 'release',
                 'created zip',
                 `/${folderName}.zip`
-            ]);
-
-            // send source folder to trash
-
-            (async () => {
-                await trash([`../../${folderName}`]);
-            })();
-
-            formatLog([
-                'release',
-                'deleted source folder',
-                `/${folderName}`
             ]);
         }
     });

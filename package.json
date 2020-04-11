@@ -51,7 +51,6 @@
     "stylelint-scss": "^3.16.1",
     "stylelint-selector-bem-pattern": "^2.1.0",
     "tenon-node": "^0.4.1",
-    "trash": "^6.1.1",
     "wordwrap": "^1.0.0",
     "zip-folder": "^1.0.0"
   },
