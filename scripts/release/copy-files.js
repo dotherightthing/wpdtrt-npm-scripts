@@ -3,11 +3,11 @@
  * @summary Copy files to release directory.
  */
 
-const copy = require('copy');
+const cpy = require('cpy');
 const formatLog = require('../helpers/format-log.js').default;
 const releaseName = require('../helpers/release-name.js').default;
 
-const ci = (typeof process.env.CI !== 'undefined');
+const ci = true; // (typeof process.env.CI !== 'undefined');
 const folderName = releaseName();
 
 if ( !ci ) {
@@ -151,10 +151,15 @@ const releaseFiles = [
     '!./node_modules/**/src/**/*',
 ];
 
-copy( releaseFiles, folderName, function( err, files ) {
-    if (err) {
-        throw err;
-    }
+(async () => {
+    await cpy(releaseFiles, folderName);
+    console.log('Files copied!');
 
-    // 'files' is the array of the files that were copied
-} );
+    await cpy(releaseFiles, folderName).on('progress', progress => {
+        formatLog([
+            'release',
+            'copying files',
+            `${progress.completedFiles}/${progress.totalFiles} - ${progress.percent * 100}%`
+        ]);
+    });
+})();
