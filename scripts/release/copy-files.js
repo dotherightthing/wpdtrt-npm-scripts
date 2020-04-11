@@ -28,7 +28,6 @@ if ( !ci ) {
     ]);
 }
 
-
 // Release files are those that are required
 // to use the package as a WP Parent Theme
 let releaseFiles = [
