@@ -22,4 +22,4 @@ set -e
 
 node scripts/helpers/format-log.js 'postuninstall' 'npm' 'uninstall development dependencies' \
 && cd $INIT_CWD \
-&& npm ci --production
+&& npm ci --production --ignore-scripts
