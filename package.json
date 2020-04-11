@@ -53,6 +53,7 @@
     "stylelint-scss": "^3.16.1",
     "stylelint-selector-bem-pattern": "^2.1.0",
     "tenon-node": "^0.4.1",
+    "trash": "^6.1.1",
     "wordwrap": "^1.0.0",
     "yargs": "^15.1.0"
   },
@@ -76,7 +77,6 @@
     "lint": "./scripts/lint/css.sh && ./scripts/lint/js.sh && ./scripts/lint/php.sh",
     "prerelease": "./scripts/compile/css.sh && ./scripts/compile/js.sh && ./scripts/postuninstall/composer.sh && ./scripts/postuninstall/npm.sh",
     "release": "node ./scripts/release/copy-files.js && node ./scripts/release/create-zip.js",
-    "postrelease": "./scripts/postrelease/delete-release-folder.sh",
     "pretest": "./scripts/pretest/npm-test.sh && ./scripts/pretest/fixtures.sh",
     "test:compile": "mocha --recursive \"./test/**/compile.spec.js\" --full-trace",
     "test:dependencies": "mocha --recursive \"./test/**/dependencies.spec.js\" --full-trace",

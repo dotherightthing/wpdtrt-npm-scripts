@@ -6,6 +6,7 @@
 const JSZip = require('jszip');
 const formatLog = require('../helpers/format-log.js').default;
 const releaseName = require('../helpers/release-name.js').default;
+const trash = require('trash');
 
 const createZip = () => {
     const ci = (typeof process.env.CI !== 'undefined');
@@ -55,6 +56,13 @@ const createZip = () => {
             'created zip'
             `/${folderName}.zip`
         ]);
+
+        // send source folder to trash
+        (async () => {
+            await trash([
+                folderName
+            ]);
+        })();
     });
 };
 
