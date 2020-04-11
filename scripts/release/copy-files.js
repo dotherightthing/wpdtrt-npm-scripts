@@ -33,100 +33,55 @@ if ( !ci ) {
 // to use the package as a WP Parent Theme
 let releaseFiles = [
     // Theme Cheatsheets
-    './cheatsheets/**/*',
+    './cheatsheets/**/*.php',
     // Theme Config
     './config/**/*',
-    // Compiled Theme CSS
-    './css/**/*',
-    // Icons
+    // Theme CSS
+    './css/*.css',
+    // Theme Icons
     './icons/**/*',
-    // Images
+    // Theme Images
     './images/**/*',
-    // Transpiled Theme JS
-    './js/**/*-es5.js',
+    // Theme JS
+    './js/*-es5.js',
     // Theme Logic
-    './library/**/*',
-    // Theme template partials
-    './template-parts/**/*',
-    // Any Tiny MCE (WYSIWYG) mods
-    './tiny-mce/**/*',
-    // Any PHP dependencies
-    './vendor/**/*',
-    // Not NPM dependencies
-    '!./node_modules/**/*',
-    '!./vendor/**/bin',
-    // Not JSON files
-    '!./vendor/**/*.json',
-    // Not Less files
-    '!./vendor/**/*.less',
-    // Not Authors files
-    '!./vendor/**/AUTHORS',
-    // Not Changes files
-    '!./vendor/**/CHANGES',
-    // Not License files
-    '!./vendor/**/license',
-    '!./vendor/**/LICENSE',
-    // Not Markdown files
-    '!./vendor/**/*.md',,
-    '!./vendor/**/*example*.php',
-    // Not Sass files
-    '!./vendor/**/*.scss',
-    // Not SCSS folders
-    '!./vendor/**/*/scss',
-    // Not test files
-    '!./vendor/**/test/**/*',
-    // Not tests files
-    '!./vendor/**/tests/**/*',
-    // Not XML files
-    '!./vendor/**/*.xml',
-    // Not Zip files
-    '!./vendor/**/*.zip',
-    // Theme search form
-    './_searchform.php',
-    // Theme archive page template
-    './archive.php',
-    // Theme comments partial
-    './comments.php',
-    // Theme footer partial
-    './footer.php',
-    // Theme functions
-    './functions.php',
-    // Theme header partial
-    './header.php',
-    // Theme post title and content template
-    './index.php',
-    // Theme maintenance page template
-    './maintenance.php',
-    // The template for displaying all pages
-    './page.php',
+    './library/**/*.php',
     // Theme Read Me
     './README.md',
-    // Theme WP Read Me
-    './README.txt',
     // Theme Screenshot
     './screenshot.png',
-    // Theme Search Template
-    './search.php',
-    // Theme widget-ready sidebar partials
-    './sidebar-widget-tests.php',
-    './sidebar.php',
-    // Theme Single Post Template
-    './single.php',
     // Theme Stylesheet
     './style.css',
-    // wpdtrt-dbth child theme templates
-    './archive-tourdiaries.php',
-    './image.php',
-    './page-search.php',
-    './single-tourdiaries.php',
-    './templates/**/*',
-    './taxonomy-wpdtrt_tourdates_taxonomy_tour.php',
+    // Theme WP Read Me
+    './README.txt',
+    // Theme Templates
+    './*.php',
+    './templates/**/*.php',
+    './template-parts/**/*.php',
+    // Any Tiny MCE (WYSIWYG) mods
+    './tiny-mce/**/*',
+    // Any useful PHP dependencies
+    './vendor/**/*',
+    '!./vendor/**/bin',
+    '!./vendor/**/*.json',
+    '!./vendor/**/*.less',
+    '!./vendor/**/AUTHORS*',
+    '!./vendor/**/CHANGES*',
+    '!./vendor/**/license*',
+    '!./vendor/**/LICENSE*',
+    '!./vendor/**/README*',
+    '!./vendor/**/*.md',
+    '!./vendor/**/*example*.php',
+    '!./vendor/**/*.scss',
+    '!./vendor/**/*/scss',
+    '!./vendor/**/test/**/*',
+    '!./vendor/**/tests/**/*',
+    '!./vendor/**/*.xml',
+    '!./vendor/**/*.zip',
     // Not CSS source maps
     '!./css/maps/**/*',
     // Not demo files
-    '!./icons/icomoon/demo-files/**/*',
-    // Not docs
-    '!./docs/**/*',
+    '!./icons/icomoon/demo-files/**/*'
 ];
 
 // copy FE dependencies
@@ -135,13 +90,18 @@ let releaseFiles = [
 // which uses other libraries.
 const dependencies = package.dependencies;
 const dependencyNames = Object.keys(dependencies);
-
-let dependencyNamesFiltered = dependencyNames.map(function(dependencyName) {
-    return dependencyName !== 'wpdtrt-npm-scripts';
-});
+const dependencyNamesFiltered = dependencyNames.filter(name => name !== 'wpdtrt-npm-scripts');
 
 dependencyNamesFiltered.forEach((name, index) => {
-    releaseFiles.push(`./node_modules/${dependencyName}/**/*`);
+    releaseFiles.push(`./node_modules/${name}/**/*`);
+    releaseFiles.push(`!./node_modules/${name}/package.json`),
+    releaseFiles.push(`!./node_modules/${name}/**/src`),
+    releaseFiles.push(`!./node_modules/${name}/**/AUTHORS*`),
+    releaseFiles.push(`!./node_modules/${name}/**/CHANGE*`),
+    releaseFiles.push(`!./node_modules/${name}/**/LICENSE*`),
+    releaseFiles.push(`!./node_modules/${name}/**/README*`),
+    releaseFiles.push(`!./node_modules/${name}/**/changelog*`),
+    releaseFiles.push(`!./node_modules/${name}/**/*.map`)
 });
 
 (async () => {
