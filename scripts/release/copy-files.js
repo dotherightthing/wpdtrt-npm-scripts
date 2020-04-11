@@ -6,6 +6,7 @@
 const cpy = require('cpy');
 const formatLog = require('../helpers/format-log.js').default;
 const numeral = require('numeral');
+const package = require('./package.json');
 const releaseName = require('../helpers/release-name.js').default;
 
 const ci = true; // (typeof process.env.CI !== 'undefined');
@@ -27,9 +28,10 @@ if ( !ci ) {
     ]);
 }
 
+
 // Release files are those that are required
 // to use the package as a WP Parent Theme
-const releaseFiles = [
+let releaseFiles = [
     // Theme Cheatsheets
     './cheatsheets/**/*',
     // Theme Config
@@ -44,63 +46,40 @@ const releaseFiles = [
     './js/**/*-es5.js',
     // Theme Logic
     './library/**/*',
-    // NPM dependencies
-    './node_modules/**/*',
     // Theme template partials
     './template-parts/**/*',
     // Any Tiny MCE (WYSIWYG) mods
     './tiny-mce/**/*',
     // Any PHP dependencies
     './vendor/**/*',
-    // Not wpdtrt 'file'
-    '!./node_modules/wpdtrt',
-    // Not binary executables
-    '!./node_modules/.bin',
-    '!./node_modules/**/.bin',
-    '!./node_modules/**/bin',
+    // Not NPM dependencies
+    '!./node_modules/**/*',
     '!./vendor/**/bin',
     // Not JSON files
-    '!./node_modules/**/*.json',
     '!./vendor/**/*.json',
     // Not Less files
-    '!./node_modules/**/*.less',
     '!./vendor/**/*.less',
     // Not Authors files
-    '!./node_modules/**/AUTHORS',
     '!./vendor/**/AUTHORS',
     // Not Changes files
-    '!./node_modules/**/CHANGES',
     '!./vendor/**/CHANGES',
     // Not License files
-    '!./node_modules/**/license',
     '!./vendor/**/license',
-    '!./node_modules/**/LICENSE',
     '!./vendor/**/LICENSE',
     // Not Markdown files
-    '!./node_modules/**/*.md',
-    '!./vendor/**/*.md',
-    // Not Makefile files
-    '!./node_modules/**/Makefile',
-    // Not PHP sample files
-    '!./node_modules/**/*example*.php',
+    '!./vendor/**/*.md',,
     '!./vendor/**/*example*.php',
     // Not Sass files
-    '!./node_modules/**/*.scss',
     '!./vendor/**/*.scss',
     // Not SCSS folders
-    '!./node_modules/**/*/scss',
     '!./vendor/**/*/scss',
     // Not test files
-    '!./node_modules/**/test/**/*',
     '!./vendor/**/test/**/*',
     // Not tests files
-    '!./node_modules/**/tests/**/*',
     '!./vendor/**/tests/**/*',
     // Not XML files
-    '!./node_modules/**/*.xml',
     '!./vendor/**/*.xml',
     // Not Zip files
-    '!./node_modules/**/*.zip',
     '!./vendor/**/*.zip',
     // Theme search form
     './_searchform.php',
@@ -148,9 +127,22 @@ const releaseFiles = [
     '!./icons/icomoon/demo-files/**/*',
     // Not docs
     '!./docs/**/*',
-    // Not Source files
-    '!./node_modules/**/src/**/*',
 ];
+
+// copy FE dependencies
+// npm prune --production would remove all devDependencies
+// but we're still left with wpdtrt-npm-scripts
+// which uses other libraries.
+const dependencies = package.dependencies;
+const dependencyNames = Object.keys(dependencies);
+
+let dependencyNamesFiltered = dependencyNames.map(function(dependencyName) {
+    return dependencyName !== 'wpdtrt-npm-scripts';
+});
+
+dependencyNamesFiltered.forEach((name, index) => {
+    releaseFiles.push(`./node_modules/${dependencyName}/**/*`);
+});
 
 (async () => {
     await cpy(releaseFiles, folderName, {
