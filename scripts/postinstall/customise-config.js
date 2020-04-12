@@ -6,7 +6,7 @@ const package = require('../../../../package.json');
 // but are overridden in the pipes
 const options = {
     files: [
-        '../../../../config/naturaldocs/Project.txt'
+        '../../config/naturaldocs/Project.txt'
     ],
     from: '$packageName',
     to: package.name
@@ -15,24 +15,21 @@ const options = {
 const customiseConfig = async function () {
     try {
         const {
-            changedFiles,
             countOfMatchesByPaths,
-            replaceInFilesOptions
         } = await replaceInFiles(options)
             .pipe({ from: '$packageName', to: package.name })
             .pipe({ from: '$packageVersion', to: package.version });
 
-            // const suffix = (changedFiles > 1 ? 's' : '');
+            console.log(countOfMatchesByPaths);
 
-            console.log('Modified files:', changedFiles);
-            console.log('Count of matches by paths:', countOfMatchesByPaths);
-            console.log('was called with:', replaceInFilesOptions);
+            // filter out empty objects
+            const changedFiles = countOfMatchesByPaths.filter(path => Object.keys(path).length);
 
-            // formatLog([
-            //     'postinstall',
-            //     'customise config',
-            //     `${countOfMatchesByPaths} strings replaced in ${changedFiles} file${suffix}`
-            // ]);
+            formatLog([
+                'postinstall',
+                'customise config',
+                `${changedFiles.length} strings replaced`
+            ]);
         } catch (error) {
             formatLog([
                 'postinstall',
