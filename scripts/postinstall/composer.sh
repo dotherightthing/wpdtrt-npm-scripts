@@ -20,4 +20,4 @@ set -e
 node scripts/helpers/format-log.js 'postinstall' 'composer' 'install php dependencies' \
 && cd $INIT_CWD \
 && composer config -g github-oauth.github.com $GH_TOKEN \
-&& composer install --prefer-dist --no-interaction --no-suggest --verbose
+&& composer install --prefer-dist --no-interaction --no-suggest
