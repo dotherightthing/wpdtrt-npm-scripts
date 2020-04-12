@@ -20,15 +20,14 @@ const customiseConfig = async function () {
             .pipe({ from: '$packageName', to: package.name })
             .pipe({ from: '$packageVersion', to: package.version });
 
-            console.log(countOfMatchesByPaths);
-
             // filter out empty objects
             const changedFiles = countOfMatchesByPaths.filter(path => Object.keys(path).length);
+            const suffix = changedFiles.length > 1 ? 's' : '';
 
             formatLog([
                 'postinstall',
                 'customise config',
-                `${changedFiles.length} strings replaced`
+                `${changedFiles.length} string${suffix} replaced`
             ]);
         } catch (error) {
             formatLog([
