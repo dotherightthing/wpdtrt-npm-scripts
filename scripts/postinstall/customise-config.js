@@ -2,10 +2,14 @@ const replaceInFiles = require('replace-in-files');
 const formatLog = require('../helpers/format-log.js').default;
 const package = require('../../../../package.json');
 
+// from and to are required
+// but are overridden in the pipes
 const options = {
     files: [
         '../../../../config/naturaldocs/Project.txt'
-    ]
+    ],
+    from: '$packageName',
+    to: package.name
 };
 
 const customiseConfig = async function () {
