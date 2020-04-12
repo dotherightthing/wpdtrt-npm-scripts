@@ -9,7 +9,11 @@
   ],
   "ignorePatterns": [
     "*-es5.js",
-    "node_modules/"
+    "bin/",
+    "config/naturaldocs/",
+    "docs",
+    "node_modules/",
+    "vendor/"
   ],
   "rules": {
     "array-bracket-spacing": ["error", "always"],
