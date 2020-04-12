@@ -1,4 +1,4 @@
-const { renderString, renderTemplateFile } = require('template-file');
+const { renderTemplateFile } = require('template-file');
 const package = require('../../../../package.json');
 
 const data = {
