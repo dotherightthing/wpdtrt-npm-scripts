@@ -7,7 +7,7 @@ const data = {
 };
 
 const templateFiles = [
-    '../../../../config/naturaldocs/Project.txt'
+    '../../config/config/naturaldocs/Project.txt'
 ]
 
 templateFiles.forEach(templateFile => {

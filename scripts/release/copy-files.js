@@ -3,11 +3,11 @@
  * @summary Copy files to release directory.
  */
 
+const Bar = require('progress-barjs');
 const cpy = require('cpy');
 const formatLog = require('../helpers/format-log.js').default;
 const numeral = require('numeral');
 const package = require('../../../../package.json');
-const Bar = require('progress-barjs');
 const releaseName = require('../helpers/release-name.js').default;
 
 const ci = (typeof process.env.CI !== 'undefined');
