@@ -9,7 +9,7 @@ Format: 2.0.2
 # ------------------------------------------------------------------------
 
 Title: Documentation
-Subtitle: {{ packageName }} ({ packageVersion })
+Subtitle: $packageName ($packageVersion)
 
 Copyright: Copyright © 2020 Dan Smith
 
