@@ -8,7 +8,8 @@ if: NOT (branch = master) OR (branch = master AND tag IS present)
 
 # Run the tests
 script:
-  - npm run test:internal
+  - npm run lint:internal
+# - npm run test:internal
 
 # Notifications of build results
 # https://docs.travis-ci.com/user/notifications/
@@ -30,7 +31,7 @@ deploy:
   # which deletes all changes made during the build 
   skip_cleanup: true
   on:
-    repo: dotherightthing/wpdtrt-gulp
+    repo: dotherightthing/wpdtrt-npm-scripts
     tags: true
     # https://stackoverflow.com/a/27775257/6850747
     all_branches: true
