@@ -10,6 +10,6 @@ const templateFiles = [
     '../../../../config/naturaldocs/Project.txt'
 ]
 
-templateFiles.forEach(templateFile, (data) => {
-    renderTemplateFile(templateFiles, data);
+templateFiles.forEach(templateFile => {
+    renderTemplateFile(templateFile, data);
 });
