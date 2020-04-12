@@ -15,18 +15,19 @@
 # v: print shell input lines as they are read (including all comments!)
 set -e
 
+# -f: force - don't throw an error if the file doesn't exist (e.g. css not compiled)
 node scripts/helpers/format-log.js 'postuninstall' 'config' 'remove files from host repository' \
 && cd $INIT_CWD \
-&& rm -r config/naturaldocs \
-&& rm -r css \
-&& rm -r release* \
-&& rm .babelrc \
-&& rm .browserslistrc \
-&& rm .eslintrc \
-&& rm .stylelint* \
-&& rm js/*-es5.js \
-&& rm nodemon.json \
-&& rm phpcs.xml \
-&& rm phpunit.xml.dist \
-&& rm postcss.config.js \
-&& rm scss/_wpdtrt-import.scss
+&& rm -f -r config/naturaldocs \
+&& rm -f -r css \
+&& rm -f -r release* \
+&& rm -f .babelrc \
+&& rm -f .browserslistrc \
+&& rm -f .eslintrc \
+&& rm -f .stylelint* \
+&& rm -f js/*-es5.js \
+&& rm -f nodemon.json \
+&& rm -f phpcs.xml \
+&& rm -f phpunit.xml.dist \
+&& rm -f postcss.config.js \
+&& rm -f scss/_wpdtrt-import.scss
