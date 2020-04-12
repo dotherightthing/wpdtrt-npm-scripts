@@ -108,7 +108,7 @@ dependencyNamesFiltered.forEach((name, index) => {
 
 console.log('releaseFiles', releaseFiles);
 
-let bar = new Bar({
+let bar = Bar({
     label: 'Progress',
     info: 'Copying files',
     append: false,
