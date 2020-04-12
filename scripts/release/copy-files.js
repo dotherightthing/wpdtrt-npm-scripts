@@ -139,15 +139,20 @@ let bar = new Bar({
     }
 });
 
+var totalSet = false;
+
 (async () => {
     await cpy(releaseFiles, folderName, {
         cwd: '../../',
         parents: true
     }).on('progress', progress => {
-
         const completedSize = numeral(progress.completedSize).format('0.0 b');
 
-        bar.setTotal(progress.totalFiles);
+        if (!totalSet) {
+            bar.setTotal(progress.totalFiles);
+            totalSet = true;
+        }
+
         bar.tick(`${progress.completedFiles}/${progress.totalFiles} - ${completedSize}`);
     });
 })();
