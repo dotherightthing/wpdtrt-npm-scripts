@@ -7,6 +7,7 @@ const cpy = require('cpy');
 const formatLog = require('../helpers/format-log.js').default;
 const numeral = require('numeral');
 const package = require('../../../../package.json');
+const Bar = require('progress-barjs');
 const releaseName = require('../helpers/release-name.js').default;
 
 const ci = (typeof process.env.CI !== 'undefined');
@@ -86,8 +87,9 @@ let releaseFiles = [
 
 // copy FE dependencies
 // npm prune --production would remove all devDependencies
-// but we're still left with wpdtrt-npm-scripts
-// which uses other libraries.
+// but we can't remove wpdtrt-npm-scripts
+// which is a dependency as it's still needed
+// - and it uses other libraries.
 const dependencies = package.dependencies;
 const dependencyNames = Object.keys(dependencies);
 const dependencyNamesFiltered = dependencyNames.filter(name => name !== 'wpdtrt-npm-scripts');
@@ -104,19 +106,48 @@ dependencyNamesFiltered.forEach((name, index) => {
     releaseFiles.push(`!./node_modules/${name}/**/*.map`)
 });
 
+console.log('releaseFiles', releaseFiles);
+
+let bar = new Bar({
+    label: 'Progress',
+    info: 'Copying files',
+    append: false,
+    show: {
+        active: {
+            date: false,
+            bar: true,
+            percent: true,
+            count: false,
+            time: true
+        },
+        overwrite: true,
+        bar: {
+            length: 10,
+            completed: '=',
+            incompleted: ' ',
+            tick_per_progress: 1
+        },
+        percent: {
+            color: '\x1b[1;37m'
+        },
+        count: {
+            color:'\x1b[0;36m'
+        },
+        time: {
+            color:'\x1b[0;34m'
+        }
+    }
+});
+
 (async () => {
     await cpy(releaseFiles, folderName, {
         cwd: '../../',
         parents: true
     }).on('progress', progress => {
-        if (progress === 1) {
-            const size = numeral(progress.completedSize).format('0.0 b');
-    
-            formatLog([
-                'release',
-                'copy files',
-                `complete: ${folderName}.zip contains ${progress.totalFiles} files and is ${size}`
-            ]);
-        }
+
+        const completedSize = numeral(progress.completedSize).format('0.0 b');
+
+        bar.setTotal(progress.totalFiles);
+        bar.tick(`${progress.completedFiles}/${progress.totalFiles} - ${completedSize}`);
     });
 })();
