@@ -12,18 +12,23 @@ const customiseConfig = async function () {
     try {
         const {
             changedFiles,
-            countOfMatchesByPaths
+            countOfMatchesByPaths,
+            replaceInFilesOptions
         } = await replaceInFiles(options)
             .pipe({ from: '$packageName', to: package.name })
             .pipe({ from: '$packageVersion', to: package.version });
 
-            const suffix = (changedFiles > 1 ? 's' : '');
+            // const suffix = (changedFiles > 1 ? 's' : '');
 
-            formatLog([
-                'postinstall',
-                'customise config',
-                `${countOfMatchesByPaths} strings replaced in ${changedFiles} file${suffix}`
-            ]);
+            console.log('Modified files:', changedFiles);
+            console.log('Count of matches by paths:', countOfMatchesByPaths);
+            console.log('was called with:', replaceInFilesOptions);
+
+            // formatLog([
+            //     'postinstall',
+            //     'customise config',
+            //     `${countOfMatchesByPaths} strings replaced in ${changedFiles} file${suffix}`
+            // ]);
         } catch (error) {
             formatLog([
                 'postinstall',
