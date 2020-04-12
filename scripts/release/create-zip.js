@@ -7,38 +7,38 @@ const formatLog = require('../helpers/format-log.js').default;
 const releaseName = require('../helpers/release-name.js').default;
 const zipFolder = require('zip-folder');
 
-const createZip = () => {
-    const ci = (typeof process.env.CI !== 'undefined');
-    const folderName = releaseName();
-    
-    if ( !ci ) {
-        formatLog([
-            'release',
-            'create zip',
-            'skipping - not CI'
-        ]);
-    
-        return;
-    } else {
-        formatLog([
-            'release',
-            'create zip',
-            `from /${folderName}`
-        ]);
-    }
-    
-    let ci_package_release_tag = '';
-    
-    if (typeof process.env.TRAVIS !== 'undefined') {
-        if (process.env.TRAVIS_TAG !== '') {
-            ci_package_release_tag = `-${process.env.TRAVIS_TAG}`;
-        }
-    } else if (typeof process.env.BITBUCKET_TAG !== 'undefined') {
-        ci_package_release_tag = `-${process.env.BITBUCKET_TAG}`;
-    }
+const ci = (typeof process.env.CI !== 'undefined');
+const folderName = releaseName();
 
+if (!ci) {
+    formatLog([
+        'release',
+        'create zip',
+        'skipping - not CI'
+    ]);
+
+    return;
+}
+
+formatLog([
+    'release',
+    'create zip',
+    `from /${folderName}`
+]);
+
+let ciPackageReleaseTag = '';
+
+if (typeof process.env.TRAVIS !== 'undefined') {
+    if (process.env.TRAVIS_TAG !== '') {
+        ciPackageReleaseTag = `-${process.env.TRAVIS_TAG}`;
+    }
+} else if (typeof process.env.BITBUCKET_TAG !== 'undefined') {
+    ciPackageReleaseTag = `-${process.env.BITBUCKET_TAG}`;
+}
+
+if (ciPackageReleaseTag) {
     zipFolder(`../../${folderName}`, `../../${folderName}.zip`, (err) => {
-        if(err) {
+        if (err) {
             formatLog([
                 'release',
                 'zip creation failed',
@@ -52,6 +52,4 @@ const createZip = () => {
             ]);
         }
     });
-};
-
-createZip();
+}

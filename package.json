@@ -58,6 +58,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "eslint-plugin-jsdoc": "^23.0.0",
     "mocha": "^6.2.1"
   },
   "config": {
@@ -68,6 +69,7 @@
     "compile": "./scripts/compile/css.sh && ./scripts/compile/js.sh",
     "docs": "./scripts/docs/naturaldocs.sh",
     "lint": "./scripts/lint/css.sh && ./scripts/lint/js.sh && ./scripts/lint/php.sh",
+    "lint:internal": "eslint './**/*.js'",
     "prerelease": "./scripts/lint/css.sh && ./scripts/lint/js.sh && ./scripts/lint/php.sh && ./scripts/compile/css.sh && ./scripts/compile/js.sh && ./scripts/postuninstall/composer.sh",
     "release": "node ./scripts/release/copy-files.js && node ./scripts/release/create-zip.js",
     "pretest": "./scripts/pretest/npm-test.sh && ./scripts/pretest/fixtures.sh",

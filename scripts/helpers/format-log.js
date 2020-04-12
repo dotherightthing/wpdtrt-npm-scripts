@@ -1,7 +1,7 @@
 /**
  * @file scripts/helpers/format-log.js
  * @summary Format a log message
- * @return Log message
+ * @returns Log message
  * @example
  *  node scripts/helpers/log-task.js 'Preinstall' 'Composer' 'Install PHP dependencies'
  *  => wpdtrt-npm-scripts - preinstall: composer (install php dependencies)
@@ -11,11 +11,10 @@ const wrap = require('wordwrap')(80);
 
 /**
  * log
- * 
- * @param {array} args 
+ *
+ * @param {Array} args - Arguments
  */
 const log = (args) => {
-
     // first arg is path to nodejs
     // second arg is the location of the script being executed
     const dateTime = new Date().toLocaleString();
@@ -24,12 +23,14 @@ const log = (args) => {
     const description = args[2] ? ` (${args[2]})` : '';
     const msg = (`wpdtrt-npm-scripts: ${category}${task}${description}`).toLowerCase();
 
+    /* eslint-disable no-console */
     console.log(' ');
     console.log('--------------------------------------------------------------------------------');
     console.log(dateTime);
     console.log(wrap(msg));
     console.log('--------------------------------------------------------------------------------');
     console.log(' ');
+    /* eslint-enable no-console */
 };
 
 exports.default = log;

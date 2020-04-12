@@ -7,13 +7,14 @@ const Bar = require('progress-barjs');
 const cpy = require('cpy');
 const formatLog = require('../helpers/format-log.js').default;
 const numeral = require('numeral');
-const package = require('../../../../package.json');
+const packageJson = require('../../../../package.json');
 const releaseName = require('../helpers/release-name.js').default;
 
 const ci = (typeof process.env.CI !== 'undefined');
 const folderName = releaseName();
+var totalSet = false;
 
-if ( !ci ) {
+if (!ci) {
     formatLog([
         'release',
         'copy files',
@@ -21,13 +22,13 @@ if ( !ci ) {
     ]);
 
     return;
-} else {
-    formatLog([
-        'release',
-        'copy files',
-        `to /${folderName}`
-    ]);
 }
+
+formatLog([
+    'release',
+    'copy files',
+    `to /${folderName}`
+]);
 
 // Release files are those that are required
 // to use the package as a WP Parent Theme
@@ -90,20 +91,20 @@ let releaseFiles = [
 // but we can't remove wpdtrt-npm-scripts
 // which is a dependency as it's still needed
 // - and it uses other libraries.
-const dependencies = package.dependencies;
+const dependencies = packageJson.dependencies;
 const dependencyNames = Object.keys(dependencies);
 const dependencyNamesFiltered = dependencyNames.filter(name => name !== 'wpdtrt-npm-scripts');
 
-dependencyNamesFiltered.forEach((name, index) => {
+dependencyNamesFiltered.forEach(name => {
     releaseFiles.push(`./node_modules/${name}/**/*`);
-    releaseFiles.push(`!./node_modules/${name}/package.json`),
-    releaseFiles.push(`!./node_modules/${name}/**/src`),
-    releaseFiles.push(`!./node_modules/${name}/**/AUTHORS*`),
-    releaseFiles.push(`!./node_modules/${name}/**/CHANGE*`),
-    releaseFiles.push(`!./node_modules/${name}/**/LICENSE*`),
-    releaseFiles.push(`!./node_modules/${name}/**/README*`),
-    releaseFiles.push(`!./node_modules/${name}/**/changelog*`),
-    releaseFiles.push(`!./node_modules/${name}/**/*.map`)
+    releaseFiles.push(`!./node_modules/${name}/package.json`);
+    releaseFiles.push(`!./node_modules/${name}/**/src`);
+    releaseFiles.push(`!./node_modules/${name}/**/AUTHORS*`);
+    releaseFiles.push(`!./node_modules/${name}/**/CHANGE*`);
+    releaseFiles.push(`!./node_modules/${name}/**/LICENSE*`);
+    releaseFiles.push(`!./node_modules/${name}/**/README*`);
+    releaseFiles.push(`!./node_modules/${name}/**/changelog*`);
+    releaseFiles.push(`!./node_modules/${name}/**/*.map`);
 });
 
 let bar = Bar({
@@ -125,27 +126,25 @@ let bar = Bar({
             incompleted: ' '
         },
         label: {
-            color: '\x1b[0;37m', // white
+            color: '\x1b[0;37m' // white
         },
         info: {
-            color: '\x1b[0;37m', // white
+            color: '\x1b[0;37m' // white
         },
         time: {
-            color: '\x1b[0;37m', // white
+            color: '\x1b[0;37m' // white
         },
         percent: {
-            color: '\x1b[0;37m', // white
+            color: '\x1b[0;37m' // white
         },
         count: {
-            color: '\x1b[0;37m', // white
+            color: '\x1b[0;37m' // white
         },
         tick: {
-            color: '\x1b[0;37m', // white
+            color: '\x1b[0;37m' // white
         }
     }
 });
-
-var totalSet = false;
 
 (async () => {
     await cpy(releaseFiles, folderName, {
