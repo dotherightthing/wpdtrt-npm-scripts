@@ -51,6 +51,7 @@
     "stylelint-order": "^4.0.0",
     "stylelint-scss": "^3.16.1",
     "stylelint-selector-bem-pattern": "^2.1.0",
+    "template-file": "^3.1.0",
     "tenon-node": "^0.4.1",
     "wordwrap": "^1.0.0",
     "zip-folder": "^1.0.0"
@@ -82,7 +83,7 @@
     "test:lint": "mocha --recursive \"./test/**/lint.spec.js\" --full-trace",
     "test": "./scripts/test/npm-install.sh && mocha --recursive \"./test/**/*.spec.js\" --full-trace",
     "version": "node ./scripts/version/plugin-bump.js",
-    "postinstall": "./scripts/postinstall/config.sh && ./scripts/postinstall/composer.sh && node ./scripts/postinstall/remaining-github-api-calls.js",
+    "postinstall": "./scripts/postinstall/config.sh && ./scripts/postinstall/composer.sh && node ./scripts/postinstall/remaining-github-api-calls.js &&  node ./scripts/postinstall/customise-config.js",
     "postuninstall": "./scripts/postuninstall/config.sh && ./scripts/postuninstall/composer.sh && ./scripts/postuninstall/npm.sh"
   },
   "repository": {
