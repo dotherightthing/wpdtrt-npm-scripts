@@ -1,5 +1,5 @@
-import wpdtrtPluginBump from 'gulp-wpdtrt-plugin-bump';
-import boilerplatePath from './scripts/helpers/boilerplate-path.js';
+const wpdtrtPluginBump = require('gulp-wpdtrt-plugin-bump').wpdtrtPluginBump;
+const boilerplatePath = require('../helpers/boilerplate-path.js').boilerplatePath;
 
 wpdtrtPluginBump( {
     inputPathRoot: './',
