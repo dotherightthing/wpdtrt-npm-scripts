@@ -47,7 +47,7 @@
     "postcss-pxtorem": "^4.0.1",
     "postcss-typescale": "^0.2.3",
     "progress-barjs": "^2.2.1",
-    "replace-in-files-cli": "^0.3.1",
+    "replace-in-files": "^2.0.3",
     "stylelint": "^13.3.1",
     "stylelint-order": "^4.0.0",
     "stylelint-scss": "^3.16.1",
@@ -83,7 +83,7 @@
     "test:lint": "mocha --recursive \"./test/**/lint.spec.js\" --full-trace",
     "test": "./scripts/test/npm-install.sh && mocha --recursive \"./test/**/*.spec.js\" --full-trace",
     "version": "node ./scripts/version/plugin-bump.js",
-    "postinstall": "./scripts/postinstall/config.sh && ./scripts/postinstall/composer.sh && node ./scripts/postinstall/remaining-github-api-calls.js",
+    "postinstall": "./scripts/postinstall/config.sh && node ./scripts/postinstall/customise-config.js && ./scripts/postinstall/composer.sh && node ./scripts/postinstall/remaining-github-api-calls.js",
     "postuninstall": "./scripts/postuninstall/config.sh && ./scripts/postuninstall/composer.sh && ./scripts/postuninstall/npm.sh"
   },
   "repository": {

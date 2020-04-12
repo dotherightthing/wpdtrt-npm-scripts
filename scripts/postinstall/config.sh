@@ -15,7 +15,4 @@
 set -e
 
 node scripts/helpers/format-log.js 'postinstall' 'config' 'copy files to host repository' \
-&& cp -a config/. $INIT_CWD \
-&& cd $INIT_CWD \
-&& replace-in-files --string='$packageName' --replacement=$npm_package_name config/naturaldocs/Project.txt \
-&& replace-in-files --string='$packageVersion' --replacement=$npm_package_version config/naturaldocs/Project.txt
+&& cp -a config/. $INIT_CWD
