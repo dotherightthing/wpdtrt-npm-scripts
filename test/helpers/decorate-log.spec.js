@@ -7,7 +7,7 @@
  * - In tested code, console.error/warn Prints to stderr with newline, so will cause test to fail when checking against stderr
  * - In tested code, console.log Prints to stdout with newline, so won't cause test to fail when checking against stderr
  * @example
- * npm run test
+ * npm run test:internal
  */
 
 /* eslint-disable func-names, no-undef, no-console, no-unused-vars */

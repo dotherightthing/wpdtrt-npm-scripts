@@ -77,7 +77,7 @@
     "test:dependencies": "mocha --recursive \"./test/**/dependencies.spec.js\" --full-trace",
     "test:documentation": "mocha --recursive \"./test/**/documentation.spec.js\" --full-trace",
     "test:lint": "mocha --recursive \"./test/**/lint.spec.js\" --full-trace",
-    "test": "./scripts/test/npm-install.sh && mocha --recursive \"./test/**/*.spec.js\" --full-trace",
+    "test:internal": "./scripts/test/npm-install.sh && mocha --recursive \"./test/**/*.spec.js\" --full-trace",
     "version": "node ./scripts/version/plugin-bump.js",
     "postinstall": "./scripts/postinstall/config.sh && node ./scripts/postinstall/customise-config.js && ./scripts/postinstall/composer.sh && node ./scripts/postinstall/remaining-github-api-calls.js",
     "postuninstall": "./scripts/postuninstall/config.sh && ./scripts/postuninstall/composer.sh && ./scripts/postuninstall/npm.sh"
