@@ -106,35 +106,41 @@ dependencyNamesFiltered.forEach((name, index) => {
     releaseFiles.push(`!./node_modules/${name}/**/*.map`)
 });
 
-console.log('releaseFiles', releaseFiles);
-
 let bar = Bar({
-    label: 'Progress',
-    info: 'Copying files',
+    label: 'Copying files',
+    info: '',
     append: false,
     show: {
         active: {
             date: false,
             bar: true,
-            percent: true,
+            percent: true, // required for time
             count: false,
             time: true
         },
         overwrite: true,
         bar: {
-            length: 10,
+            length: 20,
             completed: '=',
-            incompleted: ' ',
-            tick_per_progress: 1
+            incompleted: ' '
         },
-        percent: {
-            color: '\x1b[1;37m'
+        label: {
+            color: '\x1b[0;37m', // white
         },
-        count: {
-            color:'\x1b[0;36m'
+        info: {
+            color: '\x1b[0;37m', // white
         },
         time: {
-            color:'\x1b[0;34m'
+            color: '\x1b[0;37m', // white
+        },
+        percent: {
+            color: '\x1b[0;37m', // white
+        },
+        count: {
+            color: '\x1b[0;37m', // white
+        },
+        tick: {
+            color: '\x1b[0;37m', // white
         }
     }
 });
@@ -153,6 +159,10 @@ var totalSet = false;
             totalSet = true;
         }
 
-        bar.tick(`${progress.completedFiles}/${progress.totalFiles} - ${completedSize}`);
+        // prevent a second bar from displaying the last few %
+        // (this makes the file size slightly inaccurate)
+        if (!bar.complete) {
+            bar.tick(`[${completedSize}]`);
+        }
     });
 })();
