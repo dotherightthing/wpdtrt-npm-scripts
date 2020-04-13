@@ -50,7 +50,7 @@ describe.skip('version', function () {
         {
             id: 'wordpress-child-theme',
             name: 'wpdtrt-dbth',
-            path: './test/fixtures/dotherightthing/'
+            path: './vendor/dotherightthing/'
         },
         {
             id: 'wordpress-parent-theme',
