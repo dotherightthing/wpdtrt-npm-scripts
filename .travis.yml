@@ -1,4 +1,8 @@
-sudo: false
+# Travis CI Build Config
+# validated at https://config.travis-ci.com/explore
+
+os: linux
+dist: xenial
 language: node_js
 node_js:
   - 10.16.2
@@ -26,9 +30,6 @@ notifications:
 deploy:
   provider: releases
   token: $GH_TOKEN
-  # prevent Travis CI from resetting the working directory
-  # which deletes all changes made during the build 
-  skip_cleanup: true
   on:
     repo: dotherightthing/wpdtrt-npm-scripts
     tags: true
