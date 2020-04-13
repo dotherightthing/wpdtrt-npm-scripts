@@ -10,6 +10,11 @@ node_js:
 # conditions under which to run this build
 if: NOT (branch = master) OR (branch = master AND tag IS present)
 
+# PHP versions to test against
+# https://github.com/meitar/wordpress-plugin-skeleton/blob/master/.travis.yml
+php:
+  - 7.2.20 # MAMP
+
 # Run the tests
 script:
   - npm run lint:internal
