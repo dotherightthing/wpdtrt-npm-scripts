@@ -41,8 +41,7 @@ phpcs.xml
 postcss.config.js
 _wpdtrt-import.scss
 bin/Natural\ Docs
-docs/*
-!docs/.gitkeep
+docs
 node_modules
 vendor
 # End
