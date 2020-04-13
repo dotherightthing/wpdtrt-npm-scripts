@@ -173,17 +173,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt.git",
-                "reference": "e98d0de68860b024b31134b9153060cea41fe190"
+                "reference": "dc3a81b9529176f448b873734dcbe62cdda6819e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt/zipball/e98d0de68860b024b31134b9153060cea41fe190",
-                "reference": "e98d0de68860b024b31134b9153060cea41fe190",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt/zipball/dc3a81b9529176f448b873734dcbe62cdda6819e",
+                "reference": "dc3a81b9529176f448b873734dcbe62cdda6819e",
                 "shasum": ""
             },
             "require": {
                 "dotherightthing/wpdtrt-debug": "^1.0.0",
-                "php": ">=7.2.20",
+                "php": ">=7.2.15",
                 "tgmpa/tgm-plugin-activation": "dev-autoloader"
             },
             "require-dev": {
@@ -211,7 +211,7 @@
                 "issues": "https://github.com/dotherightthing/wpdtrt/issues",
                 "source": "https://github.com/dotherightthing/wpdtrt/tree/development"
             },
-            "time": "2020-04-12T04:46:19+00:00"
+            "time": "2020-04-13T07:28:55+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-dbth",
@@ -219,12 +219,12 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:dotherightthing/wpdtrt-dbth.git",
-                "reference": "a74abdd99c7da89596ed1729d9cdb98d487eb336"
+                "reference": "a2246ad14fab3aad71390768c7aad80d0c84cab2"
             },
             "require": {
                 "dotherightthing/wpdtrt": "dev-development",
                 "dotherightthing/wpdtrt-debug": "^1.0.0",
-                "php": ">=7.2.20",
+                "php": ">=7.2.15",
                 "tgmpa/tgm-plugin-activation": "dev-autoloader"
             },
             "require-dev": {
@@ -254,7 +254,7 @@
                 "source": "https://bitbucket.org/dotherightthing/wpdtrt-dbth",
                 "wiki": "https://bitbucket.org/dotherightthing/wpdtrt-dbth/wiki"
             },
-            "time": "2020-04-12T04:18:59+00:00"
+            "time": "2020-04-13T07:44:00+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-debug",
