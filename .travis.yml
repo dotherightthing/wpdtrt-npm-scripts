@@ -1,4 +1,8 @@
-sudo: false
+# Travis CI Build Config
+# validated at https://config.travis-ci.com/explore
+
+os: linux
+dist: xenial
 language: node_js
 node_js:
   - 10.16.2
@@ -6,10 +10,15 @@ node_js:
 # conditions under which to run this build
 if: NOT (branch = master) OR (branch = master AND tag IS present)
 
+# PHP versions to test against
+# https://github.com/meitar/wordpress-plugin-skeleton/blob/master/.travis.yml
+php:
+  - 7.2.20 # MAMP
+
 # Run the tests
 script:
   - npm run lint:internal
-# - npm run test:internal
+  - npm run test:internal
 
 # Notifications of build results
 # https://docs.travis-ci.com/user/notifications/
@@ -26,9 +35,6 @@ notifications:
 deploy:
   provider: releases
   token: $GH_TOKEN
-  # prevent Travis CI from resetting the working directory
-  # which deletes all changes made during the build 
-  skip_cleanup: true
   on:
     repo: dotherightthing/wpdtrt-npm-scripts
     tags: true

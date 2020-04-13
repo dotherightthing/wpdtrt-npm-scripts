@@ -24,7 +24,7 @@
     "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4"
   },
   "require-dev": {
-      "dotherightthing/wpdtrt": "dev-master",
+      "dotherightthing/wpdtrt": "dev-development",
       "dotherightthing/wpdtrt-dbth": "dev-development",
       "dotherightthing/wpdtrt-gallery": "1.8.9",
       "dotherightthing/wpdtrt-plugin-boilerplate": "1.7.0"

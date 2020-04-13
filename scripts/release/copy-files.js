@@ -3,6 +3,14 @@
  * @summary Copy files to release directory.
  */
 
+const fs = require('fs');
+var totalSet = false;
+
+// if not loaded as a dependency
+if (!fs.existsSync('../../../../package.json')) {
+    return;
+}
+
 const Bar = require('progress-barjs');
 const cpy = require('cpy');
 const formatLog = require('../helpers/format-log.js').default;
@@ -12,7 +20,6 @@ const releaseName = require('../helpers/release-name.js').default;
 
 const ci = (typeof process.env.CI !== 'undefined');
 const folderName = releaseName();
-var totalSet = false;
 
 if (!ci) {
     formatLog([

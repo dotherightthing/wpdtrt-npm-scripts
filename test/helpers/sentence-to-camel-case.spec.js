@@ -18,7 +18,7 @@ const mocha = require('mocha');
 const { describe, it } = mocha; // fix eslint no-undef errors
 
 // import paths are relative to this file
-const sentenceToCamelCase = require('../../helpers/sentence-to-camel-case');
+const sentenceToCamelCase = require('../../helpers/sentence-to-camel-case').default;
 
 // https://danielmiessler.com/blog/a-list-of-different-case-types/
 describe('sentenceToCamelCase', function () {

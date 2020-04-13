@@ -18,9 +18,10 @@ set -e
 # -f: force - don't throw an error if the file doesn't exist (e.g. css not compiled)
 node scripts/helpers/format-log.js 'postuninstall' 'config' 'remove files from host repository' \
 && cd $INIT_CWD \
-&& rm -f -r config/naturaldocs \
-&& rm -f -r css \
-&& rm -f -r release* \
+&& rm -rf config/naturaldocs \
+&& rm -rf css \
+&& rm -rf docs \
+&& rm -rf release* \
 && rm -f .babelrc \
 && rm -f .browserslistrc \
 && rm -f .eslintrc \

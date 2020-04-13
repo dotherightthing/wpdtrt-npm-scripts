@@ -3,6 +3,13 @@
  * @summary Replace template $placeholders with project specific values
  */
 
+const fs = require('fs');
+
+// if not loaded as a dependency
+if (!fs.existsSync('../../../../package.json')) {
+    return;
+}
+
 const replaceInFiles = require('replace-in-files');
 const formatLog = require('../helpers/format-log.js').default;
 const packageJson = require('../../../../package.json');
