@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41df5890a2cb073acde9d090f959e088",
+    "content-hash": "c1d0286067e8eb3f4845841091593a46",
     "packages": [
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
@@ -212,49 +212,6 @@
                 "source": "https://github.com/dotherightthing/wpdtrt/tree/development"
             },
             "time": "2020-04-13T07:28:55+00:00"
-        },
-        {
-            "name": "dotherightthing/wpdtrt-dbth",
-            "version": "dev-development",
-            "source": {
-                "type": "git",
-                "url": "git@bitbucket.org:dotherightthing/wpdtrt-dbth.git",
-                "reference": "a2246ad14fab3aad71390768c7aad80d0c84cab2"
-            },
-            "require": {
-                "dotherightthing/wpdtrt": "dev-development",
-                "dotherightthing/wpdtrt-debug": "^1.0.0",
-                "php": ">=7.2.15",
-                "tgmpa/tgm-plugin-activation": "dev-autoloader"
-            },
-            "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
-                "phpdocumentor/phpdocumentor": "2.9.0",
-                "wp-coding-standards/wpcs": "^0.14.1"
-            },
-            "type": "library",
-            "license": [
-                "ISC"
-            ],
-            "authors": [
-                {
-                    "name": "Dan Smith",
-                    "email": "dev@dotherightthing.co.nz",
-                    "homepage": "http://dotherightthing.co.nz",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A theme for cycling touring, for http://dontbelievethehype.co.nz",
-            "keywords": [
-                "theme"
-            ],
-            "support": {
-                "email": "support@dotherightthing.co.nz",
-                "issues": "https://bitbucket.org/dotherightthing/wpdtrt-dbth/issues",
-                "source": "https://bitbucket.org/dotherightthing/wpdtrt-dbth",
-                "wiki": "https://bitbucket.org/dotherightthing/wpdtrt-dbth/wiki"
-            },
-            "time": "2020-04-13T07:44:00+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-debug",
@@ -539,8 +496,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "dotherightthing/wpdtrt": 20,
-        "dotherightthing/wpdtrt-dbth": 20
+        "dotherightthing/wpdtrt": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
