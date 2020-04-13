@@ -18,7 +18,7 @@ const mocha = require('mocha');
 const { describe, it } = mocha; // fix eslint no-undef errors
 
 // import paths are relative to this file
-const decorateLog = require('../../helpers/decorate-log');
+const decorateLog = require('../../helpers/decorate-log').default;
 
 describe('decorateLog', function () {
     // mock of gulp-color
