@@ -10,6 +10,10 @@
         "jsdoc"
     ],
     "ignorePatterns": [
+        "*-es5.js",
+        "bin/",
+        "config/naturaldocs/",
+        "docs",
         "node_modules/",
         "postcss.config.js",
         "vendor/"
@@ -29,10 +33,10 @@
             "ignoreStrings": true,
             "ignoreTemplateLiterals": true
         }
-        ],
-        "no-use-before-define": "warn",
-        "no-unused-vars": "warn",
-        "no-unused-expressions": 0,
-        "chai-friendly/no-unused-expressions": 2
+    ],
+    "no-use-before-define": "warn",
+    "no-unused-vars": "warn",
+    "no-unused-expressions": 0,
+    "chai-friendly/no-unused-expressions": 2
     }
 }
