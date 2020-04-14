@@ -16,11 +16,16 @@ NPM build scripts.
 
 ## Installation
 
-`npm install dotherightthing/wpdtrt-npm-scripts --save-dev`
+```
+n 13.2.0 # change node version - https://www.npmjs.com/package/n
+npm install dotherightthing/wpdtrt-npm-scripts --save-dev
+```
 
 ## Uninstallation
 
-`npm uninstall wpdtrt-npm-scripts`
+```
+npm uninstall wpdtrt-npm-scripts
+```
 
 ### .gitignore
 
@@ -74,7 +79,9 @@ Note:
 
 ### Compiling
 
-`npm run compile` compiles:
+```
+npm run compile
+```
 
 1. `*.scss -> node-sass -> *.css`
 2. `*.css -> postcss -> autoprefixer -> pxtorem -> *.css`
@@ -83,7 +90,9 @@ Note:
 
 ### Linting
 
-`npm run lint` lints:
+```
+npm run lint
+```
 
 1. `composer.json`
 2. `*.scss -> stylelint`
