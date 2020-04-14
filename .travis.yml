@@ -15,6 +15,9 @@ if: NOT (branch = master) OR (branch = master AND tag IS present)
 php:
   - 7.2.20 # MAMP
 
+before_script:
+  - composer config -g github-oauth.github.com $GH_TOKEN
+
 # Run the tests
 script:
   - npm run lint:internal
