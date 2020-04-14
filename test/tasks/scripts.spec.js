@@ -40,7 +40,10 @@ const shellCommand = async (command) => {
 };
 
 describe('install', function () {
-    this.timeout(5000); // 120000
+    this.timeout(120000);
+
+    const wnsPub = 'dotherightthing';
+    const wns = 'wpdtrt-npm-scripts';
 
     const testThemes = [
         {
@@ -78,12 +81,13 @@ describe('install', function () {
         'postcss.config.js'
     ];
 
-    const composerFolder = 'vendor';
     const cssFolder = 'css';
     const jsFolder = 'js';
+    const scssFolder = 'scss';
+
+    const composerFolder = 'vendor';
     // const naturalDocsFolder = 'Natural Docs';
     const npmFolder = 'node_modules';
-    const scssFolder = 'scss';
 
     testThemes.forEach(function (testTheme) {
         describe(testTheme.id, function () {
@@ -91,13 +95,8 @@ describe('install', function () {
 
             describe('install', function () {
                 it('installs without error', async function () {
-                    await shellCommand(`cd ${theme}`);
-
-                    const err1 = await shellCommand('npm ci');
-                    expect(err1.replace(/\n$/, '')).to.equal('');
-
-                    const err2 = await shellCommand('npm install dotherightthing/wpdtrt-npm-scripts --save');
-                    expect(err2.replace(/\n$/, '')).to.equal('');
+                    const err = await shellCommand(`cd ${theme} && npm ci && npm install ${wnsPub}/${wns} --save`);
+                    expect(err.replace(/\n$/, '')).to.equal('');
                 });
 
                 it('installs all dependencies', async function () {
@@ -123,16 +122,14 @@ describe('install', function () {
 
             describe('lint', function () {
                 it('runs without error', async function () {
-                    await shellCommand(`cd ${theme}`);
-                    const err = await shellCommand('npm run lint');
+                    const err = await shellCommand(`cd ${theme} && npm run lint`);
                     expect(err.replace(/\n$/, '')).to.equal('');
                 });
             });
 
             describe('compile', function () {
                 it('runs without error and generates the expected files', async function () {
-                    await shellCommand(`cd ${theme}`);
-                    const err = await shellCommand('npm run compile');
+                    const err = await shellCommand(`cd ${theme} && npm run compile`);
                     expect(err.replace(/\n$/, '')).to.equal('');
 
                     expect(fs.existsSync(`${process.cwd()}/${theme}/${cssFolder}/${themeName}.css`)).to.equal(true);
@@ -147,8 +144,7 @@ describe('install', function () {
 
             describe('version', function () {
                 it('runs without error', async function () {
-                    await shellCommand(`cd ${theme}`);
-                    const err = await shellCommand('npm run version');
+                    const err = await shellCommand(`cd ${theme} && npm run version`);
                     expect(err.replace(/\n$/, '')).to.equal('');
                 });
 
@@ -171,11 +167,9 @@ describe('install', function () {
                 });
 
                 it('runs without error', async function () {
-                    await shellCommand(`cd ${theme}`);
-                    const err = await shellCommand('npm run docs');
-                    expect(err.replace(/\n$/, '')).to.equal('');
-
+                    const err = await shellCommand(`cd ${theme} && npm run docs`);
                     console.dir(result);
+                    expect(err.replace(/\n$/, '')).to.equal('');
                     expect(fs.existsSync(`${process.cwd()}/${theme}/${docsIndex}`)).to.equal(true);
                     expect(fs.existsSync(`${process.cwd()}/${theme}/${workingData}`)).to.equal(true);
                 });
@@ -187,10 +181,9 @@ describe('install', function () {
                 });
 
                 it('runs without error', async function () {
-                    await shellCommand(`cd ${theme}`);
-                    const err = await shellCommand('npm run release');
-                    expect(err.replace(/\n$/, '')).to.equal('');
+                    const err = await shellCommand(`cd ${theme} && npm run release`);
                     console.dir(result);
+                    expect(err.replace(/\n$/, '')).to.equal('');
                 });
 
                 it('copies release files to a temporary folder', async function () {
@@ -214,8 +207,7 @@ describe('install', function () {
 
             describe('test', function () {
                 it('runs without error', async function () {
-                    await shellCommand(`cd ${theme}`);
-                    const err = await shellCommand('npm run test');
+                    const err = await shellCommand(`cd ${theme} && npm run test`);
                     expect(err.replace(/\n$/, '')).to.equal('');
                 });
 
@@ -232,8 +224,7 @@ describe('install', function () {
 
             describe('uninstall', function () {
                 it('uninstalls without error', async function () {
-                    await shellCommand(`cd ${theme}`);
-                    const err = await shellCommand('npm uninstall wpdtrt-npm-scripts');
+                    const err = await shellCommand(`cd ${theme} && npm uninstall ${wns}`);
                     expect(err.replace(/\n$/, '')).to.equal('');
                 });
 
