@@ -237,18 +237,20 @@ describe('install', function () {
                 });
             });
 
-            describe('uninstall', function () {
-                it('uninstalls without error', async function () {
-                    const err = await shellCommand(`cd ${theme} && npm uninstall ${wns}`);
-                    expect(err.replace(/\n$/, '')).to.equal('');
-                });
+            // TODO: https://github.com/dotherightthing/wpdtrt-npm-scripts/issues/16
 
-                it('deletes all config files', async function () {
-                    configFiles.forEach(function (configFile) {
-                        expect(fs.existsSync(`${process.cwd()}/${theme}/${configFile}`)).to.equal(false);
-                    });
-                });
-            });
+            // describe('uninstall', function () {
+            //     it('uninstalls without error', async function () {
+            //         const err = await shellCommand(`cd ${theme} && npm uninstall ${wns}`);
+            //         expect(err.replace(/\n$/, '')).to.equal('');
+            //     });
+
+            //     it('deletes all config files', async function () {
+            //         configFiles.forEach(function (configFile) {
+            //             expect(fs.existsSync(`${process.cwd()}/${theme}/${configFile}`)).to.equal(false);
+            //         });
+            //     });
+            // });
         });
     });
 });
