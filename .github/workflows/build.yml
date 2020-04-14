@@ -32,7 +32,7 @@ jobs:
       with:
         php-version: '7.2.15'
         node-version: ${{ matrix.node-version }}
-    - run: composer config -g github-oauth.github.com ${{ secrets.GITHUB_TOKEN }}
+    - run: composer config -g github-oauth.github.com ${{ secrets.GH_PAT_WPDTRT_DBTH }}
     - run: npm ci
     - run: npm run lint --if-present
     - run: npm run compile --if-present
