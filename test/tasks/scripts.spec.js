@@ -54,19 +54,19 @@ describe('install', function () {
         },
         {
             id: 'wordpress-parent-theme',
-            name: 'wordpress-parent-theme',
+            name: 'wpdtrt',
             path: './vendor/dotherightthing/',
-            hasWnsDependency: false
+            hasWnsDependency: true
         },
         {
             id: 'wordpress-plugin',
-            name: 'wordpress-plugin',
+            name: 'wpdtrt-gallery',
             path: './vendor/dotherightthing/',
             hasWnsDependency: false
         },
         {
             id: 'wordpress-plugin-boilerplate',
-            name: 'wordpress-plugin-boilerplate',
+            name: 'wpdtrt-plugin-boilerplate',
             path: './vendor/dotherightthing/',
             hasWnsDependency: false
         }
