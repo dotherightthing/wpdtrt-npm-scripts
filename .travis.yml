@@ -21,7 +21,7 @@ before_script:
 # Run the tests
 script:
   - npm run lint:internal
-  # - npm run test:internal
+  - npm run test:internal
 
 # Notifications of build results
 # https://docs.travis-ci.com/user/notifications/
