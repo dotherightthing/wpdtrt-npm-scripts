@@ -15,9 +15,9 @@
   ],
   "support": {
       "email": "support@dotherightthing.co.nz",
-      "issues": "https://bitbucket.org/dotherightthing/wpdtrt-gulp/issues",
-      "source": "https://bitbucket.org/dotherightthing/wpdtrt-gulp",
-      "wiki": "https://bitbucket.org/dotherightthing/wpdtrt-gulp/wiki"
+      "issues": "https://bitbucket.org/dotherightthing/wpdtrt-npm-scripts/issues",
+      "source": "https://bitbucket.org/dotherightthing/wpdtrt-npm-scripts",
+      "wiki": "https://bitbucket.org/dotherightthing/wpdtrt-npm-scripts/wiki"
   },
   "require": {
     "wp-coding-standards/wpcs": "^0.14.1",
@@ -38,11 +38,11 @@
       },
       {
         "type": "vcs",
-        "url": "https://github.com/dotherightthing/wpdtrt-debug/"
+        "url": "https://github.com/dotherightthing/wpdtrt-debug"
       },
       {
         "type": "git",
-        "url": "git@bitbucket.org:dotherightthing/wpdtrt-dbth.git"
+        "url": "https://github.com/dotherightthing/wpdtrt-dbth"
       },
       {
         "type": "vcs",
