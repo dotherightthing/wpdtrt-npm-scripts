@@ -40,7 +40,7 @@ const shellCommand = async (command) => {
 };
 
 describe('install', function () {
-    this.timeout(120000);
+    this.timeout(1000); // 120000
 
     const wnsPub = 'dotherightthing';
     const wns = 'wpdtrt-npm-scripts';
@@ -49,22 +49,26 @@ describe('install', function () {
         {
             id: 'wordpress-child-theme',
             name: 'wpdtrt-dbth',
-            path: './vendor/dotherightthing/'
+            path: './vendor/dotherightthing/',
+            hasWnsDependency: true
         },
         {
             id: 'wordpress-parent-theme',
             name: 'wordpress-parent-theme',
-            path: './vendor/dotherightthing/'
+            path: './vendor/dotherightthing/',
+            hasWnsDependency: false
         },
         {
             id: 'wordpress-plugin',
             name: 'wordpress-plugin',
-            path: './vendor/dotherightthing/'
+            path: './vendor/dotherightthing/',
+            hasWnsDependency: false
         },
         {
             id: 'wordpress-plugin-boilerplate',
             name: 'wordpress-plugin-boilerplate',
-            path: './vendor/dotherightthing/'
+            path: './vendor/dotherightthing/',
+            hasWnsDependency: false
         }
     ];
 
@@ -95,10 +99,19 @@ describe('install', function () {
 
             describe('install', function () {
                 it('installs without error', async function () {
-                    const err = await shellCommand(`cd ${theme} && npm ci && npm install ${wnsPub}/${wns} --save`);
+
+                    let command = `cd ${theme} && npm ci`;
+
+                    if (!testTheme.hasWnsDependency) {
+                        command += ` && npm install ${wnsPub}/${wns} --save`;
+                    }
+
+                    const err = await shellCommand(command);
                     expect(err.replace(/\n$/, '')).to.equal('');
                 });
+            });
 
+            describe('install dependencies', function () {
                 it('installs all dependencies', async function () {
                     if (testTheme.id === 'wordpress-child-theme') {
                         // TODO test if Natural Docs were generated
@@ -112,7 +125,9 @@ describe('install', function () {
                         expect(fs.existsSync(`${os.tmpdir()}/wordpress-tests-lib`)).to.equal(true);
                     }
                 });
+            });
 
+            describe('install config', function () {
                 it('copies all config files', async function () {
                     configFiles.forEach(function (configFile) {
                         expect(fs.existsSync(`${process.cwd()}/${theme}/${configFile}`)).to.equal(true);
