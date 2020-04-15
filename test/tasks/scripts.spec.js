@@ -99,7 +99,6 @@ describe('install', function () {
 
             describe('install', function () {
                 it('installs without error', async function () {
-
                     let command = `cd ${theme} && npm ci`;
 
                     if (!testTheme.hasWnsDependency) {
