@@ -101,9 +101,14 @@ describe('install', function () {
                 it('installs without error', async function () {
                     let command = `cd ${theme} && npm ci`;
 
-                    if (!testTheme.hasWnsDependency) {
-                        command += ` && npm install ${wnsPub}/${wns} --save`;
+                    // remove any existing dependency
+                    // so we can install the latest version
+                    if (testTheme.hasWnsDependency) {
+                        command += ` && npm uninstall ${wns} --ignore-scripts`;
                     }
+
+                    // install the latest version
+                    command += ` && npm install ${wnsPub}/${wns} --save`;
 
                     const err = await shellCommand(command);
                     expect(err.replace(/\n$/, '')).to.equal('');
