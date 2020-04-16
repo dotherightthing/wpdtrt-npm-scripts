@@ -1,5 +1,5 @@
 /**
- * @file ./boilerplate-path.js
+ * @file ./scripts/helpers/boilerplate-path.js
  * @summary Gets the path to wpdtrt-plugin-boilerplate.
  */
 

@@ -1,5 +1,5 @@
 /**
- * @file scripts/helpers/format-log.js
+ * @file ./scripts/helpers/format-log.js
  * @summary Format a log message
  * @returns Log message
  * @example
