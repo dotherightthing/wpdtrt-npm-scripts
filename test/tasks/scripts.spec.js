@@ -238,14 +238,13 @@ describe('scripts', function () {
             describe('docs', function () {
                 it('dependencies are manually installed', async function () {
                     expect(
-                        fs.existsSync(`${process.cwd()}/${theme}/${app}`),
-                        `file or folder missing: ${process.cwd()}/${theme}/${app}`
+                        fs.existsSync(`${process.cwd()}/${theme}/.bin/Natural Docs`),
+                        `file or folder missing: ${process.cwd()}/${theme}/.bin/Natural Docs`
                     ).to.equal(true);
                 });
 
                 it('runs without error', async function () {
                     const err = await shellCommand(`cd ${theme} && npm run docs`);
-                    console.dir(result);
 
                     expect(
                         err.replace(/\n$/, ''),
@@ -274,7 +273,6 @@ describe('scripts', function () {
 
                 it('runs without error', async function () {
                     const err = await shellCommand(`cd ${theme} && npm run release`);
-                    console.dir(result);
 
                     expect(
                         err.replace(/\n$/, ''),
