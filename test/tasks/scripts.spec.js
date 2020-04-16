@@ -39,7 +39,7 @@ const shellCommand = async (command) => {
     return err;
 };
 
-describe('install', function () {
+describe('scripts', function () {
     this.timeout(120000);
 
     const wnsPub = 'dotherightthing';
@@ -51,25 +51,25 @@ describe('install', function () {
             name: 'wpdtrt-dbth',
             path: './vendor/dotherightthing/',
             hasWnsDependency: true
-        },
-        {
-            id: 'wordpress-parent-theme',
-            name: 'wpdtrt',
-            path: './vendor/dotherightthing/',
-            hasWnsDependency: true
-        },
-        {
-            id: 'wordpress-plugin',
-            name: 'wpdtrt-gallery',
-            path: './vendor/dotherightthing/',
-            hasWnsDependency: false
-        },
-        {
-            id: 'wordpress-plugin-boilerplate',
-            name: 'wpdtrt-plugin-boilerplate',
-            path: './vendor/dotherightthing/',
-            hasWnsDependency: false
         }
+        // {
+        //     id: 'wordpress-parent-theme',
+        //     name: 'wpdtrt',
+        //     path: './vendor/dotherightthing/',
+        //     hasWnsDependency: true
+        // },
+        // {
+        //     id: 'wordpress-plugin',
+        //     name: 'wpdtrt-gallery',
+        //     path: './vendor/dotherightthing/',
+        //     hasWnsDependency: false
+        // },
+        // {
+        //     id: 'wordpress-plugin-boilerplate',
+        //     name: 'wpdtrt-plugin-boilerplate',
+        //     path: './vendor/dotherightthing/',
+        //     hasWnsDependency: false
+        // }
     ];
 
     const configFiles = [
@@ -111,7 +111,11 @@ describe('install', function () {
                     command += ` && npm install ${wnsPub}/${wns} --save`;
 
                     const err = await shellCommand(command);
-                    expect(err.replace(/\n$/, '')).to.equal('');
+
+                    expect(
+                        err.replace(/\n$/, ''),
+                        `unexpected error: ${err.replace(/\n$/, '')}`
+                    ).to.equal('');
                 });
             });
 
@@ -119,14 +123,38 @@ describe('install', function () {
                 it('installs all dependencies', async function () {
                     if (testTheme.id === 'wordpress-child-theme') {
                         // TODO test if Natural Docs were generated
-                        expect(fs.existsSync(`${process.cwd()}/${theme}/${composerFolder}`)).to.equal(true);
-                        expect(fs.existsSync(`${process.cwd()}/${theme}/${npmFolder}`)).to.equal(true);
+
+                        expect(
+                            fs.existsSync(`${process.cwd()}/${theme}/${composerFolder}`),
+                            `expected folder missing: ${process.cwd()}/${theme}/${composerFolder}`
+                        ).to.equal(true);
+
+                        expect(
+                            fs.existsSync(`${process.cwd()}/${theme}/${npmFolder}`),
+                            `expected folder missing: ${process.cwd()}/${theme}/${npmFolder}`
+                        ).to.equal(true);
                     } else if (testTheme.id === 'wordpress-plugin-boilerplate') {
                         // TODO test if test database was created
-                        expect(fs.existsSync(`${process.cwd()}/${theme}/${composerFolder}`)).to.equal(true);
-                        expect(fs.existsSync(`${process.cwd()}/${theme}/${npmFolder}`)).to.equal(true);
-                        expect(fs.existsSync(`${os.tmpdir()}/wordpress`)).to.equal(true);
-                        expect(fs.existsSync(`${os.tmpdir()}/wordpress-tests-lib`)).to.equal(true);
+
+                        expect(
+                            fs.existsSync(`${process.cwd()}/${theme}/${composerFolder}`),
+                            `expected folder missing: ${process.cwd()}/${theme}/${composerFolder}`
+                        ).to.equal(true);
+
+                        expect(
+                            fs.existsSync(`${process.cwd()}/${theme}/${npmFolder}`),
+                            `expected folder missing: ${process.cwd()}/${theme}/${npmFolder}`
+                        ).to.equal(true);
+
+                        expect(
+                            fs.existsSync(`${os.tmpdir()}/wordpress`),
+                            `expected folder missing: ${os.tmpdir()}/wordpress`
+                        ).to.equal(true);
+
+                        expect(
+                            fs.existsSync(`${os.tmpdir()}/wordpress-tests-lib`),
+                            `expected folder missing: ${os.tmpdir()}/wordpress-tests-lib`
+                        ).to.equal(true);
                     }
                 });
             });
@@ -134,7 +162,10 @@ describe('install', function () {
             describe('install config', function () {
                 it('copies all config files', async function () {
                     configFiles.forEach(function (configFile) {
-                        expect(fs.existsSync(`${process.cwd()}/${theme}/${configFile}`)).to.equal(true);
+                        expect(
+                            fs.existsSync(`${process.cwd()}/${theme}/${configFile}`),
+                            `file or folder missing: ${process.cwd()}/${theme}/${configFile}`
+                        ).to.equal(true);
                     });
                 });
             });
@@ -142,21 +173,41 @@ describe('install', function () {
             describe('lint', function () {
                 it('runs without error', async function () {
                     const err = await shellCommand(`cd ${theme} && npm run lint`);
-                    expect(err.replace(/\n$/, '')).to.equal('');
+
+                    expect(
+                        err.replace(/\n$/, ''),
+                        `unexpected error: ${err.replace(/\n$/, '')}`
+                    ).to.equal('');
                 });
             });
 
             describe('compile', function () {
                 it('runs without error and generates the expected files', async function () {
                     const err = await shellCommand(`cd ${theme} && npm run compile`);
-                    expect(err.replace(/\n$/, '')).to.equal('');
 
-                    expect(fs.existsSync(`${process.cwd()}/${theme}/${cssFolder}/${themeName}.css`)).to.equal(true);
-                    expect(fs.existsSync(`${process.cwd()}/${theme}/${jsFolder}/frontend-es5.js`)).to.equal(true);
-                    expect(fs.existsSync(`${process.cwd()}/${theme}/${jsFolder}/backend-es5.js`)).to.equal(true);
+                    expect(
+                        err.replace(/\n$/, ''),
+                        `unexpected error: ${err.replace(/\n$/, '')}`
+                    ).to.equal('');
+
+                    let paths = [
+                        `${cssFolder}/${testTheme.name}.css`,
+                        `${jsFolder}/frontend-es5.js`,
+                        `${jsFolder}/backend-es5.js`
+                    ];
+
+                    paths.forEach(function (path) {
+                        expect(
+                            fs.existsSync(`${process.cwd()}/${theme}/${path}`),
+                            `file or folder missing: ${process.cwd()}/${theme}/${path}`
+                        ).to.equal(true);
+                    });
 
                     if (testTheme.id === 'wpdtrt-child-theme') {
-                        expect(fs.existsSync(`${process.cwd()}/${theme}/${scssFolder}/_wpdtrt-import.scss`)).to.equal(true);
+                        expect(
+                            fs.existsSync(`${process.cwd()}/${theme}/${scssFolder}/_wpdtrt-import.scss`),
+                            `file or folder missing: ${process.cwd()}/${theme}/${scssFolder}/_wpdtrt-import.scss`
+                        ).to.equal(true);
                     }
                 });
             });
@@ -164,7 +215,11 @@ describe('install', function () {
             describe('version', function () {
                 it('runs without error', async function () {
                     const err = await shellCommand(`cd ${theme} && npm run version`);
-                    expect(err.replace(/\n$/, '')).to.equal('');
+
+                    expect(
+                        err.replace(/\n$/, ''),
+                        `unexpected error: ${err.replace(/\n$/, '')}`
+                    ).to.equal('');
                 });
 
                 it.skip('regenerates the list of PHP classes to be autoloaded', async function () {
@@ -182,45 +237,81 @@ describe('install', function () {
 
             describe('docs', function () {
                 it('dependencies are manually installed', async function () {
-                    expect(fs.existsSync(`${process.cwd()}/${theme}/${app}`)).to.equal(true);
+                    expect(
+                        fs.existsSync(`${process.cwd()}/${theme}/${app}`),
+                        `file or folder missing: ${process.cwd()}/${theme}/${app}`
+                    ).to.equal(true);
                 });
 
                 it('runs without error', async function () {
                     const err = await shellCommand(`cd ${theme} && npm run docs`);
                     console.dir(result);
-                    expect(err.replace(/\n$/, '')).to.equal('');
-                    expect(fs.existsSync(`${process.cwd()}/${theme}/${docsIndex}`)).to.equal(true);
-                    expect(fs.existsSync(`${process.cwd()}/${theme}/${workingData}`)).to.equal(true);
+
+                    expect(
+                        err.replace(/\n$/, ''),
+                        `unexpected error: ${err.replace(/\n$/, '')}`
+                    ).to.equal('');
+
+                    expect(
+                        fs.existsSync(`${process.cwd()}/${theme}/${docsIndex}`),
+                        `file or folder missing: ${process.cwd()}/${theme}/${docsIndex}`
+                    ).to.equal(true);
+
+                    expect(
+                        fs.existsSync(`${process.cwd()}/${theme}/${workingData}`),
+                        `file or folder missing: ${process.cwd()}/${theme}/${workingData}`
+                    ).to.equal(true);
                 });
             });
 
             describe('release', function () {
                 it('deletes files from the previous release', async function () {
-                    expect(fs.existsSync(`${process.cwd()}/${theme}/release`)).to.equal(false);
+                    expect(
+                        fs.existsSync(`${process.cwd()}/${theme}/release`),
+                        `file or folder missing: ${process.cwd()}/${theme}/release`
+                    ).to.equal(true);
                 });
 
                 it('runs without error', async function () {
                     const err = await shellCommand(`cd ${theme} && npm run release`);
                     console.dir(result);
-                    expect(err.replace(/\n$/, '')).to.equal('');
+
+                    expect(
+                        err.replace(/\n$/, ''),
+                        `unexpected error: ${err.replace(/\n$/, '')}`
+                    ).to.equal('');
                 });
 
                 it('copies release files to a temporary folder', async function () {
-                    expect(fs.existsSync(`${process.cwd()}/${theme}/release`)).to.equal(true);
+                    expect(
+                        fs.existsSync(`${process.cwd()}/${theme}/release`),
+                        `file or folder missing: ${process.cwd()}/${theme}/release`
+                    ).to.equal(true);
                 });
 
                 it('generates a release.zip for deployment to Github/Bitbucket', async function () {
-                    expect(fs.existsSync(`${process.cwd()}/${theme}/release.zip`)).to.equal(true);
+                    expect(
+                        fs.existsSync(`${process.cwd()}/${theme}/release.zip`),
+                        `file or folder missing: ${process.cwd()}/${theme}/release.zip`
+                    ).to.equal(true);
                 });
 
                 it.skip('uninstall PHP development dependencies', async function () {
                     // TODO
-                    expect(stderr.replace(/\n$/, '')).to.equal('');
+
+                    expect(
+                        err.replace(/\n$/, ''),
+                        `unexpected error: ${err.replace(/\n$/, '')}`
+                    ).to.equal('');
                 });
 
                 it.skip('uninstalls NPM development dependencies', async function () {
                     // TODO
-                    expect(stderr.replace(/\n$/, '')).to.equal('');
+
+                    expect(
+                        err.replace(/\n$/, ''),
+                        `unexpected error: ${err.replace(/\n$/, '')}`
+                    ).to.equal('');
                 });
             });
 
