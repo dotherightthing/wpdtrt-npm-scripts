@@ -101,15 +101,18 @@ npm run lint
 
 Note that linting errors may cause the script to exit before all issues have been logged. In this case, fix the errors then run the script again.
 
+---
+
 ## Tests
 
 Tests are written in [Mocha](https://mochajs.org/), with [Chai](https://www.chaijs.com/) assertions.
 
-[Execa](https://github.com/sindresorhus/execa) is used to verify the output of the [gulp](https://gulpjs.com/) Node [`child process`](https://nodejs.org/api/child_process.html#child_process_child_process).
+[Execa](https://github.com/sindresorhus/execa) is used to verify the output of Shell and Node [`child process`](https://nodejs.org/api/child_process.html#child_process_child_process)es.
 
 To test against fixtures loaded into a sub-directory:
 
 ```bash
+# stillrequired?
 npm config set wpdtrt-dbth:wpdtrt_npm_scripts ../../../../
 ```
 
