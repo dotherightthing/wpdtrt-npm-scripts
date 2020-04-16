@@ -8,6 +8,10 @@ var totalSet = false;
 
 // if not loaded as a dependency
 if (!fs.existsSync('../../../../package.json')) {
+    /* eslint-disable no-console */
+    console.error('copy-files.js: package.json not found, exiting');
+    /* eslint-enable no-console */
+
     return;
 }
 
