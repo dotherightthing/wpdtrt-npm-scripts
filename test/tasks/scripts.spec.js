@@ -40,7 +40,7 @@ const shellCommand = async (command) => {
 };
 
 describe('install', function () {
-    this.timeout(1000); // 120000
+    this.timeout(120000);
 
     const wnsPub = 'dotherightthing';
     const wns = 'wpdtrt-npm-scripts';
