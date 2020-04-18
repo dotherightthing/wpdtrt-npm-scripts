@@ -64,47 +64,65 @@ describe('scripts', function () {
             id: 'wordpress-child-theme',
             name: 'wpdtrt-dbth',
             path: 'vendor/dotherightthing/',
+            paths: {
+                css: [
+                    'css/wpdtrt-dbth-backend.css',
+                    'css/wpdtrt-dbth-editor-style.css',
+                    'css/wpdtrt-dbth-variables.css'
+                ],
+                js: [],
+                scss: [
+                    'scss/_wpdtrt-import.scss'
+                ]
+            },
             uses: {
-                composer: true,
+                naturaldocs: true
+            }
+        },
+        {
+            haslibraryDependency: true,
+            id: 'wordpress-parent-theme',
+            name: 'wpdtrt',
+            path: 'vendor/dotherightthing/',
+            paths: {
+                css: [],
+                js: [],
+                scss: []
+            },
+            uses: {
+                naturaldocs: true
+            }
+        },
+        {
+            haslibraryDependency: false,
+            id: 'wordpress-plugin',
+            name: 'wpdtrt-gallery',
+            path: 'vendor/dotherightthing/',
+            paths: {
+                css: [],
+                js: [],
+                scss: []
+            },
+            uses: {
                 naturaldocs: true,
-                node: true
+                wpunit: true
+            }
+        },
+        {
+            haslibraryDependency: false,
+            id: 'wordpress-plugin-boilerplate',
+            name: 'wpdtrt-plugin-boilerplate',
+            path: 'vendor/dotherightthing/',
+            paths: {
+                css: [],
+                js: [],
+                scss: []
+            },
+            uses: {
+                naturaldocs: true,
+                wpunit: true
             }
         }
-        // {
-        //     haslibraryDependency: true,
-        //     id: 'wordpress-parent-theme',
-        //     name: 'wpdtrt',
-        //     path: 'vendor/dotherightthing/',
-        //     uses: {
-        //         composer: true,
-        //         naturaldocs: true,
-        //         node: true
-        //     }
-        // },
-        // {
-        //     haslibraryDependency: false,
-        //     id: 'wordpress-plugin',
-        //     name: 'wpdtrt-gallery',
-        //     path: 'vendor/dotherightthing/',
-        //     uses: {
-        //         composer: true,
-        //         naturaldocs: true,
-        //         node: true,
-        //         wpunit: true
-        //     }
-        // },
-        // {
-        //     haslibraryDependency: false,
-        //     id: 'wordpress-plugin-boilerplate',
-        //     name: 'wpdtrt-plugin-boilerplate',
-        //     path: 'vendor/dotherightthing/',
-        //     uses: {
-        //         composer: true,
-        //         naturaldocs: true,
-        //         node: true,
-        //         wpunit: true
-        //     }
-        // }
     ];
 
     const packageJson = {
@@ -114,6 +132,7 @@ describe('scripts', function () {
 
     const paths = {
         composer: 'vendor',
+        composerConfig: 'composer.json',
         config: [
             'config/naturaldocs/Project.txt',
             'docs',
@@ -132,7 +151,10 @@ describe('scripts', function () {
             'js/backend-es5.js'
         ],
         naturaldocs: '.bin/Natural Docs',
-        node: 'node_modules',
+        npm: 'node_modules',
+        npmConfig: 'package.json',
+        release: 'release',
+        releaseZip: 'release.zip',
         scss: [],
         wpUnitWordPress: `${osTmpDir}/wordpress`,
         wpUnitWordPressTestLibrary: `${osTmpDir}/wordpress-tests-lib`
@@ -140,28 +162,32 @@ describe('scripts', function () {
 
     apps.forEach(function (app) {
         describe(app.id, function () {
-            const appPath = `${app.path}${app.name}`;
+            before(function () {
+                // cd for process.cwd
+                process.chdir(`./${app.path}${app.name}`);
 
-            paths.css.push(`css/${app.name}.css`);
+                // update paths.css object
+                app.paths.css = [ `css/${app.name}.css`, ...paths.css, ...app.paths.css ];
+    
+                // update paths.js object
+                app.paths.js = [ ...paths.js, ...app.paths.js ];
+    
+                // update paths.scss object
+                app.paths.scss = [ ...paths.scss, ...app.paths.scss ];
+    
+                // update uses object
+                app.uses.composer = fs.existsSync(paths.composerConfig);
+                app.uses.npm = fs.existsSync(paths.npmConfig);
+            });
 
-            if (app.id === 'wpdtrt-child-theme') {
-                paths.css.push(`css/${app.name}-backend.css`);
-                paths.css.push(`css/${app.name}-editor-style.css`);
-                paths.css.push(`css/${app.name}-variables.css`);
-
-                paths.scss.push('scss/_wpdtrt-import.scss');
-            }
-
-            // cd that changes process.cwd
-            process.chdir(`./${appPath}`);
-
+            // test suite
             describe('check path', function () {
                 it('tests run in the correct directory', function () {
-                    const re = new RegExp(`${appPath}$`, 'g');
+                    const re = new RegExp(`${app.path}${app.name}$`, 'g');
 
                     expect(
                         `${process.cwd()}`,
-                        appPath
+                        `${app.path}${app.name}`
                     ).to.match(re);
                 });
 
@@ -225,11 +251,11 @@ describe('scripts', function () {
                         });
                     }
 
-                    if (app.uses.node) {
-                        it('node', function () {
+                    if (app.uses.npm) {
+                        it('npm', function () {
                             expect(
-                                fs.existsSync(paths.node),
-                                paths.node
+                                fs.existsSync(paths.npm),
+                                paths.npm
                             ).to.equal(true);
                         });
                     }
@@ -349,33 +375,33 @@ describe('scripts', function () {
             });
 
             describe.skip('release', function () {
-                it('deletes files from the previous release', function () {
-                    expect(
-                        fs.existsSync(`${process.cwd()}/${host}/release`),
-                        `file or folder missing: ${process.cwd()}/${host}/release`
-                    ).to.equal(true);
-                });
+                // it('deletes files from the previous release', function () {
+                //     expect(
+                //         fs.existsSync(paths.release),
+                //         paths.release
+                //     ).to.equal(false);
+                // });
 
                 it('runs without error', async function () {
                     const err = await shellCommand('npm run release');
 
                     expect(
                         err.replace(/\n$/, ''),
-                        `unexpected error: ${err.replace(/\n$/, '')}`
+                        err.replace(/\n$/, ''),
                     ).to.equal('');
                 });
 
                 it('copies release files to a temporary folder', function () {
                     expect(
-                        fs.existsSync(`${process.cwd()}/${host}/release`),
-                        `file or folder missing: ${process.cwd()}/${host}/release`
+                        fs.existsSync(paths.release),
+                        paths.release
                     ).to.equal(true);
                 });
 
                 it('generates a release.zip for deployment to Github/Bitbucket', function () {
                     expect(
-                        fs.existsSync(`${process.cwd()}/${host}/release.zip`),
-                        `file or folder missing: ${process.cwd()}/${host}/release.zip`
+                        fs.existsSync(paths.releaseZip),
+                        paths.releaseZip
                     ).to.equal(true);
                 });
 
