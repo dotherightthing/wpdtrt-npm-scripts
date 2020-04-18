@@ -33,11 +33,13 @@
             "ignoreRegExpLiterals": true,
             "ignoreStrings": true,
             "ignoreTemplateLiterals": true
-        }
-    ],
+        }],
+        "no-param-reassign": [ "error", {
+            "props": false
+        }]
+    },
     "no-use-before-define": "warn",
     "no-unused-vars": "warn",
     "no-unused-expressions": 0,
     "chai-friendly/no-unused-expressions": 2
-    }
 }
