@@ -37,13 +37,13 @@ const { describe, it } = mocha; // fix eslint no-undef errors
  * @function describeIf
  * @param {boolean} condition - Condition required to run test
  * @param {string} title - Test title
- * @param {function} test - The test
- * @returns {function} test
+ * @param {Function} test - The test
+ * @returns {Function} test
  * @see https://stackoverflow.com/a/48817596/6850747
  */
 function describeIf(condition, title, test) {
     return condition ? describe(title, test) : describe.skip(title, test);
-  }
+}
 
 /**
  * @function shellCommand
@@ -184,13 +184,13 @@ describe('scripts', function () {
 
                 // update paths.css object
                 app.paths.css = [ `css/${app.name}.css`, ...paths.css, ...app.paths.css ];
-    
+
                 // update paths.js object
                 app.paths.js = [ ...paths.js, ...app.paths.js ];
-    
+
                 // update paths.scss object
                 app.paths.scss = [ ...paths.scss, ...app.paths.scss ];
-    
+
                 // update uses object
                 app.uses.composer = fs.existsSync(paths.composerConfig);
                 app.uses.npm = fs.existsSync(paths.npmConfig);
@@ -403,7 +403,7 @@ describe('scripts', function () {
 
                     expect(
                         err.replace(/\n$/, ''),
-                        err.replace(/\n$/, ''),
+                        err.replace(/\n$/, '')
                     ).to.equal('');
                 });
 
