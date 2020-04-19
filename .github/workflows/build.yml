@@ -36,11 +36,11 @@ jobs:
     - run: npm run test
 
     # https://github.com/marketplace/actions/action-release
-    - name: Upload release to the repository's Releases page
-      uses: yakuhzi/action-release@v1
-      if: steps.branch_name.outputs.SOURCE_TAG
-      with:
-        file: release-${{ steps.branch_name.outputs.SOURCE_TAG }}.zip
-        changelog: README.txt
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # - name: Upload release to the repository's Releases page
+    #   uses: yakuhzi/action-release@v1
+    #   if: steps.branch_name.outputs.SOURCE_TAG
+    #   with:
+    #     file: release-${{ steps.branch_name.outputs.SOURCE_TAG }}.zip
+    #     changelog: README.txt
+    #   env:
+    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
