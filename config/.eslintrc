@@ -34,10 +34,10 @@
             "ignoreStrings": true,
             "ignoreTemplateLiterals": true
         }],
+        "no-use-before-define": "warn",
         "no-param-reassign": [ "warn", {
             "props": false
         }],
-        "no-use-before-define": "warn",
         "no-unused-vars": "warn",
         "no-unused-expressions": 0,
         "chai-friendly/no-unused-expressions": 2
