@@ -34,6 +34,18 @@ const osTmpDir = require('os').tmpdir();
 const { describe, it } = mocha; // fix eslint no-undef errors
 
 /**
+ * @function describeIf
+ * @param {boolean} condition - Condition required to run test
+ * @param {string} title - Test title
+ * @param {function} test - The test
+ * @returns {function} test
+ * @see https://stackoverflow.com/a/48817596/6850747
+ */
+function describeIf(condition, title, test) {
+    return condition ? describe(title, test) : describe.skip(title, test);
+  }
+
+/**
  * @function shellCommand
  * @summary Run a shell command.
  * @param {string} command - the command to run
@@ -76,6 +88,7 @@ describe('scripts', function () {
                 ]
             },
             uses: {
+                gulpScripts: false,
                 naturaldocs: true
             }
         },
@@ -90,6 +103,7 @@ describe('scripts', function () {
                 scss: []
             },
             uses: {
+                gulpScripts: false,
                 naturaldocs: true
             }
         },
@@ -104,6 +118,7 @@ describe('scripts', function () {
                 scss: []
             },
             uses: {
+                gulpScripts: true,
                 naturaldocs: true,
                 wpunit: true
             }
@@ -119,6 +134,7 @@ describe('scripts', function () {
                 scss: []
             },
             uses: {
+                gulpScripts: true,
                 naturaldocs: true,
                 wpunit: true
             }
@@ -161,7 +177,7 @@ describe('scripts', function () {
     };
 
     apps.forEach(function (app) {
-        describe(app.id, function () {
+        describeIf(!app.uses.gulpScripts, app.id, function () {
             before(function () {
                 // cd for process.cwd
                 process.chdir(`./${app.path}${app.name}`);
