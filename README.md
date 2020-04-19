@@ -1,6 +1,6 @@
 # DTRT NPM Scripts
 
-[![GitHub release](https://img.shields.io/github/release/dotherightthing/wpdtrt-npm-scripts.svg)](https://github.com/dotherightthing/wpdtrt-npm-scripts/releases) [![Build](https://github.com/dotherightthing/wpdtrt-npm-scripts/workflows/Build/badge.svg?branch=master)](https://github.com/dotherightthing/wpdtrt-npm-scripts/actions?query=workflow%3ABuild) [![GitHub issues](https://img.shields.io/github/issues/dotherightthing/wpdtrt-npm-scripts.svg)](https://github.com/dotherightthing/wpdtrt-npm-scripts/issues)
+[![GitHub release](https://img.shields.io/github/v/tag/dotherightthing/wpdtrt-npm-scripts)](https://github.com/dotherightthing/wpdtrt-npm-scripts/releases) [![Build](https://github.com/dotherightthing/wpdtrt-npm-scripts/workflows/Build/badge.svg?branch=master)](https://github.com/dotherightthing/wpdtrt-npm-scripts/actions?query=workflow%3ABuild) [![GitHub issues](https://img.shields.io/github/issues/dotherightthing/wpdtrt-npm-scripts.svg)](https://github.com/dotherightthing/wpdtrt-npm-scripts/issues)
 
 
 NPM build scripts.
