@@ -125,9 +125,3 @@ To test against fixtures loaded into a sub-directory:
 ```bash
 npm run test:internal
 ```
-
-or, to avoid running the pretest setup task:
-
-```bash
-npm run test:internal --ignore-scripts
-```
