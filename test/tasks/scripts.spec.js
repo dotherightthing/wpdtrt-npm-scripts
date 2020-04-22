@@ -465,22 +465,22 @@ describe('scripts', function () {
 
             // TODO: https://github.com/dotherightthing/wpdtrt-npm-scripts/issues/16
 
-            // describe('test', function () {
-            //     it('runs without error', async function () {
-            //         const err = await shellCommand('npm run test');
-            //         expect(err.replace(/\n$/, '')).to.equal('');
-            //     });
+            describe('test', function () {
+                it('runs without error', async function () {
+                    const err = await shellCommand('npm run test');
+                    expect(err.replace(/\n$/, '')).to.equal('');
+                });
 
-            //     it.skip('runs Cypress uses', function () {
-            //         // TODO
-            //         expect(stderr.replace(/\n$/, '')).to.equal('');
-            //     });
+                it.skip('runs Cypress tests', function () {
+                    // TODO
+                    expect(stderr.replace(/\n$/, '')).to.equal('');
+                });
 
-            //     it.skip('runs WordPress unit uses', function () {
-            //         // TODO
-            //         expect(stderr.replace(/\n$/, '')).to.equal('');
-            //     });
-            // });
+                it.skip('runs WordPress unit tests', function () {
+                    // TODO
+                    expect(stderr.replace(/\n$/, '')).to.equal('');
+                });
+            });
 
             // describe('uninstall', function () {
             //     it('uninstalls without error', async function () {
