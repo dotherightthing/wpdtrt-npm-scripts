@@ -44,6 +44,7 @@ release*
 js/*-es5.js
 nodemon.json
 phpcs.xml
+phpunit.xml.dist
 postcss.config.js
 _wpdtrt-import.scss
 bin/Natural\ Docs
@@ -66,6 +67,7 @@ Please add these lines to your `package.json`:
     "docs": "npm run docs --prefix $npm_package_config_wpdtrt_npm_scripts",
     "lint": "npm run lint --prefix $npm_package_config_wpdtrt_npm_scripts",
     "release": "npm run release --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "test": "npm run test --prefix $npm_package_config_wpdtrt_npm_scripts",
     "version": "npm run version --prefix $npm_package_config_wpdtrt_npm_scripts",
     "watch": "nodemon"
   },
@@ -78,7 +80,7 @@ Note:
 
 ## Usage
 
-### Compiling
+### Compile files
 
 ```
 npm run compile
@@ -89,7 +91,7 @@ npm run compile
 3. `backend.js -> backend-es5.js`
 4. `frontend.js -> frontend-es5.js`
 
-### Linting
+### Lint files
 
 ```
 npm run lint
@@ -101,6 +103,14 @@ npm run lint
 4. `*.php -> phpcs`
 
 Note that linting errors may cause the script to exit before all issues have been logged. In this case, fix the errors then run the script again.
+
+### Run unit tests
+
+```
+npm run test
+```
+
+See also [DTRT WordPress Plugin Boilerplate - Testing & Debugging](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging)
 
 ---
 
@@ -120,5 +130,6 @@ npm config set wpdtrt-dbth:wpdtrt_npm_scripts ../../../../
 then:
 
 ```bash
-npm run test
+npm run lint:internal
+npm run test:internal
 ```

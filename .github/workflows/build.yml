@@ -33,7 +33,8 @@ jobs:
         php-version: '7.2.15'
         node-version: ${{ matrix.node-version }}
     - run: composer config -g github-oauth.github.com ${{ secrets.GH_PAT_WPDTRT_DBTH }}
-    - run: npm run test
+    - run: npm run lint:internal
+    - run: npm run test:internal
 
     # https://github.com/marketplace/actions/action-release
     # - name: Upload release to the repository's Releases page

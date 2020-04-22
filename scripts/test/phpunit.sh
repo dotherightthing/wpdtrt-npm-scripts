@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# File: ./scripts/test/setup.sh
+# File: ./scripts/test/phpunit.sh
 #
 # Note:
 # chmod a+x = Change access permissions of this file, to 'e[x]ecutable' for '[a]ll users'
@@ -17,6 +17,6 @@ set -e
 # install the fixtures specified in composer.json
 # then cd into each fixture's directory and install its dependencies
 
-npm install --ignore-scripts \
-&& composer config -g github-oauth.github.com $GH_TOKEN \
-&& composer install --prefer-dist --no-interaction --no-suggest
+node scripts/helpers/format-log.js 'test' 'phpunit' 'run unit tests' \
+&& cd $INIT_CWD \
+&& ./vendor/bin/phpunit --configuration phpunit.xml.dist
