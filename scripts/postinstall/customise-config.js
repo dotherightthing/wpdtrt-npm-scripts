@@ -4,9 +4,10 @@
  */
 
 const fs = require('fs');
+const path = require('path');
 
 // if not loaded as a dependency
-if (!fs.existsSync('../../../../package.json')) {
+if (!fs.existsSync(`${path.resolve('../../')}/package.json`)) {
     /* eslint-disable no-console */
     console.error('customise-config.js: package.json not found, exiting');
     /* eslint-enable no-console */
@@ -16,7 +17,7 @@ if (!fs.existsSync('../../../../package.json')) {
 
 const replaceInFiles = require('replace-in-files');
 const formatLog = require('../helpers/format-log.js').default;
-const packageJson = require('../../../../package.json');
+const packageJson = require(`${path.resolve('../../')}/package.json`);
 
 // from and to are required
 // but are overridden in the pipes
@@ -38,7 +39,7 @@ const customiseConfig = async function () {
 
         // filter out empty objects
         const changedFiles = countOfMatchesByPaths
-            .filter(path => Object.keys(path).length);
+            .filter(thepath => Object.keys(thepath).length);
 
         const suffix = changedFiles.length > 1 ? 's' : '';
 
