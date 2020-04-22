@@ -2579,7 +2579,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-dbth",
-                "reference": "fe02d78032904ff3bf151ed4b4f505e86265bdbe"
+                "reference": "e7c5efbbb7e03450cfe0f408bd5fca2497b54620"
             },
             "require": {
                 "dotherightthing/wpdtrt": "dev-development",
@@ -2614,7 +2614,7 @@
                 "source": "https://bitbucket.org/dotherightthing/wpdtrt-dbth",
                 "wiki": "https://bitbucket.org/dotherightthing/wpdtrt-dbth/wiki"
             },
-            "time": "2020-04-19T03:48:00+00:00"
+            "time": "2020-04-22T23:46:41+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-debug",
