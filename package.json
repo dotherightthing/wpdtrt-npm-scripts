@@ -74,7 +74,8 @@
     "prerelease": "./scripts/lint/css.sh && ./scripts/lint/js.sh && ./scripts/lint/php.sh && ./scripts/compile/css.sh && ./scripts/compile/js.sh && ./scripts/postuninstall/composer.sh",
     "release": "node ./scripts/release/copy-files.js && node ./scripts/release/create-zip.js",
     "test:internal": "chmod a+x scripts/**/*.sh && ./scripts/test/teardown.sh && ./scripts/test/setup.sh && mocha --recursive \"./test/**/*.spec.js\" --full-trace",
-    "test": "node ./scripts/test/install-wpunit.js && ./scripts/test/phpunit.sh",
+    "pretest": "node ./scripts/test/install-wpunit.js",
+    "test": "./scripts/test/phpunit.sh",
     "version": "node ./scripts/version/plugin-bump.js",
     "postinstall": "./scripts/postinstall/config.sh && node ./scripts/postinstall/customise-config.js && ./scripts/postinstall/composer.sh && node ./scripts/postinstall/remaining-github-api-calls.js",
     "postuninstall": "./scripts/postuninstall/config.sh && ./scripts/postuninstall/composer.sh && ./scripts/postuninstall/npm.sh"
