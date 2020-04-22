@@ -18,5 +18,6 @@ set -e
 # then cd into each fixture's directory and install its dependencies
 
 npm install --ignore-scripts \
+&& eslint './**/*.js' \
 && composer config -g github-oauth.github.com $GH_TOKEN \
 && composer install --prefer-dist --no-interaction --no-suggest

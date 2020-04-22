@@ -130,6 +130,5 @@ npm config set wpdtrt-dbth:wpdtrt_npm_scripts ../../../../
 then:
 
 ```bash
-npm run lint:internal
 npm run test:internal
 ```
