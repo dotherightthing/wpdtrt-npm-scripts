@@ -62,9 +62,6 @@
     "chai": "^4.2.0",
     "mocha": "^6.2.1"
   },
-  "config": {
-    "return_path": "./"
-  },
   "scripts": {
     "preinstall": "chmod a+x scripts/**/*.sh",
     "compile": "./scripts/compile/css.sh && ./scripts/compile/js.sh",
