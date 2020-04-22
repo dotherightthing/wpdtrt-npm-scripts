@@ -161,6 +161,9 @@ describe('scripts', function () {
             'phpcs.xml',
             'postcss.config.js'
         ],
+        configsContainingPlaceholders: [
+            'config/naturaldocs/Project.txt'
+        ],
         css: [],
         js: [
             'js/frontend-es5.js',
@@ -175,6 +178,11 @@ describe('scripts', function () {
         wpUnitWordPress: `${osTmpDir}/wordpress`,
         wpUnitWordPressTestLibrary: `${osTmpDir}/wordpress-tests-lib`
     };
+
+    const placeholders = [
+        '$packageName',
+        '$packageVersion'
+    ];
 
     apps.forEach(function (app) {
         describeIf(!app.uses.gulpScripts, app.id, function () {
@@ -299,6 +307,21 @@ describe('scripts', function () {
                                 configFile
                             ).to.equal(true);
                         });
+                    });
+
+                    it('replaces placeholders in config files', function (done) {
+                        paths.configsContainingPlaceholders.forEach(function (configContainingPlaceholders) {
+                            placeholders.forEach(function (placeholder) {
+                                let re = new RegExp(`\\${placeholder}`, 'g');
+
+                                expect(
+                                    fs.readFileSync(configContainingPlaceholders, 'utf8'),
+                                    placeholder
+                                ).to.not.match(re);
+                            });
+                        });
+
+                        done();
                     });
                 });
             });
