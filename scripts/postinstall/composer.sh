@@ -17,7 +17,10 @@ set -e
 # install the fixtures specified in composer.json
 # then cd into each fixture's directory and install its dependencies
 
-node scripts/helpers/format-log.js 'postinstall' 'composer' 'install php dependencies' \
+node scripts/helpers/format-log.js 'postinstall' 'composer' 'install php dependencies of wpdtrt-npm-scripts' \
+&& composer config -g github-oauth.github.com $GH_TOKEN \
+&& composer install --prefer-dist --no-interaction --no-suggest \
+node scripts/helpers/format-log.js 'postinstall' 'composer' 'install php dependencies of host' \
 && cd $INIT_CWD \
 && composer config -g github-oauth.github.com $GH_TOKEN \
 && composer install --prefer-dist --no-interaction --no-suggest
