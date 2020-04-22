@@ -18,7 +18,7 @@ set -e
 # then cd into each fixture's directory and install its dependencies
 
 node scripts/helpers/format-log.js 'postuninstall' 'composer' 'remove composer dependencies of wpdtrt-npm-scripts' \
-node scripts/postuninstall/remove-composer-dependencies.js \
-node scripts/helpers/format-log.js 'postuninstall' 'composer' 'uninstall composer dependencies of host' \
+&& node scripts/postuninstall/remove-composer-dependencies.js \
+&& node scripts/helpers/format-log.js 'postuninstall' 'composer' 'uninstall composer dependencies of host' \
 && cd $INIT_CWD \
 && composer install --prefer-dist --no-interaction --no-dev --no-suggest
