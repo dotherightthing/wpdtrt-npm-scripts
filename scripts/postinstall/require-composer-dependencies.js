@@ -45,10 +45,10 @@ const requireComposerDependencies = async function () {
             return execa.commandSync(
                 // dependencies are not installed
                 // until composer install or composer update are run
-                `composer require '${thepackage}:${version}' --no-update`, {
+                `composer require "${thepackage}:${version}" --no-update`, {
                     shell: true
                 }
-            ).stdout.pipe(process.stdout);
+            );
         })
     );
 };
