@@ -59,7 +59,7 @@ const shellCommand = command => {
     try {
         // run the command
         // and pipe the child process stdout to the parent
-        execa.commandSync(command, { shell: true }).stdout.pipe(process.stdout);
+        execa.commandSync(command, { shell: true });
         // const { stdout } = await execa.commandSync(command, { shell: true });
         // console.log(stdout);
     } catch (error) {
