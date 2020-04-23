@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4180175c11010675adccae19f1499409",
+    "content-hash": "a00c78f26082754645ddc50f1ed45172",
     "packages": [],
     "packages-dev": [
         {
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt.git",
-                "reference": "dbd22816bc5c0451092ff0be445cdc7c1cbcb60c"
+                "reference": "afddc20ee0fa56e0bedf6592c25f7f47eab94c70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt/zipball/dbd22816bc5c0451092ff0be445cdc7c1cbcb60c",
-                "reference": "dbd22816bc5c0451092ff0be445cdc7c1cbcb60c",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt/zipball/afddc20ee0fa56e0bedf6592c25f7f47eab94c70",
+                "reference": "afddc20ee0fa56e0bedf6592c25f7f47eab94c70",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
                 "issues": "https://github.com/dotherightthing/wpdtrt/issues",
                 "source": "https://github.com/dotherightthing/wpdtrt/tree/development"
             },
-            "time": "2020-04-23T04:16:17+00:00"
+            "time": "2020-04-23T06:20:12+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-dbth",
@@ -62,7 +62,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-dbth",
-                "reference": "70b89d9353f89ecfbc9baf700801284b10e7fcab"
+                "reference": "0d7630cdfa1029f2cc65c17f44a02bfddbb0c8d8"
             },
             "require": {
                 "dotherightthing/wpdtrt": "dev-development",
@@ -99,7 +99,7 @@
                 "source": "https://bitbucket.org/dotherightthing/wpdtrt-dbth",
                 "wiki": "https://bitbucket.org/dotherightthing/wpdtrt-dbth/wiki"
             },
-            "time": "2020-04-23T04:16:54+00:00"
+            "time": "2020-04-23T06:20:04+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-debug",
@@ -149,40 +149,32 @@
         },
         {
             "name": "dotherightthing/wpdtrt-gallery",
-            "version": "1.8.9",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-gallery.git",
-                "reference": "93fefa52ba85f35af530eab9b3301eb3677964a0"
+                "reference": "b70bc68fb1407dd966b6247221075e14e81239c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-gallery/zipball/93fefa52ba85f35af530eab9b3301eb3677964a0",
-                "reference": "93fefa52ba85f35af530eab9b3301eb3677964a0",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-gallery/zipball/b70bc68fb1407dd966b6247221075e14e81239c4",
+                "reference": "b70bc68fb1407dd966b6247221075e14e81239c4",
                 "shasum": ""
             },
             "require": {
-                "dotherightthing/wpdtrt-plugin-boilerplate": "~1.7.0"
+                "dotherightthing/wpdtrt-plugin-boilerplate": "dev-development as 1.6.x-dev"
             },
             "require-dev": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
-                "dotherightthing/wpdtrt-contentsections": "^0.2.3",
                 "dotherightthing/wpdtrt-exif": "^0.2.2",
                 "phpunit/phpunit": "^7.5.14",
                 "psy/psysh": "~0.6",
-                "wp-cli/wp-cli": "~0.22",
+                "wp-cli/wp-cli": "^2.3",
                 "wp-coding-standards/wpcs": "^0.14.1"
             },
             "type": "library",
             "extra": {
                 "require-wp": [
-                    {
-                        "name": "DTRT Content Sections",
-                        "host": "github",
-                        "repository": "dotherightthing/wpdtrt-contentsections",
-                        "file": "wpdtrt-contentsections.php",
-                        "description": "The gallery viewer is initialised as these are scrolled into view"
-                    },
                     {
                         "name": "DTRT EXIF",
                         "host": "github",
@@ -216,26 +208,26 @@
                 "source": "https://github.com/dotherightthing/wpdtrt-gallery",
                 "wiki": "https://github.com/dotherightthing/wpdtrt-gallery/wiki"
             },
-            "time": "2019-10-12T09:07:36+00:00"
+            "time": "2020-04-23T06:29:20+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-plugin-boilerplate",
-            "version": "1.7.0",
+            "version": "dev-development",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate.git",
-                "reference": "6605c03dacf50d3b08136e8d1430f960e9d482c8"
+                "reference": "b9fed7dc0b62e6f1cfae33373a9e92061cf1f6fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-plugin-boilerplate/zipball/6605c03dacf50d3b08136e8d1430f960e9d482c8",
-                "reference": "6605c03dacf50d3b08136e8d1430f960e9d482c8",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-plugin-boilerplate/zipball/b9fed7dc0b62e6f1cfae33373a9e92061cf1f6fd",
+                "reference": "b9fed7dc0b62e6f1cfae33373a9e92061cf1f6fd",
                 "shasum": ""
             },
             "require": {
                 "dotherightthing/wpdtrt-debug": "^1.0.0",
                 "gamajo/template-loader": "^1.3.0",
-                "php": "^7.0",
+                "php": "^7.2.20",
                 "tgmpa/tgm-plugin-activation": "dev-autoloader"
             },
             "require-dev": {
@@ -270,9 +262,9 @@
             "support": {
                 "email": "support@dotherightthing.co.nz",
                 "issues": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues",
-                "source": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/tree/1.7.0"
+                "source": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/tree/development"
             },
-            "time": "2019-10-12T07:57:51+00:00"
+            "time": "2019-10-13T02:30:41+00:00"
         },
         {
             "name": "gamajo/template-loader",
@@ -385,7 +377,9 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "dotherightthing/wpdtrt": 20,
-        "dotherightthing/wpdtrt-dbth": 20
+        "dotherightthing/wpdtrt-dbth": 20,
+        "dotherightthing/wpdtrt-gallery": 20,
+        "dotherightthing/wpdtrt-plugin-boilerplate": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
