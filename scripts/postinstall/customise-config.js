@@ -3,7 +3,6 @@
  * @summary Replace template $placeholders with project specific values
  */
 
-const fs = require('fs');
 const path = require('path');
 
 const replaceInFiles = require('replace-in-files');
