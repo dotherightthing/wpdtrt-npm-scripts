@@ -15,7 +15,6 @@
 set -e
 
 # install the fixtures specified in composer.json
-# then cd into each fixture's directory and install its dependencies
 
 npm install --ignore-scripts \
 && eslint './**/*.js' \
