@@ -54,11 +54,27 @@ vendor
 # End
 ```
 
+### composer.json
+
+Please add these lines to your `composer.json`:
+
+```json
+  "require": {
+    "wp-coding-standards/wpcs": "^0.14.1",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+    "phpunit/phpunit": "^7.5.14",
+    "psy/psysh" : "~0.6",
+    "wp-cli/wp-cli": "^2.3"
+  },
+```
+
+See also [#19](issues/19).
+
 ### package.json
 
 Please add these lines to your `package.json`:
 
-```
+```json
   "config": {
     "wpdtrt_npm_scripts": "./node_modules/wpdtrt-npm-scripts"
   },
