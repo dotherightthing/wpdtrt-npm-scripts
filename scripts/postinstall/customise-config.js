@@ -6,15 +6,6 @@
 const fs = require('fs');
 const path = require('path');
 
-// if not loaded as a dependency
-if (!fs.existsSync(`${path.resolve('../../')}/package.json`)) {
-    /* eslint-disable no-console */
-    console.error('customise-config.js: package.json not found, exiting');
-    /* eslint-enable no-console */
-
-    return;
-}
-
 const replaceInFiles = require('replace-in-files');
 const formatLog = require('../helpers/format-log.js').default;
 const packageJson = require(`${path.resolve('../../')}/package.json`);
