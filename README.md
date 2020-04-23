@@ -89,6 +89,10 @@ Please add these lines to your `package.json`:
   },
 ```
 
+### tests/bootstrap.php
+
+See https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/blob/master/generators/app/templates/tests/bootstrap.php
+
 Note:
 
 * `--prefix` [forces non-global commands to run in the specified folder](https://docs.npmjs.com/misc/config#prefix)
