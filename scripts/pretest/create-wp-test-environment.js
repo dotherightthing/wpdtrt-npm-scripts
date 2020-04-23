@@ -26,10 +26,10 @@ const createWpTestEnvironment = async function () {
     try {
         // eslint-disable-next-line no-unused-vars
         const installDependenciesAndCreateDatabase = await execa.commandSync(
-            `bash install-wp-tests.sh ${dbName} ${wpVersion}`, {
+            `bash ./scripts/pretest/install-wp-tests.sh ${dbName} ${wpVersion}`, {
                 shell: true
             }
-        ).stdout.pipe(process.stdout);
+        );
     } catch (err) {
         // eslint-disable-next-line no-console
         console.log('error', err);
