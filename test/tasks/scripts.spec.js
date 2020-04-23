@@ -118,7 +118,7 @@ describe('scripts', function () {
                 scss: []
             },
             uses: {
-                gulpScripts: false,
+                gulpScripts: true, // see #23
                 naturaldocs: true,
                 wpunit: true
             }
