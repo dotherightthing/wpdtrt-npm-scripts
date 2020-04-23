@@ -19,10 +19,9 @@ set -e
 node scripts/helpers/format-log.js 'postinstall' 'composer' 'install composer dependencies of host' \
 && cd $INIT_CWD \
 && composer config -g github-oauth.github.com $GH_TOKEN \
-&& composer require wp-coding-standards/wpcs:^0.14.1 --no-update \ 
-&& composer require dealerdirect/phpcodesniffer-composer-installer:^0.4.4 --no-update \ 
-&& composer require phpunit/phpunit:^7.5.14 --no-update \ 
-&& composer require psy/psysh:~0.6 --no-update \
-&& composer require wp-cli/wp-cli^2.3 --no-update \
-&& composer update --no-interaction --no-suggest --lock \
-&& composer install --no-interaction --no-suggest --no-scripts
+&& composer require wp-coding-standards/wpcs:^0.14.1 \ 
+&& composer require dealerdirect/phpcodesniffer-composer-installer:^0.4.4 \ 
+&& composer require phpunit/phpunit:^7.5.14 \ 
+&& composer require psy/psysh:~0.6 \
+&& composer require wp-cli/wp-cli^2.3 \
+&& composer update --no-interaction --no-suggest --no-scripts
