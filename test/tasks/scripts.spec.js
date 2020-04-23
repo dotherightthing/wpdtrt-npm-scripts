@@ -212,7 +212,7 @@ describe('scripts', function () {
             // test suite
             describe('check path', function () {
                 it('tests run in the correct directory', function () {
-                    const re = new RegExp(`${app.path}${app.name}$`, 'g');
+                    const re = new RegExp(`wpdtrt-npm-scripts/${app.path}${app.name}$`, 'g');
 
                     expect(
                         `${process.cwd()}`,
