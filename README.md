@@ -22,13 +22,9 @@ n 13.2.0 # change node version - https://www.npmjs.com/package/n
 npm install dotherightthing/wpdtrt-npm-scripts --save-dev
 ```
 
-## Uninstallation
+### Files
 
-```
-npm uninstall wpdtrt-npm-scripts
-```
-
-### .gitignore
+#### 1. .gitignore
 
 Please add these lines to your `.gitignore`:
 
@@ -54,7 +50,7 @@ vendor
 # End
 ```
 
-### composer.json
+#### 2. composer.json
 
 Please add these lines to your `composer.json`:
 
@@ -70,7 +66,7 @@ Please add these lines to your `composer.json`:
 
 See also [#19](issues/19).
 
-### package.json
+#### 3. package.json
 
 Please add these lines to your `package.json`:
 
@@ -93,6 +89,17 @@ Note:
 
 * `--prefix` [forces non-global commands to run in the specified folder](https://docs.npmjs.com/misc/config#prefix)
 * `$npm_package_config_wpdtrt_npm_scripts` = the value of package.json's `config.wpdtrt_npm_scripts`
+
+#### 4. tests/bootstrap.php
+
+* Plugins: See https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/blob/master/generators/app/templates/tests/bootstrap.php
+* Themes: Empty file
+
+## Uninstallation
+
+```
+npm uninstall wpdtrt-npm-scripts
+```
 
 ## Usage
 
