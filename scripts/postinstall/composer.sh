@@ -16,9 +16,7 @@ set -e
 
 # install the fixtures specified in composer.json
 
-node scripts/helpers/format-log.js 'postinstall' 'composer' 'require composer dependencies of wpdtrt-npm-scripts' \
-&& node scripts/postinstall/require-composer-dependencies.js \
-&& node scripts/helpers/format-log.js 'postinstall' 'composer' 'install composer dependencies of host' \
+node scripts/helpers/format-log.js 'postinstall' 'composer' 'install composer dependencies of host' \
 && cd $INIT_CWD \
 && composer config -g github-oauth.github.com $GH_TOKEN \
 && composer install --prefer-dist --no-interaction --no-suggest

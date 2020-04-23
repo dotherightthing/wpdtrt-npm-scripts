@@ -72,7 +72,7 @@
     "release": "node ./scripts/release/copy-files.js && node ./scripts/release/create-zip.js",
     "pretest:internal": "chmod a+x test/scripts/*.sh && ./test/scripts/teardown.sh && ./test/scripts/setup.sh",
     "test:internal": "mocha --recursive \"./test/**/*.spec.js\" --full-trace",
-    "pretest": "node ./scripts/pretest/create-wp-test-environment.js",
+    "pretest": "node ./scripts/pretest/composer.sh && node ./scripts/pretest/create-wp-test-environment.js",
     "test": "./scripts/test/phpunit.sh",
     "version": "node ./scripts/version/plugin-bump.js",
     "postinstall": "./scripts/postinstall/config.sh && node ./scripts/postinstall/customise-config.js && ./scripts/postinstall/composer.sh && node ./scripts/postinstall/remaining-github-api-calls.js",
