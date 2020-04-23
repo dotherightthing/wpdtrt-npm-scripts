@@ -20,9 +20,9 @@ set -e
 && node scripts/helpers/format-log.js 'postuninstall' 'composer' 'uninstall composer dependencies of host' \
 && cd $INIT_CWD \
 && composer config -g github-oauth.github.com $GH_TOKEN \
-&& composer remove 'wp-coding-standards/wpcs:^0.14.1' --no-update \ 
-&& composer remove 'dealerdirect/phpcodesniffer-composer-installer:^0.4.4' --no-update \ 
-&& composer remove 'phpunit/phpunit:^7.5.14' --no-update \ 
-&& composer remove 'psy/psysh:~0.6' --no-update \
-&& composer remove 'wp-cli/wp-cli^2.3' --no-update \
-&& composer update --no-interaction --no-suggest --lock
+&& composer remove wp-coding-standards/wpcs --no-update \ 
+&& composer remove dealerdirect/phpcodesniffer-composer-installer --no-update \ 
+&& composer remove phpunit/phpunit --no-update \ 
+&& composer remove psy/psysh --no-update \
+&& composer remove wp-cli/wp-cli --no-update \
+&& composer install --no-interaction --no-suggest --no-scripts
