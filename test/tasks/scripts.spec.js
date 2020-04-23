@@ -93,54 +93,54 @@ describe('scripts', function () {
                 gulpScripts: false,
                 naturaldocs: true
             }
-        },
-        {
-            haslibraryDependency: true,
-            id: 'wordpress-parent-theme',
-            name: 'wpdtrt',
-            path: 'vendor/dotherightthing/',
-            paths: {
-                css: [],
-                js: [],
-                scss: []
-            },
-            uses: {
-                gulpScripts: false,
-                naturaldocs: true
-            }
-        },
-        {
-            haslibraryDependency: false,
-            id: 'wordpress-plugin',
-            name: 'wpdtrt-gallery',
-            path: 'vendor/dotherightthing/',
-            paths: {
-                css: [],
-                js: [],
-                scss: []
-            },
-            uses: {
-                gulpScripts: true,
-                naturaldocs: true,
-                wpunit: true
-            }
-        },
-        {
-            haslibraryDependency: false,
-            id: 'wordpress-plugin-boilerplate',
-            name: 'wpdtrt-plugin-boilerplate',
-            path: 'vendor/dotherightthing/',
-            paths: {
-                css: [],
-                js: [],
-                scss: []
-            },
-            uses: {
-                gulpScripts: true,
-                naturaldocs: true,
-                wpunit: true
-            }
         }
+        // {
+        //     haslibraryDependency: true,
+        //     id: 'wordpress-parent-theme',
+        //     name: 'wpdtrt',
+        //     path: 'vendor/dotherightthing/',
+        //     paths: {
+        //         css: [],
+        //         js: [],
+        //         scss: []
+        //     },
+        //     uses: {
+        //         gulpScripts: false,
+        //         naturaldocs: true
+        //     }
+        // },
+        // {
+        //     haslibraryDependency: false,
+        //     id: 'wordpress-plugin',
+        //     name: 'wpdtrt-gallery',
+        //     path: 'vendor/dotherightthing/',
+        //     paths: {
+        //         css: [],
+        //         js: [],
+        //         scss: []
+        //     },
+        //     uses: {
+        //         gulpScripts: true,
+        //         naturaldocs: true,
+        //         wpunit: true
+        //     }
+        // },
+        // {
+        //     haslibraryDependency: false,
+        //     id: 'wordpress-plugin-boilerplate',
+        //     name: 'wpdtrt-plugin-boilerplate',
+        //     path: 'vendor/dotherightthing/',
+        //     paths: {
+        //         css: [],
+        //         js: [],
+        //         scss: []
+        //     },
+        //     uses: {
+        //         gulpScripts: true,
+        //         naturaldocs: true,
+        //         wpunit: true
+        //     }
+        // }
     ];
 
     const packageJson = {
