@@ -14,7 +14,6 @@
 # v: print shell input lines as they are read (including all comments!)
 set -e
 
-# install the fixtures specified in composer.json
-# then cd into each fixture's directory and install its dependencies
+# remove the fixtures specified in composer.json
 
 rm -rf ./vendor

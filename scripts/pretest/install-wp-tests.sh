@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# this file is run by yarn run dependencies
+# this file is run by create-wp-test-environment.js
 
 if [ $# -lt 1 ]; then
 	echo "usage: $0 <db-name> [wp-version] [skip-database-creation]"

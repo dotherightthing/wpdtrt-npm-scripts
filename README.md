@@ -123,12 +123,5 @@ Tests are written in [Mocha](https://mochajs.org/), with [Chai](https://www.chai
 To test against fixtures loaded into a sub-directory:
 
 ```bash
-# stillrequired?
-npm config set wpdtrt-dbth:wpdtrt_npm_scripts ../../../../
-```
-
-then:
-
-```bash
 npm run test:internal
 ```
