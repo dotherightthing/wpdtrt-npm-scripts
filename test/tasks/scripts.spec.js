@@ -204,6 +204,11 @@ describe('scripts', function () {
                 app.uses.npm = fs.existsSync(paths.npmConfig);
             });
 
+            after(function () {
+                // cd for process.cwd
+                process.chdir('../../../');
+            });
+
             // test suite
             describe('check path', function () {
                 it('tests run in the correct directory', function () {
