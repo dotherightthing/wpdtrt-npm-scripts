@@ -25,4 +25,4 @@ set -e
 && composer remove 'phpunit/phpunit:^7.5.14' --no-update \ 
 && composer remove 'psy/psysh:~0.6' --no-update \
 && composer remove 'wp-cli/wp-cli^2.3' --no-update \
-&& composer update --prefer-dist --no-interaction --no-suggest
+&& composer update --no-interaction --no-suggest --lock
