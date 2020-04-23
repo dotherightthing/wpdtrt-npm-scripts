@@ -1,6 +1,5 @@
 {
   "name": "dotherightthing/wpdtrt-npm-scripts",
-  "version": "0.2.1",
   "description": "Common build tasks.",
   "type": "library",
   "keywords": ["library"],
