@@ -55,7 +55,7 @@ vendor
 Please add these lines to your `composer.json`:
 
 ```json
-  "require": {
+  "require-dev": {
     "wp-coding-standards/wpcs": "^0.14.1",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
     "phpunit/phpunit": "^7.5.14",
