@@ -17,8 +17,12 @@ set -e
 # install the fixtures specified in composer.json
 # then cd into each fixture's directory and install its dependencies
 
-node scripts/helpers/format-log.js 'postuninstall' 'composer' 'remove composer dependencies of wpdtrt-npm-scripts' \
-&& node scripts/postuninstall/remove-composer-dependencies.js \
 && node scripts/helpers/format-log.js 'postuninstall' 'composer' 'uninstall composer dependencies of host' \
 && cd $INIT_CWD \
-&& composer install --prefer-dist --no-interaction --no-dev --no-suggest
+&& composer config -g github-oauth.github.com $GH_TOKEN \
+&& composer remove 'wp-coding-standards/wpcs:^0.14.1' --no-update \ 
+&& composer remove 'dealerdirect/phpcodesniffer-composer-installer:^0.4.4' --no-update \ 
+&& composer remove 'phpunit/phpunit:^7.5.14' --no-update \ 
+&& composer remove 'psy/psysh:~0.6' --no-update \
+&& composer remove 'wp-cli/wp-cli^2.3' --no-update \
+&& composer update --prefer-dist --no-interaction --no-suggest
