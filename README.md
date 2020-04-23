@@ -92,8 +92,20 @@ Note:
 
 #### 4. tests/bootstrap.php
 
-* Plugins: See https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/blob/master/generators/app/templates/tests/bootstrap.php
-* Themes: Empty file
+##### Plugins
+
+See https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/blob/master/generators/app/templates/tests/bootstrap.php
+
+##### Themes
+
+```
+<?php
+/**
+ * PHPUnit bootstrap file for wpdtrt-npm-scripts
+ */
+
+// .
+```
 
 ## Uninstallation
 
