@@ -19,4 +19,5 @@ set -e
 
 node scripts/helpers/format-log.js 'test' 'phpunit' 'run unit tests' \
 && cd $INIT_CWD \
-&& ./vendor/bin/phpunit --configuration phpunit.xml.dist
+&& test -f /vendor/bin/phpunit && ./vendor/bin/phpunit --configuration phpunit.xml.dist || echo "/vendor/bin/phpunit does not exist" \
+&& echo ""
