@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt.git",
-                "reference": "54514fd06dca4a59fbc6980fbb1aa60048c3ade4"
+                "reference": "dbd22816bc5c0451092ff0be445cdc7c1cbcb60c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt/zipball/54514fd06dca4a59fbc6980fbb1aa60048c3ade4",
-                "reference": "54514fd06dca4a59fbc6980fbb1aa60048c3ade4",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt/zipball/dbd22816bc5c0451092ff0be445cdc7c1cbcb60c",
+                "reference": "dbd22816bc5c0451092ff0be445cdc7c1cbcb60c",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
                 "issues": "https://github.com/dotherightthing/wpdtrt/issues",
                 "source": "https://github.com/dotherightthing/wpdtrt/tree/development"
             },
-            "time": "2020-04-23T03:29:52+00:00"
+            "time": "2020-04-23T04:16:17+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-dbth",
@@ -62,7 +62,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-dbth",
-                "reference": "29a5f83c982cf0c6d257c260ae3859c17f4a28da"
+                "reference": "70b89d9353f89ecfbc9baf700801284b10e7fcab"
             },
             "require": {
                 "dotherightthing/wpdtrt": "dev-development",
@@ -99,7 +99,7 @@
                 "source": "https://bitbucket.org/dotherightthing/wpdtrt-dbth",
                 "wiki": "https://bitbucket.org/dotherightthing/wpdtrt-dbth/wiki"
             },
-            "time": "2020-04-23T03:22:03+00:00"
+            "time": "2020-04-23T04:16:54+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-debug",
