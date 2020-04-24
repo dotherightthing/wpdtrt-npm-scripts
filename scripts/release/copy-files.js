@@ -20,20 +20,8 @@ const cpy = require('cpy');
 const formatLog = require('../helpers/format-log.js').default;
 const numeral = require('numeral');
 const packageJson = require('../../../../package.json');
-const releaseName = require('../helpers/release-name.js').default;
 
-const ci = (typeof process.env.CI !== 'undefined');
-const folderName = releaseName();
-
-if (!ci) {
-    formatLog([
-        'release',
-        'copy files',
-        'skipping - not CI'
-    ]);
-
-    return;
-}
+const folderName = 'release';
 
 formatLog([
     'release',

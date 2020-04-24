@@ -66,7 +66,13 @@ Please add these lines to your `composer.json`:
 
 See also [#19](issues/19).
 
-#### 3. package.json
+#### 3. .github
+
+This folder contains a configuration file for Github actions (Continuous Integration).
+
+Please commit this folder and push it to your Github repository.
+
+#### 4. package.json
 
 Please add these lines to your `package.json`:
 
@@ -90,7 +96,7 @@ Note:
 * `--prefix` [forces non-global commands to run in the specified folder](https://docs.npmjs.com/misc/config#prefix)
 * `$npm_package_config_wpdtrt_npm_scripts` = the value of package.json's `config.wpdtrt_npm_scripts`
 
-#### 4. tests/bootstrap.php
+#### 5. tests/bootstrap.php
 
 ##### Plugins
 
