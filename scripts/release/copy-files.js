@@ -4,10 +4,11 @@
  */
 
 const fs = require('fs');
+const path = require('path');
 var totalSet = false;
 
 // if not loaded as a dependency
-if (!fs.existsSync('../../../../package.json')) {
+if (!fs.existsSync(`${path.resolve('../../')}/package.json`)) {
     /* eslint-disable no-console */
     console.error('copy-files.js: package.json not found, exiting');
     /* eslint-enable no-console */
@@ -19,7 +20,7 @@ const Bar = require('progress-barjs');
 const cpy = require('cpy');
 const formatLog = require('../helpers/format-log.js').default;
 const numeral = require('numeral');
-const packageJson = require('../../../../package.json');
+const packageJson = require(`${path.resolve('../../')}/package.json`);
 
 const folderName = 'release';
 
