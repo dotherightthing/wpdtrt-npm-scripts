@@ -19,15 +19,18 @@ jobs:
     # check out the repository, so the workflow can access it
     - name: Checkout repo
       uses: actions/checkout@v2
-
-    - name: Run tests
+    
+    - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
         php-version: '7.2.15'
         node-version: ${{ matrix.node-version }}
+  
+    - name: Run tests 
+      run: |
+        composer config -g github-oauth.github.com ${{ secrets.GH_PAT_WPDTRT_DBTH }}
+        npm run test:internal
       env:
         WPUNIT_DB_USER: root
         WPUNIT_DB_PASS: root
         WPUNIT_DB_HOST: localhost
-      run: composer config -g github-oauth.github.com ${{ secrets.GH_PAT_WPDTRT_DBTH }}
-      run: npm run test:internal
