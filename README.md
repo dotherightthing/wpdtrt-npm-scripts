@@ -33,7 +33,7 @@ Please add these lines to your `.gitignore`:
 config/naturaldocs
 css
 release*
-!.github/release*
+!.github/workflows/release*
 .babelrc
 .browserslistrc
 .eslintrc
