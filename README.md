@@ -33,6 +33,7 @@ Please add these lines to your `.gitignore`:
 config/naturaldocs
 css
 release*
+!.github/release*
 .babelrc
 .browserslistrc
 .eslintrc
@@ -68,7 +69,7 @@ See also [#19](issues/19).
 
 #### 3. .github
 
-This folder contains a configuration file for Github actions (Continuous Integration).
+This folder contains configurations file for Github (Continuous Integration) Actions.
 
 Please commit this folder and push it to your Github repository.
 
