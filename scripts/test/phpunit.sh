@@ -14,10 +14,15 @@
 # v: print shell input lines as they are read (including all comments!)
 set -e
 
-# install the fixtures specified in composer.json
-# then cd into each fixture's directory and install its dependencies
+# run phpunit tests
+#
+# test -x = test that file exists and is executable.
+# https://stackoverflow.com/a/592635/6850747
+#
+# >&2 = send message to stderr
+# https://stackoverflow.com/a/55006371/6850747
 
 node scripts/helpers/format-log.js 'test' 'phpunit' 'run unit tests' \
 && cd $INIT_CWD \
-&& test -f ./vendor/bin/phpunit && ./vendor/bin/phpunit --configuration phpunit.xml.dist || echo "/vendor/bin/phpunit does not exist" \
-&& echo ""
+&& test -x ./vendor/bin/phpunit || (>&2 echo "/vendor/bin/phpunit does not exist"; exit $ERRCODE) \
+&& ./vendor/bin/phpunit --debug --configuration phpunit.xml.dist
