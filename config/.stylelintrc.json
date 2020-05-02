@@ -17,6 +17,7 @@
                 "if",
                 "include",
                 "mixin",
+                "return",
                 "typescale"
             ]
         }],
