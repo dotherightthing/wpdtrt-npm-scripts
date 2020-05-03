@@ -95,7 +95,7 @@ Please add these lines to your `package.json`:
 
 Note:
 
-* `wpdtrt_base_url_local` is used by `scrape:wordpress_maintenance_page`, which requires a page with the slug `maintenance-template`, and for the user to be logged in
+* `wpdtrt_base_url_local` is used by `scrape:wordpress_maintenance_page` - this requires a (locally) published page with a slug of `maintenance-template`
 * `--prefix` [forces non-global commands to run in the specified folder](https://docs.npmjs.com/misc/config#prefix)
 * `$npm_package_config_wpdtrt_npm_scripts` = the value of package.json's `config.wpdtrt_npm_scripts`
 

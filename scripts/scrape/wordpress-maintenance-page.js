@@ -2,7 +2,7 @@
  * @file Scrape WordPress Maintenance Page
  * @summary Scrape the WordPress maintenance page and save it for use with the maintenance-switch plugin.
  * @description
- * Source page must be published to /maintenance-template/ with Visibility:Private, and the user logged in.
+ * Source page must be (locally) published to /maintenance-template/ with Visibility:Public.
  * @see https://wordpress.org/plugins/maintenance-switch/
  */
 const axios = require('axios');
@@ -46,6 +46,6 @@ axios({
         });
     })
     .catch(function (error) { // eslint-disable-line func-names
-        // handle error
+        // eslint-disable-next-line no-console
         console.log(error);
-    })
+    });
