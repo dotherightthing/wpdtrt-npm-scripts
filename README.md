@@ -78,6 +78,7 @@ Please add these lines to your `package.json`:
 
 ```json
   "config": {
+    "wpdtrt_base_url_local": "http://domain.local",
     "wpdtrt_npm_scripts": "./node_modules/wpdtrt-npm-scripts"
   },
   "scripts": {
@@ -85,6 +86,7 @@ Please add these lines to your `package.json`:
     "docs": "npm run docs --prefix $npm_package_config_wpdtrt_npm_scripts",
     "lint": "npm run lint --prefix $npm_package_config_wpdtrt_npm_scripts",
     "release": "npm run release --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "scrape:wordpress_maintenance_page": "npm run scrape:wordpress_maintenance_page --prefix $npm_package_config_wpdtrt_npm_scripts",
     "test": "npm run test --prefix $npm_package_config_wpdtrt_npm_scripts",
     "version": "npm run version --prefix $npm_package_config_wpdtrt_npm_scripts",
     "watch": "nodemon"
@@ -93,6 +95,7 @@ Please add these lines to your `package.json`:
 
 Note:
 
+* `wpdtrt_base_url_local` is used by `scrape:wordpress_maintenance_page`, which requires a page with the slug `maintenance-template`, and for the user to be logged in
 * `--prefix` [forces non-global commands to run in the specified folder](https://docs.npmjs.com/misc/config#prefix)
 * `$npm_package_config_wpdtrt_npm_scripts` = the value of package.json's `config.wpdtrt_npm_scripts`
 
