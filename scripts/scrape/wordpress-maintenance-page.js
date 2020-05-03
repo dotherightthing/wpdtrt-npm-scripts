@@ -41,7 +41,7 @@ axios({
         let timeStamp = '\r\n';
         timeStamp += `<!-- Scraped from ${baseURL}${sourceUrl} on ${response.headers.date}, by wpdtrt-npm-scripts -->`;
 
-        fs.writeFileSync(`../../../../${targetPageTemplate}`, response.data + timeStamp, {
+        fs.writeFileSync(`../../${targetPageTemplate}`, response.data + timeStamp, {
             encoding: 'utf8'
         });
     })
