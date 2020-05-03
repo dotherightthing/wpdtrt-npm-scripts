@@ -1,16 +1,16 @@
 /**
  * @file Rip WordPress Maintenance Page
- * @summary Scrape the WordPress maintenance page and save it as a page template.
+ * @summary Scrape the WordPress maintenance page and save it for use with the maintenance-switch plugin.
  * @description
- * Source page is viewable at /maintenance-template/ (when logged in, as Visibility: Private)
- * Generated page is viewable at /maintenance/
+ * Source page must be published to /maintenance-template/ with Visibility:Private, and the user logged in.
+ * @see https://wordpress.org/plugins/maintenance-switch/
  */
 const axios = require('axios');
 const fs = require('fs');
 
 const baseURL = process.env.npm_package_config_wpdtrt_base_url_local; // note: no trailing slash
 const sourceUrl = 'maintenance-template';
-const targetPageTemplate = 'page-maintenance.php';
+const targetPageTemplate = 'maintenance.php';
 
 axios({
     method: 'get',
