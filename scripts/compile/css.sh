@@ -16,7 +16,5 @@ set -e
 
 node scripts/helpers/format-log.js 'compile' 'css' 'scss to css, postcss' \
 && cd $INIT_CWD \
-&& if [ -z ${CI+x} ]; then suffix=wp; else suffix=ci; fi \
-&& echo "@import 'wpdtrt/dependencies-"${suffix}"';" > scss/_wpdtrt-import.scss \
 && node-sass scss --output css --recursive \
 && postcss css/**/*.css --replace

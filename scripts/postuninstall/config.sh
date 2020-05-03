@@ -31,5 +31,4 @@ node scripts/helpers/format-log.js 'postuninstall' 'config' 'remove files from h
 && rm -f nodemon.json \
 && rm -f phpcs.xml \
 && rm -f phpunit.xml.dist \
-&& rm -f postcss.config.js \
-&& rm -f scss/_wpdtrt-import.scss
+&& rm -f postcss.config.js

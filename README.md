@@ -43,7 +43,6 @@ nodemon.json
 phpcs.xml
 phpunit.xml.dist
 postcss.config.js
-_wpdtrt-import.scss
 bin/Natural\ Docs
 docs
 node_modules

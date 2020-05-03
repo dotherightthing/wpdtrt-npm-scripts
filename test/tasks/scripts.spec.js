@@ -83,9 +83,7 @@ describe('scripts', function () {
                     'css/wpdtrt-dbth-variables.css'
                 ],
                 js: [],
-                scss: [
-                    'scss/_wpdtrt-import.scss'
-                ]
+                scss: []
             },
             uses: {
                 gulpScripts: false,
