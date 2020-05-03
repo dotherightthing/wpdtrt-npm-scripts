@@ -71,7 +71,7 @@
     "lint:internal": "eslint scripts/**/*.js",
     "prerelease": "./scripts/lint/css.sh && ./scripts/lint/js.sh && ./scripts/lint/php.sh && ./scripts/compile/css.sh && ./scripts/compile/js.sh && ./scripts/postuninstall/composer.sh",
     "release": "node ./scripts/release/copy-files.js",
-    "scrape:wordpress_maintenance_page": "node ./scripts/scrape/wordpress-maintenance-page.js",
+    "scrape:wordpress_maintenance_page": "./scripts/scrape/wordpress-maintenance-page.php",
     "test:internal": "chmod a+x test/scripts/*.sh && ./test/scripts/teardown.sh && ./test/scripts/setup.sh && mocha --recursive \"./test/**/*.spec.js\" --full-trace",
     "pretest": "node ./scripts/pretest/create-wp-test-environment.js",
     "test": "./scripts/test/phpunit.sh",

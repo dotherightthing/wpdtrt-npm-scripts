@@ -1,5 +1,5 @@
 /**
- * @file Rip WordPress Maintenance Page
+ * @file Scrape WordPress Maintenance Page
  * @summary Scrape the WordPress maintenance page and save it for use with the maintenance-switch plugin.
  * @description
  * Source page must be published to /maintenance-template/ with Visibility:Private, and the user logged in.
@@ -8,14 +8,19 @@
 const axios = require('axios');
 const fs = require('fs');
 
-const baseURL = process.env.npm_package_config_wpdtrt_base_url_local; // note: no trailing slash
+const baseURL = process.argv[2]; // note: no trailing slash
 const sourceUrl = 'maintenance-template';
 const targetPageTemplate = 'maintenance.php';
 
+if (typeof baseURL === 'undefined') {
+    // eslint-disable-next-line no-console
+    console.error('Failed. Please add $npm_package_config_wpdtrt_base_url_local to package.json');
+    return;
+}
+
 axios({
     method: 'get',
-    baseURL: baseURL,
-    url: sourceUrl,
+    url: `${baseURL}/${sourceUrl}`,
     responseType: 'text',
     transformResponse: [ function (data) { // eslint-disable-line func-names
         const regexp = new RegExp(baseURL, 'g');
@@ -26,9 +31,13 @@ axios({
 })
     .then(function (response) { // eslint-disable-line func-names
         let timeStamp = '\r\n';
-        timeStamp += `<!-- Ripped from ${baseURL}${sourceUrl} on ${response.headers.date}, by wpdtrt-npm-scripts -->`;
+        timeStamp += `<!-- Scraped from ${baseURL}${sourceUrl} on ${response.headers.date}, by wpdtrt-npm-scripts -->`;
 
         fs.writeFileSync(targetPageTemplate, response.data + timeStamp, {
             encoding: 'utf8'
         });
-    });
+    })
+    .catch(function (error) { // eslint-disable-line func-names
+        // handle error
+        console.log(error);
+    })
