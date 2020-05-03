@@ -8,13 +8,21 @@
 const axios = require('axios');
 const fs = require('fs');
 
+const formatLog = require('../helpers/format-log.js').default;
+
 const baseURL = process.argv[2]; // note: no trailing slash
 const sourceUrl = 'maintenance-template';
 const targetPageTemplate = 'maintenance.php';
 
+formatLog([
+    'scrape',
+    `wordpress ${sourceUrl}`,
+    `to /${targetPageTemplate}`
+]);
+
 if (typeof baseURL === 'undefined') {
     // eslint-disable-next-line no-console
-    console.error('Failed. Please add $npm_package_config_wpdtrt_base_url_local to package.json');
+    console.log('Failed. Please add $npm_package_config_wpdtrt_base_url_local to package.json');
     return;
 }
 
@@ -33,7 +41,7 @@ axios({
         let timeStamp = '\r\n';
         timeStamp += `<!-- Scraped from ${baseURL}${sourceUrl} on ${response.headers.date}, by wpdtrt-npm-scripts -->`;
 
-        fs.writeFileSync(targetPageTemplate, response.data + timeStamp, {
+        fs.writeFileSync(`../../../../${targetPageTemplate}`, response.data + timeStamp, {
             encoding: 'utf8'
         });
     })
