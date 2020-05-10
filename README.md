@@ -191,11 +191,10 @@ See also [DTRT WordPress Plugin Boilerplate - Testing & Debugging](https://githu
 
 ### Version
 
-**Note: this feature is currently untested.**
-
 Version files for Release:
 
 ```node
+n 11.15.0 # see https://stackoverflow.com/a/57804190/6850747
 npm run version
 ```
 
