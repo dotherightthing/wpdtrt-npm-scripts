@@ -33,34 +33,35 @@ formatLog([
 // Release files are those that are required
 // to use the package as a WP Parent Theme
 let releaseFiles = [
-    // Theme Cheatsheets
-    './cheatsheets/**/*.php',
-    // Theme Config
+    // Plugin/Theme Config
     './config/**/*',
-    // Theme CSS
+    // Plugin/Theme CSS
     './css/*.css',
-    // Theme Icons
+    // Plugin/Theme Fonts
+    './fonts/**/*',
+    // Plugin/Theme Icons
     './icons/**/*',
-    // Theme Images
+    // Plugin/Theme Images
     './images/**/*',
-    // Theme JS
+    // Plugin/Theme JS
     './js/twentysixteen.js',
     './js/*-es5.js',
-    // Theme Logic
-    './library/**/*.php',
-    // Theme Read Me
-    './README.md',
+    // Plugin/Theme i18n
+    './languages/*.pot',
+    // Plugin/Theme Logic/Templates
+    './*.php',
+    './functions/**/*.php',
+    './src/**/*.php',
+    './template-parts/**/*.php',
+    './templates/**/*.php',
     // Theme Screenshot
     './screenshot.png',
     // Theme Stylesheet
     './style.css',
-    // Theme WP Read Me
+    // Plugin/Theme WP Read Me
+    './readme.txt',
     './README.txt',
-    // Theme Templates
-    './*.php',
-    './templates/**/*.php',
-    './template-parts/**/*.php',
-    // Any Tiny MCE (WYSIWYG) mods
+    // Tiny MCE (WYSIWYG) mods
     './tiny-mce/**/*',
     // Any useful PHP dependencies
     './vendor/**/*',
