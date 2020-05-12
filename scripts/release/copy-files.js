@@ -93,76 +93,79 @@ let releaseFiles = [
 // which is a dependency as it's still needed
 // - and it uses other libraries.
 const dependencies = packageJson.dependencies;
-const dependencyNames = Object.keys(dependencies);
-const dependencyNamesFiltered = dependencyNames.filter(name => name !== 'wpdtrt-npm-scripts');
 
-dependencyNamesFiltered.forEach(name => {
-    releaseFiles.push(`./node_modules/${name}/**/*`);
-    releaseFiles.push(`!./node_modules/${name}/package.json`);
-    releaseFiles.push(`!./node_modules/${name}/**/src`);
-    releaseFiles.push(`!./node_modules/${name}/**/AUTHORS*`);
-    releaseFiles.push(`!./node_modules/${name}/**/CHANGE*`);
-    releaseFiles.push(`!./node_modules/${name}/**/LICENSE*`);
-    releaseFiles.push(`!./node_modules/${name}/**/README*`);
-    releaseFiles.push(`!./node_modules/${name}/**/changelog*`);
-    releaseFiles.push(`!./node_modules/${name}/**/*.map`);
-});
+if (typeof dependencies === 'object') {
+    const dependencyNames = Object.keys(dependencies);
+    const dependencyNamesFiltered = dependencyNames.filter(name => name !== 'wpdtrt-npm-scripts');
 
-let bar = Bar({
-    label: 'Copying files',
-    info: '',
-    append: false,
-    show: {
-        active: {
-            date: false,
-            bar: true,
-            percent: true, // required for time
-            count: false,
-            time: true
-        },
-        overwrite: true,
-        bar: {
-            length: 20,
-            completed: '=',
-            incompleted: ' '
-        },
-        label: {
-            color: '\x1b[0;37m' // white
-        },
-        info: {
-            color: '\x1b[0;37m' // white
-        },
-        time: {
-            color: '\x1b[0;37m' // white
-        },
-        percent: {
-            color: '\x1b[0;37m' // white
-        },
-        count: {
-            color: '\x1b[0;37m' // white
-        },
-        tick: {
-            color: '\x1b[0;37m' // white
-        }
-    }
-});
+    dependencyNamesFiltered.forEach(name => {
+        releaseFiles.push(`./node_modules/${name}/**/*`);
+        releaseFiles.push(`!./node_modules/${name}/package.json`);
+        releaseFiles.push(`!./node_modules/${name}/**/src`);
+        releaseFiles.push(`!./node_modules/${name}/**/AUTHORS*`);
+        releaseFiles.push(`!./node_modules/${name}/**/CHANGE*`);
+        releaseFiles.push(`!./node_modules/${name}/**/LICENSE*`);
+        releaseFiles.push(`!./node_modules/${name}/**/README*`);
+        releaseFiles.push(`!./node_modules/${name}/**/changelog*`);
+        releaseFiles.push(`!./node_modules/${name}/**/*.map`);
+    });
 
-(async () => {
-    await cpy(releaseFiles, folderName, {
-        cwd: '../../',
-        parents: true
-    }).on('progress', progress => {
-        const completedSize = numeral(progress.completedSize).format('0.0 b');
-
-        if (!totalSet) {
-            bar.setTotal(progress.totalFiles);
-            totalSet = true;
-        }
-
-        // prevent a second bar from displaying the last few %
-        // (this makes the file size slightly inaccurate)
-        if (!bar.complete) {
-            bar.tick(`[${completedSize}]`);
+    let bar = Bar({
+        label: 'Copying files',
+        info: '',
+        append: false,
+        show: {
+            active: {
+                date: false,
+                bar: true,
+                percent: true, // required for time
+                count: false,
+                time: true
+            },
+            overwrite: true,
+            bar: {
+                length: 20,
+                completed: '=',
+                incompleted: ' '
+            },
+            label: {
+                color: '\x1b[0;37m' // white
+            },
+            info: {
+                color: '\x1b[0;37m' // white
+            },
+            time: {
+                color: '\x1b[0;37m' // white
+            },
+            percent: {
+                color: '\x1b[0;37m' // white
+            },
+            count: {
+                color: '\x1b[0;37m' // white
+            },
+            tick: {
+                color: '\x1b[0;37m' // white
+            }
         }
     });
-})();
+
+    (async () => {
+        await cpy(releaseFiles, folderName, {
+            cwd: '../../',
+            parents: true
+        }).on('progress', progress => {
+            const completedSize = numeral(progress.completedSize).format('0.0 b');
+
+            if (!totalSet) {
+                bar.setTotal(progress.totalFiles);
+                totalSet = true;
+            }
+
+            // prevent a second bar from displaying the last few %
+            // (this makes the file size slightly inaccurate)
+            if (!bar.complete) {
+                bar.tick(`[${completedSize}]`);
+            }
+        });
+    })();
+}
