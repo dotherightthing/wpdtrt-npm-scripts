@@ -109,63 +109,63 @@ if (typeof dependencies === 'object') {
         releaseFiles.push(`!./node_modules/${name}/**/changelog*`);
         releaseFiles.push(`!./node_modules/${name}/**/*.map`);
     });
+}
 
-    let bar = Bar({
-        label: 'Copying files',
-        info: '',
-        append: false,
-        show: {
-            active: {
-                date: false,
-                bar: true,
-                percent: true, // required for time
-                count: false,
-                time: true
-            },
-            overwrite: true,
-            bar: {
-                length: 20,
-                completed: '=',
-                incompleted: ' '
-            },
-            label: {
-                color: '\x1b[0;37m' // white
-            },
-            info: {
-                color: '\x1b[0;37m' // white
-            },
-            time: {
-                color: '\x1b[0;37m' // white
-            },
-            percent: {
-                color: '\x1b[0;37m' // white
-            },
-            count: {
-                color: '\x1b[0;37m' // white
-            },
-            tick: {
-                color: '\x1b[0;37m' // white
-            }
+let bar = Bar({
+    label: 'Copying files',
+    info: '',
+    append: false,
+    show: {
+        active: {
+            date: false,
+            bar: true,
+            percent: true, // required for time
+            count: false,
+            time: true
+        },
+        overwrite: true,
+        bar: {
+            length: 20,
+            completed: '=',
+            incompleted: ' '
+        },
+        label: {
+            color: '\x1b[0;37m' // white
+        },
+        info: {
+            color: '\x1b[0;37m' // white
+        },
+        time: {
+            color: '\x1b[0;37m' // white
+        },
+        percent: {
+            color: '\x1b[0;37m' // white
+        },
+        count: {
+            color: '\x1b[0;37m' // white
+        },
+        tick: {
+            color: '\x1b[0;37m' // white
+        }
+    }
+});
+
+(async () => {
+    await cpy(releaseFiles, folderName, {
+        cwd: '../../',
+        parents: true
+    }).on('progress', progress => {
+        const completedSize = numeral(progress.completedSize).format('0.0 b');
+
+        if (!totalSet) {
+            bar.setTotal(progress.totalFiles);
+            totalSet = true;
+        }
+
+        // prevent a second bar from displaying the last few %
+        // (this makes the file size slightly inaccurate)
+        if (!bar.complete) {
+            bar.tick(`[${completedSize}]`);
         }
     });
-
-    (async () => {
-        await cpy(releaseFiles, folderName, {
-            cwd: '../../',
-            parents: true
-        }).on('progress', progress => {
-            const completedSize = numeral(progress.completedSize).format('0.0 b');
-
-            if (!totalSet) {
-                bar.setTotal(progress.totalFiles);
-                totalSet = true;
-            }
-
-            // prevent a second bar from displaying the last few %
-            // (this makes the file size slightly inaccurate)
-            if (!bar.complete) {
-                bar.tick(`[${completedSize}]`);
-            }
-        });
-    })();
-}
+})();
