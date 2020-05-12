@@ -62,10 +62,9 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-dbth",
-                "reference": "0d7630cdfa1029f2cc65c17f44a02bfddbb0c8d8"
+                "reference": "7569e975b4a6a8ec39f552589053b89eb7f9cf79"
             },
             "require": {
-                "dotherightthing/wpdtrt": "dev-development",
                 "dotherightthing/wpdtrt-debug": "^1.0.0",
                 "php": ">=7.2.15",
                 "tgmpa/tgm-plugin-activation": "dev-autoloader"
@@ -95,11 +94,11 @@
             ],
             "support": {
                 "email": "support@dotherightthing.co.nz",
-                "issues": "https://bitbucket.org/dotherightthing/wpdtrt-dbth/issues",
-                "source": "https://bitbucket.org/dotherightthing/wpdtrt-dbth",
-                "wiki": "https://bitbucket.org/dotherightthing/wpdtrt-dbth/wiki"
+                "issues": "https://github.com/dotherightthing/wpdtrt-dbth/issues",
+                "source": "https://github.com/dotherightthing/wpdtrt-dbth",
+                "wiki": "https://github.com/dotherightthing/wpdtrt-dbth/issues/113"
             },
-            "time": "2020-04-23T06:20:04+00:00"
+            "time": "2020-05-12T09:56:50+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-debug",
@@ -153,12 +152,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-gallery.git",
-                "reference": "b70bc68fb1407dd966b6247221075e14e81239c4"
+                "reference": "b11628861fa1277ef3cb70f178b2cce16e21c39c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-gallery/zipball/b70bc68fb1407dd966b6247221075e14e81239c4",
-                "reference": "b70bc68fb1407dd966b6247221075e14e81239c4",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-gallery/zipball/b11628861fa1277ef3cb70f178b2cce16e21c39c",
+                "reference": "b11628861fa1277ef3cb70f178b2cce16e21c39c",
                 "shasum": ""
             },
             "require": {
@@ -208,7 +207,7 @@
                 "source": "https://github.com/dotherightthing/wpdtrt-gallery",
                 "wiki": "https://github.com/dotherightthing/wpdtrt-gallery/wiki"
             },
-            "time": "2020-04-23T06:29:20+00:00"
+            "time": "2020-05-10T12:45:46+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-plugin-boilerplate",
