@@ -73,7 +73,7 @@ describe('scripts', function () {
     const apps = [
         {
             haslibraryDependency: true,
-            id: 'wordpress-child-theme',
+            id: 'wordpress-theme',
             name: 'wpdtrt-dbth',
             path: 'vendor/dotherightthing/',
             paths: {
@@ -82,21 +82,6 @@ describe('scripts', function () {
                     'css/wpdtrt-dbth-editor-style.css',
                     'css/wpdtrt-dbth-variables.css'
                 ],
-                js: [],
-                scss: []
-            },
-            uses: {
-                gulpScripts: false,
-                naturaldocs: true
-            }
-        },
-        {
-            haslibraryDependency: true,
-            id: 'wordpress-parent-theme',
-            name: 'wpdtrt',
-            path: 'vendor/dotherightthing/',
-            paths: {
-                css: [],
                 js: [],
                 scss: []
             },
