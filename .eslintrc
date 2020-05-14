@@ -17,8 +17,7 @@
         "docs",
         "node_modules/",
         "postcss.config.js",
-        "vendor/",
-        "wp-content/plugins/"
+        "vendor/"
     ],
     "rules": {
         "array-bracket-spacing": ["error", "always"],
