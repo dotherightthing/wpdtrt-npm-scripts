@@ -20,6 +20,7 @@ const Bar = require('progress-barjs');
 const cpy = require('cpy');
 const formatLog = require('../helpers/format-log.js').default;
 const numeral = require('numeral');
+const composerJson = require(`${path.resolve('../../')}/composer.json`);
 const packageJson = require(`${path.resolve('../../')}/package.json`);
 
 const folderName = 'release';
@@ -63,51 +64,72 @@ let releaseFiles = [
     './README.txt',
     // Tiny MCE (WYSIWYG) mods
     './tiny-mce/**/*',
-    // Any useful PHP dependencies
-    './vendor/**/*',
-    '!./vendor/**/bin',
-    '!./vendor/**/*.json',
-    '!./vendor/**/*.less',
-    '!./vendor/**/AUTHORS*',
-    '!./vendor/**/CHANGES*',
-    '!./vendor/**/license*',
-    '!./vendor/**/LICENSE*',
-    '!./vendor/**/README*',
-    '!./vendor/**/*.md',
-    '!./vendor/**/*example*.php',
-    '!./vendor/**/*.scss',
-    '!./vendor/**/*/scss',
-    '!./vendor/**/test/**/*',
-    '!./vendor/**/tests/**/*',
-    '!./vendor/**/*.xml',
-    '!./vendor/**/*.zip',
     // Not CSS source maps
     '!./css/maps/**/*',
     // Not demo files
     '!./icons/icomoon/demo-files/**/*'
 ];
 
-// copy FE dependencies
+// copy FE npmDependencies
 // npm prune --production would remove all devDependencies
 // but we can't remove wpdtrt-npm-scripts
 // which is a dependency as it's still needed
 // - and it uses other libraries.
-const dependencies = packageJson.dependencies;
+const composerDependencies = composerJson.require;
+const npmDependencies = packageJson.dependencies;
 
-if (typeof dependencies === 'object') {
-    const dependencyNames = Object.keys(dependencies);
-    const dependencyNamesFiltered = dependencyNames.filter(name => name !== 'wpdtrt-npm-scripts');
+if (typeof composerDependencies === 'object') {
+    const composerDependencyNames = Object.keys(composerDependencies);
+    const composerDependencyNamesFiltered = composerDependencyNames.filter(name => name !== 'dotherightthing/wpdtrt-plugin-boilerplate');
 
-    dependencyNamesFiltered.forEach(name => {
+    composerDependencyNamesFiltered.forEach(name => {
+        releaseFiles.push(`./vendor/${name}/**/*`);
+        releaseFiles.push(`!./vendor/${name}/composer.json`);
+        releaseFiles.push(`!./vendor/${name}/package.json`);
+        releaseFiles.push(`!./vendor/${name}/**/AUTHORS*`);
+        releaseFiles.push(`!./vendor/${name}/**/bin*`);
+        releaseFiles.push(`!./vendor/${name}/**/CHANGE*`);
+        releaseFiles.push(`!./vendor/${name}/**/changelog*`);
+        releaseFiles.push(`!./vendor/${name}/**/LICENSE*`);
+        releaseFiles.push(`!./vendor/${name}/**/README*`);
+        releaseFiles.push(`!./vendor/${name}/**/src`);
+        releaseFiles.push(`!./vendor/${name}/**/*.json`);
+        releaseFiles.push(`!./vendor/${name}/**/*.less`);
+        releaseFiles.push(`!./vendor/${name}/**/*.map`);
+        releaseFiles.push(`!./vendor/${name}/**/*.md`);
+        releaseFiles.push(`!./vendor/${name}/**/*.scss`);
+        releaseFiles.push(`!./vendor/${name}/**/*.txt`);
+        releaseFiles.push(`!./vendor/${name}/**/*.xml`);
+        releaseFiles.push(`!./vendor/${name}/**/*.zip`);
+        releaseFiles.push(`!./vendor/${name}/**/test/**/*`);
+        releaseFiles.push(`!./vendor/${name}/**/tests/**/*`);
+    });
+}
+
+if (typeof npmDependencies === 'object') {
+    const npmDependencyNames = Object.keys(npmDependencies);
+    const npmDependencyNamesFiltered = npmDependencyNames.filter(name => name !== 'wpdtrt-npm-scripts');
+
+    npmDependencyNamesFiltered.forEach(name => {
         releaseFiles.push(`./node_modules/${name}/**/*`);
         releaseFiles.push(`!./node_modules/${name}/package.json`);
-        releaseFiles.push(`!./node_modules/${name}/**/src`);
         releaseFiles.push(`!./node_modules/${name}/**/AUTHORS*`);
+        releaseFiles.push(`!./node_modules/${name}/**/bin*`);
         releaseFiles.push(`!./node_modules/${name}/**/CHANGE*`);
+        releaseFiles.push(`!./node_modules/${name}/**/changelog*`);
         releaseFiles.push(`!./node_modules/${name}/**/LICENSE*`);
         releaseFiles.push(`!./node_modules/${name}/**/README*`);
-        releaseFiles.push(`!./node_modules/${name}/**/changelog*`);
+        releaseFiles.push(`!./node_modules/${name}/**/src`);
+        releaseFiles.push(`!./node_modules/${name}/**/*.json`);
+        releaseFiles.push(`!./node_modules/${name}/**/*.less`);
         releaseFiles.push(`!./node_modules/${name}/**/*.map`);
+        releaseFiles.push(`!./node_modules/${name}/**/*.md`);
+        releaseFiles.push(`!./node_modules/${name}/**/*.scss`);
+        releaseFiles.push(`!./node_modules/${name}/**/*.txt`);
+        releaseFiles.push(`!./node_modules/${name}/**/*.xml`);
+        releaseFiles.push(`!./node_modules/${name}/**/*.zip`);
+        releaseFiles.push(`!./node_modules/${name}/**/test/**/*`);
+        releaseFiles.push(`!./node_modules/${name}/**/tests/**/*`);
     });
 }
 
