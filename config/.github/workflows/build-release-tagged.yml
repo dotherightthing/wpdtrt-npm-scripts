@@ -75,17 +75,23 @@ jobs:
         if [[ ${{ github.event.ref }} =~ ^refs\/tags\/[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
           echo ::set-output name=match::true
         fi
+
+    # Download artifact to 'release' sub folder
+    # to avoid replacing the contents of the root
     - name: Download release folder from Build
       if: steps.check-tag.outputs.match == 'true'
       uses: actions/download-artifact@v2
       with:
         name: release
+        path: release
 
+    # This may be redundant, to test
     - name: Download changelog from Build
       if: steps.check-tag.outputs.match == 'true'
       uses: actions/download-artifact@v2
       with:
         name: changelog
+        path: changelog
 
     - name: Check that artifacts were downloaded as expected
       run: ls -R
@@ -101,6 +107,6 @@ jobs:
       uses: yakuhzi/action-release@v1
       with:
         file: release.zip
-        changelog: CHANGELOG.md
+        changelog: changelog/CHANGELOG.md
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
