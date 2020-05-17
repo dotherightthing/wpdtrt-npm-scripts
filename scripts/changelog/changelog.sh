@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# File: ./scripts/release/changelog.sh
+# File: ./scripts/changelog/changelog.sh
 #
 # Note:
 # chmod a+x = Change access permissions of this file, to 'e[x]ecutable' for '[a]ll users'
@@ -16,6 +16,6 @@ set -e
 
 # generate changelog
 
-node scripts/helpers/format-log.js 'release' 'changelog' 'generate from commit history' \
+node scripts/helpers/format-log.js 'changelog' 'changelog' 'generate from commit history' \
 && cd $INIT_CWD \
 && git log --pretty="* [%h] %s (%ar)" --no-merges $(git describe --tags --abbrev=0 @^)..@ > CHANGELOG.md
