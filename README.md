@@ -201,9 +201,9 @@ npm run version
 
 ---
 
-## Release
+## Releases
 
-Copy and paste the changelog to GH Releases page:
+Manually copy and paste the version changelog to the [Releases](https://github.com/dotherightthing/wpdtrt-npm-scripts/releases) page.
 
 ```
 git log --pretty="* [%h] %s (%ar)" --no-merges $(git describe --tags --abbrev=0 @^)..@ > changelog.txt
