@@ -52,7 +52,7 @@ vendor
 
 #### 2. CHANGELOG.md
 
-This folder contains a list of changes in the current version.
+This file contains a list of changes in the current version/tag.
 
 Please commit this file and push it to your Github repository.
 
