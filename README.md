@@ -121,7 +121,7 @@ See https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/blob/
 
 ```node
 n 13.2.0 # change node version
-npm update dotherightthing/wpdtrt-npm-scripts
+npm update wpdtrt-npm-scripts
 ```
 
 ## Uninstallation
