@@ -62,7 +62,7 @@ jobs:
         name: changelog
         path: CHANGELOG.md
 
-  # The 'release' job starts with a clean directory
+  # The 'release' job starts with a clean directory,
   # we don't check out the repo again
   # instead we download and work with
   # the artifacts from the previous 'build' job
@@ -80,8 +80,11 @@ jobs:
           echo ::set-output name=match::true
         fi
 
-    # Download artifact to 'release' sub folder
-    # to avoid adding the contents to the (empty) root
+    # Download 'release' folder artifact
+    # to 'release' sub folder
+    # otherwise the contents will be added
+    # to the (empty) root
+    # (as of download-artifact@v2)
     - name: Download release folder from Build
       if: steps.check-tag.outputs.match == 'true'
       uses: actions/download-artifact@v2
