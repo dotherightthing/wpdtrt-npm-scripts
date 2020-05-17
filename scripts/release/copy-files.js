@@ -64,6 +64,8 @@ let releaseFiles = [
     './README.txt',
     // Tiny MCE (WYSIWYG) mods
     './tiny-mce/**/*',
+    // Not release changelog
+    '!./CHANGELOG.md',
     // Not CSS source maps
     '!./css/maps/**/*',
     // Not demo files
@@ -88,7 +90,7 @@ if (typeof composerDependencies === 'object') {
         releaseFiles.push(`!./vendor/${name}/package.json`);
         releaseFiles.push(`!./vendor/${name}/**/AUTHORS*`);
         releaseFiles.push(`!./vendor/${name}/**/bin*`);
-        releaseFiles.push(`!./vendor/${name}/**/CHANGE*`);
+        releaseFiles.push(`!./vendor/${name}/**/CHANGELOG*`);
         releaseFiles.push(`!./vendor/${name}/**/changelog*`);
         releaseFiles.push(`!./vendor/${name}/**/LICENSE*`);
         releaseFiles.push(`!./vendor/${name}/**/README*`);
@@ -115,7 +117,7 @@ if (typeof npmDependencies === 'object') {
         releaseFiles.push(`!./node_modules/${name}/package.json`);
         releaseFiles.push(`!./node_modules/${name}/**/AUTHORS*`);
         releaseFiles.push(`!./node_modules/${name}/**/bin*`);
-        releaseFiles.push(`!./node_modules/${name}/**/CHANGE*`);
+        releaseFiles.push(`!./node_modules/${name}/**/CHANGELOG*`);
         releaseFiles.push(`!./node_modules/${name}/**/changelog*`);
         releaseFiles.push(`!./node_modules/${name}/**/LICENSE*`);
         releaseFiles.push(`!./node_modules/${name}/**/README*`);
