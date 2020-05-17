@@ -11,14 +11,15 @@ NPM build scripts.
 ## Dependencies
 
 1. Composer - <https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos>
-2. Mono (Natural Docs' framework) - <https://www.mono-project.com/download/stable/>
-3. Natural Docs - <https://www.naturaldocs.org/download/> and save to `./bin/Natural Docs`
+2. Mono (Natural Docs' framework) - <https://www.mono-project.com/download/stable/> (deprecated)
+3. Natural Docs - <https://www.naturaldocs.org/download/> and save to `./bin/Natural Docs` (deprecated)
+4. n - <https://www.npmjs.com/package/n>
 
 ## Installation
 
 ```node
-n 13.2.0 # change node version - https://www.npmjs.com/package/n
-npm install dotherightthing/wpdtrt-npm-scripts --save-dev
+n 13.2.0 # change node version
+npm install dotherightthing/wpdtrt-npm-scripts#semver:0.3.* --save-dev
 ```
 
 ### Files
@@ -114,6 +115,13 @@ See https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/blob/
  */
 
 // .
+```
+
+## Update
+
+```node
+n 13.2.0 # change node version
+npm update dotherightthing/wpdtrt-npm-scripts
 ```
 
 ## Uninstallation
