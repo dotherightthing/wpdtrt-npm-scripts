@@ -18,4 +18,4 @@ set -e
 
 node scripts/helpers/format-log.js 'release' 'changelog' 'generate from commit history' \
 && cd $INIT_CWD \
-&& git log --pretty="* [%h] %s (%ar)" --no-merges $(git describe --tags --abbrev=0 @^)..@ > changelog.txt
+&& git log --pretty="* [%h] %s (%ar)" --no-merges $(git describe --tags --abbrev=0 @^)..@ > CHANGELOG.md

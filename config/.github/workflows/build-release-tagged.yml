@@ -60,7 +60,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: changelog
-        path: changelog.txt
+        path: CHANGELOG.md
 
   release:
     runs-on: ubuntu-latest
@@ -98,6 +98,6 @@ jobs:
       uses: yakuhzi/action-release@v1
       with:
         file: release.zip
-        changelog: ./changelog.txt
+        changelog: CHANGELOG.md
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
