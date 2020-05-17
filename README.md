@@ -127,6 +127,7 @@ npm update wpdtrt-npm-scripts
 ## Uninstallation
 
 ```node
+n 13.2.0 # change node version
 npm uninstall wpdtrt-npm-scripts
 ```
 
