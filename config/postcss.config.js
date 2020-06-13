@@ -1,7 +1,7 @@
 module.exports = {
   plugins: [
     require('postcss-custom-properties')( {
-      importFrom: () => `css/${require('./package.json').name}-variables.css`,
+      importFrom: `css/${require('./package.json').name}-variables.css`,
       preserve: true
     } ),
     require('autoprefixer')( {
