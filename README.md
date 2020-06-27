@@ -125,6 +125,14 @@ See https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/blob/
 // .
 ```
 
+#### 7. README.md
+
+Add the following badges:
+
+```
+[![GitHub release](https://img.shields.io/github/v/tag/AUTHOR/REPO)](https://github.com/AUTHOR/REPO/releases) [![Build Status](https://github.com/AUTHOR/REPO/workflows/Build%20and%20release%20if%20tagged/badge.svg)](https://github.com/AUTHOR/REPO/actions?query=workflow%3A%22Build+and+release+if+tagged%22) [![GitHub issues](https://img.shields.io/github/issues/AUTHOR/REPO.svg)](https://github.com/AUTHOR/REPO/issues)
+```
+
 ## Update
 
 ```node
