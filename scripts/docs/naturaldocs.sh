@@ -16,4 +16,4 @@ set -e
 
 node scripts/helpers/format-log.js 'docs' 'generate documentation' 'naturaldocs' \
 && cd $INIT_CWD \
-&& mono bin/Natural\ Docs/NaturalDocs.exe ./config/naturaldocs
+&& test -f bin/Natural\ Docs/NaturalDocs.exe && mono bin/Natural\ Docs/NaturalDocs.exe ./config/naturaldocs || echo 'Natural Docs not found, skipping'

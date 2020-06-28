@@ -19,5 +19,5 @@ set -e
 
 node scripts/helpers/format-log.js 'postinstall' 'composer' 'install php dependencies' \
 && cd $INIT_CWD \
-&& composer config -g github-oauth.github.com $GH_TOKEN \
-&& composer install --prefer-dist --no-interaction --no-suggest
+&& test -f ./composer.json && composer config -g github-oauth.github.com $GH_TOKEN || echo 'composer.json not found, skipping' \
+&& test -f ./composer.json && composer install --prefer-dist --no-interaction --no-suggest || echo 'composer.json not found, skipping'

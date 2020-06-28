@@ -19,4 +19,4 @@ set -e
 
 node scripts/helpers/format-log.js 'postuninstall' 'composer' 'uninstall php development dependencies' \
 && cd $INIT_CWD \
-&& composer install --prefer-dist --no-interaction --no-dev --no-suggest
+&& test -f ./composer.json && composer install --prefer-dist --no-interaction --no-dev --no-suggest || echo 'composer.json not found, skipping'
