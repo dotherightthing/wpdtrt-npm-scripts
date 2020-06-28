@@ -56,7 +56,7 @@ This file contains a list of changes in the current version/tag.
 
 Please commit this file and push it to your Github repository.
 
-See also [#33](issues/33).
+See also [#33](https://github.com/dotherightthing/wpdtrt-npm-scripts/issues/33).
 
 #### 3. composer.json
 
@@ -72,7 +72,7 @@ Please add these lines to your `composer.json`:
   },
 ```
 
-See also [#19](issues/19).
+See also [#19](https://github.com/dotherightthing/wpdtrt-npm-scripts/issues/19).
 
 #### 4. .github
 
