@@ -16,5 +16,5 @@ set -e
 
 node scripts/helpers/format-log.js 'lint' 'php' \
 && cd $INIT_CWD \
-&& composer validate \
-&& ./vendor/bin/phpcs **/*.php --ignore=autoload.php,docs/*,node_modules/*,vendor/*,wp-content/* --standard=phpcs.xml
+&& test -f ./composer.json && composer validate || echo 'no composer.json, skipping test' \
+&& test -f ./vendor/bin/phpcs && ./vendor/bin/phpcs **/*.php --ignore=autoload.php,docs/*,node_modules/*,vendor/*,wp-content/* --standard=phpcs.xml || echo 'no ./vendor/bin/phpcs, skipping tests'
