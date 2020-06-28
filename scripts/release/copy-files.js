@@ -20,8 +20,14 @@ const Bar = require('progress-barjs');
 const cpy = require('cpy');
 const formatLog = require('../helpers/format-log.js').default;
 const numeral = require('numeral');
-const composerJson = require(`${path.resolve('../../')}/composer.json`);
 const packageJson = require(`${path.resolve('../../')}/package.json`);
+let composerJson;
+
+try {
+    composerJson = require(`${path.resolve('../../')}/composer.json`); // eslint-disable-line global-require
+} catch (err) {
+    composerJson = false;
+}
 
 const folderName = 'release';
 
@@ -77,36 +83,39 @@ let releaseFiles = [
 // but we can't remove wpdtrt-npm-scripts
 // which is a dependency as it's still needed
 // - and it uses other libraries.
-const composerDependencies = composerJson.require;
-const npmDependencies = packageJson.dependencies;
+if (composerJson) {
+    const composerDependencies = composerJson.require;
 
-if (typeof composerDependencies === 'object') {
-    const composerDependencyNames = Object.keys(composerDependencies);
-    const composerDependencyNamesFiltered = composerDependencyNames.filter(name => name !== 'dotherightthing/wpdtrt-plugin-boilerplate');
+    if (typeof composerDependencies === 'object') {
+        const composerDependencyNames = Object.keys(composerDependencies);
+        const composerDependencyNamesFiltered = composerDependencyNames.filter(name => name !== 'dotherightthing/wpdtrt-plugin-boilerplate');
 
-    composerDependencyNamesFiltered.forEach(name => {
-        releaseFiles.push(`./vendor/${name}/**/*`);
-        releaseFiles.push(`!./vendor/${name}/composer.json`);
-        releaseFiles.push(`!./vendor/${name}/package.json`);
-        releaseFiles.push(`!./vendor/${name}/**/AUTHORS*`);
-        releaseFiles.push(`!./vendor/${name}/**/bin*`);
-        releaseFiles.push(`!./vendor/${name}/**/CHANGELOG*`);
-        releaseFiles.push(`!./vendor/${name}/**/changelog*`);
-        releaseFiles.push(`!./vendor/${name}/**/LICENSE*`);
-        releaseFiles.push(`!./vendor/${name}/**/README*`);
-        releaseFiles.push(`!./vendor/${name}/**/src`);
-        releaseFiles.push(`!./vendor/${name}/**/*.json`);
-        releaseFiles.push(`!./vendor/${name}/**/*.less`);
-        releaseFiles.push(`!./vendor/${name}/**/*.map`);
-        releaseFiles.push(`!./vendor/${name}/**/*.md`);
-        releaseFiles.push(`!./vendor/${name}/**/*.scss`);
-        releaseFiles.push(`!./vendor/${name}/**/*.txt`);
-        releaseFiles.push(`!./vendor/${name}/**/*.xml`);
-        releaseFiles.push(`!./vendor/${name}/**/*.zip`);
-        releaseFiles.push(`!./vendor/${name}/**/test/**/*`);
-        releaseFiles.push(`!./vendor/${name}/**/tests/**/*`);
-    });
+        composerDependencyNamesFiltered.forEach(name => {
+            releaseFiles.push(`./vendor/${name}/**/*`);
+            releaseFiles.push(`!./vendor/${name}/composer.json`);
+            releaseFiles.push(`!./vendor/${name}/package.json`);
+            releaseFiles.push(`!./vendor/${name}/**/AUTHORS*`);
+            releaseFiles.push(`!./vendor/${name}/**/bin*`);
+            releaseFiles.push(`!./vendor/${name}/**/CHANGELOG*`);
+            releaseFiles.push(`!./vendor/${name}/**/changelog*`);
+            releaseFiles.push(`!./vendor/${name}/**/LICENSE*`);
+            releaseFiles.push(`!./vendor/${name}/**/README*`);
+            releaseFiles.push(`!./vendor/${name}/**/src`);
+            releaseFiles.push(`!./vendor/${name}/**/*.json`);
+            releaseFiles.push(`!./vendor/${name}/**/*.less`);
+            releaseFiles.push(`!./vendor/${name}/**/*.map`);
+            releaseFiles.push(`!./vendor/${name}/**/*.md`);
+            releaseFiles.push(`!./vendor/${name}/**/*.scss`);
+            releaseFiles.push(`!./vendor/${name}/**/*.txt`);
+            releaseFiles.push(`!./vendor/${name}/**/*.xml`);
+            releaseFiles.push(`!./vendor/${name}/**/*.zip`);
+            releaseFiles.push(`!./vendor/${name}/**/test/**/*`);
+            releaseFiles.push(`!./vendor/${name}/**/tests/**/*`);
+        });
+    }
 }
+
+const npmDependencies = packageJson.dependencies;
 
 if (typeof npmDependencies === 'object') {
     const npmDependencyNames = Object.keys(npmDependencies);
