@@ -58,7 +58,9 @@ Please commit this file and push it to your Github repository.
 
 See also [#33](https://github.com/dotherightthing/wpdtrt-npm-scripts/issues/33).
 
-#### 3. composer.json
+`npm run changelog` will populate this with all changes since the last tag.
+
+#### 3. composer.json (optional)
 
 Please add these lines to your `composer.json`:
 
@@ -108,7 +110,7 @@ Note:
 * `--prefix` [forces non-global commands to run in the specified folder](https://docs.npmjs.com/misc/config#prefix)
 * `$npm_package_config_wpdtrt_npm_scripts` = the value of package.json's `config.wpdtrt_npm_scripts`
 
-#### 6. tests/bootstrap.php
+#### 6. tests/bootstrap.php (optional)
 
 ##### Plugins
 
@@ -148,6 +150,14 @@ npm uninstall wpdtrt-npm-scripts
 ```
 
 ## Usage
+
+### Changelog
+
+Update CHANGELOG.md with all commit messages since the last tag:
+
+```node
+npm run changelog
+```
 
 ### Compile
 
@@ -225,14 +235,6 @@ npm run version
 ```
 
 ---
-
-## Releases
-
-Manually copy and paste the version changelog to the [Releases](https://github.com/dotherightthing/wpdtrt-npm-scripts/releases) page.
-
-```
-git log --pretty="* [%h] %s" --no-merges $(git describe --tags --abbrev=0 @^)..@ > CHANGELOG.md
-```
 
 ## Tests
 
