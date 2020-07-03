@@ -78,41 +78,57 @@ let releaseFiles = [
     '!./icons/icomoon/demo-files/**/*'
 ];
 
-// copy FE npmDependencies
+// copy BE Composer dependencies and FE NPM dependencies
 // npm prune --production would remove all devDependencies
 // but we can't remove wpdtrt-npm-scripts
 // which is a dependency as it's still needed
 // - and it uses other libraries.
 if (composerJson) {
-    const composerDependencies = composerJson.require;
+    const boilerplatePath = packageJson.keywords.includes('wordpress-plugin') ? 'vendor/dotherightthing/wpdtrt-plugin-boilerplate/' : '';
+    let composerDependencies = {};
+    const composerDependenciesLocal = composerJson.require;
 
-    if (typeof composerDependencies === 'object') {
-        const composerDependencyNames = Object.keys(composerDependencies);
-        const composerDependencyNamesFiltered = composerDependencyNames.filter(name => name !== 'dotherightthing/wpdtrt-plugin-boilerplate');
+    if (typeof composerDependenciesLocal === 'object') {
+        composerDependencies = { ...composerDependencies, ...composerDependenciesLocal };
 
-        composerDependencyNamesFiltered.forEach(name => {
-            releaseFiles.push(`./vendor/${name}/**/*`);
-            releaseFiles.push(`!./vendor/${name}/composer.json`);
-            releaseFiles.push(`!./vendor/${name}/package.json`);
-            releaseFiles.push(`!./vendor/${name}/**/AUTHORS*`);
-            releaseFiles.push(`!./vendor/${name}/**/bin*`);
-            releaseFiles.push(`!./vendor/${name}/**/CHANGELOG*`);
-            releaseFiles.push(`!./vendor/${name}/**/changelog*`);
-            releaseFiles.push(`!./vendor/${name}/**/LICENSE*`);
-            releaseFiles.push(`!./vendor/${name}/**/README*`);
-            releaseFiles.push(`!./vendor/${name}/**/src`);
-            releaseFiles.push(`!./vendor/${name}/**/*.json`);
-            releaseFiles.push(`!./vendor/${name}/**/*.less`);
-            releaseFiles.push(`!./vendor/${name}/**/*.map`);
-            releaseFiles.push(`!./vendor/${name}/**/*.md`);
-            releaseFiles.push(`!./vendor/${name}/**/*.scss`);
-            releaseFiles.push(`!./vendor/${name}/**/*.txt`);
-            releaseFiles.push(`!./vendor/${name}/**/*.xml`);
-            releaseFiles.push(`!./vendor/${name}/**/*.zip`);
-            releaseFiles.push(`!./vendor/${name}/**/test/**/*`);
-            releaseFiles.push(`!./vendor/${name}/**/tests/**/*`);
-        });
+        releaseFiles.push('./vendor/autoload.php');
+        releaseFiles.push('./vendor/composer/**/*');
+
+        if (boilerplatePath.length) {
+            // eslint-disable-next-line global-require
+            const boilerplateComposerJson = require(`${path.resolve('../../')}/vendor/dotherightthing/wpdtrt-plugin-boilerplate/composer.json`);
+            const composerDependenciesBoilerplate = boilerplateComposerJson.require;
+
+            if (typeof composerDependenciesBoilerplate === 'object') {
+                composerDependencies = { ...composerDependencies, ...composerDependenciesBoilerplate };
+            }
+        }
     }
+
+    const composerDependencyNames = Object.keys(composerDependencies);
+
+    composerDependencyNames.forEach(name => {
+        releaseFiles.push(`./vendor/${name}/**/*`);
+        releaseFiles.push(`!./vendor/${name}/composer.json`);
+        releaseFiles.push(`!./vendor/${name}/package.json`);
+        releaseFiles.push(`!./vendor/${name}/**/AUTHORS*`);
+        releaseFiles.push(`!./vendor/${name}/**/bin*`);
+        releaseFiles.push(`!./vendor/${name}/**/CHANGELOG*`);
+        releaseFiles.push(`!./vendor/${name}/**/changelog*`);
+        releaseFiles.push(`!./vendor/${name}/**/LICENSE*`);
+        releaseFiles.push(`!./vendor/${name}/**/README*`);
+        releaseFiles.push(`!./vendor/${name}/**/src`);
+        releaseFiles.push(`!./vendor/${name}/**/*.json`);
+        releaseFiles.push(`!./vendor/${name}/**/*.less`);
+        releaseFiles.push(`!./vendor/${name}/**/*.map`);
+        releaseFiles.push(`!./vendor/${name}/**/*.md`);
+        releaseFiles.push(`!./vendor/${name}/**/*.scss`);
+        releaseFiles.push(`!./vendor/${name}/**/*.txt`);
+        releaseFiles.push(`!./vendor/${name}/**/*.xml`);
+        releaseFiles.push(`!./vendor/${name}/**/*.zip`);
+        releaseFiles.push(`!./vendor/${name}/**/test/**/*`);
+        releaseFiles.push(`!./vendor/${name}/**/tests/**/*`);
+    });
 }
 
 const npmDependencies = packageJson.dependencies;
