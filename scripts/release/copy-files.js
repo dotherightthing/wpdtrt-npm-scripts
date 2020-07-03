@@ -146,7 +146,6 @@ if (typeof npmDependencies === 'object') {
         releaseFiles.push(`!./node_modules/${name}/**/changelog*`);
         releaseFiles.push(`!./node_modules/${name}/**/LICENSE*`);
         releaseFiles.push(`!./node_modules/${name}/**/README*`);
-        releaseFiles.push(`!./node_modules/${name}/**/src`);
         releaseFiles.push(`!./node_modules/${name}/**/*.json`);
         releaseFiles.push(`!./node_modules/${name}/**/*.less`);
         releaseFiles.push(`!./node_modules/${name}/**/*.map`);
