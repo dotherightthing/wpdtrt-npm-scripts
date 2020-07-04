@@ -117,7 +117,6 @@ if (composerJson) {
         releaseFiles.push(`!./vendor/${name}/**/changelog*`);
         releaseFiles.push(`!./vendor/${name}/**/LICENSE*`);
         releaseFiles.push(`!./vendor/${name}/**/README*`);
-        releaseFiles.push(`!./vendor/${name}/**/src`);
         releaseFiles.push(`!./vendor/${name}/**/*.json`);
         releaseFiles.push(`!./vendor/${name}/**/*.less`);
         releaseFiles.push(`!./vendor/${name}/**/*.map`);
