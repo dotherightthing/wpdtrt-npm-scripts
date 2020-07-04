@@ -53,6 +53,8 @@ let releaseFiles = [
     // Plugin/Theme JS
     './js/twentysixteen.js',
     './js/*-es5.js',
+    // Theme JS
+    './js/inline_scripts_hook.js',
     // Plugin/Theme i18n
     './languages/*.pot',
     // Plugin/Theme Logic/Templates
