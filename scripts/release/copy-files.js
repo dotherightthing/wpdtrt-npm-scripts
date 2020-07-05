@@ -98,6 +98,9 @@ if (composerJson) {
         releaseFiles.push('./vendor/composer/**/*');
 
         if (boilerplatePath.length) {
+            // extends and variables shared with child plugins
+            releaseFiles.push('./scss/**/*.scss');
+
             // eslint-disable-next-line global-require
             const boilerplateComposerJson = require(`${path.resolve('../../')}/vendor/dotherightthing/wpdtrt-plugin-boilerplate/composer.json`);
             const composerDependenciesBoilerplate = boilerplateComposerJson.require;
