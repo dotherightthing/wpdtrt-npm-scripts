@@ -63,6 +63,7 @@ let releaseFiles = [
     './src/**/*.php',
     './template-parts/**/*.php',
     './templates/**/*.php',
+    './views/**/*.php',
     // Theme Screenshot
     './screenshot.png',
     // Theme Stylesheet
