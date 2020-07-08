@@ -47,7 +47,16 @@ function replaceVersions() {
         'Replace version strings'
     ]);
 
-    if (wordpressPlugin || wordpressPluginBoilerplate) {
+    if (wordpressPluginBoilerplate) {
+        try {
+            wpdtrtPluginBump({
+                inputPathRoot: `../../`, // path from wpdtrtPluginBump's index.js to project root (package.json)
+                inputPathBoilerplate: `../../` // path from wpdtrtPluginBump's index.js to boilerplate root (package.json)
+            });
+        } catch (error) {
+            console.error(error);
+        }
+    } else if (wordpressPlugin) {
         try {
             wpdtrtPluginBump({
                 inputPathRoot: '../../',
