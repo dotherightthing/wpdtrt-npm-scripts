@@ -50,8 +50,8 @@ function replaceVersions() {
     if (wordpressPluginBoilerplate) {
         try {
             wpdtrtPluginBump({
-                inputPathRoot: `../../`, // path from wpdtrtPluginBump's index.js to project root (package.json)
-                inputPathBoilerplate: `../../` // path from wpdtrtPluginBump's index.js to boilerplate root (package.json)
+                inputPathRoot: '../../', // path from wpdtrtPluginBump's index.js to project root (package.json)
+                inputPathBoilerplate: '../../' // path from wpdtrtPluginBump's index.js to boilerplate root (package.json)
             });
         } catch (error) {
             console.error(error);
