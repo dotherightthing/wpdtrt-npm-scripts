@@ -152,12 +152,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-gallery.git",
-                "reference": "b11628861fa1277ef3cb70f178b2cce16e21c39c"
+                "reference": "08113282cb1dbebdbf7673cf5c521cf943749b85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-gallery/zipball/b11628861fa1277ef3cb70f178b2cce16e21c39c",
-                "reference": "b11628861fa1277ef3cb70f178b2cce16e21c39c",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-gallery/zipball/08113282cb1dbebdbf7673cf5c521cf943749b85",
+                "reference": "08113282cb1dbebdbf7673cf5c521cf943749b85",
                 "shasum": ""
             },
             "require": {
@@ -207,7 +207,7 @@
                 "source": "https://github.com/dotherightthing/wpdtrt-gallery",
                 "wiki": "https://github.com/dotherightthing/wpdtrt-gallery/wiki"
             },
-            "time": "2020-05-10T12:45:46+00:00"
+            "time": "2020-07-01T08:28:04+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-plugin-boilerplate",
@@ -215,12 +215,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate.git",
-                "reference": "b9fed7dc0b62e6f1cfae33373a9e92061cf1f6fd"
+                "reference": "98d045e82d74b1871cbcd00309d67aeadcb53029"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-plugin-boilerplate/zipball/b9fed7dc0b62e6f1cfae33373a9e92061cf1f6fd",
-                "reference": "b9fed7dc0b62e6f1cfae33373a9e92061cf1f6fd",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-plugin-boilerplate/zipball/98d045e82d74b1871cbcd00309d67aeadcb53029",
+                "reference": "98d045e82d74b1871cbcd00309d67aeadcb53029",
                 "shasum": ""
             },
             "require": {
@@ -263,7 +263,7 @@
                 "issues": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues",
                 "source": "https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/tree/development"
             },
-            "time": "2019-10-13T02:30:41+00:00"
+            "time": "2020-07-04T02:32:36+00:00"
         },
         {
             "name": "gamajo/template-loader",
