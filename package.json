@@ -64,7 +64,6 @@
   },
   "scripts": {
     "preinstall": "chmod a+x scripts/**/*.sh",
-    "changelog": "./scripts/changelog/changelog.sh",
     "compile": "./scripts/compile/css.sh && ./scripts/compile/js.sh",
     "docs": "./scripts/docs/naturaldocs.sh",
     "lint": "./scripts/lint/css.sh && ./scripts/lint/js.sh && ./scripts/lint/php.sh",
@@ -75,7 +74,7 @@
     "test:internal": "chmod a+x test/scripts/*.sh && ./test/scripts/teardown.sh && ./test/scripts/setup.sh && mocha --recursive \"./test/**/*.spec.js\" --full-trace",
     "pretest": "node ./scripts/pretest/create-wp-test-environment.js",
     "test": "./scripts/test/phpunit.sh",
-    "version": "node ./scripts/version/plugin-bump.js",
+    "version": "./scripts/changelog/changelog.sh && node ./scripts/version/plugin-bump.js",
     "postinstall": "./scripts/postinstall/config.sh && node ./scripts/postinstall/customise-config.js && ./scripts/postinstall/composer.sh && node ./scripts/postinstall/remaining-github-api-calls.js",
     "postuninstall": "./scripts/postuninstall/config.sh && ./scripts/postuninstall/composer.sh"
   },

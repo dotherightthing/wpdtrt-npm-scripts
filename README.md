@@ -58,7 +58,7 @@ Please commit this (initially empty) file and push it to your Github repository.
 
 See also [#33](https://github.com/dotherightthing/wpdtrt-npm-scripts/issues/33).
 
-`npm run changelog` will populate this with all changes since the last tag.
+`npm run version` will populate this with all changes since the last tag.
 
 #### 3. composer.json (optional)
 
@@ -92,7 +92,6 @@ Please add these lines to your `package.json`:
     "wpdtrt_npm_scripts": "./node_modules/wpdtrt-npm-scripts"
   },
   "scripts": {
-    "changelog": "npm run changelog --prefix $npm_package_config_wpdtrt_npm_scripts",
     "compile": "npm run compile --prefix $npm_package_config_wpdtrt_npm_scripts",
     "docs": "npm run docs --prefix $npm_package_config_wpdtrt_npm_scripts",
     "lint": "npm run lint --prefix $npm_package_config_wpdtrt_npm_scripts",
@@ -150,14 +149,6 @@ npm uninstall wpdtrt-npm-scripts
 ```
 
 ## Usage
-
-### Changelog
-
-Update CHANGELOG.md with all commit messages since the last tag:
-
-```node
-npm run changelog
-```
 
 ### Compile
 
@@ -227,10 +218,10 @@ See also [DTRT WordPress Plugin Boilerplate - Testing & Debugging](https://githu
 
 ### Version
 
-Version files for Release:
+Update CHANGELOG.md with all commit messages since the last tag, version files for Release
 
 ```node
-n 11.15.0 # see https://stackoverflow.com/a/57804190/6850747
+n 11.15.0 # versioning - see https://stackoverflow.com/a/57804190/6850747
 npm run version
 ```
 
