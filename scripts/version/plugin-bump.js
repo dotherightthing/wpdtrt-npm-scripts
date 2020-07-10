@@ -12,7 +12,7 @@ const packageJson = require(`${path.resolve('../../')}/package.json`);
 // const wordpressChildTheme = packageJson.keywords.includes('wordpress-child-theme');
 const wordpressPlugin = packageJson.keywords.includes('wordpress-plugin');
 const wordpressPluginBoilerplate = packageJson.name === 'wpdtrt-plugin-boilerplate';
-const wordpressPluginBoilerplatePath = packageJson.keywords.includes('wordpress-plugin') ? 'vendor/dotherightthing/wpdtrt-plugin-boilerplate/' : '';
+const wordpressPluginBoilerplatePath = packageJson.keywords.includes('wordpress-plugin') ? '../../vendor/dotherightthing/wpdtrt-plugin-boilerplate/' : '';
 
 /* eslint-disable no-console */
 
