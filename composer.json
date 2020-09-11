@@ -19,10 +19,9 @@
       "wiki": "https://bitbucket.org/dotherightthing/wpdtrt-npm-scripts/wiki"
   },
   "require-dev": {
-      "dotherightthing/wpdtrt": "dev-development",
       "dotherightthing/wpdtrt-dbth": "dev-development",
       "dotherightthing/wpdtrt-gallery": "dev-master",
-      "dotherightthing/wpdtrt-plugin-boilerplate": "dev-development"
+      "dotherightthing/wpdtrt-plugin-boilerplate": "^1.7.5"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
