@@ -4,16 +4,16 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "913cc45b67c531f5f7ba141c7b1833d5",
+    "content-hash": "31df6a15c1d8204d491b03fb757b3115",
     "packages": [],
     "packages-dev": [
         {
             "name": "dotherightthing/wpdtrt-dbth",
-            "version": "dev-development",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-dbth",
-                "reference": "7569e975b4a6a8ec39f552589053b89eb7f9cf79"
+                "reference": "1c64dc125629bcb1b21573b1ce86f0408391b24d"
             },
             "require": {
                 "dotherightthing/wpdtrt-debug": "^1.0.0",
@@ -49,7 +49,7 @@
                 "source": "https://github.com/dotherightthing/wpdtrt-dbth",
                 "wiki": "https://github.com/dotherightthing/wpdtrt-dbth/issues/113"
             },
-            "time": "2020-05-12T09:56:50+00:00"
+            "time": "2020-09-11T03:01:36+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-debug",
