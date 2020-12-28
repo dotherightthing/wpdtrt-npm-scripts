@@ -38,12 +38,13 @@ release*
 .browserslistrc
 .eslintrc
 .stylelint*
-js/*-es5.js
 nodemon.json
 phpcs.xml
 phpunit.xml.dist
 postcss.config.js
 bin/Natural\ Docs
+js/backend*.js
+js/frontend*.js
 docs
 node_modules
 vendor
@@ -134,6 +135,26 @@ Add the following badges:
 [![GitHub release](https://img.shields.io/github/v/tag/AUTHOR/REPO)](https://github.com/AUTHOR/REPO/releases) [![Build Status](https://github.com/AUTHOR/REPO/workflows/Build%20and%20release%20if%20tagged/badge.svg)](https://github.com/AUTHOR/REPO/actions?query=workflow%3A%22Build+and+release+if+tagged%22) [![GitHub issues](https://img.shields.io/github/issues/AUTHOR/REPO.svg)](https://github.com/AUTHOR/REPO/issues)
 ```
 
+#### 8. js/backend.txt
+
+Please create this file and push it to your Github repository.
+
+Add a list of files to merge to create backend.js, one file per line.
+
+```txt
+./js/_backend.js
+```
+
+#### 9. js/frontend.txt
+
+Please create this file and push it to your Github repository.
+
+Add a list of files to merge to create frontend.js, one file per line.
+
+```txt
+./js/_frontend_.js
+```
+
 ## Update
 
 ```node
@@ -164,8 +185,8 @@ npm run watch
 
 1. `*.scss -> node-sass -> *.css`
 2. `*.css -> postcss -> *.css`
-3. `backend.js -> backend-es5.js`
-4. `frontend.js -> frontend-es5.js`
+3. `backend.txt -> backend-es5.js`
+4. `frontend.txt -> frontend-es5.js`
 
 ### Document
 
