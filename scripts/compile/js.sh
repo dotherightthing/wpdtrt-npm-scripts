@@ -48,8 +48,6 @@ if [ -f "$backendSrc" ]; then
     done < "${backendSrc}"
 fi
 
-
-
 # ===== FRONTEND =====
 
 frontendJs="${1:-./js/frontend.js}"
@@ -75,9 +73,11 @@ if [ -f "$frontendSrc" ]; then
     do
         cat $file >> "${frontendJs}"
     done < "${frontendSrc}"
-
-    cat js/backend.js > js/backend-es5.js \
-    && cat js/frontend.js > js/frontend-es5.js \
-    && babel "js/backend-es5.js" --out-dir js \
-    && babel "js/frontend-es5.js" --out-dir js
 fi
+
+# ===== TRANSPILING =====
+
+cat js/backend.js > js/backend-es5.js \
+&& cat js/frontend.js > js/frontend-es5.js \
+&& babel "js/backend-es5.js" --out-dir js \
+&& babel "js/frontend-es5.js" --out-dir js
