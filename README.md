@@ -139,20 +139,22 @@ Add the following badges:
 
 Please create this file and push it to your Github repository.
 
-Add a list of files to merge to create backend.js, one file per line.
+Add a list of files to merge to create backend.js, one file per line, with a trailing blank line.
 
 ```txt
 ./js/_backend.js
+
 ```
 
 #### 9. js/frontend.txt
 
 Please create this file and push it to your Github repository.
 
-Add a list of files to merge to create frontend.js, one file per line.
+Add a list of files to merge to create frontend.js, one file per line, with a trailing blank line.
 
 ```txt
 ./js/_frontend_.js
+
 ```
 
 ## Update
