@@ -23,9 +23,6 @@ node scripts/helpers/format-log.js 'compile' 'js' 'merge source files and transp
 
 # ===== BACKEND =====
 
-node scripts/helpers/format-log.js 'merge' 'js' 'merge js files' \
-&& cd $INIT_CWD
-
 backendJs="${1:-./js/backend.js}"
 backendSrc="${1:-./js/backend.txt}"
 backendTimestamp=$(date +"/* backend.js - generated %d/%m/%Y at %T from: */")
@@ -47,7 +44,7 @@ do
     echo "/* $index $file */" >> "${backendJs}"
 done < "${backendSrc}"
 
-echo "\r" >> "${backendJs}"
+printf "\n" >> "${backendJs}"
 
 # read file list in backendSrc, copy contents to backendJs
 while IFS= read -r file
@@ -78,7 +75,7 @@ do
     echo "/* $index $file */" >> "${frontendJs}"
 done < "${frontendSrc}"
 
-echo "\r" >> "${frontendJs}"
+printf "\n" >> "${frontendJs}"
 
 # read file list in frontendSrc, copy contents to frontendJs
 while IFS= read -r file
