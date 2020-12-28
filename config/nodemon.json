@@ -3,6 +3,6 @@
     "exec": "npm run compile",
     "watch": [
       "scss/**/*.scss",
-      "js/!(*-es5).js"
+      "js/_*.js"
     ]
   }
