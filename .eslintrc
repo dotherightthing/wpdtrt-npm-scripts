@@ -11,10 +11,7 @@
         "jsdoc"
     ],
     "ignorePatterns": [
-        "backend.js",
-        "backend-es5.js",
-        "frontend.js",
-        "frontend-es5.js",
+        "*-es5.js",
         "bin/",
         "config/naturaldocs/",
         "docs",
