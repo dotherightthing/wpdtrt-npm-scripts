@@ -21,7 +21,7 @@
   "require-dev": {
       "dotherightthing/wpdtrt-dbth": "dev-master",
       "dotherightthing/wpdtrt-gallery": "dev-master",
-      "dotherightthing/wpdtrt-plugin-boilerplate": "^1.7.5"
+      "dotherightthing/wpdtrt-plugin-boilerplate": "^1.7.6"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
