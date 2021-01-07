@@ -19,6 +19,7 @@
         "config/naturaldocs/",
         "docs",
         "icons/",
+        "mochawesome-report",
         "node_modules/",
         "postcss.config.js",
         "vendor/",
