@@ -109,6 +109,7 @@ Note:
 * `config.wpdtrt_base_url_local` is used by WordPress themes with `scrape:wordpress_maintenance_page`. Change the value to match your local staging server.
 * `--prefix` [forces non-global commands to run in the specified folder](https://docs.npmjs.com/misc/config#prefix)
 * `$npm_package_config_wpdtrt_npm_scripts` = the value of package.json's `config.wpdtrt_npm_scripts`
+* `npx cypress run` cannot be appended to the `test` script (see [#46](https://github.com/dotherightthing/wpdtrt-npm-scripts/issues/46))
 
 #### 6. tests/bootstrap.php (optional)
 
