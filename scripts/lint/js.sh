@@ -16,4 +16,4 @@ set -e
 
 node scripts/helpers/format-log.js 'lint' 'js' \
 && cd $INIT_CWD \
-&& eslint './**/*.js'
+&& eslint './**/_*.js'
