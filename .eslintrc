@@ -15,6 +15,7 @@
         "bin/",
         "config/naturaldocs/",
         "docs",
+        "icons/",
         "node_modules/",
         "postcss.config.js",
         "vendor/"
