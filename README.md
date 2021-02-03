@@ -144,9 +144,11 @@ Please create this file and push it to your Github repository.
 Add a list of files to bundle into backend.js, one file per line, with a trailing blank line.
 
 This process allows other DTRT scripts to be included in the linting and transpiling process.
+
 It is not intended to replace WordPress JavaScript loading.
 
 ```txt
+./vendor/dotherightthing/wpdtrt-plugin-boilerplate/js/_backend.js
 ./js/_backend.js
 
 ```
@@ -158,6 +160,7 @@ Please create this file and push it to your Github repository.
 Add a list of files to bundle into frontend.js, one file per line, with a trailing blank line.
 
 This process allows other DTRT scripts to be included in the linting and transpiling process.
+
 It is not intended to replace WordPress JavaScript loading.
 
 ```txt
