@@ -44,6 +44,8 @@ let releaseFiles = [
     './config/**/*',
     // Plugin/Theme CSS
     './css/*.css',
+    // Plugin Data
+    './data/**/*',
     // Plugin/Theme Fonts
     './fonts/**/*',
     // Plugin/Theme Icons
