@@ -18,7 +18,7 @@ NPM build scripts.
 ## Installation
 
 ```node
-n 13.2.0 # change node version
+n 14.3.0 # change node version
 npm install dotherightthing/wpdtrt-npm-scripts#semver:0.3.* --save-dev
 ```
 
@@ -171,14 +171,14 @@ It is not intended to replace WordPress JavaScript loading.
 ## Update
 
 ```node
-n 13.2.0 # change node version
+n 14.3.0 # change node version
 npm update wpdtrt-npm-scripts
 ```
 
 ## Uninstallation
 
 ```node
-n 13.2.0 # change node version
+n 14.3.0 # change node version
 npm uninstall wpdtrt-npm-scripts
 ```
 
