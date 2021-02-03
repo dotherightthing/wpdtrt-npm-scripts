@@ -272,3 +272,9 @@ To test against fixtures loaded into a sub-directory:
 ```bash
 npm run test:internal
 ```
+
+To lint the package files:
+
+```bash
+npm run lint:internal
+```
