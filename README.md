@@ -15,6 +15,14 @@ NPM build scripts.
 3. Natural Docs - <https://www.naturaldocs.org/download/> and save to `./bin/Natural Docs` (deprecated)
 4. n - <https://www.npmjs.com/package/n>
 
+### Set up Github Actions CI
+
+The Github Actions CI build needs access to Github in order to provide Composer with permissions to clone the private repo [wpdtrt-dbth](https://github.com/dotherightthing/wpdtrt-dbth) repository.
+
+Ensure that this repository, and any repository using this repository, have an [Actions Secret](https://github.com/username/wpdtrt-yourpluginname/settings/secrets/actions) named `GH_TOKEN` which contains the value of a dedicated or shared Personal Access Token from <https://github.com/settings/tokens>.
+
+See <https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Set-up-Github-Actions-CI>
+
 ## Installation
 
 ```node
