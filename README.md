@@ -196,7 +196,7 @@ or
 npm run watch
 ```
 
-1. `*.scss -> node-sass -> *.css`
+1. `*.scss -> sass -> *.css`
 2. `*.css -> postcss -> *.css`
 3. `backend.txt -> backend-es5.js`
 4. `frontend.txt -> frontend-es5.js`
