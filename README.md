@@ -19,7 +19,7 @@ NPM build scripts.
 
 ```node
 n 14.3.0 # change node version
-npm install dotherightthing/wpdtrt-npm-scripts#semver:0.3.* --save-dev
+npm install dotherightthing/wpdtrt-npm-scripts#semver:* --save-dev
 ```
 
 ### Files
