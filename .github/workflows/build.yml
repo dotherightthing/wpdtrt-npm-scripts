@@ -16,10 +16,12 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v2
 
-    - uses: actions/setup-node@v2
+    - name: Install Node
+      uses: actions/setup-node@v2
       with:
-        node-version: 13.x
+        node-version: '18.7.0'
     
+    # MAMP Pro uses 7.2.20
     - name: Install PHP
       uses: shivammathur/setup-php@v2
       with:
