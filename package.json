@@ -28,6 +28,7 @@
     "babel-eslint": "^10.0.3",
     "core-js": "^3.2.1",
     "cpy": "^8.1.0",
+    "cypress": "^10.6.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-chai-friendly": "^0.4.1",
@@ -74,6 +75,7 @@
     "test:internal": "chmod a+x test/scripts/*.sh && ./test/scripts/teardown.sh && ./test/scripts/setup.sh && mocha --recursive \"./test/**/*.spec.js\" --full-trace",
     "pretest": "node ./scripts/pretest/create-wp-test-environment.js",
     "test": "./scripts/test/phpunit.sh",
+    "test:cypress": "npx cypress run",
     "version": "./scripts/changelog/changelog.sh && node ./scripts/version/plugin-bump.js",
     "postinstall": "./scripts/postinstall/config.sh && node ./scripts/postinstall/customise-config.js && ./scripts/postinstall/composer.sh && node ./scripts/postinstall/remaining-github-api-calls.js",
     "postuninstall": "./scripts/postuninstall/config.sh && ./scripts/postuninstall/composer.sh"
