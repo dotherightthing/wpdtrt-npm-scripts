@@ -31,7 +31,7 @@ jobs:
     # mysql start: https://github.com/actions/virtual-environments/issues/739
     - name: Run tests 
       run: |
-        composer config -g github-oauth.github.com ${{ secrets.GH_PAT_WPDTRT_DBTH }}
+        composer config -g github-oauth.github.com ${{ secrets.GH_TOKEN }}
         sudo /etc/init.d/mysql start
         npm run test:internal
       env:
