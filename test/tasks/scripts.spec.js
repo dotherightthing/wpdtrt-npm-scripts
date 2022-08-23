@@ -32,6 +32,7 @@ const fs = require('fs');
 const mocha = require('mocha');
 const osTmpDir = require('os').tmpdir();
 const { describe, it } = mocha; // fix eslint no-undef errors
+const pkg = require('../../package.json');
 
 /**
  * @function describeIf
@@ -125,8 +126,8 @@ describe('scripts', function () {
     ];
 
     const packageJson = {
-        publisher: process.env.npm_package_homepage.replace('https://github.com/', '').split('/')[0],
-        name: process.env.npm_package_homepage.replace('https://github.com/', '').split('/')[1]
+        publisher: pkg.homepage.replace('https://github.com/', '').split('/')[0],
+        name: pkg.homepage.replace('https://github.com/', '').split('/')[1]
     };
 
     const paths = {
