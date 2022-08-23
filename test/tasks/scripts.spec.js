@@ -32,7 +32,7 @@ const fs = require('fs');
 const mocha = require('mocha');
 const osTmpDir = require('os').tmpdir();
 const { describe, it } = mocha; // fix eslint no-undef errors
-const pkg = require('../../package.json');
+const { homepage: pkgHomepage } = require(`${path.resolve('../../')}/package.json`);
 
 /**
  * @function describeIf
@@ -125,9 +125,9 @@ describe('scripts', function () {
         }
     ];
 
-    const packageJson = {
-        publisher: pkg.homepage.replace('https://github.com/', '').split('/')[0],
-        name: pkg.homepage.replace('https://github.com/', '').split('/')[1]
+    const pkg = {
+        publisher: pkgHomepage.replace('https://github.com/', '').split('/')[0],
+        name: pkgHomepage.replace('https://github.com/', '').split('/')[1]
     };
 
     const paths = {
@@ -231,11 +231,11 @@ describe('scripts', function () {
 
                     // remove any existing dependency so we can install the latest version
                     if (app.haslibraryDependency) {
-                        command += ` && npm uninstall ${packageJson.name} --ignore-scripts`;
+                        command += ` && npm uninstall ${pkg.name} --ignore-scripts`;
                     }
 
                     // install the latest version
-                    command += `&& npm install ${packageJson.publisher}/${packageJson.name} --save`;
+                    command += `&& npm install ${pkg.publisher}/${pkg.name} --save`;
 
                     err = await shellCommand(command);
 
