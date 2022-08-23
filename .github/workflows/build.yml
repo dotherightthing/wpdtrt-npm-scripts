@@ -30,12 +30,12 @@ jobs:
     # env: https://github.com/actions/virtual-environments/blob/master/images/linux/Ubuntu1604-README.md
     # Add GitHub personal access token to Composer: https://www.previousnext.com.au/blog/managing-composer-github-access-personal-access-tokens
     # mysql start: https://github.com/actions/virtual-environments/issues/739
-    - name: Run tests 
-      run: |
-        composer config -g github-oauth.github.com ${{ secrets.GH_TOKEN }}
-        sudo /etc/init.d/mysql start
-        npm run test:internal
-      env:
-        WPUNIT_DB_USER: root
-        WPUNIT_DB_PASS: root
-        WPUNIT_DB_HOST: 127.0.0.1
+    # - name: Run tests 
+    #   run: |
+    #     composer config -g github-oauth.github.com ${{ secrets.GH_TOKEN }}
+    #     sudo /etc/init.d/mysql start
+    #     npm run test:internal
+    #   env:
+    #     WPUNIT_DB_USER: root
+    #     WPUNIT_DB_PASS: root
+    #     WPUNIT_DB_HOST: 127.0.0.1
