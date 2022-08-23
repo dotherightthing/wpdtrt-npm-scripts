@@ -2,3 +2,16 @@
 CHANGELOG.md
 node_modules
 vendor
+/.babelrc
+/.browserslistrc
+/.stylelintignore
+/.stylelintrc.json
+/cypress.json
+/nodemon.json
+/phpcs.xml
+/phpunit.xml.dist
+/postcss.config.js
+/.github/workflows/build-release-tagged.yml
+/config/naturaldocs/Project.txt
+/docs/.gitkeep
+/naturaldocs/Project.txt
