@@ -269,6 +269,13 @@ npm run version
 
 ---
 
+## Maintenance
+
+## Release
+
+1. Update version in `package.json`
+2. `npm run changelog:internal`
+
 ## Tests
 
 Tests are written in [Mocha](https://mochajs.org/), with [Chai](https://www.chaijs.com/) assertions.

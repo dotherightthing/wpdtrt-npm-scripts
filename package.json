@@ -63,6 +63,7 @@
   },
   "scripts": {
     "preinstall": "chmod a+x scripts/**/*.sh",
+    "changelog:internal": "git log --oneline $(git describe --tags --abbrev=0 @^)..@ --pretty=\"format:* [%h] %s\" > CHANGELOG.md",
     "compile": "./scripts/compile/css.sh && ./scripts/compile/js.sh",
     "docs": "./scripts/docs/naturaldocs.sh",
     "lint": "./scripts/lint/css.sh && ./scripts/lint/js.sh && ./scripts/lint/php.sh",
