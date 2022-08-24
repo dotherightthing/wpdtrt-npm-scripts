@@ -33,7 +33,7 @@ const mocha = require('mocha');
 const osTmpDir = require('os').tmpdir();
 const path = require('path');
 const { describe, it } = mocha; // fix eslint no-undef errors
-const { homepage: pkgHomepage } = require(`${path.resolve('../../')}/package.json`);
+const { homepage: pkgHomepage } = require(`${path.resolve()}/package.json`);
 
 /**
  * @function describeIf
