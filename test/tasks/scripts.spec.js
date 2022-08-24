@@ -336,24 +336,24 @@ describe('scripts', function () {
                         `unexpected error: ${err.replace(/\n$/, '')}`
                     ).to.equal('');
 
-                    paths.css.forEach(function (path) {
+                    paths.css.forEach(function (pth) {
                         expect(
-                            fs.existsSync(path),
-                            path
+                            fs.existsSync(pth),
+                            pth
                         ).to.equal(true);
                     });
 
-                    paths.js.forEach(function (path) {
+                    paths.js.forEach(function (pth) {
                         expect(
-                            fs.existsSync(path),
-                            path
+                            fs.existsSync(pth),
+                            pth
                         ).to.equal(true);
                     });
 
-                    paths.scss.forEach(function (path) {
+                    paths.scss.forEach(function (pth) {
                         expect(
-                            fs.existsSync(path),
-                            path
+                            fs.existsSync(pth),
+                            pth
                         ).to.equal(true);
                     });
                 });
