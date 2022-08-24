@@ -217,7 +217,7 @@ describe('scripts', function () {
 
             describe('install', function () {
                 it('install', async function () {
-                    let command = 'npm install --no-audit';
+                    let command = 'npm ci';
                     let err;
 
                     err = await shellCommand(command);
