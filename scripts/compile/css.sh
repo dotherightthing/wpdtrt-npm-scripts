@@ -16,5 +16,5 @@ set -e
 
 node scripts/helpers/format-log.js 'compile' 'css' 'scss to css, postcss' \
 && cd $INIT_CWD \
-&& sass scss --output css --recursive \
+&& sass scss:css \
 && postcss css/**/*.css --replace
