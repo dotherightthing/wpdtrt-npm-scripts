@@ -274,7 +274,7 @@ npm run version
 ## Release
 
 1. Update version in `package.json`
-2. `npm run changelog:internal`
+2. `npm run changelog`
 
 ## Tests
 
