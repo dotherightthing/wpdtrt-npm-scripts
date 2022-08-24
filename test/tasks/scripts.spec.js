@@ -74,7 +74,6 @@ describe('scripts', function () {
 
     const apps = [
         {
-            haslibraryDependency: true,
             id: 'wordpress-theme',
             name: 'wpdtrt-dbth',
             path: 'vendor/dotherightthing/',
@@ -93,7 +92,6 @@ describe('scripts', function () {
             }
         },
         {
-            haslibraryDependency: false,
             id: 'wordpress-plugin',
             name: 'wpdtrt-gallery',
             path: 'vendor/dotherightthing/',
@@ -109,7 +107,6 @@ describe('scripts', function () {
             }
         },
         {
-            haslibraryDependency: false,
             id: 'wordpress-plugin-boilerplate',
             name: 'wpdtrt-plugin-boilerplate',
             path: 'vendor/dotherightthing/',
@@ -227,16 +224,8 @@ describe('scripts', function () {
 
             describe('install', function () {
                 it('install', async function () {
-                    let command = 'npm ci';
+                    let command = 'npm install --no-audit';
                     let err;
-
-                    // remove any existing dependency so we can install the latest version
-                    if (app.haslibraryDependency) {
-                        command += ` && npm uninstall ${pkg.name} --ignore-scripts`;
-                    }
-
-                    // install the latest version
-                    command += `&& npm install ${pkg.publisher}/${pkg.name} --save`;
 
                     err = await shellCommand(command);
 
