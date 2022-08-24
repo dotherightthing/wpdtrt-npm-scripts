@@ -31,9 +31,7 @@ const execa = require('execa');
 const fs = require('fs');
 const mocha = require('mocha');
 const osTmpDir = require('os').tmpdir();
-const path = require('path');
 const { describe, it } = mocha; // fix eslint no-undef errors
-const { homepage: pkgHomepage } = require(`${path.resolve()}/package.json`);
 
 /**
  * @function describeIf
@@ -122,11 +120,6 @@ describe('scripts', function () {
             }
         }
     ];
-
-    const pkg = {
-        publisher: pkgHomepage.replace('https://github.com/', '').split('/')[0],
-        name: pkgHomepage.replace('https://github.com/', '').split('/')[1]
-    };
 
     const paths = {
         composer: 'vendor',
