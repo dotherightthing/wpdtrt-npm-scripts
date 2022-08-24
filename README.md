@@ -274,7 +274,8 @@ npm run version
 ## Release
 
 1. Update version in `package.json`
-2. `npm run changelog`
+2. `composer update` to get latest versions of test fixtures
+3. `npm run changelog`
 
 ## Tests
 
