@@ -56,7 +56,7 @@ jobs:
 
     - name: Run build
       run: |
-        npm run lint --if-present
+        npm run lint:internal --if-present
 
     - name: Run tests
       run: |
