@@ -16,5 +16,5 @@ set -e
 
 node scripts/helpers/format-log.js 'lint' 'php' \
 && cd $INIT_CWD \
-&& test -f ./composer.json && composer validate || echo 'composer.json not found, skipping' \
+&& test -f ./composer.json && composer validate --no-check-publish || echo 'composer.json not found, skipping' \
 && test -x ./vendor/bin/phpcs && ./vendor/bin/phpcs **/*.php --ignore=autoload.php,docs/*,node_modules/*,vendor/*,wp-content/* --standard=phpcs.xml || echo 'phpcs not found, skipping'
