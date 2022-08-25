@@ -131,7 +131,6 @@ describe('scripts', function () {
         npm: 'node_modules',
         npmConfig: 'package.json',
         release: 'release',
-        releaseZip: 'release.zip',
         scss: [],
         wpUnitWordPress: `${tmpdir}/wordpress`,
         wpUnitWordPressTestLibrary: `${tmpdir}/wordpress-tests-lib`
@@ -409,13 +408,6 @@ describe('scripts', function () {
                     expect(
                         fs.existsSync(paths.release),
                         paths.release
-                    ).to.equal(true);
-                });
-
-                it('generates a release.zip for deployment to Github/Bitbucket', function () {
-                    expect(
-                        fs.existsSync(paths.releaseZip),
-                        paths.releaseZip
                     ).to.equal(true);
                 });
 
