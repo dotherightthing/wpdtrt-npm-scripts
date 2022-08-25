@@ -193,7 +193,12 @@ describe('scripts', function () {
 
             describe('install', function () {
                 it('install', async function () {
-                    let command = 'npm ci';
+                    // npm ci installs the exact dependency versions specified in package-lock.json
+                    // so update this repo first to ensure that the tests are using the latest code;
+                    // this avoids having to manually update wpdtrt-npm-scripts in each repo
+                    // just to ensure that the repo is compatible with the test suite;
+                    // note: add #semver:* to load the latest tagged vs latest development version
+                    let command = 'npm remove wpdtrt-npm-scripts && npm install dotherightthing/wpdtrt-npm-scripts --save-dev && npm ci';
                     const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                     expect(
