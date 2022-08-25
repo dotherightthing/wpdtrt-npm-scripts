@@ -141,6 +141,18 @@ describe('scripts', function () {
         '$packageVersion'
     ];
 
+    // stderr output that can be ignored
+    // TODO alternatively could revert to try .. catch and test exit code
+    // see https://blog.logrocket.com/running-commands-with-execa-in-node-js/
+    const warnings = {
+        composer: [
+            // https://github.com/composer/composer/issues/5961
+            './composer.json is valid, but with a few warnings',
+            'See https://getcomposer.org/doc/04-schema.md for details on the schema',
+            'The version field is present, it is recommended to leave it out if the package is published on Packagist.'
+        ]
+    };
+
     apps.forEach(function (app) {
         describeIf(!app.uses.gulpScripts, app.id, function () {
             before(function () {
@@ -294,11 +306,14 @@ describe('scripts', function () {
                 it('runs without error', async function () {
                     const command = 'npm run lint';
                     console.log(command);
-                    const { stdout, stderr } = await execaCommandSync(command, { shell: true });
+                    let { stdout, stderr } = await execaCommandSync(command, { shell: true });
+
+                    warnings.composer.forEach(warning => {
+                        stderr = stderr.replace(warning, '').replace(/\n$/, '');
+                    });
 
                     expect(
-                        stderr.replace(/\n$/, ''),
-                        stderr
+                        stderr.replace(/\n$/, '')
                     ).to.equal('');
                 });
             });
