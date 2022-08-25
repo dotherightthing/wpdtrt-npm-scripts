@@ -202,7 +202,8 @@ describe('scripts', function () {
                 it('install', async function () {
                     // npm ci installs the exact dependency versions specified in package-lock.json
                     // so update this repo first to ensure that the tests are using the latest code;
-                    // this avoids having to manually update wpdtrt-npm-scripts in each repository with corresponding version releases
+                    // this avoids having to manually update wpdtrt-npm-scripts in each repository
+                    // before the next version of wpdtrt-npm-scripts is released
                     // note: add #semver:* to load the latest tagged vs latest development version
                     // note: this could be shortened to npm update wpdtrt-npm-scripts if the #semver:* was removed
                     // from each repository's wpdtrt-npm-scripts dependency
