@@ -422,8 +422,8 @@ describe('scripts', function () {
                     // TODO
 
                     expect(
-                        err.replace(/\n$/, ''),
-                        `unexpected error: ${err.replace(/\n$/, '')}`
+                        stderr.replace(/\n$/, ''),
+                        `unexpected error: ${stderr.replace(/\n$/, '')}`
                     ).to.equal('');
                 });
 
@@ -431,8 +431,8 @@ describe('scripts', function () {
                     // TODO
 
                     expect(
-                        err.replace(/\n$/, ''),
-                        `unexpected error: ${err.replace(/\n$/, '')}`
+                        stderr.replace(/\n$/, ''),
+                        `unexpected error: ${stderr.replace(/\n$/, '')}`
                     ).to.equal('');
                 });
             });
