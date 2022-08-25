@@ -25,13 +25,11 @@
 
 /* eslint-disable func-names, no-undef, no-console, no-unused-vars */
 
-const chai = require('chai');
-const { expect } = chai;
-const execa = require('execa');
-const fs = require('fs');
-const mocha = require('mocha');
-const osTmpDir = require('os').tmpdir();
-const { describe, it } = mocha; // fix eslint no-undef errors
+import { expect } from 'chai';
+import { execaCommandSync } from 'execa';
+import * as fs from 'node:fs';
+import { tmpdir } from 'os';
+import { describe, it } from 'mocha'; // fix eslint no-undef errors
 
 /**
  * @function describeIf
@@ -44,28 +42,6 @@ const { describe, it } = mocha; // fix eslint no-undef errors
 function describeIf(condition, title, test) {
     return condition ? describe(title, test) : describe.skip(title, test);
 }
-
-/**
- * @function shellCommand
- * @summary Run a shell command.
- * @param {string} command - the command to run
- * @returns {string} err - the error
- */
-const shellCommand = command => {
-    let err = '';
-
-    // console.log(command);
-
-    try {
-        execa.commandSync(command, { shell: true });
-        // const { stdout } = await execa.commandSync(command, { shell: true });
-        // console.log(stdout);
-    } catch (error) {
-        err = error.stderr;
-    }
-
-    return err;
-};
 
 describe('scripts', function () {
     this.timeout(120000);
@@ -150,8 +126,8 @@ describe('scripts', function () {
         release: 'release',
         releaseZip: 'release.zip',
         scss: [],
-        wpUnitWordPress: `${osTmpDir}/wordpress`,
-        wpUnitWordPressTestLibrary: `${osTmpDir}/wordpress-tests-lib`
+        wpUnitWordPress: `${tmpdir}/wordpress`,
+        wpUnitWordPressTestLibrary: `${tmpdir}/wordpress-tests-lib`
     };
 
     const placeholders = [
@@ -218,13 +194,11 @@ describe('scripts', function () {
             describe('install', function () {
                 it('install', async function () {
                     let command = 'npm ci';
-                    let err;
-
-                    err = await shellCommand(command);
+                    const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                     expect(
-                        err.replace(/\n$/, ''),
-                        err
+                        stderr.replace(/\n$/, ''),
+                        stderr
                     ).to.equal('');
                 });
 
@@ -300,22 +274,24 @@ describe('scripts', function () {
 
             describe('lint', function () {
                 it('runs without error', async function () {
-                    const err = await shellCommand('npm run lint');
+                    let command = 'npm run lint';
+                    const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                     expect(
-                        err.replace(/\n$/, ''),
-                        err
+                        stderr.replace(/\n$/, ''),
+                        stderr
                     ).to.equal('');
                 });
             });
 
             describe('compile', function () {
                 it('runs without error and generates the expected files', async function () {
-                    const err = await shellCommand('npm run compile');
+                    let command = 'npm run compile';
+                    const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                     expect(
-                        err.replace(/\n$/, ''),
-                        `unexpected error: ${err.replace(/\n$/, '')}`
+                        stderr.replace(/\n$/, ''),
+                        `unexpected error: ${stderr.replace(/\n$/, '')}`
                     ).to.equal('');
 
                     paths.css.forEach(function (pth) {
@@ -343,11 +319,12 @@ describe('scripts', function () {
 
             describe.skip('version', function () {
                 it('runs without error', async function () {
-                    const err = await shellCommand('npm run version');
+                    let command = 'npm run version';
+                    const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                     expect(
-                        err.replace(/\n$/, ''),
-                        `unexpected error: ${err.replace(/\n$/, '')}`
+                        stderr.replace(/\n$/, ''),
+                        `unexpected error: ${stderr.replace(/\n$/, '')}`
                     ).to.equal('');
                 });
 
@@ -366,11 +343,12 @@ describe('scripts', function () {
 
             describe.skip('docs', function () {
                 it('runs without error', async function () {
-                    const err = await shellCommand('npm run docs');
+                    let command = 'npm run docs';
+                    const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                     expect(
-                        err.replace(/\n$/, ''),
-                        `unexpected error: ${err.replace(/\n$/, '')}`
+                        stderr.replace(/\n$/, ''),
+                        `unexpected error: ${stderr.replace(/\n$/, '')}`
                     ).to.equal('');
 
                     expect(
@@ -394,11 +372,12 @@ describe('scripts', function () {
                 // });
 
                 it('runs without error', async function () {
-                    const err = await shellCommand('npm run release');
+                    let command = 'npm run release';
+                    const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                     expect(
-                        err.replace(/\n$/, ''),
-                        err.replace(/\n$/, '')
+                        stderr.replace(/\n$/, ''),
+                        stderr.replace(/\n$/, '')
                     ).to.equal('');
                 });
 
@@ -439,8 +418,9 @@ describe('scripts', function () {
 
             describe('test', function () {
                 it('runs without error', async function () {
-                    const err = await shellCommand('npm run test');
-                    expect(err.replace(/\n$/, '')).to.equal('');
+                    let command = 'npm run test';
+                    const { stdout, stderr } = await execaCommandSync(command, { shell: true });
+                    expect(stderr.replace(/\n$/, '')).to.equal('');
                 });
 
                 it.skip('runs Cypress tests', function () {
@@ -456,8 +436,9 @@ describe('scripts', function () {
 
             // describe('uninstall', function () {
             //     it('uninstalls without error', async function () {
-            //         const err = await shellCommand('npm uninstall ${library}');
-            //         expect(err.replace(/\n$/, '')).to.equal('');
+            //         let command = 'npm uninstall ${library}';
+            //         const { stdout, stderr } = await execaCommandSync(command);
+            //         expect(stderr.replace(/\n$/, '')).to.equal('');
             //     });
 
             //     it('deletes all config files', function () {
