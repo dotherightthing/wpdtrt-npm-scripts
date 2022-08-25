@@ -276,7 +276,7 @@ npm run version
 ## Release
 
 1. Update version in `package.json`
-2. `composer update dotherightthing/wpdtrt-dbth dotherightthing/wpdtrt-gallery dotherightthing/wpdtrt-plugin-boilerplate` to get latest versions of test fixtures
+2. Update test fixtures with `composer update dotherightthing/wpdtrt-dbth dotherightthing/wpdtrt-gallery dotherightthing/wpdtrt-plugin-boilerplate` then commit `composer.lock`
 3. `npm run changelog`
 
 ## Tests
