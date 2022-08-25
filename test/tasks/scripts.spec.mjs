@@ -105,6 +105,7 @@ describe('scripts', function () {
         composer: 'vendor',
         composerConfig: 'composer.json',
         config: [
+            '.github/workflows/build-release-tagged.yml',
             'config/naturaldocs/Project.txt',
             'docs',
             '.babelrc',
@@ -112,8 +113,10 @@ describe('scripts', function () {
             '.eslintrc',
             '.stylelintignore',
             '.stylelintrc.json',
+            'cypress.json',
             'nodemon.json',
             'phpcs.xml',
+            'phpunit.xml.dist',
             'postcss.config.js'
         ],
         configsContainingPlaceholders: [
