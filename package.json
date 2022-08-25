@@ -75,7 +75,7 @@
     "test:internal": "chmod a+x test/scripts/*.sh && ./test/scripts/teardown.sh && ./test/scripts/setup.sh && mocha --recursive \"./test/**/*.spec*\" --extension mjs --extension js --full-trace",
     "pretest": "node ./scripts/pretest/create-wp-test-environment.js",
     "test": "./scripts/test/phpunit.sh",
-    "test:cypress": "npx cypress run",
+    "test:js": "npx cypress run",
     "version": "./scripts/changelog/changelog.sh && node ./scripts/version/plugin-bump.js",
     "postinstall": "./scripts/postinstall/config.sh && node ./scripts/postinstall/customise-config.js && ./scripts/postinstall/composer.sh && node ./scripts/postinstall/remaining-github-api-calls.js",
     "postuninstall": "./scripts/postuninstall/config.sh && ./scripts/postuninstall/composer.sh"

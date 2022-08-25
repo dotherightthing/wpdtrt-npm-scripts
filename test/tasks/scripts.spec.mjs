@@ -61,8 +61,10 @@ describe('scripts', function () {
                 scss: []
             },
             uses: {
+                cypress: false,
                 gulpScripts: false,
-                naturaldocs: true
+                naturaldocs: true,
+                wpunit: false
             }
         },
         {
@@ -75,6 +77,7 @@ describe('scripts', function () {
                 scss: []
             },
             uses: {
+                cypress: true,
                 gulpScripts: true, // see #23
                 naturaldocs: true,
                 wpunit: true
@@ -90,6 +93,7 @@ describe('scripts', function () {
                 scss: []
             },
             uses: {
+                cypress: false,
                 gulpScripts: true,
                 naturaldocs: true,
                 wpunit: true
@@ -433,22 +437,31 @@ describe('scripts', function () {
             // TODO: https://github.com/dotherightthing/wpdtrt-npm-scripts/issues/16
 
             describe('test', function () {
-                it('runs without error', async function () {
-                    const command = 'npm run test';
-                    console.log(command);
-                    const { stdout, stderr } = await execaCommandSync(command, { shell: true });
-                    expect(stderr.replace(/\n$/, '')).to.equal('');
-                });
+                if (app.uses.cypress) {
+                    it('runs Cypress (JS) tests', function () {
+                        const command = 'npm run test:js';
+                        console.log(command);
+                        const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
-                it.skip('runs Cypress tests', function () {
-                    // TODO
-                    expect(stderr.replace(/\n$/, '')).to.equal('');
-                });
+                        expect(
+                            stderr.replace(/\n$/, ''),
+                            stderr.replace(/\n$/, '')
+                        ).to.equal('');
+                    });
+                }
 
-                it.skip('runs WordPress unit tests', function () {
-                    // TODO
-                    expect(stderr.replace(/\n$/, '')).to.equal('');
-                });
+                if (app.uses.wpunit) {
+                    it('runs WordPress (PHP) unit tests', async function () {
+                        const command = 'npm run test';
+                        console.log(command);
+                        const { stdout, stderr } = await execaCommandSync(command, { shell: true });
+
+                        expect(
+                            stderr.replace(/\n$/, ''),
+                            stderr.replace(/\n$/, '')
+                        ).to.equal('');
+                    });
+                }
             });
 
             // describe('uninstall', function () {
