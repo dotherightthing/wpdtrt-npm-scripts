@@ -199,7 +199,8 @@ describe('scripts', function () {
                     // note: add #semver:* to load the latest tagged vs latest development version
                     // note: this could be shortened to npm update wpdtrt-npm-scripts if the #semver:* was removed
                     // from each repository's wpdtrt-npm-scripts dependency
-                    let command = 'npm remove wpdtrt-npm-scripts && npm install dotherightthing/wpdtrt-npm-scripts --save-dev && npm ci';
+                    const command = 'npm remove wpdtrt-npm-scripts && npm install dotherightthing/wpdtrt-npm-scripts --save-dev && npm ci';
+                    console.log(command);
                     const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                     // check for node_modules rather than console output
@@ -284,7 +285,8 @@ describe('scripts', function () {
 
             describe('lint', function () {
                 it('runs without error', async function () {
-                    let command = 'npm run lint';
+                    const command = 'npm run lint';
+                    console.log(command);
                     const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                     expect(
@@ -296,7 +298,8 @@ describe('scripts', function () {
 
             describe('compile', function () {
                 it('runs without error and generates the expected files', async function () {
-                    let command = 'npm run compile';
+                    const command = 'npm run compile';
+                    console.log(command);
                     const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                     expect(
@@ -329,7 +332,8 @@ describe('scripts', function () {
 
             describe.skip('version', function () {
                 it('runs without error', async function () {
-                    let command = 'npm run version';
+                    const command = 'npm run version';
+                    console.log(command);
                     const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                     expect(
@@ -353,7 +357,8 @@ describe('scripts', function () {
 
             describe.skip('docs', function () {
                 it('runs without error', async function () {
-                    let command = 'npm run docs';
+                    const command = 'npm run docs';
+                    console.log(command);
                     const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                     expect(
@@ -382,7 +387,8 @@ describe('scripts', function () {
                 // });
 
                 it('runs without error', async function () {
-                    let command = 'npm run release';
+                    const command = 'npm run release';
+                    console.log(command);
                     const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                     expect(
@@ -428,7 +434,8 @@ describe('scripts', function () {
 
             describe('test', function () {
                 it('runs without error', async function () {
-                    let command = 'npm run test';
+                    const command = 'npm run test';
+                    console.log(command);
                     const { stdout, stderr } = await execaCommandSync(command, { shell: true });
                     expect(stderr.replace(/\n$/, '')).to.equal('');
                 });
@@ -446,7 +453,8 @@ describe('scripts', function () {
 
             // describe('uninstall', function () {
             //     it('uninstalls without error', async function () {
-            //         let command = 'npm uninstall ${library}';
+            //         const command = 'npm uninstall ${library}';
+            //         console.log(command);
             //         const { stdout, stderr } = await execaCommandSync(command);
             //         expect(stderr.replace(/\n$/, '')).to.equal('');
             //     });
