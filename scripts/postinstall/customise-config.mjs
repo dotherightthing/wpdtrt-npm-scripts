@@ -13,13 +13,13 @@ import * as path from 'path';
 import formatLog from '../helpers/format-log.mjs';
 
 // if not loaded as a dependency
-if (!fs.existsSync(`${path.resolve('../../')}/package.json`)) {
+if (!fs.existsSync(`${path.resolve()}/package.json`)) {
     /* eslint-disable no-console */
     console.error('customise-config.mjs: package.json not found, exiting');
     /* eslint-enable no-console */
 }
 
-const packageJson = require(`${path.resolve('../../')}/package.json`);
+const packageJson = require(`${path.resolve()}/package.json`);
 const replaceInFiles = require('replace-in-files');
 
 // from and to are required
