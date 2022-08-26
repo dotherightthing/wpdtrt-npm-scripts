@@ -450,7 +450,7 @@ describe('scripts', function () {
             describe('test', function () {
                 if (app.uses.cypress) {
                     it('runs Cypress (JS) tests', async function () {
-                        const command = 'npm run test:js';
+                        const command = 'npm run test:jsui';
                         console.log(command);
                         const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
