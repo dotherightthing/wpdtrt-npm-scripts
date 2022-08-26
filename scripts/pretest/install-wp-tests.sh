@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# this file is run by create-wp-test-environment.js
+# this file is run by create-wp-test-environment.mjs
 
 if [ $# -lt 1 ]; then
 	echo "usage: $0 <db-name> [wp-version] [skip-database-creation]"

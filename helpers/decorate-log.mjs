@@ -1,5 +1,5 @@
 /**
- * @file ./helpers/helpers/decorate-log.js
+ * @file ./helpers/helpers/decorate-log.mjs
  * @summary Functions relating to styling logged messages.
  */
 
@@ -48,4 +48,4 @@ function decorateLog(color, log, {
     );
 }
 
-exports.default = decorateLog;
+export { decorateLog as default };

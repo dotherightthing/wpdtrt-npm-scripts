@@ -1,5 +1,5 @@
 /**
- * @file ./test/helpers/decorate-log.spec.js
+ * @file ./test/helpers/decorate-log.spec.mjs
  * @summary Test gulp tasks.
  * @description
  * Note:
@@ -12,13 +12,11 @@
 
 /* eslint-disable func-names, no-undef, no-console, no-unused-vars */
 
-const chai = require('chai');
-const { expect } = chai;
-const mocha = require('mocha');
-const { describe, it } = mocha; // fix eslint no-undef errors
+import { expect } from 'chai';
+import { describe, it } from 'mocha'; // fix eslint no-undef errors
 
 // import paths are relative to this file
-const decorateLog = require('../../helpers/decorate-log').default;
+import decorateLog from '../../helpers/decorate-log.mjs';
 
 describe('decorateLog', function () {
     // mock of gulp-color

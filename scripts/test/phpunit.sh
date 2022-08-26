@@ -22,6 +22,6 @@ set -e
 # >&2 = send message to stderr
 # https://stackoverflow.com/a/55006371/6850747
 
-node scripts/helpers/format-log.js 'test' 'phpunit' 'run unit tests' \
+node scripts/helpers/format-log.mjs 'test' 'phpunit' 'run unit tests' \
 && cd $INIT_CWD \
 && test -x ./vendor/bin/phpunit && ./vendor/bin/phpunit --debug --configuration phpunit.xml.dist || echo 'phpunit not found, skipping'

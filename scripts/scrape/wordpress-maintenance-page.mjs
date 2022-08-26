@@ -5,10 +5,10 @@
  * Source page must be (locally) published to /maintenance-template/ with Visibility:Public.
  * @see https://wordpress.org/plugins/maintenance-switch/
  */
-const axios = require('axios');
-const fs = require('fs');
+import axios from 'axios';
+import * as fs from 'node:fs';
 
-const formatLog = require('../helpers/format-log.js').default;
+import formatLog from '../helpers/format-log.mjs';
 
 const baseURL = process.argv[2]; // note: no trailing slash
 const sourceUrl = 'maintenance-template';

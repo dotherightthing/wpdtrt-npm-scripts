@@ -1,16 +1,16 @@
 /**
- * @file ./scripts/release/copy-files.js
+ * @file ./scripts/release/copy-files.mjs
  * @summary Copy files to release directory.
  */
 
-const fs = require('fs');
-const path = require('path');
+import * as fs from 'node:fs';
+import * as path from 'path';
 var totalSet = false;
 
 // if not loaded as a dependency
 if (!fs.existsSync(`${path.resolve('../../')}/package.json`)) {
     /* eslint-disable no-console */
-    console.error('copy-files.js: package.json not found, exiting');
+    console.error('copy-files.mjs: package.json not found, exiting');
     /* eslint-enable no-console */
 
     return;
@@ -18,7 +18,7 @@ if (!fs.existsSync(`${path.resolve('../../')}/package.json`)) {
 
 const Bar = require('progress-barjs');
 const cpy = require('cpy');
-const formatLog = require('../helpers/format-log.js').default;
+import formatLog from '../helpers/format-log.mjs';
 const numeral = require('numeral');
 const packageJson = require(`${path.resolve('../../')}/package.json`);
 let composerJson;

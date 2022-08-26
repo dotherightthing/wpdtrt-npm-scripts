@@ -17,6 +17,6 @@ set -e
 # install the fixtures specified in composer.json
 # then cd into each fixture's directory and install its dependencies
 
-node scripts/helpers/format-log.js 'postuninstall' 'composer' 'uninstall php development dependencies' \
+node scripts/helpers/format-log.mjs 'postuninstall' 'composer' 'uninstall php development dependencies' \
 && cd $INIT_CWD \
 && test -f ./composer.json && composer install --prefer-dist --no-interaction --no-dev --no-suggest || echo 'composer.json not found, skipping'

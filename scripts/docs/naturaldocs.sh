@@ -14,6 +14,6 @@
 # v: print shell input lines as they are read (including all comments!)
 set -e
 
-node scripts/helpers/format-log.js 'docs' 'generate documentation' 'naturaldocs' \
+node scripts/helpers/format-log.mjs 'docs' 'generate documentation' 'naturaldocs' \
 && cd $INIT_CWD \
 && test -f bin/Natural\ Docs/NaturalDocs.exe && mono bin/Natural\ Docs/NaturalDocs.exe ./config/naturaldocs || echo 'Natural Docs not found, skipping'

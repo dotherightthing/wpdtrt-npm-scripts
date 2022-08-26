@@ -16,6 +16,6 @@ set -e
 
 # generate changelog
 
-node scripts/helpers/format-log.js 'changelog' 'changelog' 'generate from commit history' \
+node scripts/helpers/format-log.mjs 'changelog' 'changelog' 'generate from commit history' \
 && cd $INIT_CWD \
 && git log --pretty="* [%h] %s" --no-merges $(git describe --tags --abbrev=0 @^)..@ > CHANGELOG.md

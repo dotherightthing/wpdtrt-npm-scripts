@@ -1,11 +1,16 @@
 /**
- * @file ./scripts/helpers/format-log.js
+ * @file ./scripts/helpers/format-log.mjs
  * @summary Format a log message
  * @returns Log message
  * @example
  *  node scripts/helpers/log-task.js 'Preinstall' 'Composer' 'Install PHP dependencies'
  *  => wpdtrt-npm-scripts - preinstall: composer (install php dependencies)
  */
+
+// require for modules that don't support ESM
+// and JSON (see https://nodejs.org/docs/latest-v18.x/api/esm.html#import-assertions)
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 
 const wrap = require('wordwrap')(80);
 
@@ -33,7 +38,7 @@ const log = (args) => {
     /* eslint-enable no-console */
 };
 
-exports.default = log;
+export { log as default };
 
 const shellArgs = process.argv.slice(2);
 

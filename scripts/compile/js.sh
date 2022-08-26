@@ -18,7 +18,7 @@
 # v: print shell input lines as they are read (including all comments!)
 set -e
 
-node scripts/helpers/format-log.js 'compile' 'js' 'merge source files and transpile es6 to es5' \
+node scripts/helpers/format-log.mjs 'compile' 'js' 'merge source files and transpile es6 to es5' \
 && cd $INIT_CWD
 
 # ===== BACKEND =====

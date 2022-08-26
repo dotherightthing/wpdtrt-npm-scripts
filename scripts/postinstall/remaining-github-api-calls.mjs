@@ -1,10 +1,16 @@
 /**
- * @file ./scripts/postinstall/remaining-github-api-calls.js
+ * @file ./scripts/postinstall/remaining-github-api-calls.mjs
  * @summary Expose the Github API rate limit to aid in debugging failed builds
  */
 
+// require for modules that don't support ESM
+// and JSON (see https://nodejs.org/docs/latest-v18.x/api/esm.html#import-assertions)
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
+import formatLog from '../helpers/format-log.mjs';
+
 const ghRateLimit = require('gh-rate-limit');
-const formatLog = require('../helpers/format-log.js').default;
 
 const token = process.env.GH_TOKEN ? process.env.GH_TOKEN : '';
 let msg;

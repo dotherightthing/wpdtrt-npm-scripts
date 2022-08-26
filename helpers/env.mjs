@@ -1,5 +1,5 @@
 /**
- * @file ./helpers/helpers/env.js
+ * @file ./helpers/helpers/env.mjs
  * @summary Environment Variables.
  * @see https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki/Set-up-environmental-variables
  */
@@ -21,6 +21,3 @@ const CYPRESS_RECORD_KEY = process.env.CYPRESS_RECORD_KEY || '';
 const CI = (typeof process.env.CI !== 'undefined');
 
 export { CYPRESS_RECORD_KEY, CI };
-
-exports.CYPRESS_RECORD_KEY = CYPRESS_RECORD_KEY;
-exports.CI = CI;

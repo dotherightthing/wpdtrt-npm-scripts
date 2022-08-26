@@ -1,22 +1,22 @@
 /**
- * @file ./scripts/postinstall/customise-config.js
+ * @file ./scripts/postinstall/customise-config.mjs
  * @summary Replace template $placeholders with project specific values
  */
 
-const fs = require('fs');
-const path = require('path');
+import * as fs from 'node:fs';
+import * as path from 'path';
 
 // if not loaded as a dependency
 if (!fs.existsSync(`${path.resolve('../../')}/package.json`)) {
     /* eslint-disable no-console */
-    console.error('customise-config.js: package.json not found, exiting');
+    console.error('customise-config.mjs: package.json not found, exiting');
     /* eslint-enable no-console */
 
     return;
 }
 
 const replaceInFiles = require('replace-in-files');
-const formatLog = require('../helpers/format-log.js').default;
+import formatLog from '../helpers/format-log.mjs';
 const packageJson = require(`${path.resolve('../../')}/package.json`);
 
 // from and to are required

@@ -14,5 +14,5 @@
 # v: print shell input lines as they are read (including all comments!)
 set -e
 
-node scripts/helpers/format-log.js 'postinstall' 'config' 'copy files to host repository' \
+node scripts/helpers/format-log.mjs 'postinstall' 'config' 'copy files to host repository' \
 && cp -a config/. $INIT_CWD

@@ -1,5 +1,5 @@
 /**
- * @file ./helpers/helpers/task-header.js
+ * @file ./helpers/helpers/task-header.mjs
  * @summary Helper functions to visually organise build logs.
  */
 
@@ -28,4 +28,4 @@ function taskHeader(
     return str;
 }
 
-exports.default = taskHeader;
+export { taskHeader as default };

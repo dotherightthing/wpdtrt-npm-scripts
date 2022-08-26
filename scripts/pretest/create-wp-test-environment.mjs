@@ -1,10 +1,10 @@
 /**
- * @file ./scripts/pretest/create-wp-test-environment.js
+ * @file ./scripts/pretest/create-wp-test-environment.mjs
  * @summary Install test library and create a test database.
  */
 
-const execa = require('execa');
-const formatLog = require('../helpers/format-log.js').default;
+import { execaCommandSync } from 'execa';
+import formatLog from '../helpers/format-log.mjs';
 
 formatLog([
     'test',
@@ -23,13 +23,11 @@ const createWpTestEnvironment = async function () {
     const dbName = `${pluginNameSafe}_wpunit_${Date.now()}`;
     const wpVersion = 'latest';
 
+    const command = `bash ./scripts/pretest/install-wp-tests.sh ${dbName} ${wpVersion}`;
+
     try {
         // eslint-disable-next-line no-unused-vars
-        const installDependenciesAndCreateDatabase = await execa.commandSync(
-            `bash ./scripts/pretest/install-wp-tests.sh ${dbName} ${wpVersion}`, {
-                shell: true
-            }
-        );
+        const installDependenciesAndCreateDatabase = await execaCommandSync(command, { shell: true });
     } catch (err) {
         // eslint-disable-next-line no-console
         console.log('error', err);

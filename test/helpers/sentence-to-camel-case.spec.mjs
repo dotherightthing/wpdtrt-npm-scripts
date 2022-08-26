@@ -1,5 +1,5 @@
 /**
- * @file ./test/helpers/sentence-to-camel-case.spec.js
+ * @file ./test/helpers/sentence-to-camel-case.spec.mjs
  * @summary Test gulp tasks.
  * @description
  * Note:
@@ -12,13 +12,11 @@
 
 /* eslint-disable func-names, no-undef, no-console, no-unused-vars */
 
-const chai = require('chai');
-const { expect } = chai;
-const mocha = require('mocha');
-const { describe, it } = mocha; // fix eslint no-undef errors
+import { expect } from 'chai';
+import { describe, it } from 'mocha'; // fix eslint no-undef errors
 
 // import paths are relative to this file
-const sentenceToCamelCase = require('../../helpers/sentence-to-camel-case').default;
+import sentenceToCamelCase from '../../helpers/sentence-to-camel-case.mjs';
 
 // https://danielmiessler.com/blog/a-list-of-different-case-types/
 describe('sentenceToCamelCase', function () {

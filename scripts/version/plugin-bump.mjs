@@ -2,12 +2,18 @@
  * @file version/version.js
  * @summary Tasks to version files prior to a release.
  */
-const execa = require('execa');
-const path = require('path');
-const wpdtrtPluginBump = require('gulp-wpdtrt-plugin-bump');
 
-const formatLog = require('../helpers/format-log.js').default;
+// require for modules that don't support ESM
+// and JSON (see https://nodejs.org/docs/latest-v18.x/api/esm.html#import-assertions)
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
+import { execaCommandSync } from 'execa';
+import * as path from 'path';
+import formatLog from '../helpers/format-log.mjs';
+
 const packageJson = require(`${path.resolve('../../')}/package.json`);
+const wpdtrtPluginBump = require('gulp-wpdtrt-plugin-bump');
 
 // const wordpressChildTheme = packageJson.keywords.includes('wordpress-child-theme');
 const wordpressPlugin = packageJson.keywords.includes('wordpress-plugin');
@@ -27,8 +33,11 @@ async function autoloadUpdatedDependencies() {
         'Regenerate the list of PHP classes to be autoloaded'
     ]);
 
+    const command = 'composer dump-autoload --no-interaction';
+    console.log(command);
+
     try {
-        const { stdout, stderr } = await execa.commandSync('composer dump-autoload --no-interaction');
+        const { stdout, stderr } = await execaCommandSync(command, { shell: true });
         console.log(stdout);
         console.log(stderr);
     } catch (error) {
@@ -89,8 +98,11 @@ async function updateDependencies() {
     ]);
 
     if (wordpressPluginBoilerplatePath.length) {
+        const command = 'composer update dotherightthing/wpdtrt-plugin-boilerplate --no-interaction --no-suggest';
+        console.log(command);
+
         try {
-            const { stdout, stderr } = await execa.commandSync('composer update dotherightthing/wpdtrt-plugin-boilerplate --no-interaction --no-suggest');
+            const { stdout, stderr } = await execaCommandSync(command, { shell: true });
             console.log(stdout);
             console.log(stderr);
         } catch (error) {

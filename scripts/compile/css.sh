@@ -14,7 +14,7 @@
 # v: print shell input lines as they are read (including all comments!)
 set -e
 
-node scripts/helpers/format-log.js 'compile' 'css' 'scss to css, postcss' \
+node scripts/helpers/format-log.mjs 'compile' 'css' 'scss to css, postcss' \
 && cd $INIT_CWD \
 && sass scss:css \
 && postcss css/**/*.css --replace

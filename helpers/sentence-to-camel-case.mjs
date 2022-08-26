@@ -1,5 +1,5 @@
 /**
- * @file ./helpers/helpers/sentence-to-camel-case.js
+ * @file ./helpers/helpers/sentence-to-camel-case.mjs
  */
 
 /**
@@ -19,4 +19,4 @@ const sentenceToCamelCase = (sentence) => {
     return UpperCamelCase;
 };
 
-exports.default = sentenceToCamelCase;
+export { sentenceToCamelCase as default };

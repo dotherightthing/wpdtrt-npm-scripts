@@ -1,5 +1,5 @@
 /**
- * @file ./scripts/helpers/boilerplate-path.js
+ * @file ./scripts/helpers/boilerplate-path.mjs
  * @summary Gets the path to wpdtrt-plugin-boilerplate.
  */
 
@@ -46,4 +46,4 @@ const getBoilerplatePath = () => {
     return path;
 };
 
-exports.getBoilerplatePath = getBoilerplatePath;
+export { getBoilerplatePath as default };

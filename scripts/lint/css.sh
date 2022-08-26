@@ -14,6 +14,6 @@
 # v: print shell input lines as they are read (including all comments!)
 set -e
 
-node scripts/helpers/format-log.js 'lint' 'css' \
+node scripts/helpers/format-log.mjs 'lint' 'css' \
 && cd $INIT_CWD \
 && stylelint '**/*.scss'
