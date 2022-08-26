@@ -18,7 +18,8 @@
                 "include",
                 "mixin",
                 "return",
-                "typescale"
+                "typescale",
+                "use"
             ]
         }],
         "at-rule-semicolon-newline-after": "always",
