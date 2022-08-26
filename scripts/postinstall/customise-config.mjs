@@ -11,8 +11,6 @@ if (!fs.existsSync(`${path.resolve('../../')}/package.json`)) {
     /* eslint-disable no-console */
     console.error('customise-config.mjs: package.json not found, exiting');
     /* eslint-enable no-console */
-
-    return;
 }
 
 const replaceInFiles = require('replace-in-files');
