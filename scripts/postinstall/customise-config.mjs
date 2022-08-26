@@ -3,8 +3,14 @@
  * @summary Replace template $placeholders with project specific values
  */
 
+// require for modules that don't support ESM
+// and JSON (see https://nodejs.org/docs/latest-v18.x/api/esm.html#import-assertions)
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
 import * as fs from 'node:fs';
 import * as path from 'path';
+import formatLog from '../helpers/format-log.mjs';
 
 // if not loaded as a dependency
 if (!fs.existsSync(`${path.resolve('../../')}/package.json`)) {
@@ -13,9 +19,8 @@ if (!fs.existsSync(`${path.resolve('../../')}/package.json`)) {
     /* eslint-enable no-console */
 }
 
-const replaceInFiles = require('replace-in-files');
-import formatLog from '../helpers/format-log.mjs';
 const packageJson = require(`${path.resolve('../../')}/package.json`);
+const replaceInFiles = require('replace-in-files');
 
 // from and to are required
 // but are overridden in the pipes
