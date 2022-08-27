@@ -200,18 +200,16 @@ npm uninstall wpdtrt-npm-scripts
 
 ```node
 npm run compile
-```
-
-or
-
-```node
+# or
 npm run watch
 ```
 
-1. `*.scss -> sass -> *.css`
-2. `*.css -> postcss -> *.css`
-3. `backend.txt -> backend-es5.js`
-4. `frontend.txt -> frontend-es5.js`
+| Input        | Script         | Config            | Compiler             | Output          |
+|--------------|----------------|-------------------|----------------------|-----------------|
+| *.scss       | compile/css.sh |                   | Dart Sass            | *.css           |
+| *.css        | compile/css.sh | postcss.config.js | PostCSS              | *.css           |
+| backend.txt  | compile/js.sh  | .babelrc          | Custom merge + Babel | backend-es5.js  |
+| frontend.txt | compile/js.sh  | .babelrc          | Custom merge + Babel | frontend-es5.js |
 
 ### Document
 
