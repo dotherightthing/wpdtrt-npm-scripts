@@ -49,6 +49,7 @@ release*
 .browserslistrc
 .eslintrc
 .stylelint*
+mochawesome-report
 nodemon.json
 phpcs.xml
 phpunit.xml.dist

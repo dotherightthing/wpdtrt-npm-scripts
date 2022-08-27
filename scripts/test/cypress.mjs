@@ -1,5 +1,6 @@
 /**
- * @file build-scripts/cypress.js
+ * @file ./scripts/test/cypress.js
+ * @summary Run all Cypress specs and generate a pretty HTML report
  * @see {@link https://docs.cypress.io/guides/tooling/reporters.html}
  * @see {@link http://antontelesh.github.io/testing/2019/02/04/mochawesome-merge.html}
  */
