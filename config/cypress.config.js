@@ -1,7 +1,9 @@
 const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
-    baseUrl: 'https://dontbelievethehype.co.nz',
+    e2e: {
+        baseUrl: 'https://dontbelievethehype.co.nz'
+    },
     pageLoadTimeout: 20000,
     responseTimeout: 15000,
     retries: {

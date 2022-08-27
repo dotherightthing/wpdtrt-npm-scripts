@@ -113,7 +113,7 @@ describe('scripts', function () {
             '.eslintrc',
             '.stylelintignore',
             '.stylelintrc.json',
-            'cypress.json',
+            'cypress.config.js',
             'nodemon.json',
             'phpcs.xml',
             'phpunit.xml.dist',
