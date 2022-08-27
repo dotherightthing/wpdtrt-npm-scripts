@@ -279,26 +279,30 @@ npm run version
 
 ## Maintenance
 
-## Release
+### Lint
 
-1. Update version in `package.json`
-2. Update test fixtures with `composer update dotherightthing/wpdtrt-dbth dotherightthing/wpdtrt-gallery dotherightthing/wpdtrt-plugin-boilerplate` then commit `composer.lock`
-3. `npm run changelog`
+```bash
+npm run lint:internal
+```
 
-## Tests
+### Test
 
 Tests are written in [Mocha](https://mochajs.org/), with [Chai](https://www.chaijs.com/) assertions.
 
 [Execa](https://github.com/sindresorhus/execa) is used to verify the output of Shell and Node [`child process`](https://nodejs.org/api/child_process.html#child_process_child_process)es.
 
-To test against fixtures loaded into a sub-directory:
-
 ```bash
+# Test against fixtures loaded by Composer
 npm run test:internal
 ```
 
-To lint the package files:
+### Release
 
-```bash
-npm run lint:internal
-```
+1. Lint and Test the codebase (see above)
+2. Update test fixtures: `composer update dotherightthing/wpdtrt-dbth dotherightthing/wpdtrt-gallery dotherightthing/wpdtrt-plugin-boilerplate`
+3. Commit: `composer.lock`
+4. Update `CHANGELOG.md` with all commit messages since the last tag: `npm run changelog`
+5. Update version in: `package.json`
+6. Commit: `CHANGELOG.md` and `package.json`
+7. Tag commit
+8. Push to Github (Github Actions CI will run)
