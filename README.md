@@ -225,12 +225,14 @@ npm run docs
 npm run lint
 ```
 
-1. `composer.json`
-2. `*.js -> eslint`
-3. `*.php -> phpcs`
-4. `*.scss -> stylelint`
+| Input         | Script      | Config                              | Linter                   |
+|---------------|-------------|-------------------------------------|--------------------------|
+| *.scss        | lint/css.sh | .stylelintignore, .stylelintrc.json | Stylelint                |
+| *.js          | lint/js.sh  | .eslintrc                           | ESLint                   |
+| composer.json | lint/php.sh | -                                   | Composer                 |
+| *.php         | lint/php.sh | phpcs.xml                           | PHP Code Sniffer (PHPCS) |
 
-Note that linting errors may cause the script to exit before all issues have been logged. In this case, fix the errors then run the script again.
+Note: linting errors may cause the script to exit before all issues have been logged. In this case, fix the errors then run the script again.
 
 ### Release
 
