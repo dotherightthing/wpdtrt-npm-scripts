@@ -44,7 +44,7 @@ function describeIf(condition, title, test) {
 }
 
 describe('scripts', function () {
-    this.timeout(180000);
+    this.timeout(240000);
 
     const apps = [
         // {
