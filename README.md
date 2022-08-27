@@ -110,6 +110,7 @@ Please add these lines to your `package.json`:
     "release": "npm run release --prefix $npm_package_config_wpdtrt_npm_scripts",
     "scrape:wordpress_maintenance_page": "npm run scrape:wordpress_maintenance_page --prefix $npm_package_config_wpdtrt_npm_scripts -- $npm_package_config_wpdtrt_base_url_local",
     "test": "npm run test --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "test:js": "npm run test:js --prefix $npm_package_config_wpdtrt_npm_scripts",
     "version": "npm run version --prefix $npm_package_config_wpdtrt_npm_scripts",
     "watch": "nodemon"
   },
