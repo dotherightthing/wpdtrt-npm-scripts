@@ -3,6 +3,10 @@
   "version": "0.3.38",
   "description": "Common build tasks.",
   "main": "package.json",
+  "engines": {
+    "node": "18.7.0",
+    "npm": "8.15.0"
+  },
   "person": {
     "name": "Dan Smith",
     "email": "dev@dotherightthing.co.nz",

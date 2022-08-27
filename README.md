@@ -28,7 +28,7 @@ See <https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki
 Note: `#semver:*` downloads the latest tagged version of this repository. Omit `#semver:*` to download the latest development version.
 
 ```node
-n 18.7.0 # change node version
+n 18.7.0 # change node version (see package.json - `engines.node`)
 npm install dotherightthing/wpdtrt-npm-scripts#semver:* --save-dev
 ```
 
@@ -183,14 +183,12 @@ It is not intended to replace WordPress JavaScript loading.
 ## Update
 
 ```node
-n 18.7.0 # change node version
 npm update wpdtrt-npm-scripts
 ```
 
 ## Uninstallation
 
 ```node
-n 18.7.0 # change node version
 npm uninstall wpdtrt-npm-scripts
 ```
 
@@ -267,7 +265,6 @@ See also [DTRT WordPress Plugin Boilerplate - Testing & Debugging](https://githu
 Update CHANGELOG.md with all commit messages since the last tag, version files for Release
 
 ```node
-n 11.15.0 # versioning - see https://stackoverflow.com/a/57804190/6850747
 npm run version
 ```
 
