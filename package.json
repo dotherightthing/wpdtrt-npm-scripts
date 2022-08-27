@@ -69,7 +69,7 @@
     "wordwrap": "^1.0.0"
   },
   "scripts": {
-    "preinstall": "chmod a+x scripts/**/*.sh",
+    "preinstall": "chmod a+x scripts/**/*.sh && chmod a+x scripts/**/*.mjs",
     "changelog": "./scripts/changelog/changelog.sh",
     "compile": "./scripts/compile/css.sh && ./scripts/compile/js.sh",
     "docs": "./scripts/docs/naturaldocs.sh",
