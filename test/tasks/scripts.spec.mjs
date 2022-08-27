@@ -47,42 +47,42 @@ describe('scripts', function () {
     this.timeout(240000);
 
     const apps = [
-        // {
-        //     id: 'wordpress-theme',
-        //     name: 'wpdtrt-dbth',
-        //     path: 'vendor/dotherightthing/',
-        //     paths: {
-        //         css: [
-        //             'css/wpdtrt-dbth-backend.css',
-        //             'css/wpdtrt-dbth-editor-style.css',
-        //             'css/wpdtrt-dbth-variables.css'
-        //         ],
-        //         js: [],
-        //         scss: []
-        //     },
-        //     uses: {
-        //         cypress: false,
-        //         gulpScripts: false,
-        //         naturaldocs: true,
-        //         wpunit: false
-        //     }
-        // },
-        // {
-        //     id: 'wordpress-plugin',
-        //     name: 'wpdtrt-gallery',
-        //     path: 'vendor/dotherightthing/',
-        //     paths: {
-        //         css: [],
-        //         js: [],
-        //         scss: []
-        //     },
-        //     uses: {
-        //         cypress: true,
-        //         gulpScripts: false, // see #23
-        //         naturaldocs: true,
-        //         wpunit: true
-        //     }
-        // },
+        {
+            id: 'wordpress-theme',
+            name: 'wpdtrt-dbth',
+            path: 'vendor/dotherightthing/',
+            paths: {
+                css: [
+                    'css/wpdtrt-dbth-backend.css',
+                    'css/wpdtrt-dbth-editor-style.css',
+                    'css/wpdtrt-dbth-variables.css'
+                ],
+                js: [],
+                scss: []
+            },
+            uses: {
+                cypress: false,
+                gulpScripts: false,
+                naturaldocs: true,
+                wpunit: false
+            }
+        },
+        {
+            id: 'wordpress-plugin',
+            name: 'wpdtrt-gallery',
+            path: 'vendor/dotherightthing/',
+            paths: {
+                css: [],
+                js: [],
+                scss: []
+            },
+            uses: {
+                cypress: true,
+                gulpScripts: false, // see #23
+                naturaldocs: true,
+                wpunit: true
+            }
+        },
         {
             id: 'wordpress-plugin-boilerplate',
             name: 'wpdtrt-plugin-boilerplate',
