@@ -9,7 +9,7 @@
  * @summary Key for recording headless CI tests.
  * @description
  * Note:
- * - This is in addition to the projectId in cypress.json.
+ * - This is in addition to the projectId in cypress.config.js.
  */
 const CYPRESS_RECORD_KEY = process.env.CYPRESS_RECORD_KEY || '';
 
