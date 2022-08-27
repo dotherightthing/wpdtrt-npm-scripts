@@ -252,11 +252,18 @@ This requires a (locally) published page with a slug of `maintenance-template`.
 
 ### Test
 
-Run unit tests:
-
 ```node
+# Run PHPUnit tests
 npm run test
+
+# Run Cypress JavaScript unit and UI tests
+npm run test:js
 ```
+
+| Input       | Script           | Config            | Testing Framework | Output             |
+|-------------|------------------|-------------------|-------------------|--------------------|
+| e2e/*.cy.js | test/cypress.mjs | cypress.config.js | Cypress           | mochawesome-report |
+| src/        | test/phpunit.sh  | phpunit.xml.dist  | PHPUnit           | -                  |
 
 See also [DTRT WordPress Plugin Boilerplate - Testing & Debugging](https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging)
 
