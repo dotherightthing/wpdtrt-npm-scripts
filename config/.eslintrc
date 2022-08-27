@@ -17,6 +17,8 @@
         "frontend-es5.js",
         "bin/",
         "config/naturaldocs/",
+        "cypress/support/component.js",
+        "cypress/support/e2e.js",
         "docs",
         "icons/",
         "mochawesome-report",
