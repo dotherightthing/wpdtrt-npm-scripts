@@ -71,3 +71,7 @@ jobs:
     - name: Run pretest
       run: |
         npm run pretest
+      env:
+        WPUNIT_DB_USER: root
+        WPUNIT_DB_PASS: root
+        WPUNIT_DB_HOST: 127.0.0.1
