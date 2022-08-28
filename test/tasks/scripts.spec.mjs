@@ -79,7 +79,7 @@ describe('scripts', function () {
             },
             skip: false,
             uses: {
-                cypress: true,
+                cypress: false, // TODO Reenable once CI issues resolved
                 gulpScripts: false, // see #23
                 naturaldocs: true,
                 wpunit: true
@@ -456,6 +456,8 @@ describe('scripts', function () {
                         const command = 'npm run test:js';
                         console.log(command);
                         const { stdout, stderr } = await execaCommandSync(command, { shell: true });
+
+                        // CI: AssertionError: [5371:0828/003835.669238:ERROR:gpu_memory_buffer_support_x11.cc(44)] dri3 extension not supported.
 
                         expect(
                             stderr.replace(/\n$/, ''),
