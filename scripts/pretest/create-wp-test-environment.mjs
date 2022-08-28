@@ -22,9 +22,8 @@ const createWpTestEnvironment = async function () {
     const pluginName = process.cwd().split('/').pop();
     const pluginNameSafe = pluginName.replace(/-/g, '_');
     const dbName = `${pluginNameSafe}_wpunit_${Date.now()}`;
-    const tmpdir = process.env.CI ? process.env.RUNNER_TEMP : osTmpdir;
+    const tmpdir = process.env.CI ? process.env.RUNNER_TEMP : `${osTmpdir}/tmp`;
     const wpVersion = 'latest';
-
     const command = `bash ./scripts/pretest/install-wp-tests.sh ${tmpdir} ${dbName} ${wpVersion}`;
 
     try {

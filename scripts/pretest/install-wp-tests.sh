@@ -2,7 +2,7 @@
 # this file is run by create-wp-test-environment.mjs
 
 if [ $# -lt 1 ]; then
-	echo "usage: $0 <db-name> [wp-version] [skip-database-creation]"
+	echo "usage: $0 <tmp-dir> <db-name> [wp-version] [skip-database-creation]"
 	exit 1
 fi
 
@@ -38,8 +38,7 @@ else
 	DB_HOST=$WPUNIT_DB_HOST
 fi
 
-TMPDIR=${TMP_DIR-/tmp}
-TMPDIR=$(echo $TMPDIR | sed -e "s/\/$//")
+TMPDIR=$(echo $TMP_DIR | sed -e "s/\/$//")
 WP_TESTS_DIR=${WP_TESTS_DIR-$TMPDIR/wordpress-tests-lib}
 WP_CORE_DIR=${WP_CORE_DIR-$TMPDIR/wordpress/}
 
