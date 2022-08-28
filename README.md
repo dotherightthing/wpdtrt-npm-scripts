@@ -28,7 +28,7 @@ See <https://github.com/dotherightthing/generator-wpdtrt-plugin-boilerplate/wiki
 Note: `#semver:*` downloads the latest tagged version of this repository. Omit `#semver:*` to download the latest development version.
 
 ```node
-n 18.7.0 # change node version (see package.json - `engines.node`)
+n 18.7.0 # change node version (see package.json - engines.node)
 npm install dotherightthing/wpdtrt-npm-scripts#semver:* --save-dev
 ```
 
