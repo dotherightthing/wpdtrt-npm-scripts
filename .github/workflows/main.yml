@@ -35,4 +35,4 @@ jobs:
 
     - name: Get env values
       run: |
-        echo process.env.RUNNER_TEMP
+        echo env${{ runner.temp }} && npm run pretest
