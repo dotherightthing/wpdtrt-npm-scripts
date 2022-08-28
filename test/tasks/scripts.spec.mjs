@@ -462,16 +462,20 @@ describe('scripts', function () {
                 }
 
                 if (app.uses.wpunit) {
-                    it('runs WordPress (PHP) unit tests', async function () {
-                        const command = 'npm run test';
-                        console.log(command);
-                        const { stdout, stderr } = await execaCommandSync(command, { shell: true });
+                    if (fs.existsSync(paths.wpUnitWordPress)) {
+                        it('runs WordPress (PHP) unit tests', async function () {
+                            const command = 'npm run test';
+                            console.log(command);
+                            const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
-                        expect(
-                            stderr.replace(/\n$/, ''),
-                            stderr.replace(/\n$/, '')
-                        ).to.equal('');
-                    });
+                            expect(
+                                stderr.replace(/\n$/, ''),
+                                stderr.replace(/\n$/, '')
+                            ).to.equal('');
+                        });
+                    } else {
+                        it.skip(`runs WordPress (PHP) unit tests (${paths.wpUnitWordPress} not found)`);
+                    }
                 }
             });
 
