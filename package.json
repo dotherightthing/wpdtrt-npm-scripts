@@ -74,7 +74,7 @@
     "compile": "./scripts/compile/css.sh && ./scripts/compile/js.sh",
     "docs": "./scripts/docs/naturaldocs.sh",
     "lint": "./scripts/lint/css.sh && ./scripts/lint/js.sh && ./scripts/lint/php.sh",
-    "lint:internal": "eslint scripts/**/*.js",
+    "lint:internal": "eslint scripts/**/*.mjs",
     "prerelease": "./scripts/lint/css.sh && ./scripts/lint/js.sh && ./scripts/lint/php.sh && ./scripts/compile/css.sh && ./scripts/compile/js.sh && ./scripts/postuninstall/composer.sh",
     "release": "node ./scripts/release/copy-files.mjs",
     "scrape:wordpress_maintenance_page": "node ./scripts/scrape/wordpress-maintenance-page.mjs",
