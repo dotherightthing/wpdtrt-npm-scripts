@@ -262,20 +262,6 @@ describe('scripts', function () {
                             ).to.equal(true);
                         });
                     }
-
-                    if (app.uses.wpunit) {
-                        it('wpunit', function () {
-                            expect(
-                                fs.existsSync(paths.wpUnitWordPress),
-                                paths.wpUnitWordPress
-                            ).to.equal(true);
-
-                            expect(
-                                fs.existsSync(paths.wpUnitWordPressTestLibrary),
-                                paths.wpUnitWordPressTestLibrary
-                            ).to.equal(true);
-                        });
-                    }
                 });
 
                 describe('config', function () {
@@ -468,10 +454,20 @@ describe('scripts', function () {
 
                 if (app.uses.wpunit) {
                     it('runs WordPress (PHP) unit tests', async function () {
-                        // Note: wordpress is installed by the pretest script which is run by npm run test
                         const command = 'npm run test';
                         console.log(command);
                         const { stdout, stderr } = await execaCommandSync(command, { shell: true });
+
+                        // wordpress is installed by the pretest script which is run by npm run test
+                        expect(
+                            fs.existsSync(paths.wpUnitWordPress),
+                            paths.wpUnitWordPress
+                        ).to.equal(true);
+
+                        expect(
+                            fs.existsSync(paths.wpUnitWordPressTestLibrary),
+                            paths.wpUnitWordPressTestLibrary
+                        ).to.equal(true);
 
                         expect(
                             stderr.replace(/\n$/, ''),
