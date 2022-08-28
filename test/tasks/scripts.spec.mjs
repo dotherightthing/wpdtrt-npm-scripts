@@ -60,6 +60,7 @@ describe('scripts', function () {
                 js: [],
                 scss: []
             },
+            skip: true,
             uses: {
                 cypress: false,
                 gulpScripts: false,
@@ -76,6 +77,7 @@ describe('scripts', function () {
                 js: [],
                 scss: []
             },
+            skip: false,
             uses: {
                 cypress: true,
                 gulpScripts: false, // see #23
@@ -92,6 +94,7 @@ describe('scripts', function () {
                 js: [],
                 scss: []
             },
+            skip: true,
             uses: {
                 cypress: false,
                 gulpScripts: false,
@@ -154,7 +157,7 @@ describe('scripts', function () {
     };
 
     apps.forEach(function (app) {
-        describeIf(!app.uses.gulpScripts, app.id, function () {
+        describeIf(!app.uses.gulpScripts && !app.skip, app.id, function () {
             before(function () {
                 // cd for process.cwd
                 process.chdir(`./${app.path}${app.name}`);
