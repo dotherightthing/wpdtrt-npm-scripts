@@ -132,8 +132,8 @@ describe('scripts', function () {
         npmConfig: 'package.json',
         release: 'release',
         scss: [],
-        wpUnitWordPress: `${$env.CI ? $env.RUNNER_TEMP : tmpdir}/wordpress`,
-        wpUnitWordPressTestLibrary: `${$env.CI ? $env.RUNNER_TEMP : tmpdir}/wordpress-tests-lib`
+        wpUnitWordPress: `${process.env.CI ? process.env.RUNNER_TEMP : tmpdir}/wordpress`,
+        wpUnitWordPressTestLibrary: `${process.env.CI ? process.env.RUNNER_TEMP : tmpdir}/wordpress-tests-lib`
     };
 
     const placeholders = [
