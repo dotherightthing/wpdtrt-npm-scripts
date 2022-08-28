@@ -68,9 +68,12 @@ jobs:
       run: |
         echo env${{ runner.temp }}
 
-    - name: Run pretest
+    # env: https://github.com/actions/virtual-environments/blob/master/images/linux/Ubuntu1604-README.md
+    # mysql start: https://github.com/actions/virtual-environments/issues/739
+    - name: Run tests
       run: |
-        npm run pretest
+        sudo /etc/init.d/mysql start
+        npm run test --if-present
       env:
         WPUNIT_DB_USER: root
         WPUNIT_DB_PASS: root
