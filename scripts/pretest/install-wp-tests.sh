@@ -6,9 +6,10 @@ if [ $# -lt 1 ]; then
 	exit 1
 fi
 
-DB_NAME=$1
-WP_VERSION=${2-latest}
-SKIP_DB_CREATE=${3-false}
+TMP_DIR=$1
+DB_NAME=$2
+WP_VERSION=${3-latest}
+SKIP_DB_CREATE=${4-false}
 
 # Environmental variables
 # See https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging#environmental-variables 
@@ -37,7 +38,7 @@ else
 	DB_HOST=$WPUNIT_DB_HOST
 fi
 
-TMPDIR=${TMPDIR-/tmp}
+TMPDIR=${TMP_DIR-/tmp}
 TMPDIR=$(echo $TMPDIR | sed -e "s/\/$//")
 WP_TESTS_DIR=${WP_TESTS_DIR-$TMPDIR/wordpress-tests-lib}
 WP_CORE_DIR=${WP_CORE_DIR-$TMPDIR/wordpress/}
