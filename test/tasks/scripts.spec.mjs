@@ -467,20 +467,17 @@ describe('scripts', function () {
                 }
 
                 if (app.uses.wpunit) {
-                    if (fs.existsSync(paths.wpUnitWordPress)) {
-                        it('runs WordPress (PHP) unit tests', async function () {
-                            const command = 'npm run test';
-                            console.log(command);
-                            const { stdout, stderr } = await execaCommandSync(command, { shell: true });
+                    it('runs WordPress (PHP) unit tests', async function () {
+                        // Note: wordpress is installed by the pretest script which is run by npm run test
+                        const command = 'npm run test';
+                        console.log(command);
+                        const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
-                            expect(
-                                stderr.replace(/\n$/, ''),
-                                stderr.replace(/\n$/, '')
-                            ).to.equal('');
-                        });
-                    } else {
-                        it.skip(`runs WordPress (PHP) unit tests (${paths.wpUnitWordPress} not found)`);
-                    }
+                        expect(
+                            stderr.replace(/\n$/, ''),
+                            stderr.replace(/\n$/, '')
+                        ).to.equal('');
+                    });
                 }
             });
 
