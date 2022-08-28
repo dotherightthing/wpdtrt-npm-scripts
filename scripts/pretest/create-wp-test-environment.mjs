@@ -24,7 +24,7 @@ const createWpTestEnvironment = async function () {
     const dbName = `${pluginNameSafe}_wpunit_${Date.now()}`;
     const tmpdir = process.env.CI ? process.env.RUNNER_TEMP : `${osTmpdir}/tmp`;
     const wpVersion = 'latest';
-    const command = `bash ./scripts/pretest/install-wp-tests.sh ${tmpdir} ${dbName} ${wpVersion}`;
+    const command = `bash ./scripts/pretest/install-wp-tests.sh ${tmpdir} ${dbName} ${wpVersion} && ls ${tmpdir}`;
 
     try {
         // eslint-disable-next-line no-unused-vars
