@@ -83,7 +83,8 @@ Please add these lines to your `composer.json`:
     "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
     "phpunit/phpunit": "^7.5.14",
     "psy/psysh" : "~0.6",
-    "wp-cli/wp-cli": "^2.3"
+    "wp-cli/wp-cli": "^2.3",
+    "yoast/phpunit-polyfills": "^1.0"
   },
 ```
 

@@ -103,12 +103,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dotherightthing/wpdtrt-gallery.git",
-                "reference": "68b4518775078ca3815d44afe8173a57ab6d3f59"
+                "reference": "1a411e42968e51637a6120176ef14708e8b0017e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-gallery/zipball/68b4518775078ca3815d44afe8173a57ab6d3f59",
-                "reference": "68b4518775078ca3815d44afe8173a57ab6d3f59",
+                "url": "https://api.github.com/repos/dotherightthing/wpdtrt-gallery/zipball/1a411e42968e51637a6120176ef14708e8b0017e",
+                "reference": "1a411e42968e51637a6120176ef14708e8b0017e",
                 "shasum": ""
             },
             "require": {
@@ -121,7 +121,8 @@
                 "phpunit/phpunit": "^7.5.14",
                 "psy/psysh": "~0.6",
                 "wp-cli/wp-cli": "^2.3",
-                "wp-coding-standards/wpcs": "^0.14.1"
+                "wp-coding-standards/wpcs": "^0.14.1",
+                "yoast/phpunit-polyfills": "^1.0"
             },
             "type": "library",
             "extra": {
@@ -159,7 +160,7 @@
                 "source": "https://github.com/dotherightthing/wpdtrt-gallery",
                 "wiki": "https://github.com/dotherightthing/wpdtrt-gallery/wiki"
             },
-            "time": "2022-08-27T09:58:07+00:00"
+            "time": "2022-08-28T06:45:07+00:00"
         },
         {
             "name": "dotherightthing/wpdtrt-plugin-boilerplate",
