@@ -13,6 +13,30 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    env:
+      MYSQL_USER: root
+      MYSQL_DB: temp
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+
+    # Docs: https://docs.github.com/en/actions/using-containerized-services
+    # https://github.com/shivammathur/setup-php/blob/master/examples/cakephp-mysql.yml
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_ROOT_PASSWORD }}
+          MYSQL_DATABASE: ${{ env.MYSQL_DB }}
+          MYSQL_USER: ${{ env.MYSQL_USER }}
+          MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }}
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
     steps:
     # check out the repository, so the workflow can access it
     - name: Checkout repo
@@ -60,11 +84,11 @@ jobs:
 
     - name: Run Mocha tests, which in turn run test:js (Cypress tests) and test (WordPress/PHP tests)
       run: |
-        sudo /etc/init.d/mysql start
+        mysql --host=127.0.0.1 --user=${{ env.MYSQL_USER }} --password=${{ env.MYSQL_PASSWORD }} ${{ env.MYSQL_DB }}
         npm run test:internal --if-present
       env:
-        WPUNIT_DB_USER: root
-        WPUNIT_DB_PASS: root
+        WPUNIT_DB_USER: ${{ env.MYSQL_USER }}
+        WPUNIT_DB_PASS: ${{ env.MYSQL_PASSWORD }}
         WPUNIT_DB_HOST: 127.0.0.1
 
     # TODO Reenable once CI issues resolved
