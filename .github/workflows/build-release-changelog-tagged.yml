@@ -16,6 +16,7 @@ jobs:
     # https://joshi-aparna.github.io/blog/github-actions-mysql/
     # https://github.com/shivammathur/setup-php/blob/master/examples/cakephp-mysql.yml
     # https://stackoverflow.com/a/44591374
+    # https://stackoverflow.com/questions/60902904/how-to-pass-mysql-native-password-to-mysql-service-in-github-actions/62651774#62651774
     env:
       MYSQL_USER: root
       MYSQL_DB: temp
