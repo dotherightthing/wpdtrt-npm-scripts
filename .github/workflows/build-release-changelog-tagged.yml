@@ -13,13 +13,15 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    # https://github.com/shivammathur/setup-php/blob/master/examples/cakephp-mysql.yml
+    # https://stackoverflow.com/a/44591374
     env:
       MYSQL_USER: root
       MYSQL_DB: temp
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: 127.0.0.1
 
     # Docs: https://docs.github.com/en/actions/using-containerized-services
-    # https://github.com/shivammathur/setup-php/blob/master/examples/cakephp-mysql.yml
     services:
       mysql:
         image: mysql:5.7.26
@@ -82,12 +84,12 @@ jobs:
 
     - name: Run Mocha tests, which in turn run test:js (Cypress tests) and test (WordPress/PHP tests)
       run: |
-        mysql --host=127.0.0.1 --user=${{ env.MYSQL_USER }} --password=${{ env.MYSQL_ROOT_PASSWORD }} ${{ env.MYSQL_DB }} --ssl-mode=disabled
+        mysql --host=${{ env.MYSQL_ROOT_HOST }} --user=${{ env.MYSQL_USER }} --password=${{ env.MYSQL_ROOT_PASSWORD }} ${{ env.MYSQL_DB }} --ssl-mode=disabled
         npm run test:internal --if-present
       env:
         WPUNIT_DB_USER: ${{ env.MYSQL_USER }}
         WPUNIT_DB_PASS: ${{ env.MYSQL_PASSWORD }}
-        WPUNIT_DB_HOST: 127.0.0.1
+        WPUNIT_DB_HOST: ${{ env.MYSQL_ROOT_HOST }}
 
     # TODO Reenable once CI issues resolved
     # - name: Archive changelog
