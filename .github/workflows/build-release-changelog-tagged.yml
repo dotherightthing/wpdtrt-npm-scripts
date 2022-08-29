@@ -16,7 +16,6 @@ jobs:
     env:
       MYSQL_USER: root
       MYSQL_DB: temp
-      MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
 
     # Docs: https://docs.github.com/en/actions/using-containerized-services
@@ -27,7 +26,6 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_ROOT_PASSWORD }}
           MYSQL_DATABASE: ${{ env.MYSQL_DB }}
-          MYSQL_USER: ${{ env.MYSQL_USER }}
           MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }}
         ports:
           - 3306:3306
