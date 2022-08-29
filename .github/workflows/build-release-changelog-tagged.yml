@@ -20,15 +20,15 @@ jobs:
       MYSQL_USER: root
       MYSQL_DB: temp
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_ROOT_HOST: 127.0.0.1
+      # MYSQL_ROOT_HOST: 127.0.0.1
 
     # Docs: https://docs.github.com/en/actions/using-containerized-services
     services:
       mysql:
-        image: mysql:5.7.26
+        image: mysql:8
         env:
           MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_ROOT_PASSWORD }}
-          MYSQL_ROOT_HOST: ${{ env.MYSQL_ROOT_HOST }}
+          # MYSQL_ROOT_HOST: ${{ env.MYSQL_ROOT_HOST }}
           MYSQL_DATABASE: ${{ env.MYSQL_DB }}
           MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }}
         ports:
@@ -38,6 +38,7 @@ jobs:
           --health-interval=10s
           --health-timeout=5s
           --health-retries=3
+          --entrypoint sh mysql:8 -c "exec docker-entrypoint.sh mysqld --default-authentication-plugin=mysql_native_password"
 
     steps:
     # check out the repository, so the workflow can access it
