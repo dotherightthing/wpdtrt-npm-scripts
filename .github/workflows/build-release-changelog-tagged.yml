@@ -13,6 +13,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    # https://joshi-aparna.github.io/blog/github-actions-mysql/
     # https://github.com/shivammathur/setup-php/blob/master/examples/cakephp-mysql.yml
     # https://stackoverflow.com/a/44591374
     env:
@@ -27,6 +28,7 @@ jobs:
         image: mysql:5.7.26
         env:
           MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_ROOT_PASSWORD }}
+          MYSQL_ROOT_HOST: ${{ env.MYSQL_ROOT_HOST }}
           MYSQL_DATABASE: ${{ env.MYSQL_DB }}
           MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }}
         ports:
