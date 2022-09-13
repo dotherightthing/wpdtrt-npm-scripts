@@ -5,7 +5,15 @@
 
 name: Build and release changelog if tagged
 
-on: push
+on:
+  push
+  workflow_dispatch:
+    inputs:
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'     
+        required: false
+        default: false
 
 jobs:
   build:
@@ -95,6 +103,11 @@ jobs:
         WPUNIT_DB_USER: ${{ env.MYSQL_USER }}
         WPUNIT_DB_PASS: ${{ env.MYSQL_PASSWORD }}
         WPUNIT_DB_HOST: ${{ env.MYSQL_ROOT_HOST }}
+
+    # Enable tmate debugging of manually-triggered workflows if the input option was provided
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+      if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
 
     # TODO Reenable once CI issues resolved
     # - name: Archive changelog
