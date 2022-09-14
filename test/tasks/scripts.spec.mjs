@@ -139,6 +139,10 @@ describe('scripts', function () {
         wpUnitWordPressTestLibrary: `${process.env.CI ? process.env.RUNNER_TEMP : tmpdir}/wordpress-tests-lib`
     };
 
+    // in tmate:
+    // $RUNNER_TEMP
+    // bash: /home/runner/work/_temp: Is a directory
+
     const placeholders = [
         '$packageName',
         '$packageVersion'
@@ -454,7 +458,7 @@ describe('scripts', function () {
 
                 if (app.uses.wpunit) {
                     it('sets up WordPress (PHP) unit tests', async function () {
-                        const command = 'npm run test:setup'; // install wordpress - was pretest
+                        const command = 'npm run test_setup'; // install wordpress - was pretest
                         console.log(command);
                         const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
