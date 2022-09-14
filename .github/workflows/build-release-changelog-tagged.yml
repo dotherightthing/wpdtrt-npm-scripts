@@ -89,11 +89,6 @@ jobs:
     #   run: |
     #     npm run lint:internal --if-present
 
-    # Enable tmate debugging if a previous step failed
-    - name: Setup tmate session
-      if: ${{ failure() }}
-      uses: mxschmitt/action-tmate@v3
-
     - name: Run Mocha tests, which in turn run test:js (Cypress tests) and test (WordPress/PHP tests)
       run: |
         sudo /etc/init.d/mysql start
@@ -102,6 +97,11 @@ jobs:
         WPUNIT_DB_USER: ${{ env.MYSQL_USER }}
         WPUNIT_DB_PASS: ${{ env.MYSQL_PASSWORD }}
         WPUNIT_DB_HOST: ${{ env.MYSQL_ROOT_HOST }}
+
+    # Enable tmate debugging if a previous step failed
+    - name: Setup tmate session
+      if: ${{ failure() }}
+      uses: mxschmitt/action-tmate@v3
 
     # TODO Reenable once CI issues resolved
     # - name: Archive changelog
