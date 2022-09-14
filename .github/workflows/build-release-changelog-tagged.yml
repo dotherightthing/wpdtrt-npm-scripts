@@ -92,6 +92,9 @@ jobs:
     - name: Run Mocha tests, which in turn run test:js (Cypress tests) and test (WordPress/PHP tests)
       run: |
         sudo /etc/init.d/mysql start
+        export WPUNIT_DB_USER="${{ env.MYSQL_USER }}"
+        export WPUNIT_DB_PASS="${{ env.MYSQL_PASSWORD }}"
+        export WPUNIT_DB_HOST="${{ env.MYSQL_ROOT_HOST }}"
         npm run test:internal --if-present
       env:
         WPUNIT_DB_USER: ${{ env.MYSQL_USER }}
