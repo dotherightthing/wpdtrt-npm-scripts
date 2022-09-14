@@ -23,7 +23,7 @@ jobs:
       MYSQL_USER: root
       MYSQL_DB: temp
       MYSQL_ROOT_PASSWORD: root
-      # MYSQL_ROOT_HOST: 127.0.0.1
+      MYSQL_ROOT_HOST: 127.0.0.1
 
     # Docs: https://docs.github.com/en/actions/using-containerized-services
     services:
@@ -31,11 +31,11 @@ jobs:
         image: bitnami/mysql:8.0.20
         env:
           MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_ROOT_PASSWORD }}
-          MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }}
+          MYSQL_PASSWORD: ${{ env.MYSQL_ROOT_PASSWORD }}
           ALLOW_EMPTY_PASSWORD: yes
           MYSQL_DATABASE: ${{ env.MYSQL_DB }}
           MYSQL_AUTHENTICATION_PLUGIN: mysql_native_password
-          # MYSQL_ROOT_HOST: ${{ env.MYSQL_ROOT_HOST }}
+          MYSQL_ROOT_HOST: ${{ env.MYSQL_ROOT_HOST }}
         ports:
           - 3306/tcp
         options: >-
@@ -92,13 +92,10 @@ jobs:
     - name: Run Mocha tests, which in turn run test:js (Cypress tests) and test (WordPress/PHP tests)
       run: |
         sudo /etc/init.d/mysql start
-        export WPUNIT_DB_USER="${{ env.MYSQL_USER }}"
-        export WPUNIT_DB_PASS="${{ env.MYSQL_PASSWORD }}"
-        export WPUNIT_DB_HOST="${{ env.MYSQL_ROOT_HOST }}"
         npm run test:internal --if-present
       env:
         WPUNIT_DB_USER: ${{ env.MYSQL_USER }}
-        WPUNIT_DB_PASS: ${{ env.MYSQL_PASSWORD }}
+        WPUNIT_DB_PASS: ${{ env.MYSQL_ROOT_PASSWORD }}
         WPUNIT_DB_HOST: ${{ env.MYSQL_ROOT_HOST }}
 
     # Enable tmate debugging if a previous step failed
