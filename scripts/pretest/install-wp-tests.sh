@@ -6,12 +6,12 @@ if [ $# -lt 1 ]; then
 	exit 1
 fi
 
-TMP_DIR=$1
+TMP_DIR=$1 # added in 8d4270dbe43e29383ddc5264be33bb1d19ff76ad; before this it was hardcoded as '/tmp/'
 DB_NAME=$2
 WP_VERSION=${3-latest}
 SKIP_DB_CREATE=${4-false}
 
-# Environmental variables
+# Environmental variables - $VARIABLE_NAME
 # See https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/wiki/Testing-&-Debugging#environmental-variables 
 # See http://timmurphy.org/2010/05/19/checking-for-empty-string-in-bash/
 # See https://www.cyberciti.biz/faq/linux-unix-howto-check-if-bash-variable-defined-not/
@@ -38,9 +38,11 @@ else
 	DB_HOST=$WPUNIT_DB_HOST
 fi
 
-TMPDIR=$(echo $TMP_DIR | sed -e "s/\/$//")
-WP_TESTS_DIR=${WP_TESTS_DIR-$TMPDIR/wordpress-tests-lib}
-WP_CORE_DIR=${WP_CORE_DIR-$TMPDIR/wordpress/}
+# macOS: echo $TMPDIR -> /var/folders/y4/x0wxcjc97qdg6wmwn8wvll7w0000gn/T/
+# Github Actions: $RUNNER_TEMP -> /home/runner/work/_temp
+TMPDIR=$(echo $TMP_DIR | sed -e "s/\/$//") # strip trailing slash
+WP_TESTS_DIR=${WP_TESTS_DIR-$TMPDIR/wordpress-tests-lib} # create the variable, if it doesn't already exist (WP_TESTS_DIR-)
+WP_CORE_DIR=${WP_CORE_DIR-$TMPDIR/wordpress/} # create the variable, if it doesn't already exist (WP_CORE_DIR-)
 
 download() {
     if [ `which curl` ]; then

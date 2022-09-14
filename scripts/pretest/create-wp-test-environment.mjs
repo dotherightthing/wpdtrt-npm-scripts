@@ -22,6 +22,9 @@ const createWpTestEnvironment = async function () {
     const pluginName = process.cwd().split('/').pop();
     const pluginNameSafe = pluginName.replace(/-/g, '_');
     const dbName = `${pluginNameSafe}_wpunit_${Date.now()}`;
+
+    // macOS: echo $TMPDIR -> /var/folders/y4/x0wxcjc97qdg6wmwn8wvll7w0000gn/T/
+    // Github Actions: $RUNNER_TEMP -> /home/runner/work/_temp
     const tmpdir = (process.env.CI && process.env.RUNNER_TEMP) ? process.env.RUNNER_TEMP : osTmpdir;
     const wpVersion = 'latest';
     const command = `bash ./scripts/pretest/install-wp-tests.sh ${tmpdir} ${dbName} ${wpVersion}`;
