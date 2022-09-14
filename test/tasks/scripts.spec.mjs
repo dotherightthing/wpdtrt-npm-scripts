@@ -457,8 +457,8 @@ describe('scripts', function () {
                 }
 
                 if (app.uses.wpunit) {
-                    it('sets up WordPress (PHP) unit tests', async function () {
-                        const command = 'npm run test_setup'; // install wordpress - was pretest
+                    it('runs WordPress (PHP) unit tests', async function () {
+                        const command = 'npm run test';
                         console.log(command);
                         const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
@@ -479,12 +479,6 @@ describe('scripts', function () {
                             fs.existsSync(paths.wpUnitWordPressTestLibrary),
                             paths.wpUnitWordPressTestLibrary
                         ).to.equal(true);
-                    });
-
-                    it('runs WordPress (PHP) unit tests', async function () {
-                        const command = 'npm run test:setup && npm run test';
-                        console.log(command);
-                        const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                         expect(
                             stderr.replace(/\n$/, ''),
