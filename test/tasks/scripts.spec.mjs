@@ -459,6 +459,14 @@ describe('scripts', function () {
                         const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                         expect(
+                            stdout
+                        ).to.equal('');
+
+                        expect(
+                            stderr
+                        ).to.equal('');
+
+                        expect(
                             fs.existsSync(paths.wpUnitWordPress), // directory is not being created (checked with tmate) - why?
                             paths.wpUnitWordPress // /home/runner/work/_temp/wordpress
                         ).to.equal(true);
