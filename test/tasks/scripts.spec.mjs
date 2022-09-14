@@ -453,21 +453,26 @@ describe('scripts', function () {
                 }
 
                 if (app.uses.wpunit) {
-                    it('runs WordPress (PHP) unit tests', async function () {
-                        const command = 'npm run test';
+                    it('sets up WordPress (PHP) unit tests', async function () {
+                        const command = 'npm run test:setup'; // install wordpress - was pretest
                         console.log(command);
                         const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
-                        // wordpress is installed by the pretest script which is run by npm run test
                         expect(
-                            fs.existsSync(paths.wpUnitWordPress),
-                            paths.wpUnitWordPress
+                            fs.existsSync(paths.wpUnitWordPress), // directory is not being created (checked with tmate) - why?
+                            paths.wpUnitWordPress // /home/runner/work/_temp/wordpress
                         ).to.equal(true);
 
                         expect(
                             fs.existsSync(paths.wpUnitWordPressTestLibrary),
                             paths.wpUnitWordPressTestLibrary
                         ).to.equal(true);
+                    });
+
+                    it('runs WordPress (PHP) unit tests', async function () {
+                        const command = 'npm run test:setup && npm run test';
+                        console.log(command);
+                        const { stdout, stderr } = await execaCommandSync(command, { shell: true });
 
                         expect(
                             stderr.replace(/\n$/, ''),
