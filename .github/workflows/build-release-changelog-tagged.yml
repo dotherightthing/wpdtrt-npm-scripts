@@ -58,7 +58,7 @@ jobs:
     - name: Install PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '7.2.15'
+        php-version: '7.4'
 
     # Downgrade from Composer 2 in ubuntu-latest, to Composer 1, as v2 causes issues
     # https://github.com/actions/virtual-environments/issues/1816
