@@ -1,0 +1,63 @@
+name: DB Debug
+
+on:
+  push:
+    branches: [ 'master' ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # https://joshi-aparna.github.io/blog/github-actions-mysql/
+    # https://github.com/shivammathur/setup-php/blob/master/examples/cakephp-mysql.yml
+    # https://stackoverflow.com/a/44591374
+    # https://stackoverflow.com/questions/60902904/how-to-pass-mysql-native-password-to-mysql-service-in-github-actions/62651774#62651774
+    env:
+      MYSQL_USER: root
+      MYSQL_DB: temp
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: 127.0.0.1
+
+    # Docs: https://docs.github.com/en/actions/using-containerized-services
+    services:
+      mysql:
+        image: bitnami/mysql:8.0.20
+        env:
+          MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_ROOT_PASSWORD }}
+          MYSQL_PASSWORD: ${{ env.MYSQL_ROOT_PASSWORD }}
+          ALLOW_EMPTY_PASSWORD: yes
+          MYSQL_DATABASE: ${{ env.MYSQL_DB }}
+          MYSQL_AUTHENTICATION_PLUGIN: mysql_native_password
+          MYSQL_ROOT_HOST: ${{ env.MYSQL_ROOT_HOST }}
+        ports:
+          - 3306/tcp
+        options: >-
+          --health-cmd="mysqladmin ping" 
+          --health-interval=10s 
+          --health-timeout=5s 
+          --health-retries=3
+
+    steps:
+    # check out the repository, so the workflow can access it
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    
+    - name: Install Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18.7.0'
+
+    # MAMP Pro uses 7.2.20
+    - name: Install PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.2.15'
+
+    - name: Setup WP unit test environment
+      run: |
+        sudo /etc/init.d/mysql start
+        node ./scripts/pretest/create-wp-test-environment.mjs
+      env:
+        WPUNIT_DB_USER: ${{ env.MYSQL_USER }}
+        WPUNIT_DB_PASS: ${{ env.MYSQL_ROOT_PASSWORD }}
+        WPUNIT_DB_HOST: ${{ env.MYSQL_ROOT_HOST }}
