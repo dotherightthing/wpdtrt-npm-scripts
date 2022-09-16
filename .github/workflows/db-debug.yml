@@ -55,6 +55,7 @@ jobs:
 
     - name: Setup WP unit test environment
       run: |
+        npm install execa
         sudo /etc/init.d/mysql start
         node ./scripts/pretest/create-wp-test-environment.mjs
       env:
