@@ -6,6 +6,8 @@ if [ $# -lt 1 ]; then
 	exit 1
 fi
 
+# macOS: echo $TMPDIR -> /var/folders/y4/x0wxcjc97qdg6wmwn8wvll7w0000gn/T/
+# Github Actions: $RUNNER_TEMP -> /home/runner/work/_temp
 TMP_DIR=$1 # added in 8d4270dbe43e29383ddc5264be33bb1d19ff76ad; before this it was hardcoded as '/tmp/'
 DB_NAME=$2
 WP_VERSION=${3-latest}
