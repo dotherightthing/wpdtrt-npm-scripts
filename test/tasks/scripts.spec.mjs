@@ -456,7 +456,8 @@ describe('scripts', function () {
                     });
                 }
 
-                if (app.uses.wpunit) {
+                // disabled on CI due to https://github.com/dotherightthing/wpdtrt-npm-scripts/issues/65
+                if (app.uses.wpunit && !process.env.CI) {
                     it('runs WordPress (PHP) unit tests', async function () {
                         const command = 'npm run test';
                         console.log(command);
