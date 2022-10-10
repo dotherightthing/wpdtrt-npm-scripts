@@ -12,8 +12,6 @@ if (!fs.existsSync(`${path.resolve('../../')}/package.json`)) {
     /* eslint-disable no-console */
     console.error('copy-files.mjs: package.json not found, exiting');
     /* eslint-enable no-console */
-
-    return;
 }
 
 const Bar = require('progress-barjs');
