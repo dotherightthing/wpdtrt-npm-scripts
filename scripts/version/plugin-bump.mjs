@@ -369,6 +369,152 @@ function versionBoilerplateSrcPlugin(inputPath, packageBoilerplate, packageVersi
 }
 
 /**
+ * @function versionBoilerplateTestNaturalDocs
+ * @summary version Natural Docs' Project.txt.
+ * @param {string} inputPath - Path to wpdtrt-plugin-boilerplate/
+ * @param {object} packageRoot - A reference to the package.json file
+ * @returns {Array} src files
+ * @example
+ * ./config/naturaldocs/Project.txt
+ * Subtitle: DTRT Foo (1.2.3)
+ */
+function versionBoilerplateTestNaturalDocs(inputPath, packageRoot) {
+    const files = `${inputPath}tests/generated-plugin/config/naturaldocs/Project.txt`;
+
+    const re = new RegExp(
+        /(Subtitle: [A-Za-z0-9( ]+)([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})/
+    );
+
+    const { version } = packageRoot;
+
+    logFiles(files);
+
+    const replacements = replace.sync({
+        files,
+        from: re,
+        to: `$1${version}`
+    });
+
+    return replacements;
+}
+
+/**
+ * @function versionBoilerplateTestReadme
+ * @summary version the (WordPress) readme.
+ * @param {string} inputPath - Path to wpdtrt-plugin-boilerplate/
+ * @param {object} packageBoilerplate - A reference to the package.json file
+ * @returns {Array} src files
+ * @example
+ * ./tests/generated-plugin/readme.txt
+ * Stable tag: 1.2.3
+ * // == Changelog ==
+ * //
+ * // = 1.2.3 =
+ * //
+ */
+function versionBoilerplateTestReadme(inputPath, packageBoilerplate) {
+    const files = `${inputPath}tests/generated-plugin/readme.txt`;
+
+    const { version } = packageBoilerplate;
+
+    const re1 = new RegExp(
+        /(Stable tag: )([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})/
+    );
+
+    const re2 = new RegExp(
+        /(== Changelog ==\s\s= )([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})+( =\s)/
+    );
+
+    logFiles(files);
+
+    const replacements = replace.sync({
+        files,
+        from: [ re1, re2 ],
+        to: [ `$1${version}`, `$1${version} =\n\n= $2$3` ]
+    });
+
+    return replacements;
+}
+
+/**
+ * @function versionBoilerplateTestWpRoot
+ * @summary version the root (WordPress) file.
+ * @param {string} inputPath - Path to wpdtrt-plugin-boilerplate/
+ * @param {object} packageBoilerplate - A reference to the package.json file
+ * @returns {Array} src files
+ * @example
+ * ./tests/generated-plugin/index.php
+ * * Version: 1.2.3
+ * define( 'WPDTRT_TEST_VERSION', '1.2.3' );
+ */
+function versionBoilerplateTestWpRoot(inputPath, packageBoilerplate) {
+    const files = `${inputPath}tests/generated-plugin/wpdtrt-test.php`;
+
+    const { version } = packageBoilerplate;
+
+    const re1 = new RegExp(
+        /(\* Version:\s+)([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})/
+    );
+
+    const re2 = new RegExp(
+        /(define\( 'WPDTRT_TEST_VERSION', ')([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})(' \);)/
+    );
+
+    logFiles(files);
+
+    const replacements = replace.sync({
+        files,
+        from: [ re1, re2 ],
+        to: [ `$1${version}`, `$1${version}$3` ]
+    });
+
+    return replacements;
+}
+
+/**
+ * @function versionBoilerplateTestSrc
+ * @summary version the namespaced src files.
+ * @param {string} inputPath - Path to wpdtrt-plugin-boilerplate/
+ * @param {string} packageVersionBoilerplateNamespaced - The version in namespace format
+ * @returns {Array} src files
+ * @example
+ * ./tests/generated-plugin/src/*.php
+ * DoTheRightThing\WPDTRT_Plugin_Boilerplate\r_1_2_3
+ */
+function versionBoilerplateTestSrc(inputPath, packageVersionBoilerplateNamespaced) {
+    const categories = [
+        'plugin',
+        'rewrite',
+        'shortcode',
+        'taxonomy',
+        'widget'
+    ];
+
+    const files = [];
+
+    const re = new RegExp(
+        /(DoTheRightThing\\WPDTRT_Plugin_Boilerplate\\r_)([0-9]{1,3}_[0-9]{1,3}_[0-9]{1,3})/
+    );
+    const versionNamespaceSafeStr = packageVersionBoilerplateNamespaced;
+
+    categories.forEach(category => {
+        files.push(
+            `${inputPath}tests/generated-plugin/src/class-wpdtrt-test-${category}.php`
+        );
+    });
+
+    logFiles(files);
+
+    const replacements = replace.sync({
+        files,
+        from: re,
+        to: `$1${versionNamespaceSafeStr}`
+    });
+
+    return replacements;
+}
+
+/**
  * @function updateDependencies (1/3)
  * @summary Update the boilerplate dependency to the latest version.
  * @description
@@ -468,6 +614,14 @@ function replaceVersions() {
         versionBoilerplateSrcPlugin(inputPathBoilerplate, packageBoilerplate, packageVersionBoilerplateNamespaced);
 
         versionBoilerplateNaturalDocs(inputPathBoilerplate, packageBoilerplate);
+
+        versionBoilerplateTestReadme(inputPathBoilerplate, packageBoilerplate);
+
+        versionBoilerplateTestWpRoot(inputPathBoilerplate, packageBoilerplate);
+
+        versionBoilerplateTestSrc(inputPathBoilerplate, packageVersionBoilerplateNamespaced);
+
+        versionBoilerplateTestNaturalDocs(inputPathBoilerplate, packageBoilerplate);
     } else {
         // parent installed as a dependency of child
         /* eslint-disable global-require */
