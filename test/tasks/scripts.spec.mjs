@@ -393,7 +393,7 @@ describe('scripts', function () {
                 });
             });
 
-            describe.skip('release', function () {
+            describe('release', function () {
                 // it('deletes files from the previous release', function () {
                 //     expect(
                 //         fs.existsSync(paths.release),
