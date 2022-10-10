@@ -8,7 +8,7 @@ import * as path from 'path';
 var totalSet = false;
 
 // if not loaded as a dependency
-if (!fs.existsSync(`${path.resolve('../../')}/package.json`)) {
+if (!fs.existsSync(`${path.resolve()}/package.json`)) {
     /* eslint-disable no-console */
     console.error('copy-files.mjs: package.json not found, exiting');
     /* eslint-enable no-console */
