@@ -11,11 +11,17 @@
         "jsdoc"
     ],
     "ignorePatterns": [
-        "*-es5.js",
+        "backend.js",
+        "backend-es5.js",
+        "frontend.js",
+        "frontend-es5.js",
         "bin/",
         "config/naturaldocs/",
+        "cypress/support/component.js",
+        "cypress/support/e2e.js",
         "docs",
         "icons/",
+        "mochawesome-report",
         "node_modules/",
         "postcss.config.js",
         "vendor/",
