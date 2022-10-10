@@ -84,7 +84,8 @@
     "test:js": "node ./scripts/test/cypress.mjs",
     "version": "./scripts/changelog/changelog.sh && node ./scripts/version/plugin-bump.mjs",
     "postinstall": "./scripts/postinstall/config.sh && node ./scripts/postinstall/customise-config.mjs && ./scripts/postinstall/composer.sh && node ./scripts/postinstall/remaining-github-api-calls.mjs",
-    "postuninstall": "./scripts/postuninstall/config.sh && ./scripts/postuninstall/composer.sh"
+    "postuninstall": "./scripts/postuninstall/config.sh && ./scripts/postuninstall/composer.sh",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -93,5 +94,8 @@
   "license": "ISC",
   "homepage": "https://github.com/dotherightthing/wpdtrt-npm-scripts",
   "srcDir": "/Volumes/DanBackup/Websites/wpdtrt-npm-scripts",
-  "author": "Dan Smith <dev@dotherightthing.co.nz>"
+  "author": "Dan Smith <dev@dotherightthing.co.nz>",
+  "devDependencies": {
+    "husky": "^8.0.0"
+  }
 }
