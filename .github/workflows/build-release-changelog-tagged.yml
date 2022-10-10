@@ -99,9 +99,9 @@ jobs:
         WPUNIT_DB_HOST: ${{ env.MYSQL_ROOT_HOST }}
 
     # Enable tmate debugging if a previous step failed
-    - name: Setup tmate session
-      if: ${{ failure() }}
-      uses: mxschmitt/action-tmate@v3
+    # - name: Setup tmate session
+    #   if: ${{ failure() }}
+    #   uses: mxschmitt/action-tmate@v3
 
     - name: Archive changelog
       uses: actions/upload-artifact@v1
