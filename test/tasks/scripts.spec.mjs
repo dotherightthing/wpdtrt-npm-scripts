@@ -63,7 +63,6 @@ describe('scripts', function () {
             skip: true,
             uses: {
                 cypress: false,
-                gulpScripts: false,
                 naturaldocs: true,
                 wpunit: false
             }
@@ -80,7 +79,6 @@ describe('scripts', function () {
             skip: false,
             uses: {
                 cypress: false, // TODO Reenable once CI issues resolved
-                gulpScripts: false, // see #23
                 naturaldocs: true,
                 wpunit: true
             }
@@ -97,7 +95,6 @@ describe('scripts', function () {
             skip: true,
             uses: {
                 cypress: false,
-                gulpScripts: false,
                 naturaldocs: true,
                 wpunit: true
             }
@@ -161,7 +158,7 @@ describe('scripts', function () {
     };
 
     apps.forEach(function (app) {
-        describeIf(!app.uses.gulpScripts && !app.skip, app.id, function () {
+        describeIf(!app.skip, app.id, function () {
             before(function () {
                 // cd for process.cwd
                 process.chdir(`./${app.path}${app.name}`);
@@ -345,7 +342,7 @@ describe('scripts', function () {
                 });
             });
 
-            describe.skip('version', function () {
+            describe('version', function () {
                 it('runs without error', async function () {
                     const command = 'npm run version';
                     console.log(command);
