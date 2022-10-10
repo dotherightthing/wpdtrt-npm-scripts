@@ -3,9 +3,15 @@
  * @summary Copy files to release directory.
  */
 
+var totalSet = false;
+
+// require for modules that don't support ESM
+// and JSON (see https://nodejs.org/docs/latest-v18.x/api/esm.html#import-assertions)
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+
 import * as fs from 'node:fs';
 import * as path from 'path';
-var totalSet = false;
 
 // if not loaded as a dependency
 if (!fs.existsSync(`${path.resolve()}/package.json`)) {
