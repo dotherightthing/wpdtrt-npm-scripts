@@ -1,1 +1,1 @@
-* [4423d7f] Add linter support for the sass forward rule
+* [45f905e] Suppress error "chown: cannot access '/home/runner/.cache'"
