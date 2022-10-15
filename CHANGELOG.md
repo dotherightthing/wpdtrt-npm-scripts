@@ -1,1 +1,1 @@
-* [45f905e] Suppress error "chown: cannot access '/home/runner/.cache'"
+* [d7d5b0a] Run npm audit and fix vulnerabilities
