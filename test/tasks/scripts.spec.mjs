@@ -60,7 +60,7 @@ describe('scripts', function () {
                 js: [],
                 scss: []
             },
-            skip: true,
+            skip: false,
             uses: {
                 cypress: false,
                 naturaldocs: true,
@@ -92,7 +92,7 @@ describe('scripts', function () {
                 js: [],
                 scss: []
             },
-            skip: true,
+            skip: false,
             uses: {
                 cypress: false,
                 naturaldocs: true,
