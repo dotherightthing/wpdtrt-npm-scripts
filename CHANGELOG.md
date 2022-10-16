@@ -1,1 +1,1 @@
-* [25be396] Replace tag check with startsWith
+* [cc8c371] Tweak syntax
