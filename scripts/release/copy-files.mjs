@@ -21,7 +21,7 @@ if (!fs.existsSync(`${path.resolve()}/package.json`)) {
 }
 
 const Bar = require('progress-barjs');
-const cpy = require('cpy');
+import cpy from 'cpy';
 import formatLog from '../helpers/format-log.mjs';
 const numeral = require('numeral');
 const packageJson = require(`${path.resolve('../../')}/package.json`);
