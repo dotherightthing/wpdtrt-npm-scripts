@@ -1,4 +1,2 @@
-* [0acb857] Update eslint config
-* [c0e1477] Lint JS
-* [6e6dcdf] Update eslint and dependencies
-* [f8048c0] Remove debug code
+* [22c78b6] Error is at line 48 not line 14.......
+* [f521dae] Try to address Github action line error without a linter.....
