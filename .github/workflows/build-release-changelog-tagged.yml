@@ -7,7 +7,8 @@ name: Build and release changelog if tagged
 
 on:
   push:
-    branches: [ 'master' ]
+    tags:
+    - '*'
 
 jobs:
   build:
@@ -121,7 +122,7 @@ jobs:
   # the artifacts from the previous 'build' job
   release:
     needs: build
-    if: startswith( github.ref, 'refs/tags/') && needs.build.result == 'success'
+    if: needs.build.result == 'success'
     runs-on: ubuntu-latest
 
     # https://stackoverflow.com/a/58869470/6850747
