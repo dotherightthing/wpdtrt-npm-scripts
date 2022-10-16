@@ -45,6 +45,10 @@ jobs:
           --health-retries=3
 
     steps:
+    - name: Debug skipped release job
+      run: |
+        echo ${{ github.ref }}
+
     # check out the repository, so the workflow can access it
     - name: Checkout repo
       uses: actions/checkout@v3
@@ -108,10 +112,6 @@ jobs:
       with:
         name: changelog
         path: CHANGELOG.md
-
-    - name: Debug skipped release job
-      run: |
-        echo github.ref
 
   # The 'release' job starts with a clean directory,
   # we don't check out the repo again
