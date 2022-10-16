@@ -1,6 +1,6 @@
 {
   "name": "wpdtrt-npm-scripts",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "description": "Common build tasks.",
   "main": "package.json",
   "engines": {
