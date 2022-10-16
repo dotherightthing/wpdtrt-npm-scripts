@@ -44,6 +44,7 @@ jobs:
           --health-timeout=5s 
           --health-retries=3
 
+    # no tag: refs/heads/master
     steps:
     - name: Debug skipped release job
       run: |
