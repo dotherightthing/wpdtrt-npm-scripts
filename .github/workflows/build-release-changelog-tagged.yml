@@ -114,9 +114,9 @@ jobs:
   # instead we download and work with
   # the artifacts from the previous 'build' job
   release:
-    runs-on: ubuntu-latest
     needs: build
-    if: startsWith(github.ref, 'refs/tags/')
+    if: startswith( github.ref, 'refs/tags/') && needs.build.result == 'success'
+    runs-on: ubuntu-latest
 
     # https://stackoverflow.com/a/58869470/6850747
     # https://help.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter
