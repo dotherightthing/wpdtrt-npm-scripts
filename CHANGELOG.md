@@ -1,2 +1,1 @@
-* [bed31b1] Only build if a tag was pushed
-* [c79fe30] Debug
+* [198efb2] Revert changes as issue due to Sourcetree configuration (#67)
