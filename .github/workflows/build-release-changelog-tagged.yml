@@ -45,13 +45,6 @@ jobs:
           --health-timeout=5s 
           --health-retries=3
 
-    # no tag: refs/heads/master
-    # tag: refs/heads/master
-    steps:
-    - name: Debug skipped release job
-      run: |
-        echo ${{ github.ref }}
-
     # check out the repository, so the workflow can access it
     - name: Checkout repo
       uses: actions/checkout@v3
