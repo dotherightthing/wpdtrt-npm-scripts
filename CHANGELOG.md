@@ -1,2 +1,2 @@
-* [d5f9313] Debug
-* [a6d154a] Debug :(
+* [bed31b1] Only build if a tag was pushed
+* [c79fe30] Debug
