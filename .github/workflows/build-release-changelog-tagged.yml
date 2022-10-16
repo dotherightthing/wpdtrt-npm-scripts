@@ -109,6 +109,10 @@ jobs:
         name: changelog
         path: CHANGELOG.md
 
+    - name: Debug skipped release job
+      run: |
+        echo github.ref
+
   # The 'release' job starts with a clean directory,
   # we don't check out the repo again
   # instead we download and work with
