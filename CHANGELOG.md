@@ -1,2 +1,4 @@
-* [42f6404] Resolve error in release job (fixes #75)
-* [00da183] Only run build when a tag is pushed (see #67)
+* [0acb857] Update eslint config
+* [c0e1477] Lint JS
+* [6e6dcdf] Update eslint and dependencies
+* [f8048c0] Remove debug code
