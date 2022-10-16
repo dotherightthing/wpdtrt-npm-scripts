@@ -45,6 +45,7 @@ jobs:
           --health-retries=3
 
     # no tag: refs/heads/master
+    # tag: refs/heads/master
     steps:
     - name: Debug skipped release job
       run: |
