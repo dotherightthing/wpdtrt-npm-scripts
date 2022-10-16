@@ -1,6 +1,6 @@
 {
     "root": true,
-    "parser": "babel-eslint",
+    "parser": "@babel/eslint-parser",
     "extends": [
         "airbnb-base/legacy",
         "plugin:cypress/recommended",
@@ -48,6 +48,7 @@
         }],
         "no-unused-vars": "warn",
         "no-unused-expressions": 0,
+        "prefer-regex-literals": 0,
         "chai-friendly/no-unused-expressions": 2
     }
 }
