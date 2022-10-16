@@ -1,1 +1,1 @@
-* [059e0e0] Bump version
+* [b764212] Bump version
