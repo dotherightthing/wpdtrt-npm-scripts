@@ -175,7 +175,7 @@ function versionGeneratedPluginDocs(inputPath, packageRoot) {
  * @returns {Array} Replacement results: [{file: '/path/to/file1.ext', hasChanged: true},{file: '/path/to/file2.ext', hasChanged: true}]
  * @example
  * ./wpdtrt-generated-plugin.php ?
- * * Version: 1.2.3
+ * Version: 1.2.3
  * define( 'WPDTRT_PLUGIN_VERSION', '1.2.3' );
  */
 function versionGeneratedPluginWpRoot(inputPath, packageRoot) {
@@ -210,7 +210,7 @@ function versionGeneratedPluginWpRoot(inputPath, packageRoot) {
  * @returns {Array} Replacement results: [{file: '/path/to/file1.ext', hasChanged: true},{file: '/path/to/file2.ext', hasChanged: true}]
  * @example
  * ./index.php
- * * @version 1.2.3
+ * @version 1.2.3
  */
 function versionBoilerplateAutoloader(inputPath, packageBoilerplate) {
     const files = `${inputPath}index.php`;
@@ -444,7 +444,7 @@ function versionBoilerplateTestReadme(inputPath, packageBoilerplate) {
  * @returns {Array} src files
  * @example
  * ./tests/generated-plugin/index.php
- * * Version: 1.2.3
+ * Version: 1.2.3
  * define( 'WPDTRT_TEST_VERSION', '1.2.3' );
  */
 function versionBoilerplateTestWpRoot(inputPath, packageBoilerplate) {

@@ -23,7 +23,6 @@ formatLog([
 if (typeof baseURL === 'undefined') {
     // eslint-disable-next-line no-console
     console.log('Failed. Please add $npm_package_config_wpdtrt_base_url_local to package.json');
-    return;
 }
 
 axios({
