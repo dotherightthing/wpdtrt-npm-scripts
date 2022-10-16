@@ -1,1 +1,2 @@
-* [cc9e896] This is the only thing that works (#67)
+* [42f6404] Resolve error in release job (fixes #75)
+* [00da183] Only run build when a tag is pushed (see #67)
