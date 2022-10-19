@@ -83,7 +83,8 @@
     "pretest": "node ./scripts/pretest/create-wp-test-environment.mjs",
     "test": "./scripts/test/phpunit.sh",
     "test:js": "node ./scripts/test/cypress.mjs",
-    "version": "./scripts/changelog/changelog.sh && node ./scripts/version/plugin-bump.mjs",
+    "version": "npm version ${npm_config_v} && ./scripts/changelog/changelog.sh && node ./scripts/version/plugin-bump.mjs && git tag -a ${npm_config_v} -m \"Bump version\"",
+    "version:internal": "npm version ${npm_config_v} && ./scripts/changelog/changelog.sh && composer update dotherightthing/wpdtrt-dbth dotherightthing/wpdtrt-gallery dotherightthing/wpdtrt-plugin-boilerplate && git tag -a ${npm_config_v} -m \"Bump version\"",
     "postinstall": "./scripts/postinstall/config.sh && node ./scripts/postinstall/customise-config.mjs && ./scripts/postinstall/composer.sh && node ./scripts/postinstall/remaining-github-api-calls.mjs",
     "postuninstall": "./scripts/postuninstall/config.sh && ./scripts/postuninstall/composer.sh",
     "prepare": "husky install"

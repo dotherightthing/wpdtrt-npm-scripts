@@ -111,6 +111,7 @@ describe('scripts', function () {
             '.babelrc',
             '.browserslistrc',
             '.eslintrc',
+            '.npmrc',
             '.stylelintignore',
             '.stylelintrc.json',
             'cypress.config.js',

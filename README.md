@@ -270,10 +270,13 @@ See also [DTRT WordPress Plugin Boilerplate - Testing & Debugging](https://githu
 
 ### Version
 
-Update CHANGELOG.md with all commit messages since the last tag, version files for Release
+* Update `package.json` and `package-lock.json`
+* Update `CHANGELOG.md` with all commit messages since the last tag, version files for Release
+* Update version strings in project files
+* Tag commit
 
 ```node
-npm run version
+npm run version --v=1.2.3
 ```
 
 ---
@@ -300,10 +303,9 @@ npm run test:internal
 ### Release
 
 1. Lint and Test the codebase (see above)
-2. Update test fixtures: `composer update dotherightthing/wpdtrt-dbth dotherightthing/wpdtrt-gallery dotherightthing/wpdtrt-plugin-boilerplate`
-3. Commit: `composer.lock`
-4. Update `CHANGELOG.md` with all commit messages since the last tag: `npm run changelog`
-5. Update version in: `package.json`
-6. Commit: `CHANGELOG.md` and `package.json`
-7. Tag commit
-8. Push to Github (Github Actions CI will run)
+2. `npm run version:internal --v=1.2.3`
+   * Update test fixtures
+   * Update: `composer.lock`, `package.json` and `package-lock.json`
+   * Update `CHANGELOG.md` with all commit messages since the last tag
+   * Tag commit
+3. Push to Github (Github Actions CI will run)
